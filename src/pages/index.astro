@@ -1,17 +1,442 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import HelpCategoryNav from '../components/HelpCategoryNav.astro';
+import ToolCard from '../components/ToolCard.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
+import { helpCategories, browseTopics } from '../data/categories';
+import { homepageGuidePlaceholders } from '../data/articles';
+import { tools } from '../data/tools';
+import { organizationSchema, websiteSchema } from '../utils/schema';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from '../utils/site';
 
+const title = `${SITE_NAME} — ${SITE_TAGLINE}`;
+const description = SITE_DESCRIPTION;
+
+const featuredGuide = homepageGuidePlaceholders.find((g) => g.featured)!;
+const secondaryGuides = homepageGuidePlaceholders.filter((g) => !g.featured);
+
+const topicIcons: Record<string, string> = {
+  Troubleshooting: `<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4Z"/><path d="m15 7 2 2"/>`,
+  'Water Care': `<path d="M12 2.7c.4.5 7 8.2 7 12.3a7 7 0 1 1-14 0c0-4.1 6.6-11.8 7-12.3Z"/>`,
+  'Error Codes': `<rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5"/>`,
+  Maintenance: `<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/>`,
+  Calculators: `<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/>`,
+  'Buying Guides': `<path d="M4 7h16l-1.5 11H5.5L4 7Z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>`,
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title={title}
+  description={description}
+  path="/"
+  schema={[organizationSchema(), websiteSchema()]}
+>
+  <!-- Hero: light cream editorial (explicit light colors; do not invert) -->
+  <section
+    class="hero-section"
+    style="background-color: #faf6f0; color: #1a2b3c;"
+    aria-labelledby="hero-heading"
+  >
+    <div class="container-site py-10 sm:py-12 lg:py-14">
+      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-14">
+        <div class="max-w-xl">
+          <p style="color: #3d7a86;" class="text-sm font-semibold uppercase tracking-[0.14em]">
+            Practical help for hot tub owners
+          </p>
+          <h1
+            id="hero-heading"
+            class="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.15rem] lg:leading-[1.1]"
+            style="color: #1a2b3c;"
+          >
+            Hot Tub Problems, Solved.
+          </h1>
+          <p class="mt-4 text-lg leading-relaxed sm:text-xl" style="color: #4a5d6e;">
+            Troubleshoot issues, understand error codes, maintain clear water, and make hot
+            tub ownership easier.
+          </p>
+
+          <div class="mt-7">
+            <SearchBar
+              size="hero"
+              placeholder="What problem are you having?"
+              showTopics={true}
+            />
+          </div>
+
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href="/troubleshooting"
+              class="inline-flex min-h-12 w-full items-center justify-center rounded-lg px-6 text-base font-semibold no-underline sm:w-auto"
+              style="background-color: #3d7a86; color: #ffffff;"
+            >
+              Troubleshoot a Problem
+            </a>
+            <a
+              href="/error-codes"
+              class="inline-flex min-h-12 w-full items-center justify-center rounded-lg border px-6 text-base font-semibold no-underline sm:w-auto"
+              style="background-color: #ffffff; color: #1a2b3c; border-color: #1a2b3c;"
+            >
+              Browse Error Codes
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full">
+          <div
+            class="flex aspect-[3/2] w-full items-center justify-center rounded-lg"
+            style="background-color: #e5e5e5;"
+            role="img"
+            aria-label="Placeholder for a residential backyard hot tub photograph"
+          >
+            <p class="px-6 text-center text-base font-medium sm:text-lg" style="color: #1a2b3c;">
+              Residential backyard hot tub photo
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Help categories -->
+  <section class="bg-sand section-space" aria-labelledby="help-heading">
+    <div class="container-site">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 id="help-heading" class="section-heading">What do you need help with?</h2>
+        <p class="section-lede">
+          Start with the problem you are seeing. We will point you to practical next steps.
+        </p>
+      </div>
+      <HelpCategoryNav categories={helpCategories} />
+    </div>
+  </section>
+
+  <!-- Popular guides -->
+  <section class="bg-surface-raised section-space" aria-labelledby="guides-heading">
+    <div class="container-site">
+      <div class="mx-auto max-w-2xl text-center lg:mx-0 lg:max-w-3xl lg:text-left">
+        <h2 id="guides-heading" class="section-heading">Popular troubleshooting guides</h2>
+        <p class="section-lede">
+          Practical first checks for common spa problems. More researched guides will appear here
+          as they are published.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-6 lg:grid-cols-2">
+        {
+          featuredGuide.href ? (
+            <a
+              href={featuredGuide.href}
+              class="group overflow-hidden rounded-2xl bg-surface no-underline ring-1 ring-border/80 transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(26,43,60,0.18)]"
+              aria-label={featuredGuide.title}
+            >
+              <div class="aspect-[16/10] overflow-hidden bg-brand-soft">
+                <OptimizedImage
+                  src="/images/guide-placeholder.svg"
+                  alt=""
+                  width={960}
+                  height={640}
+                  loading="lazy"
+                  class="h-full w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 560px"
+                />
+              </div>
+              <div class="p-7 sm:p-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.12em] text-brand">
+                  {featuredGuide.category}
+                  <span class="mx-2 text-ink-subtle" aria-hidden="true">·</span>
+                  <span class="font-medium tracking-normal text-ink-subtle normal-case">
+                    {featuredGuide.readTime} read
+                  </span>
+                </p>
+                <h3 class="mt-3 font-display text-2xl font-semibold text-ink group-hover:text-brand-dark sm:text-3xl">
+                  {featuredGuide.title}
+                </h3>
+                <p class="mt-3 text-base leading-relaxed text-ink-muted">
+                  {featuredGuide.description}
+                </p>
+                <p class="mt-5 text-base font-medium text-brand">
+                  Read guide
+                  <span aria-hidden="true" class="ml-1 transition-transform group-hover:translate-x-0.5 inline-block">
+                    &rarr;
+                  </span>
+                </p>
+              </div>
+            </a>
+          ) : (
+            <article
+              class="overflow-hidden rounded-2xl bg-surface ring-1 ring-border/80"
+              aria-label={`${featuredGuide.title} (coming soon)`}
+            >
+              <div class="aspect-[16/10] overflow-hidden bg-brand-soft">
+                <OptimizedImage
+                  src="/images/guide-placeholder.svg"
+                  alt=""
+                  width={960}
+                  height={640}
+                  loading="lazy"
+                  class="h-full w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 560px"
+                />
+              </div>
+              <div class="p-7 sm:p-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.12em] text-brand">
+                  {featuredGuide.category}
+                  <span class="mx-2 text-ink-subtle" aria-hidden="true">·</span>
+                  <span class="font-medium tracking-normal text-ink-subtle normal-case">
+                    {featuredGuide.readTime} read
+                  </span>
+                </p>
+                <h3 class="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
+                  {featuredGuide.title}
+                </h3>
+                <p class="mt-3 text-base leading-relaxed text-ink-muted">
+                  {featuredGuide.description}
+                </p>
+                <p class="mt-5 text-base font-medium text-ink-subtle">Coming soon</p>
+              </div>
+            </article>
+          )
+        }
+
+        <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          {
+            secondaryGuides.map((guide) => (
+              <li>
+                {guide.href ? (
+                  <a
+                    href={guide.href}
+                    class="group flex h-full flex-col overflow-hidden rounded-2xl bg-surface no-underline ring-1 ring-border/80 transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(26,43,60,0.18)]"
+                    aria-label={guide.title}
+                  >
+                    <div class="aspect-[16/9] overflow-hidden bg-sand">
+                      <OptimizedImage
+                        src="/images/guide-placeholder.svg"
+                        alt=""
+                        width={960}
+                        height={640}
+                        loading="lazy"
+                        class="h-full w-full object-cover"
+                        sizes="(max-width: 640px) 100vw, 280px"
+                      />
+                    </div>
+                    <div class="flex flex-1 flex-col p-5">
+                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-brand">
+                        {guide.category}
+                        <span class="mx-1.5 text-ink-subtle" aria-hidden="true">·</span>
+                        <span class="font-medium tracking-normal text-ink-subtle normal-case">
+                          {guide.readTime}
+                        </span>
+                      </p>
+                      <h3 class="mt-2 font-display text-lg font-semibold text-ink group-hover:text-brand-dark">
+                        {guide.title}
+                      </h3>
+                      <p class="mt-2 flex-1 text-base leading-relaxed text-ink-muted">
+                        {guide.description}
+                      </p>
+                      <p class="mt-4 text-sm font-medium text-brand">
+                        Read guide
+                        <span aria-hidden="true" class="ml-1">&rarr;</span>
+                      </p>
+                    </div>
+                  </a>
+                ) : (
+                  <article
+                    class="flex h-full flex-col overflow-hidden rounded-2xl bg-surface ring-1 ring-border/80"
+                    aria-label={`${guide.title} (coming soon)`}
+                  >
+                    <div class="aspect-[16/9] overflow-hidden bg-sand">
+                      <OptimizedImage
+                        src="/images/guide-placeholder.svg"
+                        alt=""
+                        width={960}
+                        height={640}
+                        loading="lazy"
+                        class="h-full w-full object-cover"
+                        sizes="(max-width: 640px) 100vw, 280px"
+                      />
+                    </div>
+                    <div class="flex flex-1 flex-col p-5">
+                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-brand">
+                        {guide.category}
+                        <span class="mx-1.5 text-ink-subtle" aria-hidden="true">·</span>
+                        <span class="font-medium tracking-normal text-ink-subtle normal-case">
+                          {guide.readTime}
+                        </span>
+                      </p>
+                      <h3 class="mt-2 font-display text-lg font-semibold text-ink">
+                        {guide.title}
+                      </h3>
+                      <p class="mt-2 flex-1 text-base leading-relaxed text-ink-muted">
+                        {guide.description}
+                      </p>
+                      <p class="mt-4 text-sm font-medium text-ink-subtle">Coming soon</p>
+                    </div>
+                  </article>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section class="bg-brand-soft section-space" aria-labelledby="tools-heading">
+    <div class="container-site">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 id="tools-heading" class="section-heading">TubWise tools</h2>
+        <p class="section-lede">
+          Simple calculators and lookups to take the guesswork out of ownership.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-5 sm:grid-cols-2">
+        {
+          tools.map((tool) => (
+            <ToolCard
+              title={tool.title}
+              description={tool.description}
+              status={tool.status}
+              icon={tool.icon}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Browse by topic -->
+  <section class="bg-surface section-space" aria-labelledby="topics-heading">
+    <div class="container-site">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 id="topics-heading" class="section-heading">Browse by topic</h2>
+        <p class="section-lede">Explore the main sections of TubWise.</p>
+      </div>
+
+      <ul class="mx-auto mt-12 max-w-5xl divide-y divide-border border-y border-border">
+        {
+          browseTopics.map((topic) => (
+            <li>
+              <a
+                href={topic.href}
+                class="group grid grid-cols-[auto_1fr_auto] items-center gap-4 py-6 no-underline sm:gap-6 sm:py-7"
+              >
+                <span
+                  class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"
+                  aria-hidden="true"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+                    set:html={topicIcons[topic.title] ?? topicIcons.Troubleshooting}
+                  />
+                </span>
+                <span class="min-w-0">
+                  <span class="block font-display text-xl font-semibold text-ink group-hover:text-brand-dark">
+                    {topic.title}
+                  </span>
+                  <span class="mt-1 block text-base leading-relaxed text-ink-muted">
+                    {topic.description}
+                  </span>
+                </span>
+                <span class="text-xl text-brand transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+                  &rarr;
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="bg-sand section-space" aria-labelledby="trust-heading">
+    <div class="container-site">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <h2 id="trust-heading" class="section-heading">
+            Practical guidance you can trust
+          </h2>
+          <p class="section-lede max-w-xl">
+            TubWise is built for homeowners who want clear, calm answers — not sales hype.
+          </p>
+
+          <ul class="mt-8 space-y-5">
+            <li class="flex gap-4">
+              <span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-brand" aria-hidden="true"
+              ></span>
+              <div>
+                <p class="text-lg font-semibold text-ink">Clear step-by-step guidance</p>
+                <p class="mt-1 text-base leading-relaxed text-ink-muted">
+                  Check problems in a safe order, starting with what homeowners can verify
+                  themselves.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-brand" aria-hidden="true"
+              ></span>
+              <div>
+                <p class="text-lg font-semibold text-ink">Sources and updated information</p>
+                <p class="mt-1 text-base leading-relaxed text-ink-muted">
+                  Cite manufacturer and industry sources where possible, and keep pages dated
+                  as content is revised.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-brand" aria-hidden="true"
+              ></span>
+              <div>
+                <p class="text-lg font-semibold text-ink">Safety-first recommendations</p>
+                <p class="mt-1 text-base leading-relaxed text-ink-muted">
+                  Recommend professional service when electrical, structural, or safety issues
+                  are involved.
+                </p>
+              </div>
+            </li>
+          </ul>
+
+          <aside
+            class="mt-10 rounded-2xl border border-warning-border bg-warning-bg p-6 text-warning-ink"
+            role="note"
+          >
+            <h3 class="font-display text-xl font-semibold text-warning-ink">
+              When to call a technician
+            </h3>
+            <p class="mt-2 text-base leading-relaxed">
+              Stop and contact a qualified professional for electrical work, structural
+              damage, gas equipment, persistent leaks, or any situation that could affect
+              safety.
+            </p>
+          </aside>
+
+          <p class="mt-6 text-base text-ink-subtle">
+            Learn more on the <a href="/about">About</a> and{' '}
+            <a href="/disclaimer">Disclaimer</a> pages.
+          </p>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl ring-1 ring-border/80">
+          <OptimizedImage
+            src="/images/trust-hot-tub.svg"
+            alt="Placeholder illustration of a residential hot tub on a home patio"
+            width={800}
+            height={1000}
+            loading="lazy"
+            class="h-full w-full object-cover"
+            sizes="(max-width: 1024px) 100vw, 520px"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

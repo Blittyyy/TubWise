@@ -1,0 +1,38 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  /** When true, answers are research placeholders and should be labeled as such. */
+  isPlaceholder?: boolean;
+}
+
+const { items, isPlaceholder = false } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <section class="mt-12 border-t border-border pt-10" aria-labelledby="faq-heading">
+      <h2 id="faq-heading" class="font-display text-2xl font-semibold text-ink">
+        Frequently asked questions
+      </h2>
+      {isPlaceholder && (
+        <p class="mt-3 text-sm text-ink-subtle">
+          Structural FAQ placeholders only — answers require research before publication
+          as final guidance.
+        </p>
+      )}
+      <div class="mt-6 space-y-4">
+        {items.map((item) => (
+          <details class="rounded-xl border border-border bg-surface-raised p-4">
+            <summary class="cursor-pointer font-medium text-ink">{item.question}</summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  )
+}

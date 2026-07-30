@@ -1,0 +1,175 @@
+---
+import Wordmark from './Wordmark.astro';
+import SearchBar from './SearchBar.astro';
+import { primaryNav } from '../data/navigation';
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="relative z-30 bg-navy text-white">
+  <div class="container-site">
+    <div class="flex items-center justify-between gap-6 py-4 lg:py-5">
+      <a href="/" class="shrink-0 no-underline" aria-label="TubWise home">
+        <Wordmark size="lg" class="text-[1.65rem] text-white sm:text-[1.85rem] [&_span]:text-[#8ec4ce]" />
+      </a>
+
+      <nav class="hidden lg:block" aria-label="Primary">
+        <ul class="flex items-center gap-1">
+          {
+            primaryNav.map((item) => {
+              const active =
+                currentPath === item.href || currentPath.startsWith(`${item.href}/`);
+              return (
+                <li>
+                  <a
+                    href={item.href}
+                    class:list={[
+                      'relative rounded-md px-3.5 py-2 text-[0.95rem] font-medium no-underline transition-colors',
+                      active
+                        ? 'bg-white/10 text-white after:absolute after:inset-x-3.5 after:bottom-1 after:h-0.5 after:rounded-full after:bg-[#8ec4ce]'
+                        : 'text-white/75 hover:bg-white/5 hover:text-white',
+                    ]}
+                    aria-current={active ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-1">
+        <button
+          type="button"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+          aria-expanded="false"
+          aria-controls="mobile-search"
+          aria-label="Open search"
+          data-search-toggle
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Open menu"
+          data-nav-toggle
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5"
+            aria-hidden="true"
+            data-nav-icon-open
+          >
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="hidden h-5 w-5"
+            aria-hidden="true"
+            data-nav-icon-close
+          >
+            <path d="M18 6 6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-search" class="hidden border-t border-white/10 py-4" hidden>
+      <SearchBar size="sm" placeholder="What problem are you having?" variant="on-dark" />
+    </div>
+
+    <nav
+      id="mobile-nav"
+      class="hidden border-t border-white/10 py-4 lg:hidden"
+      aria-label="Mobile"
+      hidden
+    >
+      <ul class="flex flex-col gap-1">
+        {
+          primaryNav.map((item) => {
+            const active =
+              currentPath === item.href || currentPath.startsWith(`${item.href}/`);
+            return (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={[
+                    'block rounded-lg px-3 py-3 text-base font-medium no-underline',
+                    active ? 'bg-white/10 text-white' : 'text-white/75 hover:bg-white/5 hover:text-white',
+                  ]}
+                  aria-current={active ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function setupToggle(
+    buttonSelector: string,
+    panelId: string,
+    onToggle?: (open: boolean) => void,
+  ) {
+    const button = document.querySelector<HTMLButtonElement>(buttonSelector);
+    const panel = document.getElementById(panelId);
+    if (!button || !panel) return;
+
+    button.addEventListener('click', () => {
+      const open = panel.hasAttribute('hidden');
+      if (open) {
+        panel.removeAttribute('hidden');
+        panel.classList.remove('hidden');
+      } else {
+        panel.setAttribute('hidden', '');
+        panel.classList.add('hidden');
+      }
+      button.setAttribute('aria-expanded', String(open));
+      onToggle?.(open);
+    });
+  }
+
+  setupToggle('[data-search-toggle]', 'mobile-search');
+  setupToggle('[data-nav-toggle]', 'mobile-nav', (open) => {
+    const openIcon = document.querySelector('[data-nav-icon-open]');
+    const closeIcon = document.querySelector('[data-nav-icon-close]');
+    openIcon?.classList.toggle('hidden', open);
+    closeIcon?.classList.toggle('hidden', !open);
+  });
+</script>

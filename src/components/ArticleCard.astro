@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  category?: string;
+  readTime?: string;
+}
+
+const { title, description, href, category, readTime } = Astro.props;
+---
+
+<article
+  class="flex h-full flex-col rounded-xl border border-border bg-surface-raised p-5 transition-colors hover:border-brand/40"
+>
+  {
+    (category || readTime) && (
+      <div class="mb-3 flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wide text-ink-subtle">
+        {category && <span>{category}</span>}
+        {category && readTime && <span aria-hidden="true">·</span>}
+        {readTime && <span>{readTime} read</span>}
+      </div>
+    )
+  }
+  <h3 class="font-display text-lg font-semibold text-ink">
+    <a href={href} class="no-underline hover:text-brand-dark">{title}</a>
+  </h3>
+  <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">{description}</p>
+  <a
+    href={href}
+    class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand no-underline hover:text-brand-dark"
+  >
+    Read guide
+    <span aria-hidden="true">&rarr;</span>
+  </a>
+</article>

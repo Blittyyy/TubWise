@@ -1,0 +1,33 @@
+---
+import CategoryArchive from '../../components/CategoryArchive.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { tools, hasAvailableTools } from '../../data/tools';
+---
+
+<CategoryArchive category="calculators" showSafety={false} noindex={!hasAvailableTools()}>
+  <p>
+    These tools help you estimate spa volume, operating cost, and care cadence. They are
+    planning aids — not replacements for manufacturer specifications or a licensed
+    electrician&apos;s advice.
+  </p>
+
+  <h2 id="tools">Available tools</h2>
+  <div class="not-prose mt-6 grid gap-4 sm:grid-cols-2">
+    {
+      tools.map((tool) => (
+        <ToolCard
+          title={tool.title}
+          description={tool.description}
+          status={tool.status}
+          icon={tool.icon}
+        />
+      ))
+    }
+  </div>
+
+  <h2 id="status">Status</h2>
+  <p>
+    Interactive calculators are under construction. Calculator articles can also be added
+    to the content collection and will appear in the Articles list above.
+  </p>
+</CategoryArchive>

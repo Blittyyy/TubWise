@@ -1,0 +1,37 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Contact"
+  description="Contact TubWise with questions, corrections, or partnership inquiries about hot tub guides and tools."
+  path="/contact"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
+>
+  <p>
+    We welcome corrections to guides, suggestions for new topics, and clear questions
+    about TubWise content.
+  </p>
+
+  <h2 id="email">Email</h2>
+  <p>
+    Placeholder contact address:{' '}
+    <a href="mailto:hello@gettubwise.com">hello@gettubwise.com</a>
+  </p>
+  <p>
+    Replace this address with your production inbox before launch. A contact form can be
+    added later without changing this page&apos;s URL.
+  </p>
+
+  <h2 id="what-to-include">What to include</h2>
+  <ul>
+    <li>The page URL your note is about</li>
+    <li>Spa brand and model, if relevant</li>
+    <li>The exact error code or symptom, if you are reporting a content gap</li>
+  </ul>
+
+  <p>
+    TubWise cannot provide emergency repair service or diagnose electrical hazards by
+    email. For safety-critical issues, contact a qualified technician.
+  </p>
+</PageLayout>

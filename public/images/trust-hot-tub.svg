@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Placeholder for a residential hot tub beside a home patio">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dce8ec"/>
+      <stop offset="100%" stop-color="#e8e0d4"/>
+    </linearGradient>
+    <linearGradient id="pool" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fc0c9"/>
+      <stop offset="100%" stop-color="#3d7a86"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect x="0" y="620" width="800" height="380" fill="#b89a72"/>
+  <g stroke="#967852" stroke-width="2" opacity="0.4">
+    <line x1="0" y1="680" x2="800" y2="680"/>
+    <line x1="0" y1="740" x2="800" y2="740"/>
+    <line x1="0" y1="800" x2="800" y2="800"/>
+    <line x1="0" y1="860" x2="800" y2="860"/>
+    <line x1="0" y1="920" x2="800" y2="920"/>
+  </g>
+  <rect x="140" y="280" width="520" height="360" rx="24" fill="#2a3a48"/>
+  <ellipse cx="400" cy="380" rx="210" ry="95" fill="url(#pool)"/>
+  <g fill="#dff2f5" opacity="0.8">
+    <circle cx="320" cy="360" r="5"/>
+    <circle cx="360" cy="375" r="4"/>
+    <circle cx="410" cy="355" r="6"/>
+    <circle cx="450" cy="370" r="4"/>
+    <circle cx="480" cy="360" r="5"/>
+  </g>
+  <ellipse cx="180" cy="700" rx="90" ry="40" fill="#5f7a5a"/>
+  <ellipse cx="640" cy="710" rx="100" ry="45" fill="#6b8562"/>
+  <text x="400" y="920" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#4a5d6e">Image placeholder</text>
+</svg>

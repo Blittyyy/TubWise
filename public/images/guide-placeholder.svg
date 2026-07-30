@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-label="Article image placeholder">
+  <rect width="960" height="640" fill="#e4f0f2"/>
+  <rect x="0" y="420" width="960" height="220" fill="#efe8dc"/>
+  <rect x="220" y="160" width="520" height="280" rx="20" fill="#2a3a48"/>
+  <ellipse cx="480" cy="250" rx="190" ry="80" fill="#3d7a86"/>
+  <ellipse cx="480" cy="250" rx="190" ry="80" fill="#ffffff" fill-opacity="0.15"/>
+  <text x="480" y="560" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#6b7f8f">Guide image placeholder</text>
+</svg>

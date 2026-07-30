@@ -1,0 +1,57 @@
+---
+import { buildTitle, absoluteUrl } from '../utils/seo';
+import { SITE_NAME, DEFAULT_OG_IMAGE } from '../utils/site';
+
+export interface SeoProps {
+  title: string;
+  description: string;
+  path?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  /** When noindex is true, allow follow links (e.g. search query fallbacks). */
+  robotsFollow?: boolean;
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  twitterCard?: 'summary' | 'summary_large_image';
+}
+
+const {
+  title,
+  description,
+  path = '/',
+  type = 'website',
+  noindex = false,
+  robotsFollow = false,
+  ogImage = DEFAULT_OG_IMAGE,
+  ogTitle,
+  ogDescription,
+  twitterCard = 'summary_large_image',
+} = Astro.props;
+
+const pageTitle = buildTitle(title);
+const canonical = absoluteUrl(path);
+const openGraphTitle = ogTitle ?? pageTitle;
+const openGraphDescription = ogDescription ?? description;
+const imageUrl = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage);
+---
+
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && (
+  <meta name="robots" content={robotsFollow ? 'noindex, follow' : 'noindex, nofollow'} />
+)}
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:title" content={openGraphTitle} />
+<meta property="og:description" content={openGraphDescription} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content={twitterCard} />
+<meta name="twitter:title" content={openGraphTitle} />
+<meta name="twitter:description" content={openGraphDescription} />
+<meta name="twitter:image" content={imageUrl} />

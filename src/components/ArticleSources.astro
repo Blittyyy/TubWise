@@ -1,0 +1,52 @@
+---
+interface Source {
+  title: string;
+  url?: string;
+  publisher?: string;
+  accessed?: string;
+  note?: string;
+}
+
+interface Props {
+  sources: Source[];
+}
+
+const { sources } = Astro.props;
+
+function citationMeta(source: Source): string {
+  const parts: string[] = [];
+  if (source.publisher) parts.push(source.publisher);
+  if (source.accessed) parts.push(`Accessed ${source.accessed}`);
+  return parts.join('; ');
+}
+---
+
+{
+  sources.length > 0 && (
+    <section class="mt-12 border-t border-border pt-10" aria-labelledby="sources-heading">
+      <h2 id="sources-heading" class="font-display text-2xl font-semibold text-ink">
+        Sources
+      </h2>
+      <ol class="mt-6 list-decimal space-y-4 pl-5 text-sm leading-relaxed text-ink-muted">
+        {sources.map((source) => {
+          const meta = citationMeta(source);
+          return (
+            <li>
+              <cite class="not-italic font-medium text-ink">
+                {source.url ? (
+                  <a href={source.url} rel="noopener noreferrer">
+                    {source.title}
+                  </a>
+                ) : (
+                  source.title
+                )}
+              </cite>
+              {meta && <span> — {meta}</span>}
+              {source.note && <p class="mt-1 text-ink-subtle">{source.note}</p>}
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  )
+}

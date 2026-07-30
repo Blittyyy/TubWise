@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Exclude internal search query URLs from crawling (canonical pages ignore query params).
+Disallow: /*?q=
+
+Sitemap: https://gettubwise.com/sitemap-index.xml

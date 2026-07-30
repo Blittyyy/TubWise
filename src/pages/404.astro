@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Page not found';
+const description = 'The page you requested could not be found on TubWise.';
+---
+
+<BaseLayout title={title} description={description} path="/404" noindex={true}>
+  <div class="container-site section-space">
+    <div class="mx-auto max-w-xl text-center">
+      <p class="text-sm font-medium uppercase tracking-wide text-brand">404</p>
+      <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Page not found</h1>
+      <p class="mt-4 text-lg leading-relaxed text-ink-muted">
+        That page does not exist or may have moved. Try a category hub or search from the
+        homepage.
+      </p>
+      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href="/"
+          class="inline-flex min-h-11 items-center justify-center rounded-lg bg-brand px-5 font-semibold text-white no-underline hover:bg-brand-dark"
+        >
+          Go to homepage
+        </a>
+        <a
+          href="/troubleshooting"
+          class="inline-flex min-h-11 items-center justify-center rounded-lg border border-border-strong bg-surface-raised px-5 font-semibold text-ink no-underline hover:border-brand hover:text-brand-dark"
+        >
+          Troubleshooting guides
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

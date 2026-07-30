@@ -1,0 +1,36 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<aside
+  class:list={[
+    'rounded-xl border border-border bg-surface p-4 text-sm leading-relaxed text-ink-muted',
+    compact ? '' : 'p-5',
+  ]}
+  role="note"
+>
+  <p>
+    <strong class="font-semibold text-ink">Affiliate disclosure:</strong>
+    {
+      compact
+        ? ' Some links may earn TubWise a commission at no extra cost to you.'
+        : ' TubWise may earn a commission when you buy through links on this site, at no extra cost to you. Recommendations are based on usefulness for homeowners, not commission rate.'
+    }
+    {
+      !compact && (
+        <>
+          {' '}
+          See our{' '}
+          <a href="/affiliate-disclosure" class="underline">
+            Affiliate Disclosure
+          </a>
+          .
+        </>
+      )
+    }
+  </p>
+</aside>

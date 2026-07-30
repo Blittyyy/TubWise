@@ -1,0 +1,236 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+import SafetyCallout from '../components/SafetyCallout.astro';
+import ArticleFaq from '../components/ArticleFaq.astro';
+import ArticleSources from '../components/ArticleSources.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
+import type { ArticleEntry } from '../utils/articles';
+import {
+  articleBreadcrumbs,
+  articlePath,
+  categoryMeta,
+  formatArticleDate,
+  getRelatedArticles,
+  getValidFaq,
+  isErrorCodeArticle,
+  safetyCopy,
+} from '../utils/articles';
+import { articleSchema, breadcrumbSchema } from '../utils/schema';
+import { absoluteUrl } from '../utils/seo';
+import { DEFAULT_OG_IMAGE } from '../utils/site';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  article: ArticleEntry;
+  headings?: Heading[];
+}
+
+const { article, headings = [] } = Astro.props;
+const { data } = article;
+
+const category = categoryMeta[data.category];
+const path = articlePath(article);
+const related = await getRelatedArticles(article);
+const validFaq = getValidFaq(article);
+const showFaqPlaceholders = data.faq.length > 0 && validFaq.length === 0;
+const faqItems = validFaq.length > 0 ? validFaq : data.faq;
+const safety = safetyCopy(data.safetyLevel);
+const updated = data.updatedDate ?? data.publishedDate;
+const breadcrumbs = articleBreadcrumbs(article);
+const shortAnswer = data.summary ?? data.description;
+
+const toc = headings
+  .filter((heading) => heading.depth >= 2 && heading.depth <= 3)
+  .map((heading) => ({ id: heading.slug, label: heading.text }));
+
+const ogImage = data.featuredImage ? absoluteUrl(data.featuredImage) : DEFAULT_OG_IMAGE;
+
+const schemas = [articleSchema(article), breadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  path={path}
+  type="article"
+  noindex={data.draft || data.noindex}
+  ogImage={ogImage}
+  schema={schemas}
+>
+  <article class="container-site section-space" itemscope itemtype="https://schema.org/BlogPosting">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <div class:list={['grid gap-10', toc.length > 0 && 'lg:grid-cols-[minmax(0,1fr)_16rem]']}>
+      <div class="min-w-0">
+        <header class="max-w-3xl">
+          <p class="text-sm font-medium uppercase tracking-wide text-brand">
+            <a href={category.href} class="no-underline hover:text-brand-dark">
+              {category.label}
+            </a>
+            {
+              data.subcategory && (
+                <>
+                  <span class="mx-1.5 text-ink-subtle" aria-hidden="true">/</span>
+                  <span class="text-ink-muted">{data.subcategory}</span>
+                </>
+              )
+            }
+          </p>
+          <h1 class="mt-2 text-3xl font-semibold sm:text-4xl" itemprop="headline">{data.title}</h1>
+
+          <p class="mt-4 rounded-lg border border-border bg-surface-raised px-4 py-3 text-lg leading-relaxed text-ink-muted" itemprop="description">
+            {shortAnswer}
+          </p>
+
+          <dl class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-subtle">
+            <div>
+              <dt class="inline text-ink-muted">By </dt>
+              <dd class="inline font-medium text-ink" itemprop="author">{data.author}</dd>
+            </div>
+            {
+              data.reviewedBy && (
+                <div>
+                  <dt class="inline text-ink-muted">Reviewed by </dt>
+                  <dd class="inline font-medium text-ink">{data.reviewedBy}</dd>
+                </div>
+              )
+            }
+            <div>
+              <dt class="inline text-ink-muted">Published </dt>
+              <dd class="inline">
+                <time datetime={data.publishedDate.toISOString()} itemprop="datePublished">
+                  {formatArticleDate(data.publishedDate)}
+                </time>
+              </dd>
+            </div>
+            <div>
+              <dt class="inline text-ink-muted">Last updated </dt>
+              <dd class="inline">
+                <time datetime={updated.toISOString()} itemprop="dateModified">
+                  {formatArticleDate(updated)}
+                </time>
+              </dd>
+            </div>
+            {
+              isErrorCodeArticle(article) && (
+                <>
+                  <div>
+                    <dt class="inline text-ink-muted">Brand </dt>
+                    <dd class="inline font-medium text-ink">
+                      <a
+                        href={`/error-codes/${data.brand}`}
+                        class="no-underline hover:text-brand-dark"
+                      >
+                        {data.brand}
+                      </a>
+                    </dd>
+                  </div>
+                  {
+                    data.model && (
+                      <div>
+                        <dt class="inline text-ink-muted">Model </dt>
+                        <dd class="inline text-ink">{data.model}</dd>
+                      </div>
+                    )
+                  }
+                  <div>
+                    <dt class="inline text-ink-muted">Code </dt>
+                    <dd class="inline font-medium text-ink">{data.errorCode}</dd>
+                  </div>
+                </>
+              )
+            }
+          </dl>
+
+          {
+            data.tags.length > 0 && (
+              <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tags">
+                {data.tags.map((tag) => (
+                  <li class="rounded-md bg-brand-soft px-2.5 py-1 text-xs font-medium text-brand-dark">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            )
+          }
+
+          <p class="mt-4 text-sm">
+            <a href={category.href} class="font-medium no-underline hover:text-brand-dark">
+              &larr; More {category.label.toLowerCase()} guides
+            </a>
+          </p>
+        </header>
+
+        {
+          data.affiliateDisclosure && (
+            <div class="mt-8 max-w-3xl">
+              <AffiliateDisclosure />
+            </div>
+          )
+        }
+
+        {
+          safety && (
+            <div class="mt-8 max-w-3xl">
+              <SafetyCallout title={safety.title}>{safety.body}</SafetyCallout>
+            </div>
+          )
+        }
+
+        {
+          data.featuredImage && (
+            <figure class="mt-8 overflow-hidden rounded-xl border border-border bg-surface">
+              <OptimizedImage
+                src={data.featuredImage}
+                alt={data.featuredImageAlt ?? ''}
+                width={1200}
+                height={675}
+                loading="eager"
+                class="aspect-[16/9] w-full object-cover"
+              />
+              {
+                !data.featuredImageAlt && (
+                  <figcaption class="px-4 py-3 text-sm text-ink-subtle">
+                    Add descriptive alt text in frontmatter before publishing.
+                  </figcaption>
+                )
+              }
+            </figure>
+          )
+        }
+
+        <div class="prose-article mt-10 max-w-3xl" itemprop="articleBody">
+          <slot />
+        </div>
+
+        <div class="max-w-3xl">
+          <ArticleSources sources={data.sources} />
+          {
+            faqItems.length > 0 && (
+              <ArticleFaq items={faqItems} isPlaceholder={showFaqPlaceholders} />
+            )
+          }
+        </div>
+
+        <RelatedArticles articles={related} />
+      </div>
+
+      {
+        toc.length > 0 && (
+          <aside class="lg:sticky lg:top-8 lg:self-start" aria-label="Article sections">
+            <TableOfContents items={toc} />
+          </aside>
+        )
+      }
+    </div>
+  </article>
+</BaseLayout>

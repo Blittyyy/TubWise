@@ -1,0 +1,42 @@
+---
+import { render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { ARTICLE_CATEGORIES } from '../../content.config';
+import { errorCodeBrands } from '../../data/error-code-brands';
+import { getIndexableArticles, isErrorCodeArticle, type ArticleEntry } from '../../utils/articles';
+
+const brandSlugs = new Set(errorCodeBrands.map((brand) => brand.slug));
+
+export async function getStaticPaths() {
+  const articles = await getIndexableArticles();
+
+  return articles
+    .filter((article) => !isErrorCodeArticle(article))
+    .filter((article) => ARTICLE_CATEGORIES.includes(article.data.category))
+  .filter((article) => {
+      // Avoid /error-codes/{slug} conflicting with brand hub URLs.
+      if (article.data.category === 'error-codes' && brandSlugs.has(article.data.slug)) {
+        return false;
+      }
+      return true;
+    })
+    .map((article) => ({
+      params: {
+        category: article.data.category,
+        slug: article.data.slug,
+      },
+      props: { article },
+    }));
+}
+
+interface Props {
+  article: ArticleEntry;
+}
+
+const { article } = Astro.props;
+const { Content, headings } = await render(article);
+---
+
+<ArticleLayout article={article} headings={headings}>
+  <Content />
+</ArticleLayout>

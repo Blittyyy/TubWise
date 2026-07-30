@@ -1,0 +1,39 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { SITE_TAGLINE } from '../utils/site';
+---
+
+<PageLayout
+  title="About TubWise"
+  description="Learn what TubWise is, who it is for, and how we approach hot tub troubleshooting and ownership guidance."
+  path="/about"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
+>
+  <p>
+    TubWise helps hot tub owners troubleshoot problems, understand error codes, maintain
+    clean water, estimate ownership costs, and find compatible supplies.
+  </p>
+
+  <p>
+    Our tagline says it plainly: <em>{SITE_TAGLINE}</em>
+  </p>
+
+  <h2 id="who">Who it is for</h2>
+  <p>
+    Homeowners and casual spa owners who want calm, practical guidance — not dealer
+    jargon or hard-sell product pages.
+  </p>
+
+  <h2 id="how">How we work</h2>
+  <ul>
+    <li>Explain problems in the order you should check them</li>
+    <li>Cite manufacturer manuals and reputable industry sources when possible</li>
+    <li>Recommend professional help for electrical, structural, or safety issues</li>
+    <li>Keep the site fast, readable, and easy for a future owner to maintain</li>
+  </ul>
+
+  <h2 id="contact">Contact</h2>
+  <p>
+    Questions or corrections? Visit the <a href="/contact">Contact</a> page.
+  </p>
+</PageLayout>

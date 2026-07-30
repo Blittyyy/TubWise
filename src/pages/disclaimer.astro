@@ -1,0 +1,43 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Disclaimer"
+  description="Important safety and accuracy disclaimer for TubWise hot tub guides and tools."
+  path="/disclaimer"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Disclaimer' }]}
+>
+  <p>
+    TubWise provides general educational information for hot tub owners. It is not
+    professional repair advice, an electrical inspection, or a substitute for your
+    spa&apos;s owner manual.
+  </p>
+
+  <h2 id="safety">Safety</h2>
+  <p>
+    Do not attempt electrical work, gas appliance service, structural repairs, or any
+    task beyond your skill and local code requirements. If you smell burning, see
+    scorched wiring, experience repeated breaker trips, or suspect a structural leak,
+    power down the spa and contact a qualified professional.
+  </p>
+
+  <h2 id="accuracy">Accuracy</h2>
+  <p>
+    We work to keep guides accurate and cite sources where practical. Spa brands,
+    controllers, and local codes vary. Always confirm steps against your manufacturer
+    documentation.
+  </p>
+
+  <h2 id="no-warranty">No warranty</h2>
+  <p>
+    Content and tools are provided as-is without warranties of completeness or fitness
+    for a particular purpose. Use your own judgment and professional help when needed.
+  </p>
+
+  <p>
+    Related pages:{' '}
+    <a href="/terms">Terms</a>, <a href="/privacy">Privacy Policy</a>, and{' '}
+    <a href="/affiliate-disclosure">Affiliate Disclosure</a>.
+  </p>
+</PageLayout>

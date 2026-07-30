@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { getErrorCodeBrand } from '../../../data/error-code-brands';
+import { articlePath, getArticlesByBrand, getBrandsWithArticles } from '../../../utils/articles';
+import { breadcrumbSchema, categoryHubSchema } from '../../../utils/schema';
+
+export async function getStaticPaths() {
+  const brands = await getBrandsWithArticles();
+  return brands.map((brand) => ({
+    params: { brand: brand.slug },
+  }));
+}
+
+const brandSlug = Astro.params.brand!;
+const brand = getErrorCodeBrand(brandSlug);
+
+if (!brand) {
+  return Astro.redirect('/error-codes');
+}
+
+const articles = await getArticlesByBrand(brandSlug);
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Error Codes', href: '/error-codes' },
+  { label: brand.name },
+];
+
+const schemas = [
+  categoryHubSchema('error-codes', `/error-codes/${brand.slug}`),
+  breadcrumbSchema(breadcrumbs),
+];
+---
+
+<BaseLayout
+  title={`${brand.name} Error Codes`}
+  description={brand.description}
+  path={`/error-codes/${brand.slug}`}
+  schema={schemas}
+>
+  <div class="container-site section-space">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="mb-8 max-w-3xl">
+      <h1 class="text-3xl font-semibold sm:text-4xl">{brand.name} error codes</h1>
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">{brand.description}</p>
+      <p class="mt-4 text-sm">
+        <a href="/error-codes" class="font-medium no-underline hover:text-brand-dark">
+          &larr; All error codes
+        </a>
+      </p>
+    </header>
+
+    <section aria-labelledby="brand-codes-heading">
+      <h2 id="brand-codes-heading" class="font-display text-2xl font-semibold text-ink">
+        Published codes
+      </h2>
+
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          articles.map((article) => (
+            <ArticleCard
+              title={article.data.title}
+              description={article.data.description}
+              href={articlePath(article)}
+              category={brand.name}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>

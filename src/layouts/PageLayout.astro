@@ -1,0 +1,83 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import SafetyCallout from '../components/SafetyCallout.astro';
+import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+import { breadcrumbSchema } from '../utils/schema';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface TocItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  breadcrumbs?: Crumb[];
+  toc?: TocItem[];
+  showSafety?: boolean;
+  showAffiliate?: boolean;
+}
+
+const {
+  title,
+  description,
+  path,
+  breadcrumbs = [],
+  toc = [],
+  showSafety = false,
+  showAffiliate = false,
+} = Astro.props;
+
+const schemas = breadcrumbs.length > 0 ? [breadcrumbSchema(breadcrumbs)] : [];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={schemas}>
+  <div class="container-site section-space">
+    {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
+
+    <div class:list={['grid gap-10', toc.length > 0 && 'lg:grid-cols-[minmax(0,1fr)_16rem]']}>
+      <div>
+        <header class="mb-8 max-w-3xl">
+          <h1 class="text-3xl font-semibold sm:text-4xl">{title}</h1>
+          <p class="mt-3 text-lg leading-relaxed text-ink-muted">{description}</p>
+        </header>
+
+        <div class="prose-site max-w-none">
+          <slot />
+        </div>
+
+        {
+          showSafety && (
+            <div class="mt-10 max-w-3xl">
+              <SafetyCallout />
+            </div>
+          )
+        }
+
+        {
+          showAffiliate && (
+            <div class="mt-8 max-w-3xl">
+              <AffiliateDisclosure />
+            </div>
+          )
+        }
+      </div>
+
+      {
+        toc.length > 0 && (
+          <aside class="lg:sticky lg:top-8 lg:self-start">
+            <TableOfContents items={toc} />
+          </aside>
+        )
+      }
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CategoryCard from '../../components/CategoryCard.astro';
+import { getBrandsWithArticles } from '../../utils/articles';
+import { breadcrumbSchema, categoryHubSchema } from '../../utils/schema';
+
+const activeBrands = await getBrandsWithArticles();
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Error Codes' }];
+const schemas = [categoryHubSchema('error-codes', '/error-codes'), breadcrumbSchema(breadcrumbs)];
+const hasSearchQuery = Astro.url.searchParams.has('q');
+---
+
+<BaseLayout
+  title="Error Codes"
+  description="Look up hot tub and spa error codes in plain language, with safe next steps and guidance on when to call a technician."
+  path="/error-codes"
+  noindex={hasSearchQuery}
+  robotsFollow={hasSearchQuery}
+  schema={schemas}
+>
+  <div class="container-site section-space">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="mb-8 max-w-3xl">
+      <h1 class="text-3xl font-semibold sm:text-4xl">Error Codes</h1>
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">
+        Spa panels often show short codes that are hard to interpret without a manual.
+        TubWise error code pages explain what common messages mean, what you can check
+        safely, and when the issue needs professional service.
+      </p>
+    </header>
+
+    {
+      activeBrands.length > 0 ? (
+        <section aria-labelledby="brands-heading">
+          <h2 id="brands-heading" class="font-display text-2xl font-semibold text-ink">
+            Browse by brand
+          </h2>
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            {activeBrands.map((brand) => (
+              <CategoryCard
+                title={`${brand.name} error codes`}
+                description={brand.description}
+                href={`/error-codes/${brand.slug}`}
+              />
+            ))}
+          </div>
+        </section>
+      ) : (
+        <p class="max-w-3xl text-ink-muted">
+          Brand-specific error code guides will appear here as they are published.
+        </p>
+      )
+    }
+  </div>
+</BaseLayout>

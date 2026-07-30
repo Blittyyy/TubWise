@@ -1,0 +1,30 @@
+---
+import { render } from 'astro:content';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { getIndexableArticles, isErrorCodeArticle, type ArticleEntry } from '../../../utils/articles';
+
+export async function getStaticPaths() {
+  const articles = await getIndexableArticles();
+
+  return articles
+    .filter(isErrorCodeArticle)
+    .map((article) => ({
+      params: {
+        brand: article.data.brand!,
+        code: article.data.errorCode!,
+      },
+      props: { article },
+    }));
+}
+
+interface Props {
+  article: ArticleEntry;
+}
+
+const { article } = Astro.props;
+const { Content, headings } = await render(article);
+---
+
+<ArticleLayout article={article} headings={headings}>
+  <Content />
+</ArticleLayout>
