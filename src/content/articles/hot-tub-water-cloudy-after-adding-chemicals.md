@@ -24,6 +24,7 @@ relatedArticles:
   - why-is-my-hot-tub-water-cloudy
   - how-long-does-it-take-cloudy-hot-tub-water-to-clear
   - should-you-drain-a-hot-tub-if-the-water-is-cloudy
+  - hot-tub-foam-after-adding-chemicals
 sources:
   - title: "Troubleshooting Cloudy Hot Tub Water: Causes and Solutions"
     url: "https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html"
@@ -53,7 +54,7 @@ Don't add more chemicals to try to "fix" cloudiness right away, and never mix di
 
 ### The balancing order was skipped
 
-Jacuzzi's setup guidance describes a specific sequence: total alkalinity first, then pH, then sanitizer, "to prevent chemical interactions that can cloud water or reduce effectiveness" ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)). If sanitizer or pH adjuster went in before alkalinity was corrected, the water can cloud up even though you followed the label amounts correctly.
+Jacuzzi's setup guidance describes a specific sequence: total alkalinity first, then pH, then sanitizer, "to prevent chemical interactions that can cloud water or reduce effectiveness" ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)). If sanitizer or pH adjuster went in before alkalinity was corrected, the water can cloud up even though you followed the label amounts correctly. The same sequencing issue can show up as foam instead of cloudiness; see [Hot Tub Foam After Adding Chemicals: What Happened?](/water-care/hot-tub-foam-after-adding-chemicals) if that's what you're seeing.
 
 ### Too much was added, or too many products at once
 

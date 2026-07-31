@@ -25,6 +25,8 @@ relatedArticles:
   - can-a-dirty-filter-make-hot-tub-water-cloudy
   - how-long-does-it-take-cloudy-hot-tub-water-to-clear
   - should-you-drain-a-hot-tub-if-the-water-is-cloudy
+  - why-is-my-hot-tub-water-foamy
+  - why-is-my-hot-tub-water-green
 sources:
   - title: "Troubleshooting Cloudy Hot Tub Water: Causes and Solutions"
     url: "https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html"
@@ -72,7 +74,7 @@ When chlorine or bromine levels drop, bacteria can multiply, which Jacuzzi descr
 
 ### Body oils, lotions, and other organic contaminants
 
-Sweat, body oils, and lotions can cloud water and contribute to foam, according to Jacuzzi's guidance. A brief rinse-off shower before soaking meaningfully reduces how much of this gets into the water ([Jacuzzi](https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html)).
+Sweat, body oils, and lotions can cloud water and contribute to foam, according to Jacuzzi's guidance. A brief rinse-off shower before soaking meaningfully reduces how much of this gets into the water ([Jacuzzi](https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html)). If bubbles on the surface are the main symptom rather than haze, see [Why Is My Hot Tub Water Foamy?](/water-care/why-is-my-hot-tub-water-foamy) for that specific cause.
 
 ### A dirty or clogged filter
 
@@ -101,4 +103,4 @@ Stop using the spa and don't just keep adding chemicals if:
 
 If cloudiness returns quickly after treatment, or you're unsure how long the water has been in the spa, manufacturer guidance points to a full drain and refill as the next step rather than continuing to add chemicals. If problems continue even after a drain, that points toward an equipment or plumbing issue better suited to a qualified spa technician.
 
-For related questions, see [Hot Tub Water Cloudy After Adding Chemicals](/water-care/hot-tub-water-cloudy-after-adding-chemicals) and [How Long Does It Take Cloudy Hot Tub Water to Clear?](/water-care/how-long-does-it-take-cloudy-hot-tub-water-to-clear)
+For related questions, see [Hot Tub Water Cloudy After Adding Chemicals](/water-care/hot-tub-water-cloudy-after-adding-chemicals) and [How Long Does It Take Cloudy Hot Tub Water to Clear?](/water-care/how-long-does-it-take-cloudy-hot-tub-water-to-clear) If your water looks green rather than hazy, that's a different symptom with its own causes; see [Why Is My Hot Tub Water Green?](/water-care/why-is-my-hot-tub-water-green)
