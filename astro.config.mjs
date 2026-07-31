@@ -11,7 +11,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
-        const excluded = new Set(['/404', '/calculators', '/search']);
+        const excluded = new Set(['/404', '/search']);
         return !excluded.has(pathname);
       },
     }),

@@ -8,9 +8,10 @@ export interface ToolItem {
 export const tools: ToolItem[] = [
   {
     title: 'Hot Tub Volume Calculator',
-    description: 'Estimate gallons so you can dose chemicals more accurately.',
-    href: '/calculators',
-    status: 'coming-soon',
+    description:
+      'Estimate your spa\'s capacity in gallons and liters using its shape and interior water dimensions.',
+    href: '/calculators/hot-tub-volume-calculator',
+    status: 'available',
   },
   {
     title: 'Electricity Cost Calculator',

@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import HotTubVolumeCalculator from '../../components/HotTubVolumeCalculator.astro';
+import { breadcrumbSchema, webApplicationSchema } from '../../utils/schema';
+
+const path = '/calculators/hot-tub-volume-calculator';
+const title = 'Hot Tub Volume Calculator: Estimate Gallons and Liters';
+const description =
+  'Estimate your hot tub’s water capacity in gallons and liters using its shape, interior dimensions, and average water depth.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Calculators', href: '/calculators' },
+  { label: 'Hot Tub Volume Calculator' },
+];
+
+const relatedGuides = [
+  {
+    title: 'Hot Tub Water Cloudy After Adding Chemicals',
+    description:
+      'If your hot tub turned cloudy right after adding chemicals, the cause can be the order, amount, or mix of products used.',
+    href: '/water-care/hot-tub-water-cloudy-after-adding-chemicals',
+    category: 'Water Care',
+  },
+  {
+    title: 'Why Is My Hot Tub Water Foamy?',
+    description:
+      'Foamy hot tub water can trace back to soap and body products, low calcium hardness, or old water.',
+    href: '/water-care/why-is-my-hot-tub-water-foamy',
+    category: 'Water Care',
+  },
+  {
+    title: 'How to Clean a Hot Tub Filter',
+    description:
+      'A practical guide to rinsing and deep-cleaning a pleated hot tub filter without damaging the media.',
+    href: '/maintenance/how-to-clean-a-hot-tub-filter',
+    category: 'Maintenance',
+  },
+  {
+    title: 'Should You Drain a Hot Tub if the Water Is Cloudy?',
+    description:
+      'Not always. Manufacturers point to draining only after correct chemistry, a clean filter, and treatment haven’t cleared the water.',
+    href: '/water-care/should-you-drain-a-hot-tub-if-the-water-is-cloudy',
+    category: 'Water Care',
+  },
+];
+
+const schemas = [
+  breadcrumbSchema(breadcrumbs),
+  webApplicationSchema({
+    name: 'Hot Tub Volume Calculator',
+    description,
+    path,
+  }),
+];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={schemas}>
+  <div class="container-site section-space">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="mx-auto mb-8 w-full max-w-3xl">
+      <h1 class="text-3xl font-semibold sm:text-4xl">Hot Tub Volume Calculator</h1>
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">
+        Estimate how many gallons or liters your hot tub holds using its interior
+        dimensions and average water depth.
+      </p>
+    </header>
+
+    <div class="mx-auto w-full max-w-3xl">
+      <HotTubVolumeCalculator />
+    </div>
+
+    <div class="prose-site mx-auto mt-12 max-w-3xl">
+      <h2 id="how-it-works">How the estimate works</h2>
+      <p>
+        The calculator converts your measurements into feet, then estimates volume in
+        cubic feet. That cubic volume is multiplied by 7.48052 to get U.S. gallons, and
+        gallons are converted to liters. Rectangular and square spas use length × width ×
+        average water depth. Round spas use π × (diameter ÷ 2)² × average water depth.
+      </p>
+      <p>
+        TubWise does not apply a universal correction factor for seats, footwells,
+        rounded corners, or equipment displacement. No single adjustment fits every spa.
+      </p>
+
+      <h2 id="how-to-measure">How to measure your hot tub</h2>
+      <p>Use interior water dimensions when possible, not the full exterior cabinet size.</p>
+      <h3>Rectangular or square tubs</h3>
+      <ul>
+        <li>Measure the interior water length</li>
+        <li>Measure the interior water width</li>
+        <li>Estimate the average filled-water depth to the typical waterline</li>
+      </ul>
+      <h3>Round tubs</h3>
+      <ul>
+        <li>Measure the interior diameter across the water surface</li>
+        <li>Estimate the average filled-water depth to the typical waterline</li>
+      </ul>
+      <p>
+        Average water depth means the approximate vertical depth of the filled water, not
+        the full exterior cabinet height. A capacity listed in the owner&apos;s manual is
+        more reliable than a calculated estimate when both are available.
+      </p>
+
+      <h2 id="why-capacity-differs">Why actual capacity may differ</h2>
+      <p>Your spa may hold less water than a simple geometric estimate because of:</p>
+      <ul>
+        <li>Molded seats</li>
+        <li>Footwells</li>
+        <li>Loungers</li>
+        <li>Rounded corners</li>
+        <li>Varying water depth across the shell</li>
+        <li>Plumbing and equipment space</li>
+        <li>Measurements taken from the exterior rather than the interior</li>
+      </ul>
+
+      <h2 id="why-volume-matters">Why water volume matters</h2>
+      <p>Knowing an approximate capacity can help you:</p>
+      <ul>
+        <li>Compare your estimate with manufacturer specifications</li>
+        <li>Plan fill time</li>
+        <li>Interpret product-label directions that depend on water volume</li>
+        <li>Avoid relying on an assumed spa size when reading care instructions</li>
+      </ul>
+      <p>
+        This page does not calculate chemical doses. Follow the product label, your
+        confirmed water volume, and current water-test results for any treatment decision.
+      </p>
+
+      <h2 id="disclaimer">Disclaimer</h2>
+      <p>
+        This calculator is a planning estimate only. It is not a substitute for your spa
+        manufacturer&apos;s specifications, product labels, or professional advice. See
+        the <a href="/disclaimer">Disclaimer</a> and <a href="/terms">Terms of Use</a> for
+        more.
+      </p>
+    </div>
+
+    <section class="mx-auto mt-12 w-full max-w-5xl" aria-labelledby="related-guides-heading">
+      <h2 id="related-guides-heading" class="font-display text-2xl font-semibold text-ink">
+        Relevant TubWise guides
+      </h2>
+      <p class="mt-3 max-w-3xl text-base leading-relaxed text-ink-muted">
+        After you have a volume estimate, these guides help with water care and filter
+        maintenance. Confirm capacity in your manual before adding any chemicals.
+      </p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          relatedGuides.map((guide) => (
+            <ArticleCard
+              title={guide.title}
+              description={guide.description}
+              href={guide.href}
+              category={guide.category}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>

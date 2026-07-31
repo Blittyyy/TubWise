@@ -3,9 +3,11 @@ interface Props {
   title: string;
   description: string;
   status?: 'available' | 'coming-soon';
+  href?: string;
 }
 
-const { title, description, status = 'coming-soon' } = Astro.props;
+const { title, description, status = 'coming-soon', href } = Astro.props;
+const isAvailable = status === 'available' && Boolean(href);
 ---
 
 <div
@@ -14,7 +16,14 @@ const { title, description, status = 'coming-soon' } = Astro.props;
   <h3 class="font-display text-xl font-semibold text-ink">{title}</h3>
   <p class="mt-2 flex-1 text-base leading-relaxed text-ink-muted">{description}</p>
   {
-    status === 'coming-soon' ? (
+    isAvailable ? (
+      <a
+        href={href}
+        class="mt-6 inline-flex min-h-11 items-center justify-center rounded-xl bg-brand px-4 text-base font-medium text-white no-underline transition-colors hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        Open tool
+      </a>
+    ) : (
       <button
         type="button"
         disabled
@@ -22,10 +31,6 @@ const { title, description, status = 'coming-soon' } = Astro.props;
       >
         Coming Soon
       </button>
-    ) : (
-      <span class="mt-6 inline-flex min-h-11 items-center justify-center rounded-xl bg-brand px-4 text-base font-medium text-white">
-        Open tool
-      </span>
     )
   }
 </div>

@@ -208,7 +208,7 @@ const secondaryGuides = homepageGuidePlaceholders.filter((g) => !g.featured);
       <div class="mx-auto max-w-2xl text-center">
         <h2 id="tools-heading" class="section-heading">TubWise tools</h2>
         <p class="section-lede">
-          Simple calculators and lookups to take the guesswork out of ownership.
+          Start with the volume calculator, plus more ownership tools on the way.
         </p>
       </div>
       <div class="mt-12 grid gap-5 sm:grid-cols-2">
@@ -218,6 +218,7 @@ const secondaryGuides = homepageGuidePlaceholders.filter((g) => !g.featured);
               title={tool.title}
               description={tool.description}
               status={tool.status}
+              href={tool.href}
             />
           ))
         }

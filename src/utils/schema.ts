@@ -103,3 +103,30 @@ export function websiteSchema() {
     },
   };
 }
+
+export function webApplicationSchema(options: {
+  name: string;
+  description: string;
+  path: string;
+  applicationCategory?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: options.name,
+    description: options.description,
+    url: absoluteUrl(options.path),
+    applicationCategory: options.applicationCategory ?? 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'USD',
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  };
+}

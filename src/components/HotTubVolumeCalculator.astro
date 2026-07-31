@@ -1,0 +1,346 @@
+---
+/**
+ * Client-side hot tub volume estimator.
+ * No storage, cookies, analytics, or network submission of measurements.
+ */
+---
+
+<div
+  class="not-prose rounded-2xl border border-border bg-surface-raised p-5 shadow-[0_1px_2px_rgba(26,43,60,0.04)] sm:p-7"
+  data-volume-calculator
+>
+  <form data-volume-form class="space-y-6" novalidate>
+    <fieldset>
+      <legend class="font-display text-lg font-semibold text-ink">Spa shape</legend>
+      <div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2" role="radiogroup" aria-label="Spa shape">
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input
+            type="radio"
+            name="shape"
+            value="rectangular"
+            checked
+            class="h-4 w-4 accent-brand"
+            data-shape-input
+          />
+          <span class="text-base font-medium text-ink">Rectangular / Square</span>
+        </label>
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input type="radio" name="shape" value="round" class="h-4 w-4 accent-brand" data-shape-input />
+          <span class="text-base font-medium text-ink">Round</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <div>
+      <label for="volume-unit" class="block text-sm font-medium text-ink">Measurement units</label>
+      <select
+        id="volume-unit"
+        name="unit"
+        data-unit-input
+        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        <option value="ft" selected>Feet</option>
+        <option value="in">Inches</option>
+        <option value="cm">Centimeters</option>
+        <option value="m">Meters</option>
+      </select>
+      <p class="mt-2 text-sm text-ink-subtle">One unit applies to every measurement below.</p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2" data-rectangular-fields>
+      <div>
+        <label for="volume-length" class="block text-sm font-medium text-ink">Length</label>
+        <input
+          id="volume-length"
+          name="length"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="e.g. 7"
+          aria-describedby="volume-length-hint volume-length-error"
+          data-field="length"
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        />
+        <p id="volume-length-hint" class="mt-1.5 text-sm text-ink-subtle">Interior water length</p>
+        <p id="volume-length-error" class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]" data-error-for="length" role="alert"></p>
+      </div>
+      <div>
+        <label for="volume-width" class="block text-sm font-medium text-ink">Width</label>
+        <input
+          id="volume-width"
+          name="width"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="e.g. 7"
+          aria-describedby="volume-width-hint volume-width-error"
+          data-field="width"
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        />
+        <p id="volume-width-hint" class="mt-1.5 text-sm text-ink-subtle">Interior water width</p>
+        <p id="volume-width-error" class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]" data-error-for="width" role="alert"></p>
+      </div>
+    </div>
+
+    <div class="hidden" data-round-fields>
+      <label for="volume-diameter" class="block text-sm font-medium text-ink">Diameter</label>
+      <input
+        id="volume-diameter"
+        name="diameter"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        placeholder="e.g. 7"
+        aria-describedby="volume-diameter-hint volume-diameter-error"
+        data-field="diameter"
+        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      />
+      <p id="volume-diameter-hint" class="mt-1.5 text-sm text-ink-subtle">
+        Interior diameter across the water surface
+      </p>
+      <p id="volume-diameter-error" class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]" data-error-for="diameter" role="alert"></p>
+    </div>
+
+    <div>
+      <label for="volume-depth" class="block text-sm font-medium text-ink">Average water depth</label>
+      <input
+        id="volume-depth"
+        name="depth"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        placeholder="e.g. 2.5"
+        aria-describedby="volume-depth-hint volume-depth-error"
+        data-field="depth"
+        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      />
+      <p id="volume-depth-hint" class="mt-1.5 text-sm text-ink-subtle">
+        Approximate vertical depth of the filled water, not the full exterior cabinet height
+      </p>
+      <p id="volume-depth-error" class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]" data-error-for="depth" role="alert"></p>
+    </div>
+
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <button
+        type="submit"
+        class="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 text-base font-medium text-white transition-colors hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        Calculate volume
+      </button>
+      <button
+        type="button"
+        data-reset
+        class="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-surface px-5 text-base font-medium text-ink transition-colors hover:border-brand/40 hover:bg-brand-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+
+  <div
+    class="mt-6 hidden rounded-2xl border border-brand/25 bg-brand-soft p-5 sm:p-6"
+    data-result
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+</div>
+
+<script>
+  import {
+    calculateVolume,
+    formatWholeNumber,
+    SHAPE_LABELS,
+    UNIT_LABELS,
+    type FieldKey,
+    type VolumeResult,
+    type VolumeShape,
+    type VolumeUnit,
+  } from '../utils/hot-tub-volume';
+
+  function initCalculator(root: HTMLElement) {
+    const form = root.querySelector<HTMLFormElement>('[data-volume-form]');
+    const resultEl = root.querySelector<HTMLElement>('[data-result]');
+    const resetBtn = root.querySelector<HTMLButtonElement>('[data-reset]');
+    const rectangularFields = root.querySelector<HTMLElement>('[data-rectangular-fields]');
+    const roundFields = root.querySelector<HTMLElement>('[data-round-fields]');
+    const shapeInputs = root.querySelectorAll<HTMLInputElement>('[data-shape-input]');
+    const unitInput = root.querySelector<HTMLSelectElement>('[data-unit-input]');
+
+    if (!form || !resultEl || !resetBtn || !rectangularFields || !roundFields || !unitInput) return;
+
+    const fieldOrder: FieldKey[] = ['length', 'width', 'diameter', 'depth'];
+
+    function currentShape(): VolumeShape {
+      const checked = form!.querySelector<HTMLInputElement>('input[name="shape"]:checked');
+      return checked?.value === 'round' ? 'round' : 'rectangular';
+    }
+
+    function syncShapeFields() {
+      const shape = currentShape();
+      const isRect = shape === 'rectangular';
+      rectangularFields!.hidden = !isRect;
+      rectangularFields!.classList.toggle('hidden', !isRect);
+      roundFields!.hidden = isRect;
+      roundFields!.classList.toggle('hidden', isRect);
+
+      for (const input of rectangularFields!.querySelectorAll('input')) {
+        input.disabled = !isRect;
+      }
+      for (const input of roundFields!.querySelectorAll('input')) {
+        input.disabled = isRect;
+      }
+    }
+
+    function clearErrors() {
+      for (const field of fieldOrder) {
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${field}"]`);
+        const error = form!.querySelector<HTMLElement>(`[data-error-for="${field}"]`);
+        if (input) {
+          input.removeAttribute('aria-invalid');
+          input.classList.remove('border-[#c45c4a]');
+        }
+        if (error) {
+          error.textContent = '';
+          error.classList.add('hidden');
+        }
+      }
+    }
+
+    function showErrors(errors: { field: FieldKey; message: string }[]) {
+      clearErrors();
+      for (const error of errors) {
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${error.field}"]`);
+        const errorEl = form!.querySelector<HTMLElement>(`[data-error-for="${error.field}"]`);
+        if (input) {
+          input.setAttribute('aria-invalid', 'true');
+          input.classList.add('border-[#c45c4a]');
+        }
+        if (errorEl) {
+          errorEl.textContent = error.message;
+          errorEl.classList.remove('hidden');
+        }
+      }
+
+      const first = errors[0];
+      if (!first) return;
+      const firstInput = form!.querySelector<HTMLInputElement>(`[data-field="${first.field}"]`);
+      firstInput?.focus();
+    }
+
+    function clearResult() {
+      resultEl!.hidden = true;
+      resultEl!.classList.add('hidden');
+      resultEl!.innerHTML = '';
+    }
+
+    function renderResult(data: VolumeResult) {
+      const unitLabel = UNIT_LABELS[data.unit];
+      const shapeLabel = SHAPE_LABELS[data.shape];
+
+      let measurementLines = '';
+      if (data.shape === 'rectangular') {
+        measurementLines = `
+          <li>Length: ${escapeHtml(data.measurements.raw.length)} ${escapeHtml(unitLabel.toLowerCase())}</li>
+          <li>Width: ${escapeHtml(data.measurements.raw.width)} ${escapeHtml(unitLabel.toLowerCase())}</li>
+          <li>Average water depth: ${escapeHtml(data.measurements.raw.depth)} ${escapeHtml(unitLabel.toLowerCase())}</li>
+        `;
+      } else {
+        measurementLines = `
+          <li>Diameter: ${escapeHtml(data.measurements.raw.diameter)} ${escapeHtml(unitLabel.toLowerCase())}</li>
+          <li>Average water depth: ${escapeHtml(data.measurements.raw.depth)} ${escapeHtml(unitLabel.toLowerCase())}</li>
+        `;
+      }
+
+      resultEl!.innerHTML = `
+        <h2 class="font-display text-xl font-semibold text-ink">Estimated capacity</h2>
+        <p class="mt-4 text-2xl font-semibold text-ink sm:text-3xl">
+          Approximately ${formatWholeNumber(data.displayGallons)} gallons
+        </p>
+        <p class="mt-1 text-xl font-semibold text-ink sm:text-2xl">
+          Approximately ${formatWholeNumber(data.displayLiters)} liters
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-muted">
+          This estimate uses the dimensions you entered. Molded seats, footwells, rounded
+          corners, and equipment space can make the actual water capacity lower.
+        </p>
+        <div class="mt-5 rounded-xl border border-warning-border bg-warning-bg p-4 text-sm leading-relaxed text-warning-ink" role="note">
+          <strong class="font-semibold">Accuracy notice:</strong>
+          This calculator provides an estimate. Confirm your spa’s listed capacity in the
+          owner’s manual or manufacturer specifications before adding chemicals. Follow the
+          product label, confirmed water volume, and current water-test results.
+        </div>
+        <dl class="mt-5 space-y-2 text-sm text-ink-muted">
+          <div><dt class="inline font-medium text-ink">Shape:</dt> <dd class="inline">${escapeHtml(shapeLabel)}</dd></div>
+          <div>
+            <dt class="font-medium text-ink">Measurements entered</dt>
+            <dd><ul class="mt-1 list-disc space-y-1 pl-5">${measurementLines}</ul></dd>
+          </div>
+          <div>
+            <dt class="inline font-medium text-ink">Formula used:</dt>
+            <dd class="inline">${escapeHtml(data.formula)}</dd>
+          </div>
+        </dl>
+      `;
+      resultEl!.hidden = false;
+      resultEl!.classList.remove('hidden');
+    }
+
+    function escapeHtml(value: string): string {
+      return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    shapeInputs.forEach((input) => {
+      input.addEventListener('change', () => {
+        clearErrors();
+        clearResult();
+        syncShapeFields();
+      });
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const shape = currentShape();
+      const unit = unitInput.value as VolumeUnit;
+      const outcome = calculateVolume({
+        shape,
+        unit,
+        length: (form.querySelector<HTMLInputElement>('[data-field="length"]')?.value ?? ''),
+        width: (form.querySelector<HTMLInputElement>('[data-field="width"]')?.value ?? ''),
+        diameter: (form.querySelector<HTMLInputElement>('[data-field="diameter"]')?.value ?? ''),
+        depth: (form.querySelector<HTMLInputElement>('[data-field="depth"]')?.value ?? ''),
+      });
+
+      if (!outcome.ok) {
+        clearResult();
+        showErrors(outcome.errors);
+        return;
+      }
+
+      clearErrors();
+      renderResult(outcome.result);
+    });
+
+    resetBtn.addEventListener('click', () => {
+      form.reset();
+      const rectangular = form.querySelector<HTMLInputElement>('input[name="shape"][value="rectangular"]');
+      if (rectangular) rectangular.checked = true;
+      unitInput.value = 'ft';
+      clearErrors();
+      clearResult();
+      syncShapeFields();
+      rectangular?.focus();
+    });
+
+    syncShapeFields();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-volume-calculator]').forEach(initCalculator);
+</script>
