@@ -36,7 +36,7 @@ export function isIndexableArticle(article: ArticleEntry): boolean {
   return !article.data.draft && !article.data.noindex && !hasPlaceholderContent(article);
 }
 
-export const NOINDEX_PATHS = new Set(['/404', '/calculators']);
+export const NOINDEX_PATHS = new Set(['/404', '/calculators', '/search']);
 
 export function isNoindexPath(pathname: string): boolean {
   const normalized = pathname.replace(/\/$/, '') || '/';

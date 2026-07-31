@@ -106,7 +106,12 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
     </div>
 
     <div id="mobile-search" class="hidden border-t border-white/10 py-4" hidden>
-      <SearchBar size="sm" placeholder="What problem are you having?" variant="on-dark" />
+      <SearchBar
+        size="sm"
+        placeholder="What problem are you having?"
+        variant="on-dark"
+        comingSoon={false}
+      />
     </div>
 
     <nav
@@ -151,8 +156,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
     const panel = document.getElementById(panelId);
     if (!button || !panel) return;
 
-    button.addEventListener('click', () => {
-      const open = panel.hasAttribute('hidden');
+    const setOpen = (open: boolean) => {
       if (open) {
         panel.removeAttribute('hidden');
         panel.classList.remove('hidden');
@@ -162,14 +166,32 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       }
       button.setAttribute('aria-expanded', String(open));
       onToggle?.(open);
+    };
+
+    button.addEventListener('click', () => {
+      setOpen(panel.hasAttribute('hidden'));
     });
+
+    return { button, panel, setOpen };
   }
 
-  setupToggle('[data-search-toggle]', 'mobile-search');
+  const searchToggle = setupToggle('[data-search-toggle]', 'mobile-search', (open) => {
+    if (!open) return;
+    const input = document.querySelector<HTMLInputElement>('#mobile-search input[type="search"]');
+    window.setTimeout(() => input?.focus(), 0);
+  });
+
   setupToggle('[data-nav-toggle]', 'mobile-nav', (open) => {
     const openIcon = document.querySelector('[data-nav-icon-open]');
     const closeIcon = document.querySelector('[data-nav-icon-close]');
     openIcon?.classList.toggle('hidden', open);
     closeIcon?.classList.toggle('hidden', !open);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !searchToggle) return;
+    if (searchToggle.panel.hasAttribute('hidden')) return;
+    searchToggle.setOpen(false);
+    searchToggle.button.focus();
   });
 </script>

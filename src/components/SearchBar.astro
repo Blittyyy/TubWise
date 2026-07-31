@@ -1,4 +1,6 @@
 ---
+import { SEARCH_SUGGESTIONS } from '../utils/search-rank';
+
 interface Props {
   placeholder?: string;
   size?: 'sm' | 'lg' | 'hero';
@@ -7,6 +9,8 @@ interface Props {
   comingSoon?: boolean;
   variant?: 'default' | 'on-dark';
   showTopics?: boolean;
+  /** Marks the input so the search results page can prefill it. */
+  pageInput?: boolean;
 }
 
 const {
@@ -14,127 +18,507 @@ const {
   size = 'sm',
   autofocus = false,
   class: className = '',
-  comingSoon = true,
+  comingSoon = false,
   variant = 'default',
   showTopics = false,
+  pageInput = false,
 } = Astro.props;
 
 const inputId = `search-${Math.random().toString(36).slice(2, 9)}`;
+const listboxId = `${inputId}-suggestions`;
 const isHero = size === 'hero';
-const topics = ['cloudy water', 'not heating', 'FLO error', 'leaking pump'];
+const topics = [...SEARCH_SUGGESTIONS];
 ---
 
-<div class:list={['w-full', className]} role="search" aria-label="Search TubWise">
-  <label for={inputId} class="sr-only">Search TubWise</label>
-  <div
-    class:list={[
-      'flex items-center overflow-hidden',
-      isHero
-        ? 'min-h-14 rounded-lg border border-[#d8d5cf] bg-white sm:min-h-[3.75rem]'
-        : variant === 'on-dark'
-          ? 'min-h-11 rounded-xl border border-white/15 bg-white/10'
-          : 'min-h-11 rounded-xl border border-border bg-surface-raised',
-      size === 'lg' && !isHero ? 'min-h-14' : '',
-      comingSoon ? 'cursor-not-allowed' : '',
-    ]}
-  >
-    <span
-      class:list={[
-        'flex items-center',
-        isHero ? 'pl-4 text-[#3d7a86] sm:pl-5' : variant === 'on-dark' ? 'pl-3 text-white/70' : 'pl-3 text-ink-subtle',
-      ]}
-      aria-hidden="true"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.75"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class={isHero ? 'h-5 w-5 sm:h-6 sm:w-6' : 'h-4 w-4'}
-      >
-        <circle cx="11" cy="11" r="8"></circle>
-        <path d="m21 21-4.3-4.3"></path>
-      </svg>
-    </span>
-
-    {
-      comingSoon ? (
-        <input
-          id={inputId}
-          type="search"
-          placeholder={placeholder}
-          disabled
-          aria-disabled="true"
-          aria-describedby={`${inputId}-status`}
+<div
+  class:list={['relative w-full', className]}
+  role="search"
+  aria-label="Search TubWise"
+  data-autocomplete-root={comingSoon ? undefined : ''}
+  data-autocomplete-variant={variant}
+>
+  {
+    comingSoon ? (
+      <>
+        <label for={inputId} class="sr-only">
+          Search TubWise
+        </label>
+        <div
           class:list={[
-            'w-full cursor-not-allowed border-0 bg-transparent focus:outline-none',
+            'flex items-center overflow-hidden',
             isHero
-              ? 'px-3 py-3.5 text-base text-ink-muted placeholder:text-ink-subtle sm:px-4 sm:text-lg'
+              ? 'min-h-14 rounded-lg border border-[#d8d5cf] bg-white sm:min-h-[3.75rem]'
               : variant === 'on-dark'
-                ? 'px-3 text-sm text-white/70 placeholder:text-white/45'
-                : 'px-3 text-sm text-ink-muted placeholder:text-ink-subtle sm:text-base',
+                ? 'min-h-11 rounded-xl border border-white/15 bg-white/10'
+                : 'min-h-11 rounded-xl border border-border bg-surface-raised',
+            size === 'lg' && !isHero ? 'min-h-14' : '',
+            'cursor-not-allowed',
           ]}
-        />
-      ) : (
-        <form action="/search" method="get" class="flex w-full items-stretch">
+        >
+          <span
+            class:list={[
+              'flex items-center',
+              isHero
+                ? 'pl-4 text-[#3d7a86] sm:pl-5'
+                : variant === 'on-dark'
+                  ? 'pl-3 text-white/70'
+                  : 'pl-3 text-ink-subtle',
+            ]}
+            aria-hidden="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class={isHero ? 'h-5 w-5 sm:h-6 sm:w-6' : 'h-4 w-4'}
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
+          </span>
           <input
             id={inputId}
             type="search"
-            name="q"
             placeholder={placeholder}
-            autofocus={autofocus}
+            disabled
+            aria-disabled="true"
+            aria-describedby={`${inputId}-status`}
             class:list={[
-              'w-full border-0 bg-transparent text-ink placeholder:text-ink-subtle focus:outline-none',
-              isHero ? 'px-4 text-lg sm:text-xl' : 'px-3 text-sm sm:text-base',
+              'w-full cursor-not-allowed border-0 bg-transparent focus:outline-none',
+              isHero
+                ? 'px-3 py-3.5 text-base text-ink-muted placeholder:text-ink-subtle sm:px-4 sm:text-lg'
+                : variant === 'on-dark'
+                  ? 'px-3 text-sm text-white/70 placeholder:text-white/45'
+                  : 'px-3 text-sm text-ink-muted placeholder:text-ink-subtle sm:text-base',
             ]}
           />
-          <button
-            type="submit"
-            class="shrink-0 bg-brand px-4 font-medium text-white transition-colors hover:bg-brand-dark"
+        </div>
+        <p
+          id={`${inputId}-status`}
+          class:list={[
+            'mt-2.5 text-sm',
+            variant === 'on-dark' ? 'text-center text-white/80' : 'text-ink-subtle',
+          ]}
+        >
+          Search coming soon
+        </p>
+      </>
+    ) : (
+      <>
+        <div class="relative">
+          <form
+            action="/search"
+            method="get"
+            data-autocomplete-form
+            class:list={[
+              'flex items-center overflow-hidden',
+              isHero
+                ? 'min-h-14 rounded-lg border border-[#d8d5cf] bg-white sm:min-h-[3.75rem]'
+                : variant === 'on-dark'
+                  ? 'min-h-11 rounded-xl border border-white/15 bg-white/10'
+                  : 'min-h-11 rounded-xl border border-border bg-surface-raised',
+              size === 'lg' && !isHero ? 'min-h-14' : '',
+            ]}
           >
-            Search
-          </button>
-        </form>
-      )
-    }
-  </div>
+            <label for={inputId} class="sr-only">
+              Search TubWise
+            </label>
+            <button
+              type="submit"
+              class:list={[
+                'flex shrink-0 items-center self-stretch transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px]',
+                isHero
+                  ? 'pl-4 text-[#3d7a86] hover:text-[#2f606a] focus-visible:outline-[#3d7a86] sm:pl-5'
+                  : variant === 'on-dark'
+                    ? 'pl-3 text-white/70 hover:text-white focus-visible:outline-white/70'
+                    : 'pl-3 text-ink-subtle hover:text-brand focus-visible:outline-brand',
+              ]}
+              aria-label="Search"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class={isHero ? 'h-5 w-5 sm:h-6 sm:w-6' : 'h-4 w-4'}
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+            </button>
+            <input
+              id={inputId}
+              type="search"
+              name="q"
+              placeholder={placeholder}
+              autofocus={autofocus ? true : undefined}
+              autocomplete="off"
+              aria-autocomplete="list"
+              aria-controls={listboxId}
+              aria-expanded="false"
+              role="combobox"
+              data-autocomplete-input
+              data-search-page-input={pageInput ? '' : undefined}
+              class:list={[
+                'w-full border-0 bg-transparent focus:outline-none focus-visible:ring-0',
+                isHero
+                  ? 'px-3 py-3.5 text-base text-ink placeholder:text-ink-subtle sm:px-4 sm:text-lg'
+                  : variant === 'on-dark'
+                    ? 'px-3 text-sm text-white placeholder:text-white/45'
+                    : 'px-3 text-sm text-ink placeholder:text-ink-subtle sm:text-base',
+                size === 'lg' && !isHero ? 'text-base sm:text-lg' : '',
+              ]}
+            />
+          </form>
 
-  {
-    comingSoon && (
-      <p
-        id={`${inputId}-status`}
-        class:list={[
-          'mt-2.5 text-sm',
-          variant === 'on-dark' ? 'text-center text-white/80' : 'text-ink-subtle',
-        ]}
-      >
-        Search coming soon
-      </p>
-    )
-  }
+          <ul
+            id={listboxId}
+            role="listbox"
+            hidden
+            data-autocomplete-list
+            class="absolute inset-x-0 top-full z-50 mt-1.5 overflow-hidden rounded-xl border border-border bg-surface-raised py-1 shadow-[0_12px_32px_rgba(26,43,60,0.12)]"
+          ></ul>
+        </div>
 
-  {
-    showTopics && (
-      <p
-        class:list={[
-          'mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm',
-          variant === 'on-dark' ? 'justify-center text-white/75' : 'text-ink-muted',
-        ]}
-      >
-        {topics.map((topic, index) => (
-          <>
-            {index > 0 && (
-              <span aria-hidden="true" class={variant === 'on-dark' ? 'text-white/40' : 'text-ink-subtle'}>
-                ·
-              </span>
-            )}
-            <span>{topic}</span>
-          </>
-        ))}
-      </p>
+        <div class="sr-only" aria-live="polite" data-autocomplete-status></div>
+
+        {showTopics && (
+          <p
+            class:list={[
+              'mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm',
+              variant === 'on-dark' ? 'justify-center text-white/75' : 'text-ink-muted',
+            ]}
+          >
+            {topics.map((topic, index) => (
+              <>
+                {index > 0 && (
+                  <span
+                    aria-hidden="true"
+                    class={variant === 'on-dark' ? 'text-white/40' : 'text-ink-subtle'}
+                  >
+                    ·
+                  </span>
+                )}
+                <a
+                  href={`/search?q=${encodeURIComponent(topic)}`}
+                  class:list={[
+                    'rounded-sm no-underline underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+                    variant === 'on-dark'
+                      ? 'text-white/85 hover:text-white focus-visible:outline-white/70'
+                      : 'text-ink-muted hover:text-brand focus-visible:outline-brand',
+                  ]}
+                >
+                  {topic}
+                </a>
+              </>
+            ))}
+          </p>
+        )}
+      </>
     )
   }
 </div>
+
+{
+  !comingSoon && (
+    <script>
+      import type { SearchDocument, SearchResult } from '../utils/search-rank';
+      import { suggestArticles } from '../utils/search-rank';
+
+      type SuggestionItem =
+        | { kind: 'article'; result: SearchResult }
+        | { kind: 'search'; query: string };
+
+      let indexPromise: Promise<SearchDocument[]> | null = null;
+
+      function loadIndex(): Promise<SearchDocument[]> {
+        if (!indexPromise) {
+          indexPromise = fetch('/search-index.json')
+            .then((response) => {
+              if (!response.ok) throw new Error('Failed to load search index');
+              return response.json() as Promise<SearchDocument[]>;
+            })
+            .catch(() => {
+              indexPromise = null;
+              return [] as SearchDocument[];
+            });
+        }
+        return indexPromise;
+      }
+
+      function escapeHtml(value: string): string {
+        return value
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#39;');
+      }
+
+      function highlightMatch(text: string, query: string): string {
+        const needle = query.trim();
+        if (needle.length < 2) return escapeHtml(text);
+
+        const lowerText = text.toLowerCase();
+        const lowerNeedle = needle.toLowerCase();
+        let result = '';
+        let cursor = 0;
+
+        while (cursor < text.length) {
+          const index = lowerText.indexOf(lowerNeedle, cursor);
+          if (index === -1) {
+            result += escapeHtml(text.slice(cursor));
+            break;
+          }
+          result += escapeHtml(text.slice(cursor, index));
+          result += `<strong class="font-bold text-brand-dark">${escapeHtml(text.slice(index, index + needle.length))}</strong>`;
+          cursor = index + needle.length;
+        }
+
+        return result;
+      }
+
+      function initAutocomplete(root: HTMLElement) {
+        if (root.dataset.autocompleteReady === 'true') return;
+        root.dataset.autocompleteReady = 'true';
+
+        const form = root.querySelector<HTMLFormElement>('[data-autocomplete-form]');
+        const input = root.querySelector<HTMLInputElement>('[data-autocomplete-input]');
+        const list = root.querySelector<HTMLUListElement>('[data-autocomplete-list]');
+        const status = root.querySelector<HTMLElement>('[data-autocomplete-status]');
+        if (!form || !input || !list || !status) return;
+
+        let items: SuggestionItem[] = [];
+        let activeIndex = -1;
+        let open = false;
+        let debounceTimer = 0;
+        let requestId = 0;
+
+        const setOpen = (next: boolean) => {
+          open = next;
+          input.setAttribute('aria-expanded', String(next));
+          if (next) {
+            list.hidden = false;
+            list.classList.remove('hidden');
+          } else {
+            list.hidden = true;
+            list.classList.add('hidden');
+            activeIndex = -1;
+            input.removeAttribute('aria-activedescendant');
+          }
+        };
+
+        const close = () => {
+          setOpen(false);
+          list.innerHTML = '';
+          items = [];
+          status.textContent = '';
+        };
+
+        const optionId = (index: number) => `${list.id}-option-${index}`;
+
+        const render = (query: string, matches: SearchResult[]) => {
+          items = [
+            ...matches.map((result) => ({ kind: 'article' as const, result })),
+            { kind: 'search' as const, query },
+          ];
+          activeIndex = -1;
+
+          list.innerHTML = items
+            .map((item, index) => {
+              if (item.kind === 'article') {
+                const blurb = item.result.summary || item.result.description;
+                return `
+                  <li
+                    id="${optionId(index)}"
+                    role="option"
+                    aria-selected="false"
+                    data-autocomplete-index="${index}"
+                    class="cursor-pointer px-3 py-1.5 text-left transition-colors hover:bg-sand"
+                  >
+                    <a
+                      href="${escapeHtml(item.result.href)}"
+                      class="block no-underline outline-none"
+                      data-autocomplete-link
+                      tabindex="-1"
+                    >
+                      <span class="block text-[0.6875rem] font-medium uppercase tracking-wide text-ink-subtle">
+                        ${escapeHtml(item.result.categoryLabel)}
+                      </span>
+                      <span class="mt-0.5 block truncate text-[0.9375rem] font-semibold leading-snug text-ink sm:text-base">
+                        ${highlightMatch(item.result.title, query)}
+                      </span>
+                      <span class="mt-0.5 hidden truncate text-xs leading-snug text-ink-muted sm:block">
+                        ${escapeHtml(blurb)}
+                      </span>
+                    </a>
+                  </li>
+                `;
+              }
+
+              return `
+                <li
+                  id="${optionId(index)}"
+                  role="option"
+                  aria-selected="false"
+                  data-autocomplete-index="${index}"
+                  class="cursor-pointer border-t border-border px-3 py-1.5 text-left transition-colors hover:bg-sand"
+                >
+                  <button
+                    type="button"
+                    class="flex w-full items-center gap-2 text-left text-sm font-medium text-brand outline-none"
+                    data-autocomplete-search
+                    tabindex="-1"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0" aria-hidden="true">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                    <span class="truncate">Search for “${escapeHtml(item.query)}”</span>
+                  </button>
+                </li>
+              `;
+            })
+            .join('');
+
+          setOpen(true);
+          status.textContent =
+            matches.length === 0
+              ? `No article suggestions. Press Enter to search for “${query}”.`
+              : `${matches.length} article suggestion${matches.length === 1 ? '' : 's'} available.`;
+        };
+
+        const setActive = (index: number) => {
+          activeIndex = index;
+          const options = list.querySelectorAll<HTMLElement>('[data-autocomplete-index]');
+          options.forEach((option, i) => {
+            const selected = i === index;
+            option.setAttribute('aria-selected', String(selected));
+            option.classList.toggle('bg-brand-soft', selected);
+          });
+          if (index >= 0) {
+            input.setAttribute('aria-activedescendant', optionId(index));
+            options[index]?.scrollIntoView({ block: 'nearest' });
+          } else {
+            input.removeAttribute('aria-activedescendant');
+          }
+        };
+
+        const chooseActive = () => {
+          if (activeIndex < 0 || activeIndex >= items.length) return false;
+          const item = items[activeIndex];
+          if (item.kind === 'article') {
+            close();
+            window.location.assign(item.result.href);
+            return true;
+          }
+          close();
+          input.value = item.query;
+          form.requestSubmit();
+          return true;
+        };
+
+        const updateSuggestions = async () => {
+          const query = input.value.trim();
+          if (query.length < 2) {
+            close();
+            return;
+          }
+
+          const currentRequest = ++requestId;
+          const index = await loadIndex();
+          if (currentRequest !== requestId) return;
+
+          const matches = suggestArticles(index, query, 4);
+          if (input.value.trim() !== query) return;
+          render(query, matches);
+        };
+
+        input.addEventListener('input', () => {
+          window.clearTimeout(debounceTimer);
+          debounceTimer = window.setTimeout(() => {
+            void updateSuggestions();
+          }, 120);
+        });
+
+        input.addEventListener('keydown', (event) => {
+          if (!open && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+            if (input.value.trim().length >= 2) {
+              event.preventDefault();
+              void updateSuggestions().then(() => {
+                if (items.length > 0) setActive(event.key === 'ArrowUp' ? items.length - 1 : 0);
+              });
+            }
+            return;
+          }
+
+          if (!open) {
+            if (event.key === 'Escape') return;
+            return;
+          }
+
+          if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            setActive(activeIndex < items.length - 1 ? activeIndex + 1 : 0);
+            return;
+          }
+
+          if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            setActive(activeIndex <= 0 ? items.length - 1 : activeIndex - 1);
+            return;
+          }
+
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            event.stopPropagation();
+            close();
+            return;
+          }
+
+          if (event.key === 'Enter' && activeIndex >= 0) {
+            event.preventDefault();
+            chooseActive();
+          }
+        });
+
+        form.addEventListener('submit', (event) => {
+          if (open && activeIndex >= 0) {
+            event.preventDefault();
+            chooseActive();
+          }
+        });
+
+        list.addEventListener('mousedown', (event) => {
+          const target = event.target as HTMLElement;
+          const option = target.closest<HTMLElement>('[data-autocomplete-index]');
+          if (!option) return;
+          event.preventDefault();
+          const index = Number(option.dataset.autocompleteIndex);
+          setActive(index);
+          chooseActive();
+        });
+
+        input.addEventListener('blur', () => {
+          window.setTimeout(() => {
+            if (!root.contains(document.activeElement)) close();
+          }, 120);
+        });
+
+        document.addEventListener('pointerdown', (event) => {
+          if (!root.contains(event.target as Node)) close();
+        });
+      }
+
+      document.querySelectorAll<HTMLElement>('[data-autocomplete-root]').forEach(initAutocomplete);
+    </script>
+  )
+}

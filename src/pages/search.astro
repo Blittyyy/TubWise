@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SearchBar from '../components/SearchBar.astro';
+import { categorySuggestions, SEARCH_SUGGESTIONS } from '../utils/search';
+import { breadcrumbSchema } from '../utils/schema';
+
+const title = 'Search';
+const description =
+  'Search TubWise guides for hot tub troubleshooting, water care, filters, and maintenance.';
+const path = '/search';
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Search' },
+];
+const categories = categorySuggestions();
+const suggestionLinks = SEARCH_SUGGESTIONS;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  noindex={true}
+  robotsFollow={true}
+  schema={[breadcrumbSchema(breadcrumbs)]}
+>
+  <div class="container-site section-space">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="mb-8 max-w-3xl">
+      <h1 class="text-3xl font-semibold sm:text-4xl">Search</h1>
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">
+        Find published TubWise guides for heating, water care, filters, and maintenance.
+      </p>
+    </header>
+
+    <div class="max-w-3xl">
+      <SearchBar
+        size="lg"
+        placeholder="What problem are you having?"
+        showTopics={true}
+        comingSoon={false}
+        autofocus={true}
+        pageInput={true}
+      />
+    </div>
+
+    <section class="mt-10 max-w-3xl" aria-labelledby="search-results-heading">
+      <h2 id="search-results-heading" class="sr-only">Search results</h2>
+      <p
+        id="search-status"
+        class="text-base text-ink-muted"
+        aria-live="polite"
+        data-search-status
+      >
+        Enter a search term to find guides.
+      </p>
+
+      <div id="search-results" class="mt-6 space-y-4" data-search-results></div>
+
+      <div id="search-empty" class="mt-8 hidden" hidden data-search-empty>
+        <p class="text-lg text-ink">No published guides matched your search.</p>
+        <p class="mt-2 text-ink-muted">Try a different phrase, or browse a category:</p>
+        <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+          {
+            categories.map((category) => (
+              <li>
+                <a
+                  href={category.href}
+                  class="block rounded-xl border border-border bg-surface-raised p-4 no-underline transition-colors hover:border-brand/40"
+                >
+                  <span class="font-display text-lg font-semibold text-ink">{category.label}</span>
+                  <span class="mt-1 block text-sm leading-relaxed text-ink-muted">
+                    {category.description}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-6 text-sm text-ink-muted">
+          Popular searches:
+          {
+            suggestionLinks.map((term, index) => (
+              <>
+                {index > 0 && <span aria-hidden="true"> · </span>}
+                <a
+                  href={`/search?q=${encodeURIComponent(term)}`}
+                  class="text-brand hover:text-brand-dark"
+                >
+                  {term}
+                </a>
+              </>
+            ))
+          }
+        </p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  import type { SearchDocument, SearchResult } from '../utils/search-rank';
+  import { searchArticles } from '../utils/search-rank';
+
+  function escapeHtml(value: string): string {
+    return value
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+  }
+
+  function renderResult(result: SearchResult): string {
+    const blurb = result.summary || result.description;
+    return `
+      <article class="rounded-xl border border-border bg-surface-raised p-5 transition-colors hover:border-brand/40">
+        <div class="mb-2 text-xs font-medium uppercase tracking-wide text-ink-subtle">
+          ${escapeHtml(result.categoryLabel)}
+        </div>
+        <h3 class="font-display text-lg font-semibold text-ink">
+          <a href="${escapeHtml(result.href)}" class="no-underline hover:text-brand-dark">
+            ${escapeHtml(result.title)}
+          </a>
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed text-ink-muted">${escapeHtml(blurb)}</p>
+        <a
+          href="${escapeHtml(result.href)}"
+          class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand no-underline hover:text-brand-dark"
+        >
+          Read ${escapeHtml(result.title)}
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </article>
+    `;
+  }
+
+  async function runSearch() {
+    const params = new URLSearchParams(window.location.search);
+    const query = (params.get('q') ?? '').trim();
+    const status = document.querySelector<HTMLElement>('[data-search-status]');
+    const resultsEl = document.querySelector<HTMLElement>('[data-search-results]');
+    const emptyEl = document.querySelector<HTMLElement>('[data-search-empty]');
+    const input = document.querySelector<HTMLInputElement>('[data-search-page-input]');
+
+    if (input && query) {
+      input.value = query;
+    }
+
+    if (!status || !resultsEl || !emptyEl) return;
+
+    if (!query) {
+      status.textContent = 'Enter a search term to find guides.';
+      resultsEl.innerHTML = '';
+      emptyEl.hidden = true;
+      emptyEl.classList.add('hidden');
+      return;
+    }
+
+    status.textContent = `Searching for “${query}”…`;
+    resultsEl.innerHTML = '';
+    emptyEl.hidden = true;
+    emptyEl.classList.add('hidden');
+
+    try {
+      const response = await fetch('/search-index.json');
+      if (!response.ok) throw new Error('Failed to load search index');
+      const index = (await response.json()) as SearchDocument[];
+      const matches = searchArticles(index, query);
+
+      if (matches.length === 0) {
+        status.textContent = `No results for “${query}”.`;
+        emptyEl.hidden = false;
+        emptyEl.classList.remove('hidden');
+        return;
+      }
+
+      status.textContent =
+        matches.length === 1
+          ? `1 result for “${query}”.`
+          : `${matches.length} results for “${query}”.`;
+      resultsEl.innerHTML = matches.map(renderResult).join('');
+    } catch {
+      status.textContent = 'Search is temporarily unavailable. Please try again.';
+    }
+  }
+
+  void runSearch();
+</script>
