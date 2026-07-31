@@ -12,6 +12,8 @@ tags:
   - filter cleaning
   - hot tub maintenance
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/hot-tub-filter-cleaning-schedule.webp"
+featuredImageAlt: "Pleated hot tub filters arranged for routine maintenance"
 draft: false
 noindex: false
 featured: false

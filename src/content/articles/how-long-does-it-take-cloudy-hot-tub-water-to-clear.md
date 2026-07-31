@@ -12,6 +12,8 @@ tags:
   - water care
   - hot tub chemistry
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/cloudy-water-clearing-time.webp"
+featuredImageAlt: "Residential hot tub water becoming clearer during circulation"
 draft: false
 noindex: false
 featured: false

@@ -12,6 +12,8 @@ tags:
   - hot tub maintenance
   - water care
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/hot-tub-filter-dirty-fast.webp"
+featuredImageAlt: "Heavily soiled pleated hot tub filter beside a residential spa"
 draft: false
 noindex: false
 featured: false

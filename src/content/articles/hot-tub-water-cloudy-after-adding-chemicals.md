@@ -13,6 +13,8 @@ tags:
   - water balance
   - water care
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/cloudy-after-adding-chemicals.webp"
+featuredImageAlt: "Cloudy hot tub water with test strips and closed chemical containers nearby"
 draft: false
 noindex: false
 featured: false

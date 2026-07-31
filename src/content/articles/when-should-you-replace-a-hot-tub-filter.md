@@ -12,6 +12,8 @@ tags:
   - filter replacement
   - hot tub maintenance
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/replace-hot-tub-filter.webp"
+featuredImageAlt: "Worn hot tub filter beside a clean replacement filter"
 draft: false
 noindex: false
 featured: false

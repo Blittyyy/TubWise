@@ -12,6 +12,8 @@ tags:
   - hot tub heater
   - troubleshooting
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/hot-tub-has-power-but-no-heat.webp"
+featuredImageAlt: "Illuminated residential hot tub controls beside water that is not heating"
 draft: false
 noindex: false
 featured: false

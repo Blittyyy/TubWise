@@ -13,6 +13,8 @@ tags:
   - water care
   - total dissolved solids
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/drain-cloudy-hot-tub-water.webp"
+featuredImageAlt: "Cloudy residential hot tub being drained through a hose"
 draft: false
 noindex: false
 featured: false

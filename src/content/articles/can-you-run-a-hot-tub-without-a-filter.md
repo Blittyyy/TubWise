@@ -11,6 +11,8 @@ tags:
   - hot tub filter
   - hot tub maintenance
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/hot-tub-without-filter.webp"
+featuredImageAlt: "Open residential hot tub filter compartment with the cartridge removed"
 draft: false
 noindex: false
 featured: false

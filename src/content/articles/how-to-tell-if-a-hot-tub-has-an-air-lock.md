@@ -12,6 +12,8 @@ tags:
   - hot tub jets
   - troubleshooting
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/hot-tub-air-lock.webp"
+featuredImageAlt: "Residential hot tub showing uneven jet flow after a refill"
 draft: false
 noindex: false
 featured: false

@@ -12,6 +12,8 @@ tags:
   - hot tub not heating
   - troubleshooting
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/dirty-filter-stop-hot-tub-heating.webp"
+featuredImageAlt: "Dirty pleated hot tub filter beside an illuminated residential spa control panel"
 draft: false
 noindex: false
 featured: false

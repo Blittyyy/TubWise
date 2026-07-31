@@ -12,6 +12,8 @@ tags:
   - filter cleaning
   - hot tub maintenance
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/how-to-clean-hot-tub-filter.webp"
+featuredImageAlt: "Pleated hot tub filter being rinsed gently with a garden hose"
 draft: false
 noindex: false
 featured: false
