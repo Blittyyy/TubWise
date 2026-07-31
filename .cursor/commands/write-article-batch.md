@@ -82,7 +82,36 @@ report** (do not draft) any title that:
 For titles that pass, note any part of the requested topic that must be narrowed or
 left out because the sources don't support it.
 
-## Step 5 — Draft each remaining article
+## Step 5 — Review top-ranking pages for the exact query
+
+Before drafting each remaining article, review the current top-ranking pages for the
+exact search query that article targets.
+
+Use those pages only to identify:
+
+- Subtopics searchers expect
+- Common follow-up questions
+- Useful heading ideas
+- Content gaps TubWise can answer better
+
+Do not:
+
+- Copy wording, structure, claims, or repair instructions
+- Treat competitor claims as factual sources
+
+All factual and safety claims must still come from manufacturer manuals, manufacturer
+support pages, government sources, or other approved primary sources gathered in
+Step 3.
+
+Where competitors include unsafe, unsupported, repetitive, or overly broad advice, do
+not reproduce it. Provide a clearer and safer answer instead.
+
+Record a brief note per article of useful subtopics, follow-ups, heading ideas, and
+gaps identified. Do not cite competitor pages in frontmatter `sources` unless they are
+themselves an approved primary source (for example, a manufacturer support page that
+happens to rank).
+
+## Step 6 — Draft each remaining article
 
 Create one file per remaining title at `src/content/articles/<slug>.md`. Follow
 `docs/editorial-guidelines.md` in full. In particular:
@@ -146,8 +175,10 @@ Writing rules (from the editorial guidelines — do not violate these):
   brand-specific fact to "all hot tubs"
 - Avoid every phrase listed in the guidelines' "Phrases to avoid" section
 - Plain, calm, professional tone; short paragraphs; define jargon on first use
+- Use SERP review notes from Step 5 only for coverage and heading choices — never as
+  a substitute for primary-source support
 
-## Step 6 — Validate
+## Step 7 — Validate
 
 Run, in order, stopping to fix any errors before moving on:
 
@@ -160,7 +191,7 @@ Fix schema violations, TypeScript errors, or broken internal links yourself befo
 reporting completion. Do not weaken a factual claim to make the build pass — fix
 formatting/schema issues only.
 
-## Step 7 — Report
+## Step 8 — Report
 
 Do not change `draft`, `noindex`, or `featured` away from their required values
 (`true`, `true`, `false`). Do not link these new articles from any existing page,
@@ -173,4 +204,6 @@ Report back with:
 - Any claims that were narrowed, qualified, or left out because sources didn't
   support the original request
 - Any titles skipped in Step 4, with the specific reason
+- Brief SERP-review notes from Step 5 (subtopics / gaps used, without copying
+  competitor wording)
 - Confirmation that `npm run check` and `npm run build` both passed

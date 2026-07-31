@@ -12,6 +12,8 @@ tags:
   - air lock
   - refilling a hot tub
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/hot-tub-not-heating-after-refill.webp"
+featuredImageAlt: "Garden hose filling a residential hot tub after a refill"
 draft: false
 noindex: false
 featured: false
@@ -42,7 +44,7 @@ faq: []
 
 ## Direct answer
 
-A common reason a spa won't heat right after a refill is trapped air in the plumbing, known as an air lock, or water that hasn't reached the fill line yet. Hot Spring describes a homeowner-safe way to push that air out through the filter compartment — check your own manual for the exact steps for your model, since fill points and procedures vary. This is a plumbing condition rather than an electrical fault or a failed heater, and the manufacturer-documented fix does not require opening equipment panels.
+A common reason a spa won't heat right after a refill is trapped air in the plumbing, known as an air lock, or water that hasn't reached the fill line yet. Hot Spring describes a homeowner-safe way to push that air out through the filter compartment. Check your own manual for the exact steps for your model, since fill points and procedures vary. This is a plumbing condition rather than an electrical fault or a failed heater, and the manufacturer-documented fix does not require opening equipment panels.
 
 ## Safety note
 
@@ -52,7 +54,7 @@ Follow your manual's electrical reconnection steps after a refill, including any
 
 Hot Spring's troubleshooting guide lists "air lock was created after filling the spa" as one of three causes when a spa won't heat even though jets and lights still operate, alongside an open pressure switch and a tripped circulation-pump thermal cut-off (Hot Spring). Jacuzzi's guide similarly lists an air lock after refilling among the most common causes of pump problems generally (Jacuzzi).
 
-For the Hot Spot Collection specifically, Watkins Wellness's quick start guide warns directly: "Filling the spa through the basin can result in an airlock and difficulty starting the spa," and instructs owners to fill through the filter compartment instead, up to about one inch above the highest jet (Hot Spring Hot Spot Collection guide). On models where the manufacturer specifies filling through the filter compartment, filling by hose straight into the open tub instead is a plausible explanation — check your own manual for how your model should be filled.
+For the Hot Spot Collection specifically, Watkins Wellness's quick start guide warns directly: "Filling the spa through the basin can result in an airlock and difficulty starting the spa," and instructs owners to fill through the filter compartment instead, up to about one inch above the highest jet (Hot Spring Hot Spot Collection guide). On models where the manufacturer specifies filling through the filter compartment, filling by hose straight into the open tub instead is a plausible explanation. Check your own manual for how your model should be filled.
 
 This matters because the fix differs by cause: a power problem needs an electrical check, while an air lock generally only needs the trapped air purged from the plumbing using the method your manufacturer documents.
 
@@ -64,13 +66,13 @@ This matters because the fix differs by cause: a power problem needs an electric
 
 ## Safe checks the homeowner can do
 
-1. **Confirm the water level matches your manual's fill mark** — the Hot Spot Collection guide specifies about one inch above the highest jet, though this varies by model. Add water through the filter compartment if your manual recommends it, rather than dropping the hose into the open tub.
-2. **Check that the GFCI or breaker was reset properly after filling.** The Hot Spot Collection guide describes pushing a GFCI test button, waiting 30 seconds, then resetting — skipping that wait can leave the power indicator blinking (Hot Spring Hot Spot Collection guide). Follow your own manual's version of this sequence.
+1. **Confirm the water level matches your manual's fill mark.** The Hot Spot Collection guide specifies about one inch above the highest jet, though this varies by model. Add water through the filter compartment if your manual recommends it, rather than dropping the hose into the open tub.
+2. **Check that the GFCI or breaker was reset properly after filling.** The Hot Spot Collection guide describes pushing a GFCI test button, waiting 30 seconds, then resetting. Skipping that wait can leave the power indicator blinking (Hot Spring Hot Spot Collection guide). Follow your own manual's version of this sequence.
 3. **Run the jets to help clear trapped air.** The same Hot Spot guide has owners turn on all jet pumps, check both speeds, and if a jet surges, turn it off for five seconds and back on, cycling through all diverter valves in the process (Hot Spring Hot Spot Collection guide).
 4. **If your manual describes a filter-standpipe purge method, follow it.** Hot Spring's guidance for a spa that won't heat after filling is to run water down the main filter in the filter compartment until the air lock is pushed out (Hot Spring). Use your own manual's exact procedure, since fill points vary by model.
 5. **Recheck for heat after flow looks steady and non-surging** at all jets.
 
-For a general description of what an air lock feels and sounds like — useful if you're not sure that's what you're dealing with — see [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock).
+For a general description of what an air lock feels and sounds like (useful if you're not sure that's what you're dealing with), see [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock).
 
 ## When to stop and call a technician
 

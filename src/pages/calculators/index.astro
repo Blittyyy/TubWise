@@ -7,7 +7,7 @@ import { tools, hasAvailableTools } from '../../data/tools';
 <CategoryArchive category="calculators" showSafety={false} noindex={!hasAvailableTools()}>
   <p>
     These tools help you estimate spa volume, operating cost, and care cadence. They are
-    planning aids — not replacements for manufacturer specifications or a licensed
+    planning aids, not replacements for manufacturer specifications or a licensed
     electrician&apos;s advice.
   </p>
 
@@ -19,7 +19,6 @@ import { tools, hasAvailableTools } from '../../data/tools';
           title={tool.title}
           description={tool.description}
           status={tool.status}
-          icon={tool.icon}
         />
       ))
     }

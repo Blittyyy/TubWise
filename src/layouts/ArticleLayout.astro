@@ -193,17 +193,10 @@ const schemas = [articleSchema(article), breadcrumbSchema(breadcrumbs)];
                 src={data.featuredImage}
                 alt={data.featuredImageAlt ?? ''}
                 width={1200}
-                height={675}
+                height={800}
                 loading="eager"
-                class="aspect-[16/9] w-full object-cover"
+                class="aspect-[3/2] w-full object-cover"
               />
-              {
-                !data.featuredImageAlt && (
-                  <figcaption class="px-4 py-3 text-sm text-ink-subtle">
-                    Add descriptive alt text in frontmatter before publishing.
-                  </figcaption>
-                )
-              }
             </figure>
           )
         }

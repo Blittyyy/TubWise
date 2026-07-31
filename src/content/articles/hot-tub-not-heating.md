@@ -12,6 +12,8 @@ tags:
   - hot tub heater
   - troubleshooting
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/hot-tub-not-heating.webp"
+featuredImageAlt: "Residential hot tub owner checking the control panel"
 draft: false
 noindex: false
 featured: true
@@ -23,6 +25,7 @@ relatedArticles:
   - hot-tub-has-power-but-no-heat
   - how-to-tell-if-a-hot-tub-has-an-air-lock
   - why-are-my-hot-tub-jets-weak
+  - how-to-clean-a-hot-tub-filter
 sources:
   - title: "Fix Your Hot Tub with This Complete Troubleshooting Guide"
     url: "https://www.hotspring.com/blog/fix-your-hot-tub-with-this-complete-troubleshooting-guide"
@@ -38,7 +41,7 @@ sources:
     url: "https://jacuzzipartners.com/knowledgelibrary/assets/pdf/562.pdf"
     publisher: "Jacuzzi Premium"
     accessed: "2026-07-28"
-    note: "Document 6530-225, Rev. B, copyright 2002. Covers the J-310, J-320, J-330, and J-340 models only — a legacy product line, not current Jacuzzi spas."
+    note: "Document 6530-225, Rev. B, copyright 2002. Covers the J-310, J-320, J-330, and J-340 models only: a legacy product line, not current Jacuzzi spas."
   - title: "Hot Tub Pump Not Working? Troubleshooting & Repair Guide"
     url: "https://www.jacuzzi.com/en-us/Hot-Tub-Pump-Not-Working.html"
     publisher: "Jacuzzi"
@@ -87,7 +90,7 @@ Low water can reduce flow and stop heating. Use the fill mark in your owner's ma
 
 ### Dirty filter
 
-A clogged filter can reduce flow, trip safety cutoffs, or deactivate the heater. Inspect or clean it only by following your manufacturer's directions (Hot Spring; Jacuzzi). See [Can a Dirty Filter Stop a Hot Tub From Heating?](/troubleshooting/can-a-dirty-filter-stop-a-hot-tub-from-heating) for a closer look at how this happens.
+A clogged filter can reduce flow, trip safety cutoffs, or deactivate the heater. Inspect or clean it only by following your manufacturer's directions (Hot Spring; Jacuzzi). See [Can a Dirty Filter Stop a Hot Tub From Heating?](/troubleshooting/can-a-dirty-filter-stop-a-hot-tub-from-heating) for a closer look at how this happens, or [How to Clean a Hot Tub Filter](/maintenance/how-to-clean-a-hot-tub-filter) for the cleaning method itself.
 
 ### Air lock after refill
 
@@ -95,7 +98,7 @@ If the problem started after a refill, trapped air can stop proper flow and heat
 
 ### High-limit or flow safety trip
 
-Spas shut the heater off when flow or temperature protection is triggered. Hot Spring documents a blinking power indicator as a high-limit trip — water too hot, or low circulation such as from clogged filters (Hot Spring Highlife owner's manual). Some older Jacuzzi models use FL1 or FL2 for different flow-switch faults that disable the heater; sensor codes such as SN1 or SN2 require dealer repair (Jacuzzi).
+Spas shut the heater off when flow or temperature protection is triggered. Hot Spring documents a blinking power indicator as a high-limit trip: water too hot, or low circulation such as from clogged filters (Hot Spring Highlife owner's manual). Some older Jacuzzi models use FL1 or FL2 for different flow-switch faults that disable the heater; sensor codes such as SN1 or SN2 require dealer repair (Jacuzzi).
 
 Do not assume the heater has failed. These symptoms alone are not enough to diagnose the heating element.
 
@@ -108,7 +111,7 @@ Work through these in order. Stop if any step tells you to. Do not open the cont
 3. **Look for a spa lock or economy setting.** Follow your manual if either is listed for your spa.
 4. **Write down any error code or blinking indicator.** Look up the meaning in your owner's manual.
 5. **Check the water level against your manual.** Add water only to that mark.
-6. **Watch the jets.** Weak or surging flow can mean low water or a dirty filter (Hot Spring). Observe only — do not open the pump. See [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak) if jets stay weak on their own.
+6. **Watch the jets.** Weak or surging flow can mean low water or a dirty filter (Hot Spring). Observe only—do not open the pump. See [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak) if jets stay weak on their own.
 7. **Turn power off, then inspect or clean the filter.** Jacuzzi directs owners to shut off power at the main breaker and spa disconnect before inspecting components, then follow your manual's filter steps (Jacuzzi; Hot Spring).
 8. **If you recently refilled the spa, follow your manual's air-lock instructions.**
 9. **If the spa has no power, check the GFCI or breaker.** Reset once only if permitted by the owner's manual. If it will not reset or trips again, stop and contact qualified service.

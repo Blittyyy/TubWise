@@ -1,7 +1,7 @@
 ---
 title: "Hot Tub Has Power but No Heat"
 description: "Jets and lights work but the water won't warm up? Here's the specific check order for a hot tub with power but no heat."
-summary: "When jets and lights still work but the water won't heat, Hot Spring documents the causes as an open pressure switch, a tripped circulation-pump thermal cut-off, or an air lock — flow-related conditions rather than a failed heater."
+summary: "When jets and lights still work but the water won't heat, Hot Spring documents the causes as an open pressure switch, a tripped circulation-pump thermal cut-off, or an air lock: flow-related conditions rather than a failed heater."
 slug: "hot-tub-has-power-but-no-heat"
 publishedDate: 2026-07-30
 updatedDate: 2026-07-30
@@ -41,7 +41,7 @@ If the panel is on and jets and lights work, but the water isn't warming up, Hot
 
 ## Safety note
 
-Do not open the control box or touch wiring. Do not bypass a pressure switch, flow switch, or thermal cut-off. If a breaker or GFCI is involved, reset it once only if your manual permits it — if it will not reset, or trips again, stop and contact qualified service. These are homeowner observation and cleaning checks only, not electrical diagnosis.
+Do not open the control box or touch wiring. Do not bypass a pressure switch, flow switch, or thermal cut-off. If a breaker or GFCI is involved, reset it once only if your manual permits it. If it will not reset, or trips again, stop and contact qualified service. These are homeowner observation and cleaning checks only, not electrical diagnosis.
 
 ## Why this looks different from "no power at all"
 
@@ -57,7 +57,7 @@ A pressure switch is designed to confirm water is flowing before allowing the he
 
 ### A tripped circulation-pump thermal cut-off
 
-This protects the circulation pump from overheating. Hot Spring recommends checking for clogged filters and air locks in the plumbing, then disconnecting power so the pump can cool — the cut-off should reset on its own once the pump has cooled and power is reconnected (Hot Spring).
+This protects the circulation pump from overheating. Hot Spring recommends checking for clogged filters and air locks in the plumbing, then disconnecting power so the pump can cool. The cut-off should reset on its own once the pump has cooled and power is reconnected (Hot Spring).
 
 ### An air lock from a recent refill
 
@@ -67,7 +67,7 @@ If the spa was filled or topped off recently, trapped air can block proper flow 
 
 1. **Confirm the panel, jets, and lights are genuinely all working.** This is what separates this scenario from a full power failure.
 2. **Check the filter for visible clogging** and clean it following your manual's method.
-3. **Check the water level** against your manual's fill line — Jacuzzi notes low water can also starve flow and trigger a protective shutdown.
+3. **Check the water level** against your manual's fill line. Jacuzzi notes low water can also starve flow and trigger a protective shutdown.
 4. **If you refilled the spa recently, follow your manual's air-lock or fill-through-filter procedure.**
 5. **If flow looks restored, turn the spa off at the breaker or disconnect, wait, then restore power** so a tripped thermal cut-off has a chance to reset, following your manual's guidance on how long to wait.
 6. **Watch for the same indicator light or blinking pattern to clear** once these steps are complete.

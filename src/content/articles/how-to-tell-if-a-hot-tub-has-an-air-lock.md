@@ -1,7 +1,7 @@
 ---
 title: "How to Tell if a Hot Tub Has an Air Lock"
 description: "Pump running but jets weak or silent? Here are the signs of a hot tub air lock and how manufacturers say to confirm it."
-summary: "The clearest sign of an air lock is a pump that sounds like it's running normally while the jets produce little or no water — a pattern Hot Spring and Jacuzzi both tie to a recent drain and refill. Weak, surging, or absent flow with a working pump can point to trapped air rather than a failed pump."
+summary: "The clearest sign of an air lock is a pump that sounds like it's running normally while the jets produce little or no water, a pattern Hot Spring and Jacuzzi both tie to a recent drain and refill. Weak, surging, or absent flow with a working pump can point to trapped air rather than a failed pump."
 slug: "how-to-tell-if-a-hot-tub-has-an-air-lock"
 publishedDate: 2026-07-30
 updatedDate: 2026-07-30
@@ -42,11 +42,11 @@ faq: []
 
 ## Direct answer
 
-The clearest sign of an air lock is a pump that sounds like it's running normally while the jets produce little or no water — a pattern Hot Spring and Jacuzzi both describe following a drain and refill. If the motor is on but water flow is weak, surging, or absent, trapped air in the plumbing can be a more likely explanation than a failed pump. Recognizing this pattern matters because the fix for an air lock is different from the fix for a failed pump or motor.
+The clearest sign of an air lock is a pump that sounds like it's running normally while the jets produce little or no water, a pattern Hot Spring and Jacuzzi both describe following a drain and refill. If the motor is on but water flow is weak, surging, or absent, trapped air in the plumbing can be a more likely explanation than a failed pump. Recognizing this pattern matters because the fix for an air lock is different from the fix for a failed pump or motor.
 
 ## Safety note
 
-Follow your manual for any steps that involve the filter compartment or fill lines. Do not open the equipment compartment, touch wiring, or work on the pump itself — those are technician-level steps if a manufacturer's homeowner-facing purge method doesn't resolve it. The checks below are about recognizing the pattern, not disassembling anything.
+Follow your manual for any steps that involve the filter compartment or fill lines. Do not open the equipment compartment, touch wiring, or work on the pump itself. Those are technician-level steps if a manufacturer's homeowner-facing purge method doesn't resolve it. The checks below are about recognizing the pattern, not disassembling anything.
 
 ## Signs that point to an air lock
 
@@ -76,7 +76,7 @@ Hot Spring's troubleshooting chart lists "air lock was created after filling the
 - Jets stay weak or silent after following your manual's fill and purge steps
 - You would need to open the equipment compartment or work on the pump directly to continue
 - The same symptom keeps returning after every refill
-- The spa also won't heat and flow-related checks haven't resolved it — see [Hot Tub Has Power but No Heat](/troubleshooting/hot-tub-has-power-but-no-heat)
+- The spa also won't heat and flow-related checks haven't resolved it. See [Hot Tub Has Power but No Heat](/troubleshooting/hot-tub-has-power-but-no-heat)
 - The pump makes noise you haven't heard from it before, beyond a normal running hum
 
 A recurring air lock or noise that doesn't fit the pattern above is worth having a technician look at, since it may point to a plumbing or pump issue rather than simple trapped air.

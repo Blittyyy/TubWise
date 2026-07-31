@@ -1,7 +1,7 @@
 ---
 title: "Why Are My Hot Tub Jets Weak?"
 description: "Weak or surging hot tub jets are usually caused by low water, a dirty filter, or a closed valve. Here's the check order manufacturers recommend."
-summary: "Weak or surging jets can be caused by low water level, a clogged filter, or a closed jet or diverter valve — Jacuzzi identifies a clogged filter as the most common cause. All are things a homeowner can safely check before assuming the pump has failed."
+summary: "Weak or surging jets can be caused by low water level, a clogged filter, or a closed jet or diverter valve. Jacuzzi identifies a clogged filter as the most common cause. All are things a homeowner can safely check before assuming the pump has failed."
 slug: "why-are-my-hot-tub-jets-weak"
 publishedDate: 2026-07-30
 updatedDate: 2026-07-30
@@ -12,6 +12,8 @@ tags:
   - troubleshooting
   - hot tub filter
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/weak-hot-tub-jets.webp"
+featuredImageAlt: "Hot tub jets producing water flow in a residential spa"
 draft: false
 noindex: false
 featured: false
@@ -21,6 +23,7 @@ relatedArticles:
   - hot-tub-not-heating
   - can-a-dirty-filter-stop-a-hot-tub-from-heating
   - how-to-tell-if-a-hot-tub-has-an-air-lock
+  - how-to-clean-a-hot-tub-filter
 sources:
   - title: "Fix Your Hot Tub with This Complete Troubleshooting Guide"
     url: "https://www.hotspring.com/blog/fix-your-hot-tub-with-this-complete-troubleshooting-guide"
@@ -37,7 +40,7 @@ faq: []
 
 ## Direct answer
 
-Weak or surging jets can be caused by low water level, a clogged filter, or a closed jet or diverter valve — not necessarily a failed pump. Jacuzzi's guide states plainly that the most common cause of weak jets in a hot tub is dirty filters, and separately lists low water level as another cause of weak flow (Jacuzzi). All are quick, homeowner-safe checks worth working through before assuming anything mechanical has failed.
+Weak or surging jets can be caused by low water level, a clogged filter, or a closed jet or diverter valve, not necessarily a failed pump. Jacuzzi's guide states plainly that the most common cause of weak jets in a hot tub is dirty filters, and separately lists low water level as another cause of weak flow (Jacuzzi). All are quick, homeowner-safe checks worth working through before assuming anything mechanical has failed.
 
 ## Safety note
 
@@ -51,17 +54,17 @@ Jacuzzi recommends verifying the waterline sits at least one to two inches above
 
 ### A clogged filter
 
-Hot Spring's chart lists clogged filters as one cause of weak or surging jets, with cleaning the filter as the fix (Hot Spring). Jacuzzi calls dirty filters the most common cause of weak jet flow and recommends removing cartridge filters to check for clogging, collapse, or damage (Jacuzzi). See [Can a Dirty Filter Stop a Hot Tub From Heating?](/troubleshooting/can-a-dirty-filter-stop-a-hot-tub-from-heating) if the heat seems affected too.
+Hot Spring's chart lists clogged filters as one cause of weak or surging jets, with cleaning the filter as the fix (Hot Spring). Jacuzzi calls dirty filters the most common cause of weak jet flow and recommends removing cartridge filters to check for clogging, collapse, or damage (Jacuzzi). See [Can a Dirty Filter Stop a Hot Tub From Heating?](/troubleshooting/can-a-dirty-filter-stop-a-hot-tub-from-heating) if the heat seems affected too, or [How to Clean a Hot Tub Filter](/maintenance/how-to-clean-a-hot-tub-filter) for the cleaning method itself. If this keeps happening on a short cycle, see [Why Does My Hot Tub Filter Get Dirty So Fast?](/maintenance/why-does-my-hot-tub-filter-get-dirty-so-fast).
 
 ### A closed jet or diverter valve
 
-Hot Spring's chart also lists a closed "Comfort Control" lever as a cause of weak jets on its own spas, with the fix being to open it (Hot Spring). Some spas have similar adjustable valves or diverters that redirect flow between jet groups, even if they use a different name — check your own manual for how yours work. This cause is easy to overlook because it doesn't involve cleaning anything; a valve can be left in the wrong position after a previous adjustment or after someone else used the spa.
+Hot Spring's chart also lists a closed "Comfort Control" lever as a cause of weak jets on its own spas, with the fix being to open it (Hot Spring). Some spas have similar adjustable valves or diverters that redirect flow between jet groups, even if they use a different name. Check your own manual for how yours work. This cause is easy to overlook because it doesn't involve cleaning anything; a valve can be left in the wrong position after a previous adjustment or after someone else used the spa.
 
 ### Trapped air in the plumbing
 
 If the pump sounds normal but jets stay weak everywhere, especially after a recent drain and refill, trapped air is another possible explanation (Jacuzzi). See [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock) for how to recognize and safely clear one.
 
-Working through these in order — water level, filter, valves, and then trapped air — covers the causes Hot Spring and Jacuzzi describe for weak or surging jets.
+Working through these in order (water level, filter, valves, and then trapped air) covers the causes Hot Spring and Jacuzzi describe for weak or surging jets.
 
 ## Safe checks the homeowner can do
 
@@ -78,7 +81,7 @@ Working through these in order — water level, filter, valves, and then trapped
 - Only one or two jets are affected and adjusting the valve doesn't help
 - You hear grinding, humming without flow, or other unusual pump noise
 - Fixing the problem would require opening the equipment compartment or working on the pump
-- The spa is also not heating properly, which may point to the same underlying flow restriction — see [Hot Tub Has Power but No Heat](/troubleshooting/hot-tub-has-power-but-no-heat)
+- The spa is also not heating properly, which may point to the same underlying flow restriction. See [Hot Tub Has Power but No Heat](/troubleshooting/hot-tub-has-power-but-no-heat)
 
 These checks cover what a homeowner can reasonably diagnose without tools or technical training; anything beyond them is a fair reason to call for service.
 

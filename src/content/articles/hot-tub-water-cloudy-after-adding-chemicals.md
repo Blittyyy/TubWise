@@ -45,7 +45,7 @@ Water that turns cloudy right after you add chemicals can be traced to the order
 
 ## Safety note
 
-Don't add more chemicals to try to "fix" cloudiness right away, and never mix different products together or add them at the same time. Follow your product's label for dosing and wait times, and don't enter the water until you've confirmed sanitizer and pH are in a safe range. Jacuzzi's setup guide advises waiting at least 20 minutes after adding startup chemicals and confirming chlorine or bromine is below 5 ppm before soaking — a useful reminder that freshly treated water needs time before it's ready to use, even though your own product label is the final word on wait times ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)).
+Don't add more chemicals to try to "fix" cloudiness right away, and never mix different products together or add them at the same time. Follow your product's label for dosing and wait times, and don't enter the water until you've confirmed sanitizer and pH are in a safe range. Jacuzzi's setup guide advises waiting at least 20 minutes after adding startup chemicals and confirming chlorine or bromine is below 5 ppm before soaking. That is a useful reminder that freshly treated water needs time before it's ready to use, even though your own product label is the final word on wait times ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)).
 
 ## Why adding chemicals can cause cloudiness
 
@@ -59,20 +59,20 @@ Jacuzzi's own troubleshooting guidance is direct about this: "Excessive chemical
 
 ### The water hasn't finished circulating yet
 
-Chemicals need time and circulation to distribute evenly. Jacuzzi's setup guide recommends waiting 24 hours between major chemical adjustments and retesting before making further changes, rather than adding more product on top of a reading that hasn't stabilized yet ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)). If you tested again minutes after adding a product, the reading — and the cloudiness — may not reflect where the water will settle. See [How Long Does It Take Cloudy Hot Tub Water to Clear?](/water-care/how-long-does-it-take-cloudy-hot-tub-water-to-clear) for more on why there's no single fixed waiting period.
+Chemicals need time and circulation to distribute evenly. Jacuzzi's setup guide recommends waiting 24 hours between major chemical adjustments and retesting before making further changes, rather than adding more product on top of a reading that hasn't stabilized yet ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)). If you tested again minutes after adding a product, the reading (and the cloudiness) may not reflect where the water will settle. See [How Long Does It Take Cloudy Hot Tub Water to Clear?](/water-care/how-long-does-it-take-cloudy-hot-tub-water-to-clear) for more on why there's no single fixed waiting period.
 
 ### The underlying chemistry was already off
 
-If alkalinity or pH were already significantly out of range before you added anything, correcting them can temporarily stir up minerals that were previously dissolved, adding to short-term haze. This isn't a separate problem — it's part of the same balancing process described above, and the checks in the next section (continued circulation and rechecking) are the appropriate next step, not another chemical addition.
+If alkalinity or pH were already significantly out of range before you added anything, correcting them can temporarily stir up minerals that were previously dissolved, adding to short-term haze. This isn't a separate problem—it's part of the same balancing process described above, and the checks in the next section (continued circulation and rechecking) are the appropriate next step, not another chemical addition.
 
 ## Safe checks the homeowner can do
 
 1. **Stop adding products.** Let the water circulate fully before testing or adding anything else.
 2. **Run the jets** for a full cycle to distribute what's already been added.
 3. **Retest** with a fresh sample rather than assuming the last reading is final.
-4. **Check what order you added things in.** If sanitizer or pH adjuster went in before alkalinity, note that for next time — TubWise doesn't recommend trying to reverse an already-added chemical.
+4. **Check what order you added things in.** If sanitizer or pH adjuster went in before alkalinity, note that for next time. TubWise doesn't recommend trying to reverse an already-added chemical.
 5. **Compare against label directions** for your specific product and your spa's actual water volume, not a general rule of thumb.
-6. **Wait before your next adjustment.** Give the water time — Jacuzzi's guidance points to about 24 hours between major changes — before deciding more correction is needed ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)).
+6. **Wait before your next adjustment.** Give the water time (Jacuzzi's guidance points to about 24 hours between major changes) before deciding more correction is needed ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)).
 
 ## When to stop and call a professional
 
@@ -83,4 +83,4 @@ Don't use the spa, and don't keep adding chemicals to compensate, if:
 - The water is still cloudy after a full circulation cycle and a correct, single-product adjustment
 - You suspect two incompatible products were mixed together
 
-In any of these cases, stop treating the water yourself and contact your spa dealer, manufacturer support line, or a pool and spa professional. If chemistry keeps swinging even when you're following the label correctly, that can also point to an underlying issue — see [Why Is My Hot Tub Water Cloudy?](/water-care/why-is-my-hot-tub-water-cloudy) for the fuller list of causes, or [Should You Drain a Hot Tub if the Water Is Cloudy?](/water-care/should-you-drain-a-hot-tub-if-the-water-is-cloudy) if a fresh start may be the simpler fix.
+In any of these cases, stop treating the water yourself and contact your spa dealer, manufacturer support line, or a pool and spa professional. If chemistry keeps swinging even when you're following the label correctly, that can also point to an underlying issue. See [Why Is My Hot Tub Water Cloudy?](/water-care/why-is-my-hot-tub-water-cloudy) for the fuller list of causes, or [Should You Drain a Hot Tub if the Water Is Cloudy?](/water-care/should-you-drain-a-hot-tub-if-the-water-is-cloudy) if a fresh start may be the simpler fix.

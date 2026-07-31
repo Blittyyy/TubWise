@@ -13,6 +13,8 @@ tags:
   - filtration
   - hot tub chemistry
 author: "TubWise Editorial Team"
+featuredImage: "/images/articles/cloudy-hot-tub-water.webp"
+featuredImageAlt: "Residential hot tub filled with cloudy water"
 draft: false
 noindex: false
 featured: false
@@ -62,11 +64,11 @@ Cloudy water isn't only a cosmetic problem. The CDC lists unusually cloudy water
 
 ### Water chemistry out of range
 
-Jacuzzi's water-care guidance says pH above its recommended 7.2–7.8 range can cause a cloudy appearance, and that high alkalinity alongside high pH can contribute to limescale buildup that adds to the haze ([Jacuzzi](https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html)). The CDC's residential guidance recommends a pH of 7.0–7.8 for home hot tubs ([CDC](https://www.cdc.gov/healthy-swimming/about/home-pool-and-hot-tub-water-treatment-and-testing.html)). Hot Spring's own troubleshooting chart also lists "improper sanitizing" among the probable causes of cloudy water ([Hot Spring](https://www.hotspring.com/owners/water-care-and-troubleshooting)). Test your water before changing anything — adjusting chemicals without a reading can make the imbalance worse.
+Jacuzzi's water-care guidance says pH above its recommended 7.2–7.8 range can cause a cloudy appearance, and that high alkalinity alongside high pH can contribute to limescale buildup that adds to the haze ([Jacuzzi](https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html)). The CDC's residential guidance recommends a pH of 7.0–7.8 for home hot tubs ([CDC](https://www.cdc.gov/healthy-swimming/about/home-pool-and-hot-tub-water-treatment-and-testing.html)). Hot Spring's own troubleshooting chart also lists "improper sanitizing" among the probable causes of cloudy water ([Hot Spring](https://www.hotspring.com/owners/water-care-and-troubleshooting)). Test your water before changing anything. Adjusting chemicals without a reading can make the imbalance worse.
 
 ### Low sanitizer
 
-When chlorine or bromine levels drop, bacteria can multiply, which Jacuzzi describes as a direct contributor to lost water clarity ([Jacuzzi](https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html)). The CDC recommends at least 3 ppm chlorine or 4–8 ppm bromine in home hot tubs, and notes that a strong chemical smell — rather than "little to no odor" — can itself be a sign of a problem ([CDC](https://www.cdc.gov/healthy-swimming/about/home-pool-and-hot-tub-water-treatment-and-testing.html)).
+When chlorine or bromine levels drop, bacteria can multiply, which Jacuzzi describes as a direct contributor to lost water clarity ([Jacuzzi](https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html)). The CDC recommends at least 3 ppm chlorine or 4–8 ppm bromine in home hot tubs, and notes that a strong chemical smell (rather than "little to no odor") can itself be a sign of a problem ([CDC](https://www.cdc.gov/healthy-swimming/about/home-pool-and-hot-tub-water-treatment-and-testing.html)).
 
 ### Body oils, lotions, and other organic contaminants
 
@@ -74,7 +76,7 @@ Sweat, body oils, and lotions can cloud water and contribute to foam, according 
 
 ### A dirty or clogged filter
 
-Jacuzzi lists dirty or clogged filters as a common cause of cloudy water, and Hot Spring's troubleshooting chart lists dirty filters as one of several probable causes — both treat it as a separate cause from chemistry problems, not just a side effect of it ([Jacuzzi](https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html); [Hot Spring](https://www.hotspring.com/owners/water-care-and-troubleshooting)). A clogged filter reduces water flow and lets particles stay suspended instead of getting trapped. For a closer look at this specific cause, see [Can a Dirty Filter Make Hot Tub Water Cloudy?](/water-care/can-a-dirty-filter-make-hot-tub-water-cloudy)
+Jacuzzi lists dirty or clogged filters as a common cause of cloudy water, and Hot Spring's troubleshooting chart lists dirty filters as one of several probable causes. Both treat it as a separate cause from chemistry problems, not just a side effect of it ([Jacuzzi](https://www.jacuzzi.com/en-us/Troubleshooting-Cloudy-Hot-Tub-Water.html); [Hot Spring](https://www.hotspring.com/owners/water-care-and-troubleshooting)). A clogged filter reduces water flow and lets particles stay suspended instead of getting trapped. For a closer look at this specific cause, see [Can a Dirty Filter Make Hot Tub Water Cloudy?](/water-care/can-a-dirty-filter-make-hot-tub-water-cloudy)
 
 ### Old water or a high mineral load
 
@@ -83,8 +85,8 @@ Water that's been in the spa a long time accumulates dissolved solids that filtr
 ## Safe checks you can do
 
 1. **Test the water first.** Use test strips or a kit before adding anything. Note the pH, alkalinity, and sanitizer readings.
-2. **Balance in order.** Jacuzzi's guidance addresses total alkalinity first, then pH, then sanitizer, since alkalinity swings can undo pH adjustments ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)). Check your own manual, since the order and target ranges can vary by brand. Follow the dosing instructions on your product's label — they account for your spa's exact water volume.
-3. **Check and clean the filter.** Rinse it with a hose, and use a filter-cleaning product if it hasn't been soaked recently. See [Can a Dirty Filter Make Hot Tub Water Cloudy?](/water-care/can-a-dirty-filter-make-hot-tub-water-cloudy) for a closer look.
+2. **Balance in order.** Jacuzzi's guidance addresses total alkalinity first, then pH, then sanitizer, since alkalinity swings can undo pH adjustments ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)). Check your own manual, since the order and target ranges can vary by brand. Follow the dosing instructions on your product's label. They account for your spa's exact water volume.
+3. **Check and clean the filter.** Rinse it with a hose, and use a filter-cleaning product if it hasn't been soaked recently. See [Can a Dirty Filter Make Hot Tub Water Cloudy?](/water-care/can-a-dirty-filter-make-hot-tub-water-cloudy) for a closer look, or [How to Clean a Hot Tub Filter](/maintenance/how-to-clean-a-hot-tub-filter) for the method itself.
 4. **Run the jets to circulate the water** after adjusting chemistry or cleaning the filter, then retest before deciding whether more correction is needed.
 5. **Shock the water** according to your product's label if sanitizer is confirmed low, rather than repeatedly adding routine sanitizer.
 6. **Consider how old the water is.** If it's been more than a few months since your last drain, or you don't know when that was, old water may be a factor. See [Should You Drain a Hot Tub if the Water Is Cloudy?](/water-care/should-you-drain-a-hot-tub-if-the-water-is-cloudy)
@@ -95,7 +97,7 @@ Stop using the spa and don't just keep adding chemicals if:
 
 - The water stays visibly cloudy after you've confirmed correct pH, alkalinity, and sanitizer readings and cleaned the filter
 - You notice a strong chemical smell instead of little to no odor, which the CDC flags as a possible sign of a water problem ([CDC](https://www.cdc.gov/healthy-swimming/about/home-pool-and-hot-tub-water-treatment-and-testing.html))
-- You aren't confident the sanitizer and pH are in a safe range — the CDC advises treating unusually cloudy water as a signal of possible elevated germ levels rather than a purely cosmetic issue ([CDC](https://www.cdc.gov/healthy-swimming/prevention/index.html))
+- You aren't confident the sanitizer and pH are in a safe range. The CDC advises treating unusually cloudy water as a signal of possible elevated germ levels rather than a purely cosmetic issue ([CDC](https://www.cdc.gov/healthy-swimming/prevention/index.html))
 
 If cloudiness returns quickly after treatment, or you're unsure how long the water has been in the spa, manufacturer guidance points to a full drain and refill as the next step rather than continuing to add chemicals. If problems continue even after a drain, that points toward an equipment or plumbing issue better suited to a qualified spa technician.
 
