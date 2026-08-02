@@ -98,7 +98,7 @@ Jacuzzi describes cover lifters as accessories that can make removing and replac
 
 Jacuzzi describes a tight-fitting cover as helping with heat retention and keeping debris out of the water (Jacuzzi). Check the hinge area for gaps once the cover is on, because Jacuzzi notes heat can escape at a poor hinge seal (Jacuzzi). For cold or snowy climates, ask which foam density and construction the cover maker documents for that use rather than assuming any thick cover is suitable.
 
-Treat any energy-cost claims as the manufacturer's labeled statements for that cover, not as a universal savings guarantee.
+Treat any energy-cost claims as the manufacturer's labeled statements for that cover, not as a universal savings guarantee. A cover that no longer seals well can also increase overnight water loss from evaporation; see [Hot Tub Losing Water Overnight: Leak or Evaporation?](/troubleshooting/hot-tub-losing-water-overnight-leak-or-evaporation) if the waterline drops while the spa sits idle.
 
 ## Safety hardware without overclaiming
 

@@ -79,7 +79,7 @@ Hot Spring's troubleshooting chart lists "air lock was created after filling the
 - You would need to open the equipment compartment or work on the pump directly to continue
 - The same symptom keeps returning after every refill
 - The spa also won't heat and flow-related checks haven't resolved it. See [Hot Tub Has Power but No Heat](/troubleshooting/hot-tub-has-power-but-no-heat)
-- The pump makes noise you haven't heard from it before, beyond a normal running hum
+- The pump makes noise you haven't heard from it before, beyond a normal running hum. See [Why Is My Hot Tub Pump Making Noise?](/troubleshooting/why-is-my-hot-tub-pump-making-noise) if the sound continues after air-purge steps.
 
 A recurring air lock or noise that doesn't fit the pattern above is worth having a technician look at, since it may point to a plumbing or pump issue rather than simple trapped air.
 

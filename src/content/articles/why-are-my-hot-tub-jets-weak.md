@@ -79,7 +79,7 @@ Working through these in order (water level, filter, valves, and then trapped ai
 
 - Jets stay weak after confirming water level, a clean filter, and open valves
 - Only one or two jets are affected and adjusting the valve doesn't help
-- You hear grinding, humming without flow, or other unusual pump noise
+- You hear grinding, humming without flow, or other unusual pump noise. See [Why Is My Hot Tub Pump Making Noise?](/troubleshooting/why-is-my-hot-tub-pump-making-noise) for sound-pattern checks that stay outside motor repair.
 - Fixing the problem would require opening the equipment compartment or working on the pump
 - The spa is also not heating properly, which may point to the same underlying flow restriction. See [Hot Tub Has Power but No Heat](/troubleshooting/hot-tub-has-power-but-no-heat)
 
