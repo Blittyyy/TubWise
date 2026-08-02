@@ -8,7 +8,7 @@ import PageLayout from '../layouts/PageLayout.astro';
   path="/privacy"
   breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }]}
 >
-  <p class="text-sm text-ink-subtle">Effective date: July 31, 2026</p>
+  <p class="text-sm text-ink-subtle">Effective date: August 2, 2026</p>
 
   <h2 id="who-we-are">Who operates TubWise</h2>
   <p>
@@ -27,12 +27,22 @@ import PageLayout from '../layouts/PageLayout.astro';
     site, standard technical information is typically processed in server or CDN logs.
     That can include your IP address, browser type, device or operating-system
     information, referring URL, pages requested, and the date and time of the request.
-    TubWise does not run its own analytics, advertising, error-logging, or performance
-    monitoring scripts on the site today.
+  </p>
+  <p>
+    TubWise also uses <strong>Vercel Web Analytics</strong>, a privacy-focused traffic
+    measurement tool provided by Vercel (the same company that hosts the site). The
+    analytics script records anonymous, aggregated page-view data such as the page URL,
+    referrer, approximate geolocation (for example, country or city), device type, and
+    browser or operating-system details. According to Vercel, Web Analytics does not use
+    third-party cookies for visitor identification and does not collect personal
+    identifiers meant to track people across unrelated websites. TubWise does not run
+    Google Analytics, advertising pixels, error-logging, or other third-party analytics
+    or advertising scripts on the site.
   </p>
   <p>
     If you use site search, your query may appear in the page URL (for example,{' '}
-    <code>/search?q=...</code>). Hosting logs may record that full request URL.
+    <code>/search?q=...</code>). Hosting logs and analytics page-view data may reflect
+    that full request URL.
   </p>
 
   <h3 id="voluntary">Information you provide voluntarily</h3>
@@ -47,9 +57,11 @@ import PageLayout from '../layouts/PageLayout.astro';
 
   <h2 id="cookies-and-similar">Cookies, local storage, and similar technologies</h2>
   <p>
-    TubWise does not set first-party analytics or advertising cookies, and the site
-    code does not use browser local storage or session storage for tracking. Search
-    works in your browser by loading a static search index from the site.
+    TubWise does not set advertising cookies, and the site code does not use browser
+    local storage or session storage for tracking. Vercel Web Analytics is designed to
+    measure traffic without third-party cookies; visitor sessions are identified using
+    a hash derived from the request rather than a persistent cookie. Search works in
+    your browser by loading a static search index from the site.
   </p>
   <p>
     Your browser may still store ordinary temporary data needed to display pages, and
@@ -61,6 +73,7 @@ import PageLayout from '../layouts/PageLayout.astro';
   <p>Information described in this policy is processed to:</p>
   <ul>
     <li>Operate, secure, and deliver the website</li>
+    <li>Understand aggregated site traffic and which pages are used</li>
     <li>Respond to messages you send</li>
     <li>Understand and fix technical issues when they appear in hosting logs</li>
     <li>Maintain ordinary business and legal records related to the site</li>
@@ -73,8 +86,9 @@ import PageLayout from '../layouts/PageLayout.astro';
   </p>
   <ul>
     <li>
-      <strong>Vercel</strong>, which hosts and delivers the static site and may process
-      standard request logs and related infrastructure data
+      <strong>Vercel</strong>, which hosts and delivers the static site, may process
+      standard request logs and related infrastructure data, and provides Vercel Web
+      Analytics used to measure anonymous, aggregated page views
     </li>
     <li>
       <strong>Google Fonts</strong> (fonts.googleapis.com and fonts.gstatic.com), which
@@ -88,8 +102,9 @@ import PageLayout from '../layouts/PageLayout.astro';
   </ul>
   <p>
     These providers process information on TubWise&apos;s behalf or as part of delivering
-    their services. TubWise does not currently use separate analytics platforms,
-    advertising networks, chat widgets, payment processors, or account systems.
+    their services. TubWise does not currently use advertising networks, chat widgets,
+    payment processors, or account systems, and it does not use separate analytics
+    platforms other than Vercel Web Analytics.
   </p>
 
   <h2 id="selling-and-sharing">Selling and sharing of personal information</h2>
@@ -122,6 +137,11 @@ import PageLayout from '../layouts/PageLayout.astro';
     <li>
       Hosting and CDN logs are retained according to the hosting provider&apos;s practices
       and TubWise&apos;s need to operate and secure the site
+    </li>
+    <li>
+      Vercel Web Analytics visitor-session identifiers are discarded after 24 hours per
+      Vercel&apos;s product practices; aggregated analytics are retained according to
+      Vercel&apos;s practices for the service
     </li>
     <li>
       Email correspondence is kept as long as needed to respond and for ordinary business
