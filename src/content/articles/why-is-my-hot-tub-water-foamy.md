@@ -79,7 +79,7 @@ Hot Spring's manual states that soap buildup eventually concentrates in the wate
 
 ## Safe checks you can do
 
-1. **Test the water first.** Check pH, alkalinity, calcium hardness, and sanitizer before adding anything.
+1. **Test the water first.** Check pH, alkalinity, calcium hardness, and sanitizer before adding anything. See [What to Look for in a Hot Tub Water Test Kit](/buying-guides/what-to-look-for-in-a-hot-tub-water-test-kit) if you need a kit that matches the parameters your system requires.
 2. **Rinse swimwear in plain water** rather than leaving detergent residue on suits that go back into the spa.
 3. **Shower before soaking** to reduce the lotions, oils, and soap residue bathers bring into the water.
 4. **Use a spa-specific defoamer** for a short-term reduction in visible foam, following the product label.

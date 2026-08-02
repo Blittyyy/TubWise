@@ -82,7 +82,7 @@ Jacuzzi's setup guide notes that low calcium hardness, or water that is too "sof
 
 1. **Stop adding products** and let the water circulate through a full cycle before testing again.
 2. **Run the jets** for the interval your product label specifies, then retest.
-3. **Check what order you added things in.** If sanitizer or pH adjuster went in before alkalinity, note that for next time. Don't try to reverse an already-added chemical.
+3. **Check what order you added things in.** If sanitizer or pH adjuster went in before alkalinity, note that for next time. Don't try to reverse an already-added chemical. Do not switch between chlorine and bromine to chase foam; if you are choosing a sanitizer system for startup or refill planning, see [Chlorine vs Bromine for Hot Tubs: How to Choose](/buying-guides/chlorine-vs-bromine-for-hot-tubs).
 4. **Confirm you didn't exceed the label amount** for your spa's water volume, and that you added only one product.
 5. **Test calcium hardness** along with pH and sanitizer, since low hardness can contribute to foam independent of the chemical you just added.
 6. **Wait before your next adjustment.** Give the water time (Jacuzzi's guidance points to about 24 hours between major changes) before deciding more correction is needed ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)).

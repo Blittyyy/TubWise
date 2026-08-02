@@ -4,7 +4,7 @@ description: "Pump running but jets weak or silent? Here are the signs of a hot 
 summary: "The clearest sign of an air lock is a pump that sounds like it's running normally while the jets produce little or no water, a pattern Hot Spring and Jacuzzi both tie to a recent drain and refill. Weak, surging, or absent flow with a working pump can point to trapped air rather than a failed pump."
 slug: "how-to-tell-if-a-hot-tub-has-an-air-lock"
 publishedDate: 2026-07-30
-updatedDate: 2026-07-30
+updatedDate: 2026-08-01
 category: "troubleshooting"
 subcategory: "air-lock"
 tags:
@@ -54,7 +54,7 @@ Follow your manual for any steps that involve the filter compartment or fill lin
 
 ### The pump runs, but the jets don't
 
-Jacuzzi's guide lists an airlock after refilling among the common, DIY-friendly causes of pump problems, alongside a tripped GFCI, a clogged filter, and low water level (Jacuzzi). The pattern that stands out is a pump that is clearly powered and running while jets stay weak or silent.
+Jacuzzi's guide lists an airlock after refilling among the common, DIY-friendly causes of pump problems, alongside a tripped GFCI, a clogged filter, and low water level (Jacuzzi). The pattern that stands out is a pump that is clearly powered and running while jets stay weak or silent. If your panel also shows a flow code, such as [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo), that manufacturer's own air-lock steps are listed on the scoped page for your brand.
 
 ### It happened right after a drain and refill
 

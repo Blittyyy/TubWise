@@ -4,7 +4,7 @@ description: "Hot tub not heating? Check power, water level, filters, and safety
 summary: "Before assuming the heater failed, check power, the GFCI, water level, the filter, and any panel warning. Reset a breaker or GFCI only once if your manual allows it. If it will not reset or trips again, stop and call qualified service."
 slug: "hot-tub-not-heating"
 publishedDate: 2026-07-28
-updatedDate: 2026-07-30
+updatedDate: 2026-08-01
 category: "troubleshooting"
 subcategory: "heating"
 tags:
@@ -98,7 +98,7 @@ If the problem started after a refill, trapped air can stop proper flow and heat
 
 ### High-limit or flow safety trip
 
-Spas shut the heater off when flow or temperature protection is triggered. Hot Spring documents a blinking power indicator as a high-limit trip: water too hot, or low circulation such as from clogged filters (Hot Spring Highlife owner's manual). Some older Jacuzzi models use FL1 or FL2 for different flow-switch faults that disable the heater; sensor codes such as SN1 or SN2 require dealer repair (Jacuzzi).
+Spas shut the heater off when flow or temperature protection is triggered. Hot Spring documents a blinking power indicator as a high-limit trip: water too hot, or low circulation such as from clogged filters (Hot Spring Highlife owner's manual). Some older Jacuzzi models use FL1 or FL2 for different flow-switch faults that disable the heater; sensor codes such as SN1 or SN2 require dealer repair (Jacuzzi). If your panel shows that exact message, see the scoped guide for [Jacuzzi FL1](/error-codes/jacuzzi/fl1) or [Sundance FL1](/error-codes/sundance/fl1); a message reading OH points to water that's too hot rather than a flow fault (see [Jacuzzi OH](/error-codes/jacuzzi/oh) or [Sundance OH](/error-codes/sundance/oh)).
 
 Do not assume the heater has failed. These symptoms alone are not enough to diagnose the heating element.
 
@@ -109,7 +109,7 @@ Work through these in order. Stop if any step tells you to. Do not open the cont
 1. **Check for power.** See whether the panel lights up and whether jets or lights respond.
 2. **Check the set temperature.** Raise it only if it is set lower than you expect.
 3. **Look for a spa lock or economy setting.** Follow your manual if either is listed for your spa.
-4. **Write down any error code or blinking indicator.** Look up the meaning in your owner's manual.
+4. **Write down any error code or blinking indicator.** Look up the meaning in your owner's manual, or check TubWise's [Error Codes](/error-codes) section if your brand is covered there.
 5. **Check the water level against your manual.** Add water only to that mark.
 6. **Watch the jets.** Weak or surging flow can mean low water or a dirty filter (Hot Spring). Observe only—do not open the pump. See [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak) if jets stay weak on their own.
 7. **Turn power off, then inspect or clean the filter.** Jacuzzi directs owners to shut off power at the main breaker and spa disconnect before inspecting components, then follow your manual's filter steps (Jacuzzi; Hot Spring).

@@ -4,7 +4,7 @@ description: "Manufacturer guides describe a weekly hose rinse and a periodic so
 summary: "Jacuzzi and Sundance both describe a two-step method: a weekly garden-hose rinse between the pleats, and a periodic soak in a dedicated spa filter cleaner. Both manufacturers warn against bleach, household cleaners, dishwashers, and pressure washers."
 slug: "how-to-clean-a-hot-tub-filter"
 publishedDate: 2026-07-30
-updatedDate: 2026-07-30
+updatedDate: 2026-08-01
 category: "maintenance"
 subcategory: "filters"
 tags:
@@ -82,9 +82,9 @@ If this routine seems to need repeating far more often than the schedule in [How
 
 ## When to stop and call a technician
 
-- The filter shows damage (tears, cracked end caps, collapsed pleats) rather than just dirt. See [When Should You Replace a Hot Tub Filter?](/maintenance/when-should-you-replace-a-hot-tub-filter)
+- The filter shows damage (tears, cracked end caps, collapsed pleats) rather than just dirt. See [When Should You Replace a Hot Tub Filter?](/maintenance/when-should-you-replace-a-hot-tub-filter). When you are ready to buy a cartridge, use [How to Choose a Replacement Hot Tub Filter](/buying-guides/how-to-choose-a-replacement-hot-tub-filter) for part-number and fit checks.
 - Cleaning doesn't restore water flow, and jets stay weak or the spa stops heating. See [Can a Dirty Filter Stop a Hot Tub From Heating?](/troubleshooting/can-a-dirty-filter-stop-a-hot-tub-from-heating)
-- The spa shows a flow-related error code again immediately after a clean filter is reinstalled
+- The spa shows a flow-related error code again immediately after a clean filter is reinstalled (see [Jacuzzi FL1](/error-codes/jacuzzi/fl1) or [Sundance FL1](/error-codes/sundance/fl1) if that's the exact message)
 - You notice foaming that doesn't clear after a thorough rinse, which can indicate leftover cleaning solution or a chemistry issue beyond the filter
 
-These are signs the issue may be beyond what cleaning alone can fix, and a qualified technician or your spa dealer is the appropriate next step.
+These are signs the issue may be beyond what cleaning alone can fix, and a qualified technician or your spa dealer is the appropriate next step. Settled sand or silt on the shell floor is a separate cleanup task from filter care; see [How to Choose a Hot Tub Vacuum](/buying-guides/how-to-choose-a-hot-tub-vacuum) if you need a tool for that debris.

@@ -13,12 +13,19 @@ import {
 import { isNoindexPath } from '../utils/indexing';
 import { breadcrumbSchema, categoryHubSchema } from '../utils/schema';
 
+interface ArticleGroup {
+  label: string;
+  subcategories: string[];
+}
+
 interface Props {
   category: ArticleCategory;
   showSafety?: boolean;
   showAffiliate?: boolean;
   noindex?: boolean;
   robotsFollow?: boolean;
+  /** Optional subcategory groups. Only groups with published articles are shown. */
+  articleGroups?: ArticleGroup[];
 }
 
 const {
@@ -27,9 +34,21 @@ const {
   showAffiliate = false,
   noindex: noindexProp,
   robotsFollow = false,
+  articleGroups,
 } = Astro.props;
 const meta = categoryMeta[category];
 const articles = await getArticlesByCategory(category);
+const groupedSections =
+  articleGroups?.map((group) => ({
+    label: group.label,
+    articles: articles.filter((article) =>
+      group.subcategories.includes(article.data.subcategory ?? ''),
+    ),
+  })).filter((group) => group.articles.length > 0) ?? [];
+const groupedSlugs = new Set(
+  groupedSections.flatMap((group) => group.articles.map((article) => article.data.slug)),
+);
+const ungroupedArticles = articles.filter((article) => !groupedSlugs.has(article.data.slug));
 const hasSearchQuery = Astro.url.searchParams.has('q');
 const noindex = noindexProp ?? (isNoindexPath(meta.href) || hasSearchQuery);
 
@@ -63,7 +82,46 @@ const schemas = [categoryHubSchema(category, meta.href), breadcrumbSchema(breadc
       </h2>
 
       {
-        articles.length > 0 ? (
+        articles.length === 0 ? (
+          <p class="mt-4 max-w-3xl text-ink-muted">
+            No published articles in this category yet. New guides will appear here
+            automatically once they are added to the content collection and marked as
+            published.
+          </p>
+        ) : groupedSections.length > 0 ? (
+          <div class="mt-6 space-y-10">
+            {groupedSections.map((group) => (
+              <div>
+                <h3 class="font-display text-lg font-semibold text-ink">{group.label}</h3>
+                <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.articles.map((article) => (
+                    <ArticleCard
+                      title={article.data.title}
+                      description={article.data.description}
+                      href={articlePath(article)}
+                      category={meta.label}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+            {ungroupedArticles.length > 0 && (
+              <div>
+                <h3 class="font-display text-lg font-semibold text-ink">More guides</h3>
+                <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {ungroupedArticles.map((article) => (
+                    <ArticleCard
+                      title={article.data.title}
+                      description={article.data.description}
+                      href={articlePath(article)}
+                      category={meta.label}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
           <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {articles.map((article) => (
               <ArticleCard
@@ -74,12 +132,6 @@ const schemas = [categoryHubSchema(category, meta.href), breadcrumbSchema(breadc
               />
             ))}
           </div>
-        ) : (
-          <p class="mt-4 max-w-3xl text-ink-muted">
-            No published articles in this category yet. New guides will appear here
-            automatically once they are added to the content collection and marked as
-            published.
-          </p>
         )
       }
     </section>

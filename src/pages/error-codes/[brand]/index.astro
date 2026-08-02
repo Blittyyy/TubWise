@@ -52,6 +52,12 @@ const schemas = [
       </p>
     </header>
 
+    <div class="mb-8 max-w-3xl rounded-xl border border-border bg-surface-raised p-4 text-sm leading-relaxed text-ink-muted">
+      This page covers only the {brand.name} codes TubWise has published below. It is not a complete
+      list of every {brand.name} error code, and it does not cover every {brand.name} model or manual
+      revision. Confirm the exact display and steps in your own owner&rsquo;s manual before acting.
+    </div>
+
     <section aria-labelledby="brand-codes-heading">
       <h2 id="brand-codes-heading" class="font-display text-2xl font-semibold text-ink">
         Published codes
@@ -64,7 +70,7 @@ const schemas = [
               title={article.data.title}
               description={article.data.description}
               href={articlePath(article)}
-              category={brand.name}
+              category={`${brand.name} ${article.data.errorCode?.toUpperCase()}`}
             />
           ))
         }

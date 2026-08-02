@@ -4,7 +4,7 @@ description: "Hot tub not heating right after a refill? Trapped air in the plumb
 summary: "A common cause of a spa not heating right after a refill is trapped air (an air lock) in the plumbing, or water that hasn't reached the fill line. Hot Spring describes a homeowner-safe way to purge air through the filter compartment; check your own manual for your model's method."
 slug: "hot-tub-not-heating-after-a-refill"
 publishedDate: 2026-07-30
-updatedDate: 2026-07-30
+updatedDate: 2026-08-01
 category: "troubleshooting"
 subcategory: "air-lock"
 tags:
@@ -54,7 +54,7 @@ Follow your manual's electrical reconnection steps after a refill, including any
 
 Hot Spring's troubleshooting guide lists "air lock was created after filling the spa" as one of three causes when a spa won't heat even though jets and lights still operate, alongside an open pressure switch and a tripped circulation-pump thermal cut-off (Hot Spring). Jacuzzi's guide similarly lists an air lock after refilling among the most common causes of pump problems generally (Jacuzzi).
 
-For the Hot Spot Collection specifically, Watkins Wellness's quick start guide warns directly: "Filling the spa through the basin can result in an airlock and difficulty starting the spa," and instructs owners to fill through the filter compartment instead, up to about one inch above the highest jet (Hot Spring Hot Spot Collection guide). On models where the manufacturer specifies filling through the filter compartment, filling by hose straight into the open tub instead is a plausible explanation. Check your own manual for how your model should be filled.
+For the Hot Spot Collection specifically, Watkins Wellness's quick start guide warns directly: "Filling the spa through the basin can result in an airlock and difficulty starting the spa," and instructs owners to fill through the filter compartment instead, up to about one inch above the highest jet (Hot Spring Hot Spot Collection guide). On models where the manufacturer specifies filling through the filter compartment, filling by hose straight into the open tub instead is a plausible explanation. Check your own manual for how your model should be filled. If your panel also shows a flow code after refilling, such as [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo), that page has the documented purge steps for your model.
 
 This matters because the fix differs by cause: a power problem needs an electrical check, while an air lock generally only needs the trapped air purged from the plumbing using the method your manufacturer documents.
 

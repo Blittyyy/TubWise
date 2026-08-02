@@ -4,7 +4,7 @@ description: "Weak or surging hot tub jets are usually caused by low water, a di
 summary: "Weak or surging jets can be caused by low water level, a clogged filter, or a closed jet or diverter valve. Jacuzzi identifies a clogged filter as the most common cause. All are things a homeowner can safely check before assuming the pump has failed."
 slug: "why-are-my-hot-tub-jets-weak"
 publishedDate: 2026-07-30
-updatedDate: 2026-07-30
+updatedDate: 2026-08-01
 category: "troubleshooting"
 subcategory: "jets"
 tags:
@@ -62,7 +62,7 @@ Hot Spring's chart also lists a closed "Comfort Control" lever as a cause of wea
 
 ### Trapped air in the plumbing
 
-If the pump sounds normal but jets stay weak everywhere, especially after a recent drain and refill, trapped air is another possible explanation (Jacuzzi). See [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock) for how to recognize and safely clear one.
+If the pump sounds normal but jets stay weak everywhere, especially after a recent drain and refill, trapped air is another possible explanation (Jacuzzi). See [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock) for how to recognize and safely clear one. Some panels show a specific flow code when this happens, such as [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo).
 
 Working through these in order (water level, filter, valves, and then trapped air) covers the causes Hot Spring and Jacuzzi describe for weak or surging jets.
 

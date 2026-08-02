@@ -85,7 +85,7 @@ Replacing a filter before it's strictly necessary is a low-risk decision; runnin
 3. **Track whether cleaning actually restores clarity and flow.** If it doesn't, that's a stronger signal than the filter's age.
 4. **Watch for repeat flow or error codes** immediately after reinstalling a freshly cleaned filter.
 5. **Keep a simple log** of replacement dates so you have a record to compare against your manual's guidance.
-6. **Order a replacement before the old filter is unusable**, rather than running the spa without one while you wait. See [Can You Run a Hot Tub Without a Filter?](/maintenance/can-you-run-a-hot-tub-without-a-filter) for what manufacturers recommend in the meantime.
+6. **Order a replacement before the old filter is unusable**, rather than running the spa without one while you wait. See [Can You Run a Hot Tub Without a Filter?](/maintenance/can-you-run-a-hot-tub-without-a-filter) for what manufacturers recommend in the meantime, and [How to Choose a Replacement Hot Tub Filter](/buying-guides/how-to-choose-a-replacement-hot-tub-filter) for part-number and fit checks before you buy.
 
 ## When to stop and call a technician
 

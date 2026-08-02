@@ -96,7 +96,7 @@ Jacuzzi's setup guide also recommends testing your fill water source before addi
 Draining and refilling is a normal homeowner maintenance task, but call a technician instead if:
 
 - The water is cloudy again shortly after a full drain and refill with correct chemistry
-- You notice unusual smells, discoloration, or debris that a drain doesn't resolve
+- You notice unusual smells, discoloration, or debris that a drain doesn't resolve. For loose floor debris between drains, a spa vacuum is optional cleanup, not a substitute for draining; see [How to Choose a Hot Tub Vacuum](/buying-guides/how-to-choose-a-hot-tub-vacuum)
 - You're unsure how to safely access or operate your spa's drain valve, or your manual directs you to a technician for this model
 
 Persistent problems after a full drain point toward equipment or plumbing rather than the water itself, and are best handled by qualified service.

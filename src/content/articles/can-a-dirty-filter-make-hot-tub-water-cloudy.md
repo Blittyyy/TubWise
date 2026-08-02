@@ -75,7 +75,7 @@ These figures come from Jacuzzi's own materials and may not apply to every brand
 3. **Rinse it with a garden hose** to clear surface debris, following your owner's manual for removal and reinstallation.
 4. **Soak it in a filter-cleaning product** if it hasn't had a deep clean recently, following the product label's instructions. See [How to Clean a Hot Tub Filter](/maintenance/how-to-clean-a-hot-tub-filter) for the full rinse-and-soak method.
 5. **Run the jets** after cleaning to help circulate filtered water, then retest chemistry before deciding whether more correction is needed. See [How Long Does It Take Cloudy Hot Tub Water to Clear?](/water-care/how-long-does-it-take-cloudy-hot-tub-water-to-clear) if you're unsure how long to wait before rechecking.
-6. **Check the filter's age.** If you can't remember the last time it was replaced, or it's past the interval in your manual, replacement may be the more reliable fix than repeated cleaning.
+6. **Check the filter's age.** If you can't remember the last time it was replaced, or it's past the interval in your manual, replacement may be the more reliable fix than repeated cleaning. Match the cartridge with [How to Choose a Replacement Hot Tub Filter](/buying-guides/how-to-choose-a-replacement-hot-tub-filter); a new filter only helps when the size and seating are correct.
 7. **Turn off power before handling the filter if your owner's manual instructs you to do so.**
 
 ## When to stop and call a technician

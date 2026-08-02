@@ -21,6 +21,18 @@ export const errorCodeBrands: ErrorCodeBrand[] = [
     description:
       'Error codes for spas using Gecko control systems. Always confirm the exact code shown on your panel.',
   },
+  {
+    slug: 'jacuzzi',
+    name: 'Jacuzzi',
+    description:
+      'Error codes for Jacuzzi spas vary by collection, control system, and owner\u2019s manual revision. Not every code applies to every Jacuzzi model. Confirm the exact display in your own manual before acting.',
+  },
+  {
+    slug: 'sundance',
+    name: 'Sundance',
+    description:
+      'Error codes for Sundance spas vary by series, equipment configuration, and owner\u2019s manual revision. Not every code applies to every Sundance model. Confirm the exact display in your own manual before acting.',
+  },
 ];
 
 export function getErrorCodeBrand(slug: string): ErrorCodeBrand | undefined {

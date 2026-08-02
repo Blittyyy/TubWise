@@ -72,7 +72,7 @@ If alkalinity or pH were already significantly out of range before you added any
 
 1. **Stop adding products.** Let the water circulate fully before testing or adding anything else.
 2. **Run the jets** for a full cycle to distribute what's already been added.
-3. **Retest** with a fresh sample rather than assuming the last reading is final.
+3. **Retest** with a fresh sample rather than assuming the last reading is final. If your kit does not match your sanitizer system, see [What to Look for in a Hot Tub Water Test Kit](/buying-guides/what-to-look-for-in-a-hot-tub-water-test-kit). Choosing between chlorine and bromine systems is a setup decision, not a cloudiness fix; see [Chlorine vs Bromine for Hot Tubs: How to Choose](/buying-guides/chlorine-vs-bromine-for-hot-tubs) only when you are selecting or confirming a system.
 4. **Check what order you added things in.** If sanitizer or pH adjuster went in before alkalinity, note that for next time. TubWise doesn't recommend trying to reverse an already-added chemical.
 5. **Compare against label directions** for your specific product and your spa's actual water volume, not a general rule of thumb.
 6. **Wait before your next adjustment.** Give the water time (Jacuzzi's guidance points to about 24 hours between major changes) before deciding more correction is needed ([Jacuzzi](https://www.jacuzzi.com/en-us/Beginners-Guide-to-Setting-Up-Your-Jacuzzi.html)).

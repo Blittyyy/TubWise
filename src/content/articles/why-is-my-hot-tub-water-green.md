@@ -69,7 +69,7 @@ Green water and cloudy water are different symptoms with some overlapping causes
 
 ## Safe checks the homeowner can do
 
-1. **Test pH and sanitizer first.** Both manufacturers point to high pH and low chlorine or bromine as the algae-related cause.
+1. **Test pH and sanitizer first.** Both manufacturers point to high pH and low chlorine or bromine as the algae-related cause. Choose a kit that can read the sanitizer you actually use; see [What to Look for in a Hot Tub Water Test Kit](/buying-guides/what-to-look-for-in-a-hot-tub-water-test-kit).
 2. **Adjust pH toward your product's recommended range**, then add sanitizer or shock according to the label, following Jacuzzi's documented order of pH first, then sanitizer ([Jacuzzi](https://www.jacuzzi.com/en-us/Signs-and-Symptoms-Your-Hot-Tub-Water-Needs-Maintenance.html)).
 3. **Check and clean the filter** while you're addressing the water. None of the sources reviewed for this article name a dirty filter as a documented cause of green color specifically, but a clean filter supports overall water quality during treatment. See [How Often Should You Clean a Hot Tub Filter?](/maintenance/how-often-should-you-clean-a-hot-tub-filter)
 4. **Test for metals if you fill from a well** or an area with known mineral content, and use a stain and scale inhibitor if levels are high, following the product label and your owner's manual.

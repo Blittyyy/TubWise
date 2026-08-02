@@ -25,11 +25,43 @@ const hasSearchQuery = Astro.url.searchParams.has('q');
     <header class="mb-8 max-w-3xl">
       <h1 class="text-3xl font-semibold sm:text-4xl">Error Codes</h1>
       <p class="mt-3 text-lg leading-relaxed text-ink-muted">
-        Spa panels often show short codes that are hard to interpret without a manual.
-        TubWise error code pages explain what common messages mean, what you can check
-        safely, and when the issue needs professional service.
+        Hot tub error codes are not universal. Choose the manufacturer or control system
+        shown on your spa, then confirm the exact code in your owner&rsquo;s manual.
       </p>
     </header>
+
+    <section class="mb-10 max-w-3xl rounded-xl border border-border bg-surface-raised p-5">
+      <h2 class="font-display text-lg font-semibold text-ink">Why the same code can mean different things</h2>
+      <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+        The same letters can mean different things depending on:
+      </p>
+      <ul class="mt-2 list-inside list-disc space-y-1 text-sm leading-relaxed text-ink-muted">
+        <li>the <strong>manufacturer</strong> (Jacuzzi, Sundance, and others each document their own codes)</li>
+        <li>the <strong>control system</strong> installed (for example Gecko or Balboa)</li>
+        <li>the <strong>model line or collection</strong> your spa belongs to</li>
+        <li>the <strong>manual revision</strong>, since manufacturers update displays over time</li>
+      </ul>
+      <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+        Always confirm the exact code and wording in your own owner&rsquo;s manual before
+        acting on anything you read here.
+      </p>
+    </section>
+
+    <section class="mb-10 max-w-3xl">
+      <h2 class="font-display text-lg font-semibold text-ink">Identify your spa first</h2>
+      <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+        If you&rsquo;re not sure which manufacturer or control system your spa uses:
+      </p>
+      <ul class="mt-2 list-inside list-disc space-y-1 text-sm leading-relaxed text-ink-muted">
+        <li>Check the cover of your owner&rsquo;s manual, which usually names the brand and model line.</li>
+        <li>Look at the control panel or topside keypad; some brands print their name there.</li>
+        <li>Check the equipment bay data label without opening any electrical enclosure; it often names the control system (such as Gecko or Balboa) and a model or serial number.</li>
+      </ul>
+      <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+        Once you know the brand or control system, choose it below and match the exact
+        display on your panel to the article that covers it.
+      </p>
+    </section>
 
     {
       activeBrands.length > 0 ? (

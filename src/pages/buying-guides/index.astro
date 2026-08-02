@@ -1,23 +1,44 @@
 ---
 import CategoryArchive from '../../components/CategoryArchive.astro';
+
+const articleGroups = [
+  {
+    label: 'Replacement Parts and Filters',
+    subcategories: ['filters'],
+  },
+  {
+    label: 'Covers and Insulation',
+    subcategories: ['covers'],
+  },
+  {
+    label: 'Water Testing and Sanitizers',
+    subcategories: ['water-testing', 'sanitizers'],
+  },
+  {
+    label: 'Cleaning Tools',
+    subcategories: ['cleaning-tools'],
+  },
+];
 ---
 
-<CategoryArchive category="buying-guides" showAffiliate={true}>
+<CategoryArchive category="buying-guides" showAffiliate={true} articleGroups={articleGroups}>
   <p>
-    Buying the wrong filter, gasket, or chemical kit wastes time and money. TubWise
-    buying guides help you match supplies to common spa setups and understand what
-    actually matters for compatibility.
+    TubWise buying guides focus on fit, compatibility, safety, and practical selection
+    criteria. We do not rank products based on retailer reviews or claim hands-on testing
+    unless it actually occurred.
   </p>
 
-  <h2 id="planned">Guides planned</h2>
-  <ul>
-    <li>How to choose a replacement filter</li>
-    <li>Sanitizer options for homeowners</li>
-    <li>Cover and floating insulator basics</li>
-    <li>Common wear parts worth stocking</li>
-  </ul>
+  <h2 id="methodology">How these guides are researched</h2>
+  <p>
+    TubWise uses desk research. We review manufacturer manuals, specifications, labels,
+    compatibility information, and official guidance where available. TubWise does not
+    independently test products unless an article explicitly says so. Guides explain what
+    to compare when choosing a supply, not a universal winner. Specifications,
+    availability, and product lines can change, so confirm current details for your spa
+    before purchasing.
+  </p>
 
-  <h2 id="approach">Our approach</h2>
+  <h2 id="approach">Affiliate links</h2>
   <p>
     We prioritize fit, safety, and maintenance practicality. When product links are
     included, they may be affiliate links, disclosed clearly and never presented as the

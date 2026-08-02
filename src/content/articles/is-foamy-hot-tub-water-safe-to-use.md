@@ -78,7 +78,7 @@ If foam showed up immediately after treating the water, wait for the product's r
 
 ## Safe checks before deciding
 
-1. **Test chlorine or bromine and pH** before getting in, using test strips or a kit.
+1. **Test chlorine or bromine and pH** before getting in, using test strips or a kit. See [What to Look for in a Hot Tub Water Test Kit](/buying-guides/what-to-look-for-in-a-hot-tub-water-test-kit) if you need help matching a kit to your sanitizer.
 2. **Note whether the foam is new or ongoing.** Foam that just appeared after a chemical addition is different from foam that's been building for days.
 3. **Check for a strong chemical smell.** The CDC states a properly chlorinated hot tub has little odor, and that a strong chemical smell indicates a problem rather than proper sanitizing ([CDC](https://www.cdc.gov/healthy-swimming/safety/what-you-can-do-to-stay-healthy-in-hot-tubs.html)).
 4. **Rule out recent bather habits**, like swimsuits with detergent residue or heavy lotion use, as a simpler explanation.

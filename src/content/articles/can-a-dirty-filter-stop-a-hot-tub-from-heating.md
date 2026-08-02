@@ -4,7 +4,7 @@ description: "Yes. A clogged filter can trip a hot tub's safety switches and sto
 summary: "Yes. A clogged filter restricts water flow, and the models Hot Spring documents use safety switches that can cut the heater (or the whole spa) off when flow drops. Cleaning the filter is a homeowner-safe first check."
 slug: "can-a-dirty-filter-stop-a-hot-tub-from-heating"
 publishedDate: 2026-07-30
-updatedDate: 2026-07-30
+updatedDate: 2026-08-01
 category: "troubleshooting"
 subcategory: "filters"
 tags:
@@ -59,7 +59,7 @@ Hot Spring's troubleshooting chart lists a clogged filter as a cause when a spa 
 
 For the Hot Spot Collection specifically, Watkins Wellness's quick start guide states that filter cartridges should be cleaned monthly to remove debris and mineral buildup, noting this buildup "may affect the performance of the hydromassage jets, limit the flow, or trip the high limit thermostat, which will turn off the entire spa" (Hot Spring Hot Spot Collection guide). That's a broader outcome than a heater-only trip. On these models, a clogged filter can shut the spa down completely, not just the heat.
 
-Jacuzzi's guide lists a clogged filter among the most common causes of pump-related issues generally, alongside low water level and tripped breakers, and recommends inspecting filters for obvious clogging or damage as an early step (Jacuzzi).
+Jacuzzi's guide lists a clogged filter among the most common causes of pump-related issues generally, alongside low water level and tripped breakers, and recommends inspecting filters for obvious clogging or damage as an early step (Jacuzzi). On some spas this shows up as a specific flow message rather than a silent shutoff; see [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo) if your panel displays one of those.
 
 ### It can affect jets too
 
@@ -72,7 +72,7 @@ A heater that has shut off because of a safety switch can look similar to a fail
 ## Safe checks the homeowner can do
 
 1. **Turn off power before handling the filter if your owner's manual instructs you to do so.**
-2. **Remove the filter and look for visible dirt, debris, or a collapsed or damaged cartridge** (Jacuzzi). See [When Should You Replace a Hot Tub Filter?](/maintenance/when-should-you-replace-a-hot-tub-filter) if damage rather than dirt is what you find.
+2. **Remove the filter and look for visible dirt, debris, or a collapsed or damaged cartridge** (Jacuzzi). See [When Should You Replace a Hot Tub Filter?](/maintenance/when-should-you-replace-a-hot-tub-filter) if damage rather than dirt is what you find. If you need a new cartridge, confirm fit with [How to Choose a Replacement Hot Tub Filter](/buying-guides/how-to-choose-a-replacement-hot-tub-filter) rather than assuming a purchase will clear a heat problem.
 3. **Clean it using the method and schedule your manual specifies.** Watkins recommends cleaning filter cartridges roughly monthly for Hot Spot Collection models; your own manual may specify a different method or interval. See [How to Clean a Hot Tub Filter](/maintenance/how-to-clean-a-hot-tub-filter) and [How Often Should You Clean a Hot Tub Filter?](/maintenance/how-often-should-you-clean-a-hot-tub-filter) for documented methods and schedules across brands.
 4. **Restore power the way your manual describes**, then give the spa time to resume its normal heating cycle.
 5. **Watch the jets at the same time.** The Hot Spot Collection guide describes strong, non-surging flow at both speeds as the sign that jets are working properly after air has been purged from the system, a useful check even if your model differs (Hot Spring Hot Spot Collection guide).
