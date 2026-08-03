@@ -1,15 +1,29 @@
 ---
 import CategoryArchive from '../../components/CategoryArchive.astro';
+
+const articleGroups = [
+  {
+    label: 'Heating and Flow',
+    subcategories: ['heating', 'air-lock', 'filters', 'jets'],
+  },
+  {
+    label: 'Control Panel and Power',
+    subcategories: ['controls'],
+  },
+  {
+    label: 'Leaks and Water Loss',
+    subcategories: ['leaks'],
+  },
+  {
+    label: 'Pumps and Noise',
+    subcategories: ['pumps'],
+  },
+];
 ---
 
-<CategoryArchive category="troubleshooting">
+<CategoryArchive category="troubleshooting" articleGroups={articleGroups}>
   <p>
     Use these guides to narrow down what is going wrong before you buy parts or call a
     technician. Start with the safest checks first (power, settings, and water temperature), then move to filters, pumps, leaks, and heating components.
   </p>
-
-  <h2 id="coming-next">Topics planned</h2>
-  <ul>
-    <li>Control panel unresponsive</li>
-  </ul>
 </CategoryArchive>

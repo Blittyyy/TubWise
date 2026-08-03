@@ -4,7 +4,7 @@ description: "Jacuzzi OH means overheat protection on manuals that document that
 summary: "In Jacuzzi documentation that defines an OH high-temperature condition, the message means water is above acceptable limits. Do not enter. Confirm whether your Jacuzzi manual lists OH or a different overheat display before acting."
 slug: "jacuzzi-oh-error-code"
 publishedDate: 2026-07-31
-updatedDate: 2026-08-01
+updatedDate: 2026-08-03
 category: "error-codes"
 subcategory: "jacuzzi-oh"
 brand: "jacuzzi"
@@ -25,6 +25,7 @@ affiliateDisclosure: false
 safetyLevel: "electrical"
 relatedArticles:
   - sundance-oh-error-code
+  - hot-tub-control-panel-is-flashing-or-showing-dashes
   - jacuzzi-fl1-error-code
   - hot-tub-not-heating
   - hot-tub-not-heating-after-a-refill
@@ -75,7 +76,7 @@ Use this article when:
 - your spa is a Jacuzzi, and
 - your manual or official Jacuzzi support text lists **OH** as the overheat display, or you own a ProTech LED J-310–J-340 spa whose manual lists the Overheat Condition section above.
 
-If your panel shows numeric overheat codes, dashes / Watchdog, or another overheat message, follow **that** entry in your manual. Do not assume one Jacuzzi collection’s mode or cooling steps apply to all Jacuzzi spas.
+If your panel shows numeric overheat codes, dashes / Watchdog, or another overheat message, follow **that** entry in your manual. Do not assume one Jacuzzi collection’s mode or cooling steps apply to all Jacuzzi spas. For a homeowner overview of flashing indicators and dashes across brand manuals, see [Hot Tub Control Panel Is Flashing or Showing Dashes](/troubleshooting/hot-tub-control-panel-is-flashing-or-showing-dashes).
 
 Confirm the exact display and temperature wording in **your** owner's manual.
 
@@ -110,7 +111,7 @@ Do not enter the spa. Do not bypass a high-limit switch or GFCI. Do not open the
 Call an authorized Jacuzzi dealer or qualified technician if:
 
 - overheat returns after cooling, or your manual’s owner steps do not clear it
-- the panel shows Watchdog dashes or another spa-deactivating overheat message
+- the panel shows Watchdog dashes or another spa-deactivating overheat message (see [Hot Tub Control Panel Is Flashing or Showing Dashes](/troubleshooting/hot-tub-control-panel-is-flashing-or-showing-dashes))
 - a GFCI or breaker trips, will not reset, or trips again after one reset
 - you smell burning, see scorching, damaged wiring, or leaks near electrical equipment
 - diagnosis would require sensor or board testing, or opening an electrical enclosure

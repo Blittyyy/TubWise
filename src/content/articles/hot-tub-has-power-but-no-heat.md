@@ -4,7 +4,7 @@ description: "Jets and lights work but the water won't warm up? Here's the speci
 summary: "When jets and lights still work but the water won't heat, Hot Spring documents the causes as an open pressure switch, a tripped circulation-pump thermal cut-off, or an air lock: flow-related conditions rather than a failed heater."
 slug: "hot-tub-has-power-but-no-heat"
 publishedDate: 2026-07-30
-updatedDate: 2026-07-30
+updatedDate: 2026-08-03
 category: "troubleshooting"
 subcategory: "heating"
 tags:
@@ -21,6 +21,7 @@ affiliateDisclosure: false
 safetyLevel: "electrical"
 relatedArticles:
   - hot-tub-not-heating
+  - why-is-my-hot-tub-control-panel-not-working
   - can-a-dirty-filter-stop-a-hot-tub-from-heating
   - how-to-tell-if-a-hot-tub-has-an-air-lock
 sources:
@@ -49,7 +50,7 @@ Do not open the control box or touch wiring. Do not bypass a pressure switch, fl
 
 Hot Spring's troubleshooting chart lists a completely inoperative spa (dark panel, nothing responding) as a separate case, pointing to a power failure, a tripped GFCI, or a tripped heater high-limit thermostat (Hot Spring). Power-but-no-heat is different: the electronics are clearly getting power, so Hot Spring's guidance points instead to a safety device that reacts to water flow rather than to electricity. The chart lists this scenario separately, with the blinking "Ready" and "Power" logo lights called out as a visible sign (Hot Spring).
 
-Confirming which case you're in first can save time: rechecking the breaker panel won't help if the real issue is a clogged filter, and cleaning the filter won't help if the spa genuinely has no power. Look at the panel and jets together before starting any check, so you know which set of causes actually applies to your situation.
+Confirming which case you're in first can save time: rechecking the breaker panel won't help if the real issue is a clogged filter, and cleaning the filter won't help if the spa genuinely has no power. Look at the panel and jets together before starting any check, so you know which set of causes actually applies to your situation. If the topside is dark or unresponsive rather than lit with working jets, start with [Why Is My Hot Tub Control Panel Not Working?](/troubleshooting/why-is-my-hot-tub-control-panel-not-working) instead of this heating path.
 
 ## The three causes Hot Spring lists for this exact scenario
 

@@ -4,7 +4,7 @@ description: "Yes. A clogged filter can trip a hot tub's safety switches and sto
 summary: "Yes. A clogged filter restricts water flow, and the models Hot Spring documents use safety switches that can cut the heater (or the whole spa) off when flow drops. Cleaning the filter is a homeowner-safe first check."
 slug: "can-a-dirty-filter-stop-a-hot-tub-from-heating"
 publishedDate: 2026-07-30
-updatedDate: 2026-08-01
+updatedDate: 2026-08-03
 category: "troubleshooting"
 subcategory: "filters"
 tags:
@@ -21,6 +21,7 @@ affiliateDisclosure: false
 safetyLevel: "general"
 relatedArticles:
   - hot-tub-not-heating
+  - why-does-my-hot-tub-keep-turning-off
   - why-are-my-hot-tub-jets-weak
   - hot-tub-has-power-but-no-heat
   - how-to-clean-a-hot-tub-filter
@@ -82,6 +83,7 @@ A heater that has shut off because of a safety switch can look similar to a fail
 
 - The heater still won't run after a clean filter and confirmed water flow
 - The same safety indicator keeps returning even with a clean filter
+- The spa keeps shutting down after a high-limit or similar reset path (see [Why Does My Hot Tub Keep Turning Off?](/troubleshooting/why-does-my-hot-tub-keep-turning-off))
 - You notice a burning smell, scorched parts, or another electrical warning sign
 - The spa needs to be opened up further than the filter compartment to diagnose the problem
 - You suspect the heating element or another internal component has failed, rather than a flow-related shutoff
