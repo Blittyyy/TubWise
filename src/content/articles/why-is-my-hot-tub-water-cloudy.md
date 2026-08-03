@@ -4,7 +4,7 @@ description: "Cloudy hot tub water can trace back to water chemistry, sanitizer,
 summary: "Cloudy hot tub water can be caused by unbalanced pH or alkalinity, low sanitizer, body oils and lotions, a dirty filter, or old water with a high mineral load. Testing the water and checking the filter are the two starting points manufacturers point to for narrowing down the cause."
 slug: "why-is-my-hot-tub-water-cloudy"
 publishedDate: 2026-07-30
-updatedDate: 2026-07-30
+updatedDate: 2026-08-03
 category: "water-care"
 subcategory: "water-clarity"
 tags:
@@ -103,4 +103,4 @@ Stop using the spa and don't just keep adding chemicals if:
 
 If cloudiness returns quickly after treatment, or you're unsure how long the water has been in the spa, manufacturer guidance points to a full drain and refill as the next step rather than continuing to add chemicals. If problems continue even after a drain, that points toward an equipment or plumbing issue better suited to a qualified spa technician.
 
-For related questions, see [Hot Tub Water Cloudy After Adding Chemicals](/water-care/hot-tub-water-cloudy-after-adding-chemicals) and [How Long Does It Take Cloudy Hot Tub Water to Clear?](/water-care/how-long-does-it-take-cloudy-hot-tub-water-to-clear) If your water looks green rather than hazy, that's a different symptom with its own causes; see [Why Is My Hot Tub Water Green?](/water-care/why-is-my-hot-tub-water-green)
+For related questions, see [Hot Tub Water Cloudy After Adding Chemicals](/water-care/hot-tub-water-cloudy-after-adding-chemicals) and [How Long Does It Take Cloudy Hot Tub Water to Clear?](/water-care/how-long-does-it-take-cloudy-hot-tub-water-to-clear). If your water looks green rather than hazy, that's a different symptom with its own causes; see [Why Is My Hot Tub Water Green?](/water-care/why-is-my-hot-tub-water-green). If a strong chemical smell is the main issue, see [Why Does My Hot Tub Smell Like Chlorine?](/water-care/why-does-my-hot-tub-smell-like-chlorine). Color that appears right after a refill may track to fill water; see [Why Is My Hot Tub Water Discolored After Filling?](/water-care/why-is-my-hot-tub-water-discolored-after-filling).

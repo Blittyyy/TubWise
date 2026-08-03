@@ -4,7 +4,7 @@ description: "Compare hot tub test strips, liquid DPD kits, and digital readers 
 summary: "Choose a test kit that matches the sanitizer system you actually use and the parameters your spa manual expects you to track. For chlorine and pH, CDC home pool and hot tub guidance says a DPD test kit gives more accurate results than test strips."
 slug: "what-to-look-for-in-a-hot-tub-water-test-kit"
 publishedDate: 2026-08-01
-updatedDate: 2026-08-01
+updatedDate: 2026-08-03
 category: "buying-guides"
 subcategory: "water-testing"
 tags:
@@ -21,6 +21,7 @@ featured: false
 affiliateDisclosure: false
 safetyLevel: "chemical"
 relatedArticles:
+  - how-often-should-you-test-hot-tub-water
   - chlorine-vs-bromine-for-hot-tubs
   - why-is-my-hot-tub-water-cloudy
   - hot-tub-water-cloudy-after-adding-chemicals
@@ -110,7 +111,7 @@ Follow those labeled directions. Do not rely on an expired kit or one stored out
 
 ## What a test result does not prove
 
-A single reading does not prove the water is safe for every person or situation. CDC ties germ control to maintaining free chlorine concentration and pH together, and notes that some germs remain chlorine-tolerant even in well-maintained water (CDC). Jacuzzi swim-spa guidance tells owners to wait for label wait times and confirm safe sanitizer levels before use (Jacuzzi).
+A single reading does not prove the water is safe for every person or situation. CDC ties germ control to maintaining free chlorine concentration and pH together, and notes that some germs remain chlorine-tolerant even in well-maintained water (CDC). Jacuzzi swim-spa guidance tells owners to wait for label wait times and confirm safe sanitizer levels before use (Jacuzzi). For how often to test, including CDC twice-daily chlorine and pH checks versus brand weekly schedules, see [How Often Should You Test Hot Tub Water?](/maintenance/how-often-should-you-test-hot-tub-water).
 
 Do not use this page for dosing amounts. Prefer the spa manufacturer's listed capacity when a product label needs gallons or liters. The [Hot Tub Volume Calculator](/calculators/hot-tub-volume-calculator) is only an estimate aid when the listed capacity is unknown.
 

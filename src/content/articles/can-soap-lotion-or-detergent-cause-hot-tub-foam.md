@@ -4,7 +4,7 @@ description: "Yes. Manufacturer guidance names soap, lotion, and detergent resid
 summary: "Yes, soap, body lotions, and detergent residue on swimwear are documented causes of hot tub foam. According to Hot Spring's owner's manual, soap in particular resists being broken down by chlorine or bromine, which is why it can persist until the water is changed."
 slug: "can-soap-lotion-or-detergent-cause-hot-tub-foam"
 publishedDate: 2026-07-31
-updatedDate: 2026-07-31
+updatedDate: 2026-08-03
 category: "water-care"
 subcategory: "foam"
 tags:
@@ -81,4 +81,4 @@ The same manual explains that soap buildup eventually concentrates in the water,
 
 ## When this isn't the cause
 
-If foam persists even with clean swimwear and consistent pre-soak showers, water chemistry (low calcium hardness or an imbalance) or a chemical you recently added may be a bigger factor. See [Why Is My Hot Tub Water Foamy?](/water-care/why-is-my-hot-tub-water-foamy) for the fuller list of causes, or [Hot Tub Foam After Adding Chemicals: What Happened?](/water-care/hot-tub-foam-after-adding-chemicals) if the timing lines up with a recent treatment. If you're unsure whether it's safe to use the spa while foam is present, see [Is Foamy Hot Tub Water Safe to Use?](/water-care/is-foamy-hot-tub-water-safe-to-use)
+If foam persists even with clean swimwear and consistent pre-soak showers, water chemistry (low calcium hardness or an imbalance) or a chemical you recently added may be a bigger factor. See [Why Is My Hot Tub Water Foamy?](/water-care/why-is-my-hot-tub-water-foamy) for the fuller list of causes, or [Hot Tub Foam After Adding Chemicals: What Happened?](/water-care/hot-tub-foam-after-adding-chemicals) if the timing lines up with a recent treatment. If you're unsure whether it's safe to use the spa while foam is present, see [Is Foamy Hot Tub Water Safe to Use?](/water-care/is-foamy-hot-tub-water-safe-to-use). Oils and lotions can also leave a ring at the waterline; see [Why Is There a Ring Around My Hot Tub Waterline?](/water-care/why-is-there-a-ring-around-my-hot-tub-waterline).

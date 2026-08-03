@@ -4,7 +4,7 @@ description: "Not always. Manufacturers point to draining only after correct che
 summary: "Draining is not the first step manufacturer guidance points to for cloudy water. It's described as the next step after water chemistry has been corrected, the filter is clean, and cloudiness still persists, or when the water is old enough that total dissolved solids may exceed the level a manufacturer recommends."
 slug: "should-you-drain-a-hot-tub-if-the-water-is-cloudy"
 publishedDate: 2026-07-30
-updatedDate: 2026-07-30
+updatedDate: 2026-08-03
 category: "water-care"
 subcategory: "draining"
 tags:
@@ -22,6 +22,7 @@ affiliateDisclosure: false
 safetyLevel: "chemical"
 relatedArticles:
   - why-is-my-hot-tub-water-cloudy
+  - how-often-should-you-drain-and-refill-a-hot-tub
   - hot-tub-water-cloudy-after-adding-chemicals
   - how-long-does-it-take-cloudy-hot-tub-water-to-clear
   - can-a-dirty-filter-make-hot-tub-water-cloudy
@@ -67,7 +68,7 @@ Jacuzzi ties persistent cloudiness to high total dissolved solids, and its setup
 
 ### It's been a while since the last drain
 
-Hot Spring's own troubleshooting chart lists "drain, clean and refill the spa" as one of several solutions for cloudy water, alongside chemistry and filter fixes ([Hot Spring](https://www.hotspring.com/owners/water-care-and-troubleshooting)). If you can't remember when the spa was last drained, or it's been longer than your manufacturer's recommended interval, old water is worth ruling out as a possible explanation.
+Hot Spring's own troubleshooting chart lists "drain, clean and refill the spa" as one of several solutions for cloudy water, alongside chemistry and filter fixes ([Hot Spring](https://www.hotspring.com/owners/water-care-and-troubleshooting)). If you can't remember when the spa was last drained, or it's been longer than your manufacturer's recommended interval, old water is worth ruling out as a possible explanation. For scheduled drain intervals (including salt-system caveats), see [How Often Should You Drain and Refill a Hot Tub?](/maintenance/how-often-should-you-drain-and-refill-a-hot-tub).
 
 ## When draining isn't the first step
 

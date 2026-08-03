@@ -4,7 +4,7 @@ description: "Compare chlorine and bromine as hot tub sanitizer systems using ma
 summary: "Chlorine and bromine are both common spa sanitizers, but they are different systems. Jacuzzi UK states you must choose one and never combine them. Confirm what your spa manual allows, then match testing and products to that system."
 slug: "chlorine-vs-bromine-for-hot-tubs"
 publishedDate: 2026-08-01
-updatedDate: 2026-08-01
+updatedDate: 2026-08-03
 category: "buying-guides"
 subcategory: "sanitizers"
 tags:
@@ -121,4 +121,4 @@ Contact your dealer or a water-care professional if:
 - you are unsure whether a tablet, salt, or mineral system is approved for your spa
 - water stays cloudy, foamy, or irritating after labeled corrections
 
-For symptom context after chemical additions, see [Hot Tub Water Cloudy After Adding Chemicals](/water-care/hot-tub-water-cloudy-after-adding-chemicals) and [Hot Tub Foam After Adding Chemicals](/water-care/hot-tub-foam-after-adding-chemicals). For general cloudiness, see [Why Is My Hot Tub Water Cloudy?](/water-care/why-is-my-hot-tub-water-cloudy).
+For symptom context after chemical additions, see [Hot Tub Water Cloudy After Adding Chemicals](/water-care/hot-tub-water-cloudy-after-adding-chemicals) and [Hot Tub Foam After Adding Chemicals](/water-care/hot-tub-foam-after-adding-chemicals). For general cloudiness, see [Why Is My Hot Tub Water Cloudy?](/water-care/why-is-my-hot-tub-water-cloudy). If the spa smells strongly of chlorine, see [Why Does My Hot Tub Smell Like Chlorine?](/water-care/why-does-my-hot-tub-smell-like-chlorine).

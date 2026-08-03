@@ -4,7 +4,7 @@ description: "Green hot tub water can point to algae from low sanitizer and high
 summary: "Green hot tub water is documented by manufacturers as a sign of algae growth, tied to high pH and low sanitizer, or as staining from dissolved iron or copper in the fill water. The two causes call for different fixes, so testing sanitizer, pH, and metals is the starting point."
 slug: "why-is-my-hot-tub-water-green"
 publishedDate: 2026-07-31
-updatedDate: 2026-07-31
+updatedDate: 2026-08-03
 category: "water-care"
 subcategory: "discoloration"
 tags:
@@ -84,4 +84,4 @@ Green water is a homeowner-testable and, in many cases, homeowner-treatable issu
 - You suspect a metal source you can't identify or treat with a sequestrant, such as internal plumbing or heater components
 - Discoloration returns quickly after a drain and refill with fresh water
 
-If treatment doesn't resolve the color, a full drain and refill, followed by retesting your fill water before adding chemicals, is the next step manufacturer guidance points to before assuming an equipment problem. If you're also noticing foam along with the color change, see [Why Is My Hot Tub Water Foamy?](/water-care/why-is-my-hot-tub-water-foamy) for that separate set of causes.
+If treatment doesn't resolve the color, a full drain and refill, followed by retesting your fill water before adding chemicals, is the next step manufacturer guidance points to before assuming an equipment problem. Color that shows up during or right after a refill has its own fill-water path; see [Why Is My Hot Tub Water Discolored After Filling?](/water-care/why-is-my-hot-tub-water-discolored-after-filling). If the water is brown rather than green, see [Why Is My Hot Tub Water Brown?](/water-care/why-is-my-hot-tub-water-brown). If you're also noticing foam along with the color change, see [Why Is My Hot Tub Water Foamy?](/water-care/why-is-my-hot-tub-water-foamy) for that separate set of causes.

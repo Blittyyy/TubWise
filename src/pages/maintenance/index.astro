@@ -1,22 +1,32 @@
 ---
 import CategoryArchive from '../../components/CategoryArchive.astro';
+
+const articleGroups = [
+  {
+    label: 'Routines and Schedules',
+    subcategories: ['routines', 'draining', 'water-testing'],
+  },
+  {
+    label: 'Filters',
+    subcategories: ['filters'],
+  },
+  {
+    label: 'Cover and Shell Care',
+    subcategories: ['covers', 'shell'],
+  },
+];
 ---
 
-<CategoryArchive category="maintenance">
+<CategoryArchive category="maintenance" articleGroups={articleGroups}>
   <p>
     A short, consistent routine prevents most water and equipment surprises. TubWise
-    maintenance guides focus on what to do weekly, monthly, and a few times a year, without overcomplicating ownership.
+    maintenance guides focus on what to do weekly, monthly, and a few times a year,
+    without overcomplicating ownership. Match every interval to your owner's manual,
+    and treat public-health sanitizer checks separately from brand maintenance calendars.
   </p>
 
   <p>
     For cover fit and construction choices when a replacement is needed, see
     <a href="/buying-guides/how-to-choose-a-hot-tub-cover">How to Choose a Hot Tub Cover</a>.
   </p>
-
-  <h2 id="routines">Routines planned</h2>
-  <ul>
-    <li>Weekly water test and top-off checklist</li>
-    <li>Cover care and inspection</li>
-    <li>Seasonal drain-and-refill reminders</li>
-  </ul>
 </CategoryArchive>

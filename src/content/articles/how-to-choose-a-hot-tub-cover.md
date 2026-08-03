@@ -4,7 +4,7 @@ description: "Choose a replacement hot tub cover by spa dimensions, corner radiu
 summary: "A replacement cover should match your spa's exact shape and measurements. Jacuzzi guidance emphasizes fit first, then construction details such as foam, vapor barrier, skirt, and straps. A cover helps with heat retention and access control, but it is not a substitute for supervision."
 slug: "how-to-choose-a-hot-tub-cover"
 publishedDate: 2026-08-01
-updatedDate: 2026-08-01
+updatedDate: 2026-08-03
 category: "buying-guides"
 subcategory: "covers"
 tags:
@@ -21,6 +21,7 @@ featured: false
 affiliateDisclosure: false
 safetyLevel: "general"
 relatedArticles:
+  - how-to-clean-a-hot-tub-cover
   - jacuzzi-oh-error-code
   - sundance-oh-error-code
   - how-to-choose-a-replacement-hot-tub-filter
@@ -116,6 +117,7 @@ Jacuzzi advises checking that a cover warranty comes from a company likely to re
 4. **Ask for documented foam, vapor barrier, and climate guidance** for your location.
 5. **Confirm warranty terms in writing.**
 6. **Plan handling** with a second person or a manufacturer-compatible lifter if the cover is heavy.
+7. **Plan monthly cleaning** after the cover is installed; see [How to Clean a Hot Tub Cover](/maintenance/how-to-clean-a-hot-tub-cover).
 
 ## When to stop and get help
 

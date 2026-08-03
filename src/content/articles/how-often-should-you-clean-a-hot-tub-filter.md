@@ -4,7 +4,7 @@ description: "Hot tub filter cleaning schedules vary by manufacturer, and even b
 summary: "There's no single universal schedule. Jacuzzi, Sundance, and Hot Spring each publish a weekly rinse plus a periodic deep clean, but the exact intervals differ by brand and even between a manufacturer's own documents. Check your owner's manual first."
 slug: "how-often-should-you-clean-a-hot-tub-filter"
 publishedDate: 2026-07-30
-updatedDate: 2026-07-30
+updatedDate: 2026-08-03
 category: "maintenance"
 subcategory: "filters"
 tags:
@@ -21,6 +21,7 @@ affiliateDisclosure: false
 safetyLevel: "general"
 relatedArticles:
   - how-to-clean-a-hot-tub-filter
+  - hot-tub-maintenance-checklist-weekly-monthly-and-seasonal-tasks
   - when-should-you-replace-a-hot-tub-filter
   - can-you-run-a-hot-tub-without-a-filter
   - can-a-dirty-filter-make-hot-tub-water-cloudy
@@ -81,6 +82,8 @@ It's worth being direct about why this article doesn't give a single number: the
 3. **Watch your actual usage**, not just the calendar. More bathers, sunscreen, or rental use are documented reasons to clean more often.
 4. **Inspect the filter each time you rinse it** for damage, discoloration, or flattened pleats, since that can mean replacement is due sooner than any interval. See [When Should You Replace a Hot Tub Filter?](/maintenance/when-should-you-replace-a-hot-tub-filter) for what to look for.
 5. **Keep a simple log** of rinse and deep-clean dates so you can tell whether your actual schedule matches what your manual recommends.
+
+Filter cleaning sits inside a broader ownership calendar. For weekly, monthly, and seasonal tasks beyond the filter, see [Hot Tub Maintenance Checklist: Weekly, Monthly, and Seasonal Tasks](/maintenance/hot-tub-maintenance-checklist-weekly-monthly-and-seasonal-tasks).
 
 ## When to stop and call a technician
 

@@ -1,21 +1,40 @@
 ---
 import CategoryArchive from '../../components/CategoryArchive.astro';
+
+const articleGroups = [
+  {
+    label: 'Water Clarity and Color',
+    subcategories: ['water-clarity', 'discoloration'],
+  },
+  {
+    label: 'Foam and Surface Issues',
+    subcategories: ['foam', 'waterline-buildup', 'surface-condition'],
+  },
+  {
+    label: 'Scale, Stains, and Fill Water',
+    subcategories: ['scale', 'stains', 'fill-water'],
+  },
+  {
+    label: 'Odor',
+    subcategories: ['water-odor'],
+  },
+  {
+    label: 'Chemistry After Treatment',
+    subcategories: ['chemicals'],
+  },
+  {
+    label: 'Filters and Draining',
+    subcategories: ['filters', 'draining'],
+  },
+];
 ---
 
-<CategoryArchive category="water-care">
+<CategoryArchive category="water-care" articleGroups={articleGroups}>
   <p>
     Clear water starts with a few habits: test regularly, keep filters clean, and make
     small chemistry adjustments instead of large swings. TubWise water care guides are
-    written for homeowners who want plain-language steps without lab jargon.
+    written for homeowners who want plain-language steps without lab jargon. Follow
+    your spa manual and product labels for dosing, and treat brand-specific chemistry
+    ranges as scoped to that source.
   </p>
-
-  <h2 id="topics">Topics we cover</h2>
-  <ul>
-    <li>Cloudy or dull water</li>
-    <li>Foam on the surface</li>
-    <li>Sanitizer and pH basics</li>
-    <li>Shock, clarifiers, and when they help</li>
-    <li>Filter rinsing and replacement</li>
-    <li>Drain-and-refill timing</li>
-  </ul>
 </CategoryArchive>
