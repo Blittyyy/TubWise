@@ -4,7 +4,7 @@ description: "Hot tub not heating? Check power, water level, filters, and safety
 summary: "Before assuming the heater failed, check power, the GFCI, water level, the filter, and any panel warning. Reset a breaker or GFCI only once if your manual allows it. If it will not reset or trips again, stop and call qualified service."
 slug: "hot-tub-not-heating"
 publishedDate: 2026-07-28
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "troubleshooting"
 subcategory: "heating"
 tags:
@@ -23,6 +23,8 @@ relatedArticles:
   - can-a-dirty-filter-stop-a-hot-tub-from-heating
   - hot-tub-not-heating-after-a-refill
   - hot-tub-has-power-but-no-heat
+  - why-is-my-hot-tub-taking-so-long-to-heat-up
+  - why-is-my-hot-tub-not-reaching-the-set-temperature
   - why-is-my-hot-tub-control-panel-not-working
   - how-to-tell-if-a-hot-tub-has-an-air-lock
   - why-are-my-hot-tub-jets-weak
@@ -102,6 +104,8 @@ If the problem started after a refill, trapped air can stop proper flow and heat
 Spas shut the heater off when flow or temperature protection is triggered. Hot Spring documents a blinking power indicator as a high-limit trip: water too hot, or low circulation such as from clogged filters (Hot Spring Highlife owner's manual). Some older Jacuzzi models use FL1 or FL2 for different flow-switch faults that disable the heater; sensor codes such as SN1 or SN2 require dealer repair (Jacuzzi). If your panel shows that exact message, see the scoped guide for [Jacuzzi FL1](/error-codes/jacuzzi/fl1) or [Sundance FL1](/error-codes/sundance/fl1); a message reading OH points to water that's too hot rather than a flow fault (see [Jacuzzi OH](/error-codes/jacuzzi/oh) or [Sundance OH](/error-codes/sundance/oh)). For flashing indicators or dashes that are not a letter code, see [Hot Tub Control Panel Is Flashing or Showing Dashes](/troubleshooting/hot-tub-control-panel-is-flashing-or-showing-dashes). If the spa keeps shutting down after a reset, see [Why Does My Hot Tub Keep Turning Off?](/troubleshooting/why-does-my-hot-tub-keep-turning-off).
 
 Do not assume the heater has failed. These symptoms alone are not enough to diagnose the heating element.
+
+If the spa is warming slowly after a cold start, plateaus below the set point, loses heat after it was already warm, or seems to heat only while jets or filtration run, use the matching symptom guide instead of this no-heat checklist: [Why Is My Hot Tub Taking So Long to Heat Up?](/troubleshooting/why-is-my-hot-tub-taking-so-long-to-heat-up), [Why Is My Hot Tub Not Reaching the Set Temperature?](/troubleshooting/why-is-my-hot-tub-not-reaching-the-set-temperature), [Why Does My Hot Tub Temperature Keep Dropping?](/troubleshooting/why-does-my-hot-tub-temperature-keep-dropping), or [Why Does My Hot Tub Heat Only When the Jets Are On?](/troubleshooting/why-does-my-hot-tub-heat-only-when-the-jets-are-on). For water hotter than expected or overheat warnings, see [Why Is My Hot Tub Getting Too Hot?](/troubleshooting/why-is-my-hot-tub-getting-too-hot).
 
 ## Safe checks the homeowner can do
 

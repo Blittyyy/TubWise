@@ -4,7 +4,7 @@ description: "Jacuzzi OH means overheat protection on manuals that document that
 summary: "In Jacuzzi documentation that defines an OH high-temperature condition, the message means water is above acceptable limits. Do not enter. Confirm whether your Jacuzzi manual lists OH or a different overheat display before acting."
 slug: "jacuzzi-oh-error-code"
 publishedDate: 2026-07-31
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "error-codes"
 subcategory: "jacuzzi-oh"
 brand: "jacuzzi"
@@ -25,6 +25,7 @@ affiliateDisclosure: false
 safetyLevel: "electrical"
 relatedArticles:
   - sundance-oh-error-code
+  - why-is-my-hot-tub-getting-too-hot
   - hot-tub-control-panel-is-flashing-or-showing-dashes
   - jacuzzi-fl1-error-code
   - hot-tub-not-heating
@@ -100,7 +101,7 @@ These checks are not guaranteed fixes. Use only the steps that match your docume
 
 Do not pack the spa with ice or add chemicals to force the temperature down. Those methods are not part of the cited Jacuzzi overheat entries.
 
-For later heating questions after the spa is safe, see [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating).
+For later heating questions after the spa is safe, see [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating). For a broader homeowner overview of water that feels hotter than the setting, high-limit trips, and when to shut off power, see [Why Is My Hot Tub Getting Too Hot?](/troubleshooting/why-is-my-hot-tub-getting-too-hot).
 
 ## What not to do
 

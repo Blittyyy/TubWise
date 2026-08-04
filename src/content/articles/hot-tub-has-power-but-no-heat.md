@@ -4,7 +4,7 @@ description: "Jets and lights work but the water won't warm up? Here's the speci
 summary: "When jets and lights still work but the water won't heat, Hot Spring documents the causes as an open pressure switch, a tripped circulation-pump thermal cut-off, or an air lock: flow-related conditions rather than a failed heater."
 slug: "hot-tub-has-power-but-no-heat"
 publishedDate: 2026-07-30
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "troubleshooting"
 subcategory: "heating"
 tags:
@@ -21,6 +21,7 @@ affiliateDisclosure: false
 safetyLevel: "electrical"
 relatedArticles:
   - hot-tub-not-heating
+  - why-does-my-hot-tub-heat-only-when-the-jets-are-on
   - why-is-my-hot-tub-control-panel-not-working
   - can-a-dirty-filter-stop-a-hot-tub-from-heating
   - how-to-tell-if-a-hot-tub-has-an-air-lock
@@ -85,4 +86,4 @@ If the spa was filled or topped off recently, trapped air can block proper flow 
 
 If you've worked through the flow-related causes above and heat still hasn't returned, that's the point to stop rather than continue guessing.
 
-For the full first-checks routine covering both "no power" and "power but no heat," see [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating).
+For the full first-checks routine covering both "no power" and "power but no heat," see [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating). If heat appears only while jets or filtration run, rather than never at all, see [Why Does My Hot Tub Heat Only When the Jets Are On?](/troubleshooting/why-does-my-hot-tub-heat-only-when-the-jets-are-on).

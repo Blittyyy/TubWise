@@ -4,7 +4,7 @@ description: "Sundance 680 Series OH means water is above acceptable limits at 1
 summary: "In the cited Sundance 680 Series owner's manual, OH warns that water temperature is above acceptable limits and has reached 112°F (44°C). Do not enter the spa. Confirm the exact OH entry in your Sundance owner's manual."
 slug: "sundance-oh-error-code"
 publishedDate: 2026-07-31
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "error-codes"
 subcategory: "sundance-oh"
 brand: "sundance"
@@ -25,6 +25,7 @@ affiliateDisclosure: false
 safetyLevel: "electrical"
 relatedArticles:
   - jacuzzi-oh-error-code
+  - why-is-my-hot-tub-getting-too-hot
   - hot-tub-control-panel-is-flashing-or-showing-dashes
   - sundance-fl1-error-code
   - hot-tub-not-heating
@@ -97,3 +98,5 @@ Contact an authorized Sundance dealer or qualified technician if:
 3. Match **OH** on the panel to that entry, including any **DO NOT ENTER** wording and temperature figures.
 4. Follow only the owner actions listed for your manual revision.
 5. Treat Jacuzzi, Gecko, and Balboa overheat pages as different products with different limits.
+
+For a broader homeowner overview of water that feels hotter than the setting and high-limit stop conditions, see [Why Is My Hot Tub Getting Too Hot?](/troubleshooting/why-is-my-hot-tub-getting-too-hot).

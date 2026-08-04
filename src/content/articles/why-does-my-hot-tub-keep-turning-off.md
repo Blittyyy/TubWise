@@ -4,7 +4,7 @@ description: "Hot tub powers up then shuts down again? Check high-limit trips, G
 summary: "Repeated shutdowns are not the same as a spa that never powers on. Hot Spring links recurring high-limit trips to clogged filters and other flow problems, and tells owners to call service if the thermostat keeps tripping. Jacuzzi treats a GFCI that trips again immediately as an electrical stop condition."
 slug: "why-does-my-hot-tub-keep-turning-off"
 publishedDate: 2026-08-03
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "troubleshooting"
 subcategory: "controls"
 tags:
@@ -24,6 +24,7 @@ relatedArticles:
   - why-is-my-hot-tub-control-panel-not-working
   - hot-tub-display-is-blank-but-the-breaker-is-on
   - can-a-dirty-filter-stop-a-hot-tub-from-heating
+  - why-is-my-hot-tub-getting-too-hot
   - hot-tub-not-heating
   - hot-tub-control-panel-is-flashing-or-showing-dashes
 sources:
@@ -90,7 +91,7 @@ That guidance is model-family specific. Follow your own manual's pump-protection
 5. **Apply one power-off interval** only if your manual uses that step to reset high-limit, then restore power once.
 6. **Stop** if the same trip returns.
 
-If heat never returns while the panel stays alive, use [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating) instead of treating every heat loss as a full spa shutdown.
+If heat never returns while the panel stays alive, use [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating) instead of treating every heat loss as a full spa shutdown. If shutdowns follow an overheat or high-limit pattern, also see [Why Is My Hot Tub Getting Too Hot?](/troubleshooting/why-is-my-hot-tub-getting-too-hot).
 
 ## Panel messages during shutdowns
 

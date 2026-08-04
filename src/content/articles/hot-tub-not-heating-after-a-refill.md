@@ -4,7 +4,7 @@ description: "Hot tub not heating right after a refill? Trapped air in the plumb
 summary: "A common cause of a spa not heating right after a refill is trapped air (an air lock) in the plumbing, or water that hasn't reached the fill line. Hot Spring describes a homeowner-safe way to purge air through the filter compartment; check your own manual for your model's method."
 slug: "hot-tub-not-heating-after-a-refill"
 publishedDate: 2026-07-30
-updatedDate: 2026-08-01
+updatedDate: 2026-08-04
 category: "troubleshooting"
 subcategory: "air-lock"
 tags:
@@ -23,6 +23,7 @@ relatedArticles:
   - hot-tub-not-heating
   - how-to-tell-if-a-hot-tub-has-an-air-lock
   - hot-tub-has-power-but-no-heat
+  - why-is-my-hot-tub-taking-so-long-to-heat-up
 sources:
   - title: "Fix Your Hot Tub with This Complete Troubleshooting Guide"
     url: "https://www.hotspring.com/blog/fix-your-hot-tub-with-this-complete-troubleshooting-guide"
@@ -84,4 +85,4 @@ For a general description of what an air lock feels and sounds like (useful if y
 
 Working through these in order avoids spending time on air-lock fixes when the real problem is electrical, or vice versa.
 
-If jets and lights are working normally but heat still isn't returning, [Hot Tub Has Power but No Heat](/troubleshooting/hot-tub-has-power-but-no-heat) covers that narrower case in more detail. For the broader first-checks routine, see [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating).
+If jets and lights are working normally but heat still isn't returning, [Hot Tub Has Power but No Heat](/troubleshooting/hot-tub-has-power-but-no-heat) covers that narrower case in more detail. If the spa is warming after the refill but much more slowly than you expected, see [Why Is My Hot Tub Taking So Long to Heat Up?](/troubleshooting/why-is-my-hot-tub-taking-so-long-to-heat-up). For the broader first-checks routine, see [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating).
