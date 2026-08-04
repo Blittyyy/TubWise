@@ -118,11 +118,6 @@ export function webApplicationSchema(options: {
     url: absoluteUrl(options.path),
     applicationCategory: options.applicationCategory ?? 'UtilitiesApplication',
     operatingSystem: 'Any',
-    offers: {
-      '@type': 'Offer',
-      price: 0,
-      priceCurrency: 'USD',
-    },
     isPartOf: {
       '@type': 'WebSite',
       name: SITE_NAME,

@@ -10,7 +10,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "astro": "astro"
+    "astro": "astro",
+    "test:calculators": "npm run test:volume && npm run test:fill-time && npm run test:electricity-cost",
+    "test:volume": "node --experimental-strip-types scripts/test-hot-tub-volume.mjs",
+    "test:fill-time": "node --experimental-strip-types scripts/test-hot-tub-fill-time.mjs",
+    "test:electricity-cost": "node --experimental-strip-types scripts/test-hot-tub-electricity-cost.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

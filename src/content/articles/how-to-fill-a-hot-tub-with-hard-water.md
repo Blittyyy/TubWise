@@ -4,7 +4,7 @@ description: "Hard fill water can raise calcium and leave scale or metal issues 
 summary: "Hot Spring guidance treats calcium and metals in fill water as problems to manage at fill and top-off time. Test the source water, confirm your owner's manual, and use only the fill tools and sequences your brand documents for your system."
 slug: "how-to-fill-a-hot-tub-with-hard-water"
 publishedDate: 2026-08-03
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "water-care"
 subcategory: "fill-water"
 tags:
@@ -88,6 +88,8 @@ For heavy minerals and calcium hardness above 150 ppm, Hot Spring recommends On 
 ### Fill path and water source
 
 Hot Spring Highlife fill instructions say to fill through the filter compartment and not to fill with swimming-pool water, because pool chemicals differ from spa chemicals and can damage the spa ([Hot Spring Highlife Manual](https://www.hotspring.com/wp-content/uploads/2023/07/highlife-owners-manual-en_us.pdf)).
+
+If you need a planning estimate for how long the remaining fill may take once you know capacity and hose flow, use the [Hot Tub Fill Time Calculator](/calculators/hot-tub-fill-time-calculator). Treat the result as an estimate only.
 
 ## After the spa is full
 

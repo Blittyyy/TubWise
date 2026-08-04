@@ -36,7 +36,7 @@ export const categoryMeta: Record<
   calculators: {
     label: 'Calculators',
     description:
-      'Hot tub volume, electricity cost, and maintenance planning tools to make ownership easier to estimate.',
+      'Estimate hot tub volume, fill time, and electricity cost with simple ownership planning tools.',
     href: '/calculators',
   },
   'buying-guides': {

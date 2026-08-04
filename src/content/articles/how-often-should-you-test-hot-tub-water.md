@@ -4,7 +4,7 @@ description: "CDC guidance says test hot tub chlorine and pH at least twice a da
 summary: "CDC home pool and hot tub guidance says to test chlorine concentration and pH at least twice per day, and more often with heavy use. Hot Spring's maintenance page lists weekly chemical testing, and Jacuzzi's beginner guide lists twice-weekly ongoing tests. Treat public-health and brand schedules as separate sources, then follow your manual and product labels."
 slug: "how-often-should-you-test-hot-tub-water"
 publishedDate: 2026-08-03
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "maintenance"
 subcategory: "water-testing"
 tags:
@@ -56,7 +56,7 @@ CDC home pool and hot tub guidance says to test chlorine concentration and pH at
 
 ## Safety note
 
-Follow the directions that come with your test kit and chemical products. Do not mix chlorine and bromine systems. Do not enter the spa when sanitizer or pH is out of the range your manual and public-health guidance require. One test result does not prove the water is safe for every health condition. Adjust chemicals only with labeled spa products and confirmed water volume.
+Follow the directions that come with your test kit and chemical products. Do not mix chlorine and bromine systems. Do not enter the spa when sanitizer or pH is out of the range your manual and public-health guidance require. One test result does not prove the water is safe for every health condition. Adjust chemicals only with labeled spa products and confirmed water volume. Prefer the spa manufacturer's listed capacity when a product label needs gallons or liters. The [Hot Tub Volume Calculator](/calculators/hot-tub-volume-calculator) is only an estimate aid when the listed capacity is unknown.
 
 ## Why published schedules do not all match
 

@@ -102,6 +102,8 @@ Jacuzzi describes Standard mode as maintaining set temperature continuously and 
 
 Hot Spring instructs owners to leave the cover on and keep the thermostat at the desired set point for routine ready-to-use temperature (Hot Spring). A damaged, sagging, or poorly sealed cover can keep water below set even when the heater cycles. See [When Should You Replace a Hot Tub Cover?](/maintenance/when-should-you-replace-a-hot-tub-cover).
 
+If you want to estimate electricity use from wattage and runtime assumptions while troubleshooting heat loss, use the [Hot Tub Electricity Cost Calculator](/calculators/hot-tub-electricity-cost-calculator). It is a planning estimate only.
+
 ### Limited heater capacity or heater disabled during jets
 
 Hot Spot documents lower heater wattage on certain 115-volt configurations and notes that the heater cannot run at the same time as the jet pump in that 115-volt setup (Hot Spot). Long jet use or limited wattage can leave a lasting gap below set without meaning the heater is completely dead.

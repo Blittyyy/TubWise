@@ -4,7 +4,7 @@ description: "Replace a spa cover when manufacturer wear signs appear: damage, s
 summary: "Hot Spring tells owners to inspect the cover monthly and replace it for breaks, cracks, tears, fading, sagging, or a waterlogged foam core. Jacuzzi lists sagging, waterlogging, and cracked or torn vinyl among replacement signs. There is no single universal cover lifespan that applies to every spa."
 slug: "when-should-you-replace-a-hot-tub-cover"
 publishedDate: 2026-08-03
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "maintenance"
 subcategory: "covers"
 tags:
@@ -126,4 +126,4 @@ Those steps help the cover you have. They do not turn a waterlogged foam core ba
 - Lock straps or handles have failed and the spa cannot be secured as your manual requires
 - Tears expose foam or the vapor barrier
 
-A cover that no longer seals can also raise heating demand and overnight evaporation. If the waterline drops while the spa sits covered and idle, see [Hot Tub Losing Water Overnight: Leak or Evaporation?](/troubleshooting/hot-tub-losing-water-overnight-leak-or-evaporation).
+A cover that no longer seals can also raise heating demand and overnight evaporation. If the waterline drops while the spa sits covered and idle, see [Hot Tub Losing Water Overnight: Leak or Evaporation?](/troubleshooting/hot-tub-losing-water-overnight-leak-or-evaporation). To estimate electricity use from wattage and runtime assumptions, see the [Hot Tub Electricity Cost Calculator](/calculators/hot-tub-electricity-cost-calculator). That tool does not prove a cover will lower your bill.

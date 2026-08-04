@@ -98,6 +98,8 @@ Clogged filters are tied in Hot Spring troubleshooting to open pressure-switch c
 
 Hot Spot documents that certain 115-volt configurations provide about 1000 watts of heat only when the pump runs on low speed and the thermostat calls for heat, and that the heater and jet pump cannot run at the same time in that 115-volt setup. Converted 230-volt operation uses a higher heater capacity on those models (Hot Spot). That is Hot Spot wiring-configuration behavior, not a universal rule. Do not attempt conversion or control-box work yourself.
 
+If you want a planning estimate of electricity use from wattage and runtime assumptions, use the [Hot Tub Electricity Cost Calculator](/calculators/hot-tub-electricity-cost-calculator). It estimates operating cost from the numbers you enter. It does not predict your utility bill.
+
 ## What not to do
 
 - Do not invent a "normal" degrees-per-hour rate for every brand.

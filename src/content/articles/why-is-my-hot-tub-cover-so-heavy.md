@@ -4,7 +4,7 @@ description: "A hot tub cover can feel heavy from rain or snow on top, normal fo
 summary: "Hot Spring and Jacuzzi treat a cover that has grown noticeably heavier over time as a waterlogging cue when moisture reaches the foam core through a failed vapor barrier. Standing water or snow on the exterior is a different problem. Spa covers are also large and heavy when new, so weight alone is not proof of failure."
 slug: "why-is-my-hot-tub-cover-so-heavy"
 publishedDate: 2026-08-03
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "maintenance"
 subcategory: "covers"
 tags:
@@ -89,7 +89,7 @@ Hot Spring describes cover construction as an outer layer around a reinforced fo
 
 When Hot Spring defines a waterlogged cover, it is the failed vapor barrier letting the inner foam absorb water, which Hot Spring links to bacteria and mildew growth and to accelerated wear elsewhere on the spa (Hot Spring). Hot Spring's mildew guidance likewise says a cover that has grown increasingly heavier with water saturation may need replacement, and that a waterlogged foam core can be a breeding ground for mold (Hot Spring).
 
-Jacuzzi states that a heavy, waterlogged cover is difficult to handle and compromises insulation (Jacuzzi). Those effects are reasons manufacturers point owners toward replacement, not DIY foam repairs invented outside the manual.
+Jacuzzi states that a heavy, waterlogged cover is difficult to handle and compromises insulation (Jacuzzi). Those effects are reasons manufacturers point owners toward replacement, not DIY foam repairs invented outside the manual. If you want a planning estimate of electricity use from equipment wattage and runtime, use the [Hot Tub Electricity Cost Calculator](/calculators/hot-tub-electricity-cost-calculator). Do not treat a waterlogged cover as proof of a specific utility-bill increase.
 
 ## Safe checks
 

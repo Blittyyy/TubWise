@@ -80,6 +80,8 @@ Do not open electrical enclosures or access live wiring. Do not bypass high-limi
 
 Hot Spring links cover use to temperature maintenance and notes that its spas are designed to retain heat when covered (Hot Spring). A cover left open, propped, waterlogged, or sagging so the skirt no longer seals increases heat loss. See [Why Is My Hot Tub Cover Sagging?](/maintenance/why-is-my-hot-tub-cover-sagging) and [When Should You Replace a Hot Tub Cover?](/maintenance/when-should-you-replace-a-hot-tub-cover).
 
+A damaged cover can mean the heater runs longer to hold temperature. For a planning estimate based on equipment wattage and runtime assumptions, see the [Hot Tub Electricity Cost Calculator](/calculators/hot-tub-electricity-cost-calculator). Do not treat the estimate as your actual utility bill, and do not assume a new cover guarantees lower cost.
+
 ### Set temperature changed or locked unexpectedly
 
 Confirm the displayed set point still matches what you want. On certain Hot Spring Highlife models, the Ready indicator reflects water within about 2°F of that set point (Hot Spring Highlife owner's manual). A lowered set point, child lock, or vacation-style low setting can look like unexplained cooling.

@@ -66,7 +66,7 @@ const schemas = [articleSchema(article), breadcrumbSchema(breadcrumbs)];
   ogImage={ogImage}
   schema={schemas}
 >
-  <article class="container-site section-space" itemscope itemtype="https://schema.org/BlogPosting">
+  <article class="container-site section-space">
     <Breadcrumbs items={breadcrumbs} />
 
     <div class:list={['grid gap-10', toc.length > 0 && 'lg:grid-cols-[minmax(0,1fr)_16rem]']}>
@@ -85,16 +85,16 @@ const schemas = [articleSchema(article), breadcrumbSchema(breadcrumbs)];
               )
             }
           </p>
-          <h1 class="mt-2 text-3xl font-semibold sm:text-4xl" itemprop="headline">{data.title}</h1>
+          <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">{data.title}</h1>
 
-          <p class="mt-4 rounded-lg border border-border bg-surface-raised px-4 py-3 text-lg leading-relaxed text-ink-muted" itemprop="description">
+          <p class="mt-4 rounded-lg border border-border bg-surface-raised px-4 py-3 text-lg leading-relaxed text-ink-muted">
             {shortAnswer}
           </p>
 
           <dl class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-subtle">
             <div>
               <dt class="inline text-ink-muted">By </dt>
-              <dd class="inline font-medium text-ink" itemprop="author">{data.author}</dd>
+              <dd class="inline font-medium text-ink">{data.author}</dd>
             </div>
             {
               data.reviewedBy && (
@@ -107,7 +107,7 @@ const schemas = [articleSchema(article), breadcrumbSchema(breadcrumbs)];
             <div>
               <dt class="inline text-ink-muted">Published </dt>
               <dd class="inline">
-                <time datetime={data.publishedDate.toISOString()} itemprop="datePublished">
+                <time datetime={data.publishedDate.toISOString()}>
                   {formatArticleDate(data.publishedDate)}
                 </time>
               </dd>
@@ -115,7 +115,7 @@ const schemas = [articleSchema(article), breadcrumbSchema(breadcrumbs)];
             <div>
               <dt class="inline text-ink-muted">Last updated </dt>
               <dd class="inline">
-                <time datetime={updated.toISOString()} itemprop="dateModified">
+                <time datetime={updated.toISOString()}>
                   {formatArticleDate(updated)}
                 </time>
               </dd>
@@ -201,7 +201,7 @@ const schemas = [articleSchema(article), breadcrumbSchema(breadcrumbs)];
           )
         }
 
-        <div class="prose-article mt-10 max-w-3xl" itemprop="articleBody">
+        <div class="prose-article mt-10 max-w-3xl">
           <slot />
         </div>
 

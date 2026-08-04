@@ -3,6 +3,8 @@ export interface ToolItem {
   description: string;
   href: string;
   status: 'available' | 'coming-soon';
+  /** Optional CTA label for available tools. Defaults to "Open tool". */
+  ctaLabel?: string;
 }
 
 export const tools: ToolItem[] = [
@@ -28,15 +30,17 @@ export const tools: ToolItem[] = [
     status: 'available',
   },
   {
+    title: 'Error Codes',
+    description:
+      'Browse manufacturer-scoped hot tub error codes for Jacuzzi, Sundance, and Gecko, with safe next steps.',
+    href: '/error-codes',
+    status: 'available',
+    ctaLabel: 'Browse error codes',
+  },
+  {
     title: 'Maintenance Schedule Generator',
     description: 'Create a simple care checklist based on how you use your spa.',
     href: '/calculators',
-    status: 'coming-soon',
-  },
-  {
-    title: 'Error Code Lookup',
-    description: 'Search brand and model error codes for next steps.',
-    href: '/error-codes',
     status: 'coming-soon',
   },
 ];

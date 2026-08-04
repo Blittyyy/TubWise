@@ -4,7 +4,7 @@ description: "Most traditional spa water care schedules call for a drain and ref
 summary: "Hot Spring and Jacuzzi both document a three-to-four-month drain-and-refill interval for traditional water care. Hot Spring states salt-system water can last up to about twelve months with proper care. Confirm the interval and drain method in your own owner's manual."
 slug: "how-often-should-you-drain-and-refill-a-hot-tub"
 publishedDate: 2026-08-03
-updatedDate: 2026-08-03
+updatedDate: 2026-08-04
 category: "maintenance"
 subcategory: "draining"
 tags:
@@ -94,7 +94,7 @@ Exact valves and fill paths are model-specific. In outline only:
 
 1. Follow your manual for power-off and drain valve steps
 2. Clean the empty shell only with cleaners your brand allows ([How to Clean a Hot Tub Shell Without Damaging It](/maintenance/how-to-clean-a-hot-tub-shell-without-damaging-it))
-3. Refill through the path your manual requires (Hot Spring Highlife manuals specify filling through the filter compartment)
+3. Refill through the path your manual requires (Hot Spring Highlife manuals specify filling through the filter compartment). To [estimate how long the refill may take](/calculators/hot-tub-fill-time-calculator), use the Hot Tub Fill Time Calculator with your spa's listed capacity and hose flow rate. It is a planning estimate, not an exact finish time.
 4. Restart, balance, and sanitize only with label-supported products
 5. Watch for air-lock symptoms after refill
 
