@@ -1,0 +1,541 @@
+---
+/**
+ * Client-side hot tub fill-time estimator.
+ * No storage, cookies, analytics, or network submission of measurements.
+ */
+---
+
+<div
+  class="not-prose rounded-2xl border border-border bg-surface-raised p-5 shadow-[0_1px_2px_rgba(26,43,60,0.04)] sm:p-7"
+  data-fill-time-calculator
+>
+  <form data-fill-time-form class="space-y-6" novalidate>
+    <div>
+      <label for="fill-capacity" class="block text-sm font-medium text-ink">Spa capacity</label>
+      <div class="mt-2 grid gap-3 sm:grid-cols-[minmax(0,1fr)_11rem]">
+        <input
+          id="fill-capacity"
+          name="capacity"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="e.g. 400"
+          aria-describedby="fill-capacity-hint fill-capacity-error"
+          data-field="capacity"
+          class="min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        />
+        <select
+          id="fill-capacity-unit"
+          name="capacityUnit"
+          data-capacity-unit
+          aria-label="Capacity unit"
+          class="min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        >
+          <option value="gal" selected>U.S. gallons</option>
+          <option value="L">Liters</option>
+        </select>
+      </div>
+      <p id="fill-capacity-hint" class="mt-1.5 text-sm text-ink-subtle">
+        Not sure of the capacity? Estimate it with the
+        <a href="/calculators/hot-tub-volume-calculator" class="font-medium text-brand-dark underline-offset-2 hover:underline"
+          >Hot Tub Volume Calculator</a
+        >.
+      </p>
+      <p
+        id="fill-capacity-error"
+        class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+        data-error-for="capacity"
+        role="alert"
+      ></p>
+    </div>
+
+    <fieldset>
+      <legend class="font-display text-lg font-semibold text-ink">Current fill level</legend>
+      <div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2" role="radiogroup" aria-label="Current fill level">
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input
+            type="radio"
+            name="fillPreset"
+            value="empty"
+            checked
+            class="h-4 w-4 accent-brand"
+            data-fill-preset
+          />
+          <span class="text-base font-medium text-ink">Empty</span>
+        </label>
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input type="radio" name="fillPreset" value="25" class="h-4 w-4 accent-brand" data-fill-preset />
+          <span class="text-base font-medium text-ink">25% full</span>
+        </label>
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input type="radio" name="fillPreset" value="50" class="h-4 w-4 accent-brand" data-fill-preset />
+          <span class="text-base font-medium text-ink">50% full</span>
+        </label>
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input type="radio" name="fillPreset" value="75" class="h-4 w-4 accent-brand" data-fill-preset />
+          <span class="text-base font-medium text-ink">75% full</span>
+        </label>
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft sm:col-span-2"
+        >
+          <input type="radio" name="fillPreset" value="custom" class="h-4 w-4 accent-brand" data-fill-preset />
+          <span class="text-base font-medium text-ink">Custom percentage</span>
+        </label>
+      </div>
+
+      <div class="mt-3 hidden" data-custom-percent-wrap>
+        <label for="fill-custom-percent" class="block text-sm font-medium text-ink"
+          >Custom fill percentage</label
+        >
+        <input
+          id="fill-custom-percent"
+          name="customPercent"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="e.g. 40"
+          aria-describedby="fill-custom-percent-hint fill-percent-error"
+          data-field="fillPercent"
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+        />
+        <p id="fill-custom-percent-hint" class="mt-1.5 text-sm text-ink-subtle">
+          Enter a value from 0 through 99. 100% is not allowed because no fill time would remain.
+        </p>
+        <p
+          id="fill-percent-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="fillPercent"
+          role="alert"
+        ></p>
+      </div>
+    </fieldset>
+
+    <div>
+      <label for="fill-flow" class="block text-sm font-medium text-ink">Hose flow rate</label>
+      <div class="mt-2 grid gap-3 sm:grid-cols-[minmax(0,1fr)_13rem]">
+        <input
+          id="fill-flow"
+          name="flowRate"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="e.g. 5"
+          aria-describedby="fill-flow-hint fill-flow-error"
+          data-field="flowRate"
+          class="min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        />
+        <select
+          id="fill-flow-unit"
+          name="flowUnit"
+          data-flow-unit
+          aria-label="Flow rate unit"
+          class="min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        >
+          <option value="gpm" selected>Gallons per minute</option>
+          <option value="lpm">Liters per minute</option>
+        </select>
+      </div>
+      <p id="fill-flow-hint" class="mt-1.5 text-sm text-ink-subtle">
+        Time how long it takes your hose to fill a container of known volume, then divide the
+        container volume by the number of minutes.
+      </p>
+      <p
+        id="fill-flow-error"
+        class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+        data-error-for="flowRate"
+        role="alert"
+      ></p>
+    </div>
+
+    <fieldset>
+      <legend class="font-display text-lg font-semibold text-ink">Start time (optional)</legend>
+      <p class="mt-2 text-sm text-ink-subtle">
+        Add a start time only if you want an estimated completion time. This stays on your device.
+      </p>
+      <div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3" role="radiogroup" aria-label="Start time option">
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input
+            type="radio"
+            name="startMode"
+            value="none"
+            checked
+            class="h-4 w-4 accent-brand"
+            data-start-mode
+          />
+          <span class="text-base font-medium text-ink">No start time</span>
+        </label>
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input type="radio" name="startMode" value="now" class="h-4 w-4 accent-brand" data-start-mode />
+          <span class="text-base font-medium text-ink">Use current time</span>
+        </label>
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input
+            type="radio"
+            name="startMode"
+            value="custom"
+            class="h-4 w-4 accent-brand"
+            data-start-mode
+          />
+          <span class="text-base font-medium text-ink">Custom time</span>
+        </label>
+      </div>
+
+      <div class="mt-3 hidden" data-custom-time-wrap>
+        <label for="fill-start-time" class="block text-sm font-medium text-ink">Custom start time</label>
+        <input
+          id="fill-start-time"
+          name="startTime"
+          type="time"
+          autocomplete="off"
+          aria-describedby="fill-start-time-hint fill-start-time-error"
+          data-field="startTime"
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+        />
+        <p id="fill-start-time-hint" class="mt-1.5 text-sm text-ink-subtle">
+          Uses today’s date on this device. No timezone or location is collected.
+        </p>
+        <p
+          id="fill-start-time-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="startTime"
+          role="alert"
+        ></p>
+      </div>
+    </fieldset>
+
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <button
+        type="submit"
+        class="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 text-base font-medium text-white transition-colors hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        Estimate fill time
+      </button>
+      <button
+        type="button"
+        data-reset
+        class="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-surface px-5 text-base font-medium text-ink transition-colors hover:border-brand/40 hover:bg-brand-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+
+  <div
+    class="mt-6 hidden rounded-2xl border border-brand/25 bg-brand-soft p-5 sm:p-6"
+    data-result
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+</div>
+
+<script>
+  import {
+    addMinutes,
+    calculateFillTime,
+    CAPACITY_UNIT_LABELS,
+    FLOW_UNIT_LABELS,
+    formatLocalDateTime,
+    formatWholeNumber,
+    parseLocalTimeInput,
+    type CapacityUnit,
+    type FillPreset,
+    type FillTimeFieldKey,
+    type FillTimeResult,
+    type FlowUnit,
+  } from '../utils/hot-tub-fill-time';
+
+  type StartMode = 'none' | 'now' | 'custom';
+
+  function initCalculator(root: HTMLElement) {
+    const form = root.querySelector<HTMLFormElement>('[data-fill-time-form]');
+    const resultEl = root.querySelector<HTMLElement>('[data-result]');
+    const resetBtn = root.querySelector<HTMLButtonElement>('[data-reset]');
+    const capacityUnit = root.querySelector<HTMLSelectElement>('[data-capacity-unit]');
+    const flowUnit = root.querySelector<HTMLSelectElement>('[data-flow-unit]');
+    const customPercentWrap = root.querySelector<HTMLElement>('[data-custom-percent-wrap]');
+    const customTimeWrap = root.querySelector<HTMLElement>('[data-custom-time-wrap]');
+    const fillPresetInputs = root.querySelectorAll<HTMLInputElement>('[data-fill-preset]');
+    const startModeInputs = root.querySelectorAll<HTMLInputElement>('[data-start-mode]');
+
+    if (
+      !form ||
+      !resultEl ||
+      !resetBtn ||
+      !capacityUnit ||
+      !flowUnit ||
+      !customPercentWrap ||
+      !customTimeWrap
+    ) {
+      return;
+    }
+
+    const fieldOrder: FillTimeFieldKey[] = ['capacity', 'fillPercent', 'flowRate', 'startTime'];
+
+    function currentFillPreset(): FillPreset {
+      const checked = form!.querySelector<HTMLInputElement>('input[name="fillPreset"]:checked');
+      const value = checked?.value;
+      if (value === '25' || value === '50' || value === '75' || value === 'custom') return value;
+      return 'empty';
+    }
+
+    function currentStartMode(): StartMode {
+      const checked = form!.querySelector<HTMLInputElement>('input[name="startMode"]:checked');
+      const value = checked?.value;
+      if (value === 'now' || value === 'custom') return value;
+      return 'none';
+    }
+
+    function syncFillPreset() {
+      const isCustom = currentFillPreset() === 'custom';
+      customPercentWrap!.hidden = !isCustom;
+      customPercentWrap!.classList.toggle('hidden', !isCustom);
+      const customInput = form!.querySelector<HTMLInputElement>('[data-field="fillPercent"]');
+      if (customInput) customInput.disabled = !isCustom;
+    }
+
+    function syncStartMode() {
+      const isCustom = currentStartMode() === 'custom';
+      customTimeWrap!.hidden = !isCustom;
+      customTimeWrap!.classList.toggle('hidden', !isCustom);
+      const timeInput = form!.querySelector<HTMLInputElement>('[data-field="startTime"]');
+      if (timeInput) timeInput.disabled = !isCustom;
+    }
+
+    function clearErrors() {
+      for (const field of fieldOrder) {
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${field}"]`);
+        const error = form!.querySelector<HTMLElement>(`[data-error-for="${field}"]`);
+        if (input) {
+          input.removeAttribute('aria-invalid');
+          input.classList.remove('border-[#c45c4a]');
+        }
+        if (error) {
+          error.textContent = '';
+          error.classList.add('hidden');
+        }
+      }
+    }
+
+    function showErrors(errors: { field: FillTimeFieldKey; message: string }[]) {
+      clearErrors();
+      for (const error of errors) {
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${error.field}"]`);
+        const errorEl = form!.querySelector<HTMLElement>(`[data-error-for="${error.field}"]`);
+        if (input && !input.disabled) {
+          input.setAttribute('aria-invalid', 'true');
+          input.classList.add('border-[#c45c4a]');
+        }
+        if (errorEl) {
+          errorEl.textContent = error.message;
+          errorEl.classList.remove('hidden');
+          // Keep custom-percent errors visible even if the wrap was hidden unexpectedly.
+          const wrap = errorEl.closest<HTMLElement>('[data-custom-percent-wrap]');
+          if (wrap) {
+            wrap.hidden = false;
+            wrap.classList.remove('hidden');
+          }
+        }
+      }
+
+      const first = errors[0];
+      if (!first) return;
+      const firstInput = form!.querySelector<HTMLInputElement>(`[data-field="${first.field}"]`);
+      if (firstInput && !firstInput.disabled) {
+        firstInput.focus();
+        return;
+      }
+      if (first.field === 'fillPercent') {
+        const customRadio = form!.querySelector<HTMLInputElement>(
+          'input[name="fillPreset"][value="custom"]',
+        );
+        customRadio?.focus();
+      }
+    }
+
+    function clearResult() {
+      resultEl!.hidden = true;
+      resultEl!.classList.add('hidden');
+      resultEl!.innerHTML = '';
+    }
+
+    function escapeHtml(value: string): string {
+      return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function resolveStartTime():
+      | { ok: true; start: Date | null; label: string | null }
+      | { ok: false; message: string } {
+      const mode = currentStartMode();
+      if (mode === 'none') return { ok: true, start: null, label: null };
+      if (mode === 'now') {
+        const start = new Date();
+        return { ok: true, start, label: `Current time (${formatLocalDateTime(start)})` };
+      }
+      const raw = form!.querySelector<HTMLInputElement>('[data-field="startTime"]')?.value ?? '';
+      const parsed = parseLocalTimeInput(raw);
+      if (!parsed) {
+        return {
+          ok: false,
+          message: raw.trim() ? 'Enter a valid start time.' : 'Enter a custom start time.',
+        };
+      }
+      return { ok: true, start: parsed, label: formatLocalDateTime(parsed) };
+    }
+
+    function renderResult(data: FillTimeResult, startLabel: string | null, finishLabel: string | null) {
+      const capacityLabel = CAPACITY_UNIT_LABELS[data.capacityUnit];
+      const flowLabel = FLOW_UNIT_LABELS[data.flowUnit];
+      const completionBlock =
+        finishLabel && startLabel
+          ? `<p class="mt-4 text-xl font-semibold text-ink sm:text-2xl">
+              Estimated completion: ${escapeHtml(finishLabel)}
+            </p>
+            <p class="mt-1 text-sm text-ink-muted">Based on start time ${escapeHtml(startLabel)}.</p>`
+          : `<p class="mt-4 text-sm text-ink-muted">
+              No start time was entered, so a completion clock time is not shown.
+            </p>`;
+
+      resultEl!.innerHTML = `
+        <h2 class="font-display text-xl font-semibold text-ink">Fill time estimate</h2>
+        <p class="mt-4 text-2xl font-semibold text-ink sm:text-3xl">
+          About ${formatWholeNumber(data.displayRemainingGallons)} gallons remaining
+        </p>
+        <p class="mt-1 text-xl font-semibold text-ink sm:text-2xl">
+          About ${formatWholeNumber(data.displayRemainingLiters)} liters remaining
+        </p>
+        <p class="mt-4 text-2xl font-semibold text-ink sm:text-3xl">
+          About ${escapeHtml(data.durationLabel)}
+        </p>
+        <p class="mt-1 text-sm text-ink-muted">
+          (${formatWholeNumber(data.displayTotalMinutes)} minutes total)
+        </p>
+        ${completionBlock}
+        <p class="mt-4 text-base leading-relaxed text-ink-muted">
+          This estimate assumes a steady hose flow at the rate you entered. Pressure and flow
+          can change while you fill, so treat the clock time as guidance, not a guarantee.
+        </p>
+        <div class="mt-5 rounded-xl border border-warning-border bg-warning-bg p-4 text-sm leading-relaxed text-warning-ink" role="note">
+          <p>
+            <strong class="font-semibold">Estimate warning:</strong>
+            This is an estimate. Actual fill time can change if water pressure or hose flow
+            varies during filling.
+          </p>
+          <p class="mt-3">
+            Do not leave a filling hot tub unattended. Follow the manufacturer’s filling
+            instructions, including any required filter-compartment or standpipe filling method.
+            Confirm the required fill method, fill to the specified waterline, and do not
+            energize the spa until the owner’s manual permits it.
+          </p>
+        </div>
+        <dl class="mt-5 space-y-2 text-sm text-ink-muted">
+          <div>
+            <dt class="inline font-medium text-ink">Capacity entered:</dt>
+            <dd class="inline">
+              ${escapeHtml(data.inputsSummary.capacity)} ${escapeHtml(capacityLabel.toLowerCase())}
+            </dd>
+          </div>
+          <div>
+            <dt class="inline font-medium text-ink">Current fill level:</dt>
+            <dd class="inline">${escapeHtml(data.inputsSummary.fillLabel)}</dd>
+          </div>
+          <div>
+            <dt class="inline font-medium text-ink">Hose flow rate:</dt>
+            <dd class="inline">
+              ${escapeHtml(data.inputsSummary.flowRate)} ${escapeHtml(flowLabel.toLowerCase())}
+            </dd>
+          </div>
+        </dl>
+      `;
+      resultEl!.hidden = false;
+      resultEl!.classList.remove('hidden');
+    }
+
+    fillPresetInputs.forEach((input) => {
+      input.addEventListener('change', () => {
+        clearErrors();
+        clearResult();
+        syncFillPreset();
+      });
+    });
+
+    startModeInputs.forEach((input) => {
+      input.addEventListener('change', () => {
+        clearErrors();
+        clearResult();
+        syncStartMode();
+      });
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const outcome = calculateFillTime({
+        capacity: form.querySelector<HTMLInputElement>('[data-field="capacity"]')?.value ?? '',
+        capacityUnit: capacityUnit.value as CapacityUnit,
+        fillPreset: currentFillPreset(),
+        customPercent: form.querySelector<HTMLInputElement>('[data-field="fillPercent"]')?.value ?? '',
+        flowRate: form.querySelector<HTMLInputElement>('[data-field="flowRate"]')?.value ?? '',
+        flowUnit: flowUnit.value as FlowUnit,
+      });
+
+      if (!outcome.ok) {
+        clearResult();
+        showErrors(outcome.errors);
+        return;
+      }
+
+      const startOutcome = resolveStartTime();
+      if (!startOutcome.ok) {
+        clearResult();
+        showErrors([{ field: 'startTime', message: startOutcome.message }]);
+        return;
+      }
+
+      clearErrors();
+      let finishLabel: string | null = null;
+      if (startOutcome.start) {
+        const finish = addMinutes(startOutcome.start, outcome.result.durationMinutesExact);
+        finishLabel = formatLocalDateTime(finish);
+      }
+      renderResult(outcome.result, startOutcome.label, finishLabel);
+    });
+
+    resetBtn.addEventListener('click', () => {
+      form.reset();
+      const empty = form.querySelector<HTMLInputElement>('input[name="fillPreset"][value="empty"]');
+      const none = form.querySelector<HTMLInputElement>('input[name="startMode"][value="none"]');
+      if (empty) empty.checked = true;
+      if (none) none.checked = true;
+      capacityUnit.value = 'gal';
+      flowUnit.value = 'gpm';
+      clearErrors();
+      clearResult();
+      syncFillPreset();
+      syncStartMode();
+      form.querySelector<HTMLInputElement>('[data-field="capacity"]')?.focus();
+    });
+
+    syncFillPreset();
+    syncStartMode();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-fill-time-calculator]').forEach(initCalculator);
+</script>

@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import HotTubFillTimeCalculator from '../../components/HotTubFillTimeCalculator.astro';
+import { breadcrumbSchema, webApplicationSchema } from '../../utils/schema';
+
+const path = '/calculators/hot-tub-fill-time-calculator';
+const title = 'Hot Tub Fill Time Calculator: Estimate Hours and Minutes';
+const description =
+  'Estimate how long it may take to fill your hot tub using its capacity, current fill level, and hose flow rate.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Calculators', href: '/calculators' },
+  { label: 'Hot Tub Fill Time Calculator' },
+];
+
+const relatedGuides = [
+  {
+    title: 'Hot Tub Volume Calculator',
+    description:
+      'Estimate spa capacity in gallons and liters from shape and interior water dimensions.',
+    href: '/calculators/hot-tub-volume-calculator',
+    category: 'Calculators',
+  },
+  {
+    title: 'How Often Should You Drain and Refill a Hot Tub?',
+    description:
+      'Manufacturer-backed intervals for planned water changes, including salt-system caveats.',
+    href: '/maintenance/how-often-should-you-drain-and-refill-a-hot-tub',
+    category: 'Maintenance',
+  },
+  {
+    title: 'Hot Tub Not Heating After a Refill',
+    description:
+      'Safe checks when heat fails after a water change, including air-lock and fill-path issues.',
+    href: '/troubleshooting/hot-tub-not-heating-after-a-refill',
+    category: 'Troubleshooting',
+  },
+  {
+    title: 'How to Fill a Hot Tub With Hard Water',
+    description:
+      'Manufacturer-scoped guidance for mineral-heavy fill water without universal hardness targets.',
+    href: '/water-care/how-to-fill-a-hot-tub-with-hard-water',
+    category: 'Water Care',
+  },
+  {
+    title: 'Why Is My Hot Tub Leaking?',
+    description:
+      'Separate obvious leaks from evaporation and other water-loss clues during ownership checks.',
+    href: '/troubleshooting/why-is-my-hot-tub-leaking',
+    category: 'Troubleshooting',
+  },
+];
+
+const schemas = [
+  breadcrumbSchema(breadcrumbs),
+  webApplicationSchema({
+    name: 'Hot Tub Fill Time Calculator',
+    description,
+    path,
+  }),
+];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={schemas}>
+  <div class="container-site section-space">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="mx-auto mb-8 w-full max-w-3xl">
+      <h1 class="text-3xl font-semibold sm:text-4xl">Hot Tub Fill Time Calculator</h1>
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">
+        Estimate how long it may take to fill your hot tub based on its capacity, current fill
+        level, and hose flow rate.
+      </p>
+    </header>
+
+    <div class="mx-auto w-full max-w-3xl">
+      <HotTubFillTimeCalculator />
+    </div>
+
+    <div class="prose-site mx-auto mt-12 max-w-3xl">
+      <h2 id="accuracy-safety">Accuracy and safety notice</h2>
+      <p>
+        This tool is a planning estimate, not a guarantee. Hose flow and household water pressure
+        can change while you fill. Do not leave a filling hot tub unattended. Confirm the
+        manufacturer&apos;s required fill method, fill only to the specified waterline, and do not
+        energize the spa until the owner&apos;s manual permits it.
+      </p>
+
+      <h2 id="how-it-works">How the estimate works</h2>
+      <p>
+        The calculator finds the water still needed by multiplying spa capacity by the unfilled
+        fraction. It then divides that remaining volume by the hose flow rate you enter, after
+        converting gallons and liters with 1 U.S. gallon = 3.785411784 liters when the units differ.
+        Duration is shown in hours and minutes. If you provide a start time, the tool adds the
+        duration on this device to estimate a completion time.
+      </p>
+
+      <h2 id="how-to-measure-flow">How to measure hose flow</h2>
+      <p>
+        Time how long it takes your hose to fill a container of known volume, then divide the
+        container volume by the number of minutes. Example: a 5-gallon bucket that fills in 1 minute
+        is about 5 gallons per minute. Re-check if you change the faucet opening, hose, or water
+        source.
+      </p>
+
+      <h2 id="what-can-change">What can change fill time</h2>
+      <p>Actual fill time can differ from the estimate because of:</p>
+      <ul>
+        <li>Water pressure changes during the day</li>
+        <li>Other household water use</li>
+        <li>Hose length and diameter</li>
+        <li>Restrictions or partially closed valves</li>
+        <li>Source-water pressure differences</li>
+        <li>Flow that slows or speeds up while filling</li>
+      </ul>
+      <p>
+        TubWise does not assign unsupported percentages to those factors. Treat the result as
+        guidance and watch the spa while it fills.
+      </p>
+
+      <h2 id="safe-filling">Safe hot tub filling reminders</h2>
+      <ul>
+        <li>Use the filling method printed in your owner&apos;s manual</li>
+        <li>
+          Some manufacturers direct owners to fill through a filter compartment or standpipe; do
+          not assume every spa uses that path
+        </li>
+        <li>Watch the water level and stop at the specified waterline</li>
+        <li>Prevent overflow onto decks, equipment, and electrical areas</li>
+        <li>Do not run pumps or heaters without the water level your manual requires</li>
+        <li>Inspect the area during filling for obvious leakage</li>
+      </ul>
+      <p>
+        This page is not a leak-diagnosis guide. If you see water where it should not be, stop
+        filling and follow your spa&apos;s safety instructions or contact a dealer.
+      </p>
+
+      <h2 id="disclaimer">Disclaimer</h2>
+      <p>
+        This calculator is a planning estimate only. It is not a substitute for your spa
+        manufacturer&apos;s specifications, product labels, or professional advice. See the
+        <a href="/disclaimer">Disclaimer</a> and <a href="/terms">Terms of Use</a> for more.
+      </p>
+    </div>
+
+    <section class="mx-auto mt-12 w-full max-w-5xl" aria-labelledby="related-guides-heading">
+      <h2 id="related-guides-heading" class="font-display text-2xl font-semibold text-ink">
+        Relevant TubWise guides
+      </h2>
+      <p class="mt-3 max-w-3xl text-base leading-relaxed text-ink-muted">
+        Use these guides with your fill estimate for capacity, drain-and-refill planning, post-refill
+        heat issues, hard fill water, and leak checks.
+      </p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          relatedGuides.map((guide) => (
+            <ArticleCard
+              title={guide.title}
+              description={guide.description}
+              href={guide.href}
+              category={guide.category}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>

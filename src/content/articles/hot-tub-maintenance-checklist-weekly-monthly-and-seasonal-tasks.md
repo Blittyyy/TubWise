@@ -25,7 +25,7 @@ relatedArticles:
   - how-often-should-you-drain-and-refill-a-hot-tub
   - how-often-should-you-clean-a-hot-tub-filter
   - how-to-clean-a-hot-tub-cover
-  - how-to-clean-a-hot-tub-shell-without-damaging-it
+  - when-should-you-replace-a-hot-tub-cover
 sources:
   - title: "Hot Tub Maintenance and Care"
     url: "https://www.hotspring.com/learning-center/maintaining-a-hot-tub"
@@ -99,7 +99,7 @@ Jacuzzi's beginner guide also schedules a complete drain and refill every three 
 
 ## Annual tasks Hot Spring lists
 
-Hot Spring's annual list includes flushing plumbing lines (also allowed each drain-and-refill), a dealer or professional check of hardware and controls, a cover inspection for mildew, moisture, and damage, and winterizing only when your climate and absence plan require it (Hot Spring). Do not invent winterizing steps from this checklist alone.
+Hot Spring's annual list includes flushing plumbing lines (also allowed each drain-and-refill), a dealer or professional check of hardware and controls, a cover inspection for mildew, moisture, and damage, and winterizing only when your climate and absence plan require it (Hot Spring). Do not invent winterizing steps from this checklist alone. If the cover fails that inspection, see [When Should You Replace a Hot Tub Cover?](/maintenance/when-should-you-replace-a-hot-tub-cover).
 
 ## What this checklist does not replace
 

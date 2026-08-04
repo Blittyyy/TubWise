@@ -1,0 +1,646 @@
+---
+/**
+ * Client-side hot tub electricity cost estimator.
+ * No storage, cookies, analytics, or network submission of measurements.
+ */
+---
+
+<div
+  class="not-prose rounded-2xl border border-border bg-surface-raised p-5 shadow-[0_1px_2px_rgba(26,43,60,0.04)] sm:p-7"
+  data-electricity-calculator
+>
+  <form data-electricity-form class="space-y-6" novalidate>
+    <fieldset>
+      <legend class="font-display text-lg font-semibold text-ink">Estimate mode</legend>
+      <div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2" role="radiogroup" aria-label="Estimate mode">
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input
+            type="radio"
+            name="mode"
+            value="simple"
+            checked
+            class="h-4 w-4 accent-brand"
+            data-mode-input
+          />
+          <span class="text-base font-medium text-ink">Simple estimate</span>
+        </label>
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input type="radio" name="mode" value="detailed" class="h-4 w-4 accent-brand" data-mode-input />
+          <span class="text-base font-medium text-ink">Detailed estimate</span>
+        </label>
+      </div>
+      <p class="mt-2 text-sm text-ink-subtle">
+        Simple mode covers the heater and circulation pump. Detailed mode adds optional jet pump,
+        blower, and other loads.
+      </p>
+    </fieldset>
+
+    <div>
+      <label for="elec-power-unit" class="block text-sm font-medium text-ink">Power unit</label>
+      <select
+        id="elec-power-unit"
+        name="powerUnit"
+        data-power-unit
+        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+      >
+        <option value="W" selected>Watts (W)</option>
+        <option value="kW">Kilowatts (kW)</option>
+      </select>
+      <p class="mt-1.5 text-sm text-ink-subtle">
+        One unit applies to every equipment power field below. Watts are common on equipment labels.
+      </p>
+    </div>
+
+    <div class="rounded-xl border border-warning-border bg-warning-bg p-4 text-sm leading-relaxed text-warning-ink" role="note">
+      <strong class="font-semibold">Heater runtime:</strong>
+      Heater runtime means the estimated time the heater is actively drawing its rated power, not
+      simply the time the spa remains turned on.
+    </div>
+
+    <fieldset class="space-y-4">
+      <legend class="font-display text-lg font-semibold text-ink">Heater</legend>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label for="elec-heater-power" class="block text-sm font-medium text-ink">Heater power</label>
+          <input
+            id="elec-heater-power"
+            name="heaterPower"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 4000"
+            aria-describedby="elec-heater-power-hint elec-heater-power-error"
+            data-field="heaterPower"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p id="elec-heater-power-hint" class="mt-1.5 text-sm text-ink-subtle">From the manual or nameplate</p>
+          <p
+            id="elec-heater-power-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="heaterPower"
+            role="alert"
+          ></p>
+        </div>
+        <div>
+          <label for="elec-heater-runtime" class="block text-sm font-medium text-ink"
+            >Heater runtime (hours/day)</label
+          >
+          <input
+            id="elec-heater-runtime"
+            name="heaterRuntime"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 2"
+            aria-describedby="elec-heater-runtime-hint elec-heater-runtime-error"
+            data-field="heaterRuntime"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p id="elec-heater-runtime-hint" class="mt-1.5 text-sm text-ink-subtle">
+            Active heating hours, up to 24
+          </p>
+          <p
+            id="elec-heater-runtime-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="heaterRuntime"
+            role="alert"
+          ></p>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="space-y-4">
+      <legend class="font-display text-lg font-semibold text-ink">Circulation / filtration pump</legend>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label for="elec-pump-power" class="block text-sm font-medium text-ink">Pump power</label>
+          <input
+            id="elec-pump-power"
+            name="circulationPumpPower"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 250"
+            aria-describedby="elec-pump-power-hint elec-pump-power-error"
+            data-field="circulationPumpPower"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p id="elec-pump-power-hint" class="mt-1.5 text-sm text-ink-subtle">
+            Required in Simple mode; optional in Detailed mode
+          </p>
+          <p
+            id="elec-pump-power-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="circulationPumpPower"
+            role="alert"
+          ></p>
+        </div>
+        <div>
+          <label for="elec-pump-runtime" class="block text-sm font-medium text-ink"
+            >Pump runtime (hours/day)</label
+          >
+          <input
+            id="elec-pump-runtime"
+            name="circulationPumpRuntime"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 8"
+            aria-describedby="elec-pump-runtime-hint elec-pump-runtime-error"
+            data-field="circulationPumpRuntime"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p id="elec-pump-runtime-hint" class="mt-1.5 text-sm text-ink-subtle">Filtration schedule hours</p>
+          <p
+            id="elec-pump-runtime-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="circulationPumpRuntime"
+            role="alert"
+          ></p>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="space-y-6" data-detailed-fields hidden>
+      <fieldset class="space-y-4">
+        <legend class="font-display text-lg font-semibold text-ink">Jet pump (optional)</legend>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="elec-jet-power" class="block text-sm font-medium text-ink">Jet pump power</label>
+            <input
+              id="elec-jet-power"
+              name="jetPumpPower"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="e.g. 1000"
+              aria-describedby="elec-jet-power-error"
+              data-field="jetPumpPower"
+              class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            />
+            <p
+              id="elec-jet-power-error"
+              class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+              data-error-for="jetPumpPower"
+              role="alert"
+            ></p>
+          </div>
+          <div>
+            <label for="elec-jet-runtime" class="block text-sm font-medium text-ink"
+              >Jet pump runtime (hours/day)</label
+            >
+            <input
+              id="elec-jet-runtime"
+              name="jetPumpRuntime"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="e.g. 1"
+              aria-describedby="elec-jet-runtime-error"
+              data-field="jetPumpRuntime"
+              class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            />
+            <p
+              id="elec-jet-runtime-error"
+              class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+              data-error-for="jetPumpRuntime"
+              role="alert"
+            ></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="space-y-4">
+        <legend class="font-display text-lg font-semibold text-ink">Air blower (optional)</legend>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="elec-blower-power" class="block text-sm font-medium text-ink">Blower power</label>
+            <input
+              id="elec-blower-power"
+              name="blowerPower"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="e.g. 500"
+              aria-describedby="elec-blower-power-error"
+              data-field="blowerPower"
+              class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            />
+            <p
+              id="elec-blower-power-error"
+              class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+              data-error-for="blowerPower"
+              role="alert"
+            ></p>
+          </div>
+          <div>
+            <label for="elec-blower-runtime" class="block text-sm font-medium text-ink"
+              >Blower runtime (hours/day)</label
+            >
+            <input
+              id="elec-blower-runtime"
+              name="blowerRuntime"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="e.g. 0.5"
+              aria-describedby="elec-blower-runtime-error"
+              data-field="blowerRuntime"
+              class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            />
+            <p
+              id="elec-blower-runtime-error"
+              class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+              data-error-for="blowerRuntime"
+              role="alert"
+            ></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="space-y-4">
+        <legend class="font-display text-lg font-semibold text-ink">Other spa equipment (optional)</legend>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="elec-other-power" class="block text-sm font-medium text-ink">Other power</label>
+            <input
+              id="elec-other-power"
+              name="otherPower"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="e.g. 100"
+              aria-describedby="elec-other-power-error"
+              data-field="otherPower"
+              class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            />
+            <p
+              id="elec-other-power-error"
+              class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+              data-error-for="otherPower"
+              role="alert"
+            ></p>
+          </div>
+          <div>
+            <label for="elec-other-runtime" class="block text-sm font-medium text-ink"
+              >Other runtime (hours/day)</label
+            >
+            <input
+              id="elec-other-runtime"
+              name="otherRuntime"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="e.g. 2"
+              aria-describedby="elec-other-runtime-error"
+              data-field="otherRuntime"
+              class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            />
+            <p
+              id="elec-other-runtime-error"
+              class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+              data-error-for="otherRuntime"
+              role="alert"
+            ></p>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label for="elec-rate" class="block text-sm font-medium text-ink">Electricity rate</label>
+        <div class="mt-2 grid gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,11rem)]">
+          <input
+            id="elec-rate"
+            name="rate"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 0.15"
+            aria-describedby="elec-rate-hint elec-rate-error"
+            data-field="rate"
+            class="min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <select
+            id="elec-rate-unit"
+            name="rateUnit"
+            data-rate-unit
+            aria-label="Electricity rate unit"
+            class="min-h-12 w-full rounded-xl border border-border bg-surface px-3 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          >
+            <option value="per_kwh" selected>$/kWh</option>
+            <option value="cents_per_kwh">¢/kWh</option>
+          </select>
+        </div>
+        <p id="elec-rate-hint" class="mt-1.5 text-sm text-ink-subtle">
+          Use the electricity rate shown on your utility bill. USD only.
+        </p>
+        <p
+          id="elec-rate-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="rate"
+          role="alert"
+        ></p>
+      </div>
+      <div>
+        <label for="elec-days" class="block text-sm font-medium text-ink">Days in billing period</label>
+        <input
+          id="elec-days"
+          name="days"
+          type="text"
+          inputmode="numeric"
+          autocomplete="off"
+          value="30"
+          aria-describedby="elec-days-hint elec-days-error"
+          data-field="days"
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        />
+        <p id="elec-days-hint" class="mt-1.5 text-sm text-ink-subtle">Whole number from 1 through 366</p>
+        <p
+          id="elec-days-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="days"
+          role="alert"
+        ></p>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <button
+        type="submit"
+        class="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 text-base font-medium text-white transition-colors hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        Estimate electricity cost
+      </button>
+      <button
+        type="button"
+        data-reset
+        class="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-surface px-5 text-base font-medium text-ink transition-colors hover:border-brand/40 hover:bg-brand-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+
+  <div
+    class="mt-6 hidden rounded-2xl border border-brand/25 bg-brand-soft p-5 sm:p-6"
+    data-result
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+</div>
+
+<script>
+  import {
+    calculateElectricityCost,
+    formatCurrencyUsd,
+    formatKwh,
+    POWER_UNIT_LABELS,
+    RATE_UNIT_LABELS,
+    type ElectricityFieldKey,
+    type ElectricityMode,
+    type ElectricityResult,
+    type PowerUnit,
+    type RateUnit,
+  } from '../utils/hot-tub-electricity-cost';
+
+  function initCalculator(root: HTMLElement) {
+    const form = root.querySelector<HTMLFormElement>('[data-electricity-form]');
+    const resultEl = root.querySelector<HTMLElement>('[data-result]');
+    const resetBtn = root.querySelector<HTMLButtonElement>('[data-reset]');
+    const powerUnit = root.querySelector<HTMLSelectElement>('[data-power-unit]');
+    const rateUnit = root.querySelector<HTMLSelectElement>('[data-rate-unit]');
+    const detailedFields = root.querySelector<HTMLElement>('[data-detailed-fields]');
+    const modeInputs = root.querySelectorAll<HTMLInputElement>('[data-mode-input]');
+
+    if (!form || !resultEl || !resetBtn || !powerUnit || !rateUnit || !detailedFields) return;
+
+    const fieldOrder: ElectricityFieldKey[] = [
+      'heaterPower',
+      'heaterRuntime',
+      'circulationPumpPower',
+      'circulationPumpRuntime',
+      'jetPumpPower',
+      'jetPumpRuntime',
+      'blowerPower',
+      'blowerRuntime',
+      'otherPower',
+      'otherRuntime',
+      'rate',
+      'days',
+    ];
+
+    function currentMode(): ElectricityMode {
+      const checked = form!.querySelector<HTMLInputElement>('input[name="mode"]:checked');
+      return checked?.value === 'detailed' ? 'detailed' : 'simple';
+    }
+
+    function syncMode() {
+      const isDetailed = currentMode() === 'detailed';
+      detailedFields!.hidden = !isDetailed;
+      detailedFields!.classList.toggle('hidden', !isDetailed);
+      for (const input of detailedFields!.querySelectorAll('input')) {
+        input.disabled = !isDetailed;
+      }
+    }
+
+    function fieldValue(field: ElectricityFieldKey): string {
+      return form!.querySelector<HTMLInputElement>(`[data-field="${field}"]`)?.value ?? '';
+    }
+
+    function clearErrors() {
+      for (const field of fieldOrder) {
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${field}"]`);
+        const error = form!.querySelector<HTMLElement>(`[data-error-for="${field}"]`);
+        if (input) {
+          input.removeAttribute('aria-invalid');
+          input.classList.remove('border-[#c45c4a]');
+        }
+        if (error) {
+          error.textContent = '';
+          error.classList.add('hidden');
+        }
+      }
+    }
+
+    function showErrors(errors: { field: ElectricityFieldKey; message: string }[]) {
+      clearErrors();
+      for (const error of errors) {
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${error.field}"]`);
+        const errorEl = form!.querySelector<HTMLElement>(`[data-error-for="${error.field}"]`);
+        if (input && !input.disabled) {
+          input.setAttribute('aria-invalid', 'true');
+          input.classList.add('border-[#c45c4a]');
+        }
+        if (errorEl) {
+          errorEl.textContent = error.message;
+          errorEl.classList.remove('hidden');
+        }
+      }
+      const first = errors[0];
+      if (!first) return;
+      const firstInput = form!.querySelector<HTMLInputElement>(`[data-field="${first.field}"]`);
+      firstInput?.focus();
+    }
+
+    function clearResult() {
+      resultEl!.hidden = true;
+      resultEl!.classList.add('hidden');
+      resultEl!.innerHTML = '';
+    }
+
+    function escapeHtml(value: string): string {
+      return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderResult(data: ElectricityResult) {
+      const powerLabel = POWER_UNIT_LABELS[data.powerUnit];
+      const rateLabel = RATE_UNIT_LABELS[data.rateUnit];
+      const breakdown = data.devices
+        .map(
+          (device) => `
+            <li>
+              <span class="font-medium text-ink">${escapeHtml(device.label)}:</span>
+              ${escapeHtml(device.powerEntered)} ${escapeHtml(powerLabel.toLowerCase())} ×
+              ${escapeHtml(device.runtimeEntered)} h/day =
+              ${escapeHtml(formatKwh(device.displayDailyKwh))} kWh/day
+            </li>`,
+        )
+        .join('');
+
+      resultEl!.innerHTML = `
+        <h2 class="font-display text-xl font-semibold text-ink">Electricity cost estimate</h2>
+        <p class="mt-4 text-2xl font-semibold text-ink sm:text-3xl">
+          ${escapeHtml(formatKwh(data.displayDailyKwh))} kWh per day
+        </p>
+        <p class="mt-1 text-xl font-semibold text-ink sm:text-2xl">
+          ${escapeHtml(formatCurrencyUsd(data.displayDailyCost))} per day
+        </p>
+        <p class="mt-4 text-2xl font-semibold text-ink sm:text-3xl">
+          ${escapeHtml(formatKwh(data.displayPeriodKwh))} kWh over ${escapeHtml(String(data.days))} days
+        </p>
+        <p class="mt-1 text-xl font-semibold text-ink sm:text-2xl">
+          ${escapeHtml(formatCurrencyUsd(data.displayPeriodCost))} over ${escapeHtml(String(data.days))} days
+        </p>
+        <p class="mt-4 text-base text-ink-muted">
+          <span class="font-medium text-ink">Annualized extrapolation:</span>
+          ${escapeHtml(formatCurrencyUsd(data.displayAnnualCost))} per year
+          (daily cost × 365). This is not a utility forecast.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-muted">
+          This estimate assumes each device draws its entered power for the entered runtime.
+          Actual electricity use can vary substantially with weather, cover condition,
+          insulation, heater cycling, filtration schedules, jet use, and utility rate structure.
+        </p>
+        <div class="mt-5 rounded-xl border border-warning-border bg-warning-bg p-4 text-sm leading-relaxed text-warning-ink" role="note">
+          <strong class="font-semibold">Estimate warning:</strong>
+          This estimate assumes each device draws its entered power for the entered runtime.
+          Actual electricity use can vary substantially. It does not predict your utility bill
+          and does not include demand charges, tiered rates, taxes, fees, or time-of-use pricing
+          unless you already folded those into the rate you entered.
+        </div>
+        <div class="mt-5">
+          <h3 class="font-display text-base font-semibold text-ink">Device breakdown</h3>
+          <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-ink-muted">${breakdown}</ul>
+        </div>
+        <dl class="mt-5 space-y-2 text-sm text-ink-muted">
+          <div>
+            <dt class="inline font-medium text-ink">Mode:</dt>
+            <dd class="inline">${data.mode === 'detailed' ? 'Detailed' : 'Simple'}</dd>
+          </div>
+          <div>
+            <dt class="inline font-medium text-ink">Power unit:</dt>
+            <dd class="inline">${escapeHtml(powerLabel)}</dd>
+          </div>
+          <div>
+            <dt class="inline font-medium text-ink">Electricity rate:</dt>
+            <dd class="inline">
+              ${escapeHtml(data.rateEntered)} (${escapeHtml(rateLabel)})
+            </dd>
+          </div>
+          <div>
+            <dt class="inline font-medium text-ink">Billing period:</dt>
+            <dd class="inline">${escapeHtml(data.daysEntered)} days</dd>
+          </div>
+        </dl>
+      `;
+      resultEl!.hidden = false;
+      resultEl!.classList.remove('hidden');
+    }
+
+    modeInputs.forEach((input) => {
+      input.addEventListener('change', () => {
+        clearErrors();
+        clearResult();
+        syncMode();
+      });
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const outcome = calculateElectricityCost({
+        mode: currentMode(),
+        powerUnit: powerUnit.value as PowerUnit,
+        rateUnit: rateUnit.value as RateUnit,
+        heater: {
+          power: fieldValue('heaterPower'),
+          runtimeHours: fieldValue('heaterRuntime'),
+        },
+        circulationPump: {
+          power: fieldValue('circulationPumpPower'),
+          runtimeHours: fieldValue('circulationPumpRuntime'),
+        },
+        jetPump: {
+          power: fieldValue('jetPumpPower'),
+          runtimeHours: fieldValue('jetPumpRuntime'),
+        },
+        blower: {
+          power: fieldValue('blowerPower'),
+          runtimeHours: fieldValue('blowerRuntime'),
+        },
+        other: {
+          power: fieldValue('otherPower'),
+          runtimeHours: fieldValue('otherRuntime'),
+        },
+        rate: fieldValue('rate'),
+        days: fieldValue('days'),
+      });
+
+      if (!outcome.ok) {
+        clearResult();
+        showErrors(outcome.errors);
+        return;
+      }
+
+      clearErrors();
+      renderResult(outcome.result);
+    });
+
+    resetBtn.addEventListener('click', () => {
+      form.reset();
+      const simple = form.querySelector<HTMLInputElement>('input[name="mode"][value="simple"]');
+      if (simple) simple.checked = true;
+      powerUnit.value = 'W';
+      rateUnit.value = 'per_kwh';
+      const days = form.querySelector<HTMLInputElement>('[data-field="days"]');
+      if (days) days.value = '30';
+      clearErrors();
+      clearResult();
+      syncMode();
+      form.querySelector<HTMLInputElement>('[data-field="heaterPower"]')?.focus();
+    });
+
+    syncMode();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-electricity-calculator]').forEach(initCalculator);
+</script>

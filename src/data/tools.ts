@@ -14,10 +14,18 @@ export const tools: ToolItem[] = [
     status: 'available',
   },
   {
-    title: 'Electricity Cost Calculator',
-    description: 'Get a rough sense of monthly heating and operating costs.',
-    href: '/calculators',
-    status: 'coming-soon',
+    title: 'Hot Tub Fill Time Calculator',
+    description:
+      'Estimate remaining water and how long a fill may take from capacity, fill level, and hose flow rate.',
+    href: '/calculators/hot-tub-fill-time-calculator',
+    status: 'available',
+  },
+  {
+    title: 'Hot Tub Electricity Cost Calculator',
+    description:
+      'Estimate electricity use and operating cost from equipment wattage, daily runtime, and your utility rate.',
+    href: '/calculators/hot-tub-electricity-cost-calculator',
+    status: 'available',
   },
   {
     title: 'Maintenance Schedule Generator',

@@ -64,7 +64,7 @@ faq: []
 
 A bad hot tub smell is not proof of one failed part or one wrong chemical. Hot Spring's troubleshooting chart treats **water odor**, **chlorine odor**, and **musty odor** as separate problems with different probable causes ([Hot Spring](https://www.hotspring.com/owners/water-care-and-troubleshooting)). Jacuzzi likewise treats funky or musty odor as a cue to test the water, not to guess from appearance alone ([Jacuzzi](https://www.jacuzzi.com/en-us/Signs-and-Symptoms-Your-Hot-Tub-Water-Needs-Maintenance.html)).
 
-If the smell is specifically a sharp "chlorine" smell, start with [Why Does My Hot Tub Smell Like Chlorine?](/water-care/why-does-my-hot-tub-smell-like-chlorine). This article covers broader bad or musty water odor.
+If the smell is specifically a sharp "chlorine" smell, start with [Why Does My Hot Tub Smell Like Chlorine?](/water-care/why-does-my-hot-tub-smell-like-chlorine). This article covers broader bad or musty water odor. If the odor is strongest on the cover vinyl or underside rather than in the water, see [Why Does My Hot Tub Cover Smell Bad?](/maintenance/why-does-my-hot-tub-cover-smell-bad).
 
 ## Safety note
 

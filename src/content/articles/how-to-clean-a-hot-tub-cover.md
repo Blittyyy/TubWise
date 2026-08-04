@@ -22,6 +22,8 @@ affiliateDisclosure: false
 safetyLevel: "general"
 relatedArticles:
   - how-to-choose-a-hot-tub-cover
+  - when-should-you-replace-a-hot-tub-cover
+  - why-does-my-hot-tub-cover-smell-bad
   - hot-tub-maintenance-checklist-weekly-monthly-and-seasonal-tasks
   - how-to-clean-a-hot-tub-shell-without-damaging-it
   - hot-tub-losing-water-overnight-leak-or-evaporation
@@ -98,8 +100,8 @@ Lock the cover when the spa is not in use (Hot Spring Highlife owner's manual). 
 
 ## When to stop and call a dealer
 
-- Foam core feels waterlogged or much heavier than before
+- Foam core feels waterlogged or much heavier than before; see [Why Is My Hot Tub Cover So Heavy?](/maintenance/why-is-my-hot-tub-cover-so-heavy)
 - Vinyl is cracked, torn, or delaminating
 - Lock straps or handles have failed
-- Mold or mildew returns immediately after proper cleaning
-- You need a replacement cover measured for your spa shell
+- Mold or mildew returns immediately after proper cleaning; see [Why Does My Hot Tub Cover Smell Bad?](/maintenance/why-does-my-hot-tub-cover-smell-bad)
+- You need a replacement cover measured for your spa shell; see [When Should You Replace a Hot Tub Cover?](/maintenance/when-should-you-replace-a-hot-tub-cover)

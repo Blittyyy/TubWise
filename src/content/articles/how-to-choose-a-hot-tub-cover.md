@@ -22,8 +22,8 @@ affiliateDisclosure: false
 safetyLevel: "general"
 relatedArticles:
   - how-to-clean-a-hot-tub-cover
-  - jacuzzi-oh-error-code
-  - sundance-oh-error-code
+  - when-should-you-replace-a-hot-tub-cover
+  - why-is-my-hot-tub-cover-so-heavy
   - how-to-choose-a-replacement-hot-tub-filter
   - hot-tub-not-heating
 sources:
@@ -117,7 +117,7 @@ Jacuzzi advises checking that a cover warranty comes from a company likely to re
 4. **Ask for documented foam, vapor barrier, and climate guidance** for your location.
 5. **Confirm warranty terms in writing.**
 6. **Plan handling** with a second person or a manufacturer-compatible lifter if the cover is heavy.
-7. **Plan monthly cleaning** after the cover is installed; see [How to Clean a Hot Tub Cover](/maintenance/how-to-clean-a-hot-tub-cover).
+7. **Plan monthly cleaning** after the cover is installed; see [How to Clean a Hot Tub Cover](/maintenance/how-to-clean-a-hot-tub-cover). If you are replacing because of weight, sagging, pooling, or odor, see [When Should You Replace a Hot Tub Cover?](/maintenance/when-should-you-replace-a-hot-tub-cover).
 
 ## When to stop and get help
 

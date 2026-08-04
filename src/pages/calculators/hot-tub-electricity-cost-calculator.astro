@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import HotTubElectricityCostCalculator from '../../components/HotTubElectricityCostCalculator.astro';
+import { breadcrumbSchema, webApplicationSchema } from '../../utils/schema';
+
+const path = '/calculators/hot-tub-electricity-cost-calculator';
+const title = 'Hot Tub Electricity Cost Calculator: Estimate Monthly Use';
+const description =
+  'Estimate hot tub electricity use and monthly operating cost using equipment wattage, daily runtime, billing days, and your utility rate.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Calculators', href: '/calculators' },
+  { label: 'Hot Tub Electricity Cost Calculator' },
+];
+
+const relatedGuides = [
+  {
+    title: 'How to Choose a Hot Tub Cover',
+    description:
+      'Match replacement cover fit and construction details without treating any cover as a guaranteed energy saver.',
+    href: '/buying-guides/how-to-choose-a-hot-tub-cover',
+    category: 'Buying Guides',
+  },
+  {
+    title: 'When Should You Replace a Hot Tub Cover?',
+    description:
+      'Manufacturer-backed replacement cues such as damage, sagging, and waterlogging.',
+    href: '/maintenance/when-should-you-replace-a-hot-tub-cover',
+    category: 'Maintenance',
+  },
+  {
+    title: 'Why Is My Hot Tub Cover So Heavy?',
+    description:
+      'Separate normal cover weight, exterior water, and possible foam-core moisture.',
+    href: '/maintenance/why-is-my-hot-tub-cover-so-heavy',
+    category: 'Maintenance',
+  },
+  {
+    title: 'Hot Tub Maintenance Checklist: Weekly, Monthly, and Seasonal Tasks',
+    description: 'A manufacturer-backed planning checklist for ongoing spa care.',
+    href: '/maintenance/hot-tub-maintenance-checklist-weekly-monthly-and-seasonal-tasks',
+    category: 'Maintenance',
+  },
+  {
+    title: 'Hot Tub Volume Calculator',
+    description: 'Estimate spa capacity in gallons and liters from interior dimensions.',
+    href: '/calculators/hot-tub-volume-calculator',
+    category: 'Calculators',
+  },
+  {
+    title: 'Hot Tub Fill Time Calculator',
+    description: 'Estimate remaining water and how long a fill may take.',
+    href: '/calculators/hot-tub-fill-time-calculator',
+    category: 'Calculators',
+  },
+];
+
+const schemas = [
+  breadcrumbSchema(breadcrumbs),
+  webApplicationSchema({
+    name: 'Hot Tub Electricity Cost Calculator',
+    description,
+    path,
+  }),
+];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={schemas}>
+  <div class="container-site section-space">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="mx-auto mb-8 w-full max-w-3xl">
+      <h1 class="text-3xl font-semibold sm:text-4xl">Hot Tub Electricity Cost Calculator</h1>
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">
+        Estimate your hot tub’s electricity use and operating cost from equipment wattage, daily
+        runtime, and your utility rate.
+      </p>
+    </header>
+
+    <div class="mx-auto w-full max-w-3xl">
+      <HotTubElectricityCostCalculator />
+    </div>
+
+    <div class="prose-site mx-auto mt-12 max-w-3xl">
+      <h2 id="how-it-works">How the estimate works</h2>
+      <p>
+        For each device, daily energy in kilowatt-hours equals power in kilowatts multiplied by
+        runtime hours per day. The calculator converts watts to kilowatts when needed (1,000 watts =
+        1 kilowatt), totals every device you entered, multiplies by your electricity rate, then
+        scales by the billing-period days. An optional annualized figure multiplies daily cost by
+        365 and is labeled as an extrapolation, not a utility forecast.
+      </p>
+      <p>
+        Heater runtime means the estimated time the heater is actively drawing its rated power, not
+        simply the time the spa remains turned on. Rated wattage is not the same as continuous use.
+      </p>
+
+      <h2 id="where-to-find-wattage">Where to find equipment wattage</h2>
+      <p>Obtain equipment ratings only from:</p>
+      <ul>
+        <li>The owner’s manual</li>
+        <li>Manufacturer specifications</li>
+        <li>Safely visible external nameplate or documentation</li>
+        <li>Installer documentation</li>
+      </ul>
+      <p>
+        Do not open electrical enclosures or equipment compartments to read values. If ratings are
+        unclear, ask your dealer or a qualified technician rather than guessing from unsafe access.
+      </p>
+
+      <h2 id="why-costs-vary">Why actual costs vary</h2>
+      <p>
+        Outdoor temperature, desired water temperature, cover condition, insulation, wind exposure,
+        heater cycling, filtration schedules, jet use, equipment efficiency, standby behavior, and
+        utility rate structure can all change real electricity use. TubWise does not assign
+        unsupported percentage savings to any one factor.
+      </p>
+
+      <h2 id="improve-accuracy">Ways to improve estimate accuracy</h2>
+      <ul>
+        <li>Use the electricity rate printed on your utility bill</li>
+        <li>Use model-specific wattage from manufacturer documentation</li>
+        <li>Track actual heater and pump runtime when your controls make that practical</li>
+        <li>Compare the estimate with utility usage over time</li>
+        <li>Update inputs for seasonal weather and schedule changes</li>
+      </ul>
+      <p>
+        Do not attempt unsafe current measurement, clamp-meter work inside live equipment, or other
+        electrical testing unless you are a qualified person following proper safety procedures.
+      </p>
+
+      <h2 id="disclaimer">Disclaimer</h2>
+      <p>
+        This calculator is a planning estimate only. It is not a substitute for your spa
+        manufacturer’s specifications, your utility bill, or professional advice. See the
+        <a href="/disclaimer">Disclaimer</a> and <a href="/terms">Terms of Use</a> for more.
+      </p>
+    </div>
+
+    <section class="mx-auto mt-12 w-full max-w-5xl" aria-labelledby="related-guides-heading">
+      <h2 id="related-guides-heading" class="font-display text-2xl font-semibold text-ink">
+        Relevant TubWise guides
+      </h2>
+      <p class="mt-3 max-w-3xl text-base leading-relaxed text-ink-muted">
+        Cover condition and maintenance habits can influence heat loss, but replacing a cover does
+        not guarantee lower electricity use. Use these guides alongside your estimate.
+      </p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          relatedGuides.map((guide) => (
+            <ArticleCard
+              title={guide.title}
+              description={guide.description}
+              href={guide.href}
+              category={guide.category}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>
