@@ -4,7 +4,7 @@ description: "Pump running but jets weak or silent? Here are the signs of a hot 
 summary: "The clearest sign of an air lock is a pump that sounds like it's running normally while the jets produce little or no water, a pattern Hot Spring and Jacuzzi both tie to a recent drain and refill. Weak, surging, or absent flow with a working pump can point to trapped air rather than a failed pump."
 slug: "how-to-tell-if-a-hot-tub-has-an-air-lock"
 publishedDate: 2026-07-30
-updatedDate: 2026-08-01
+updatedDate: 2026-08-04
 category: "troubleshooting"
 subcategory: "air-lock"
 tags:
@@ -23,6 +23,8 @@ relatedArticles:
   - hot-tub-not-heating
   - hot-tub-not-heating-after-a-refill
   - why-are-my-hot-tub-jets-weak
+  - why-are-my-hot-tub-jets-surging-or-pulsating
+  - why-is-my-hot-tub-making-noise-after-filling-or-refilling
 sources:
   - title: "Fix Your Hot Tub with This Complete Troubleshooting Guide"
     url: "https://www.hotspring.com/blog/fix-your-hot-tub-with-this-complete-troubleshooting-guide"
@@ -71,7 +73,7 @@ Hot Spring's troubleshooting chart lists "air lock was created after filling the
 3. **Check whether flow is weak everywhere or only from certain jets**, and note if it surges rather than staying steady.
 4. **Confirm the water level meets your manual's fill line.** Jacuzzi notes low water can also starve flow and trigger a protective shutdown, which can be worth ruling out alongside an air lock.
 5. **Follow your manual's homeowner-facing purge procedure**, such as running water through the filter compartment or standpipe, if your manufacturer documents one for your model. See [Hot Tub Not Heating After a Refill](/troubleshooting/hot-tub-not-heating-after-a-refill) for the steps Hot Spring documents for its own spas.
-6. **After purging, run the jets through both low and high speed if available.** The Hot Spot Collection guide describes strong, non-surging flow as the sign that air has cleared, and has owners cycle a surging jet off for five seconds before trying it again (Hot Spring Hot Spot Collection guide).
+6. **After purging, run the jets through both low and high speed if available.** The Hot Spot Collection guide describes strong, non-surging flow as the sign that air has cleared, and has owners cycle a surging jet off for five seconds before trying it again (Hot Spring Hot Spot Collection guide). If rhythmic pulsing is the main complaint after the refill, see [Why Are My Hot Tub Jets Surging or Pulsating?](/troubleshooting/why-are-my-hot-tub-jets-surging-or-pulsating). If unusual noise is the main complaint, see [Why Is My Hot Tub Making Noise After Filling or Refilling?](/troubleshooting/why-is-my-hot-tub-making-noise-after-filling-or-refilling).
 
 ## When to stop and call a technician
 

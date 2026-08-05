@@ -4,7 +4,7 @@ description: "Growling, squealing, or humming from the spa pump needs a safe che
 summary: "Jacuzzi describes noisy pumps as a sign something is wrong in the pump or water lines. Low water, trapped air, blockages, and worn bearings are among the causes Jacuzzi documents. Check water level and filters first. Capacitor, bearing, and motor repairs are technician work."
 slug: "why-is-my-hot-tub-pump-making-noise"
 publishedDate: 2026-08-01
-updatedDate: 2026-08-01
+updatedDate: 2026-08-04
 category: "troubleshooting"
 subcategory: "pumps"
 tags:
@@ -22,6 +22,8 @@ safetyLevel: "general"
 relatedArticles:
   - how-to-tell-if-a-hot-tub-has-an-air-lock
   - why-are-my-hot-tub-jets-weak
+  - why-is-my-hot-tub-vibrating
+  - why-does-my-hot-tub-make-noise-when-the-jets-are-on
   - hot-tub-leaking-from-underneath
   - how-to-clean-a-hot-tub-filter
 sources:
@@ -78,9 +80,9 @@ If the pattern is a running pump with weak or absent jets after a refill, see [H
 
 1. **Confirm the waterline** against your manual. Jacuzzi describes keeping water about 1 to 2 inches above the highest jet, typically near mid-skimmer, on the pump troubleshooting page (Jacuzzi).
 2. **Inspect and clean the filter** if it is clogged or collapsed. Dirty filters are a documented cause of weak flow and pump strain on Jacuzzi's pump page (Jacuzzi). See [How to Clean a Hot Tub Filter](/maintenance/how-to-clean-a-hot-tub-filter).
-3. **Note whether noise started after a drain and refill.** Trapped air can create abnormal pump noise (Jacuzzi). Follow only your spa maker's purge or priming steps.
+3. **Note whether noise started after a drain and refill.** Trapped air can create abnormal pump noise (Jacuzzi). Follow only your spa maker's purge or priming steps. For timing-focused checks, see [Why Is My Hot Tub Making Noise After Filling or Refilling?](/troubleshooting/why-is-my-hot-tub-making-noise-after-filling-or-refilling).
 4. **Check for water under or around the pump** with power off. Jacuzzi states water around the pump can indicate a failed shaft seal or cracked housing needing professional repair (Jacuzzi). See [Hot Tub Leaking From Underneath: What to Check](/troubleshooting/hot-tub-leaking-from-underneath).
-5. **Compare noise with jet performance.** Weak or surging jets have their own check order in [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak).
+5. **Compare noise with jet performance.** Weak or surging jets have their own check order in [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak). If the main issue is felt shaking rather than sound, see [Why Is My Hot Tub Vibrating?](/troubleshooting/why-is-my-hot-tub-vibrating). If the sound appears mainly while jets run, see [Why Does My Hot Tub Make Noise When the Jets Are On?](/troubleshooting/why-does-my-hot-tub-make-noise-when-the-jets-are-on).
 
 ## What not to do
 

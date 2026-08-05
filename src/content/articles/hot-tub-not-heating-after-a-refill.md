@@ -24,6 +24,7 @@ relatedArticles:
   - how-to-tell-if-a-hot-tub-has-an-air-lock
   - hot-tub-has-power-but-no-heat
   - why-is-my-hot-tub-taking-so-long-to-heat-up
+  - why-is-my-hot-tub-making-noise-after-filling-or-refilling
 sources:
   - title: "Fix Your Hot Tub with This Complete Troubleshooting Guide"
     url: "https://www.hotspring.com/blog/fix-your-hot-tub-with-this-complete-troubleshooting-guide"
@@ -73,7 +74,7 @@ This matters because the fix differs by cause: a power problem needs an electric
 4. **If your manual describes a filter-standpipe purge method, follow it.** Hot Spring's guidance for a spa that won't heat after filling is to run water down the main filter in the filter compartment until the air lock is pushed out (Hot Spring). Use your own manual's exact procedure, since fill points vary by model.
 5. **Recheck for heat after flow looks steady and non-surging** at all jets.
 
-For a general description of what an air lock feels and sounds like (useful if you're not sure that's what you're dealing with), see [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock).
+For a general description of what an air lock feels and sounds like (useful if you're not sure that's what you're dealing with), see [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock). If the spa makes unusual noise right after the refill while you sort out flow, see [Why Is My Hot Tub Making Noise After Filling or Refilling?](/troubleshooting/why-is-my-hot-tub-making-noise-after-filling-or-refilling).
 
 ## When to stop and call a technician
 

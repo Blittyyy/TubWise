@@ -4,7 +4,7 @@ description: "Weak or surging hot tub jets are usually caused by low water, a di
 summary: "Weak or surging jets can be caused by low water level, a clogged filter, or a closed jet or diverter valve. Jacuzzi identifies a clogged filter as the most common cause. All are things a homeowner can safely check before assuming the pump has failed."
 slug: "why-are-my-hot-tub-jets-weak"
 publishedDate: 2026-07-30
-updatedDate: 2026-08-01
+updatedDate: 2026-08-04
 category: "troubleshooting"
 subcategory: "jets"
 tags:
@@ -23,6 +23,7 @@ relatedArticles:
   - hot-tub-not-heating
   - can-a-dirty-filter-stop-a-hot-tub-from-heating
   - how-to-tell-if-a-hot-tub-has-an-air-lock
+  - why-do-my-hot-tub-jets-get-weaker-when-i-turn-on-more-jets
   - how-to-clean-a-hot-tub-filter
 sources:
   - title: "Fix Your Hot Tub with This Complete Troubleshooting Guide"
@@ -59,6 +60,8 @@ Hot Spring's chart lists clogged filters as one cause of weak or surging jets, w
 ### A closed jet or diverter valve
 
 Hot Spring's chart also lists a closed "Comfort Control" lever as a cause of weak jets on its own spas, with the fix being to open it (Hot Spring). Some spas have similar adjustable valves or diverters that redirect flow between jet groups, even if they use a different name. Check your own manual for how yours work. This cause is easy to overlook because it doesn't involve cleaning anything; a valve can be left in the wrong position after a previous adjustment or after someone else used the spa.
+
+If jets feel acceptable when fewer outlets are open, then soften as you open more jets or zones, that can be shared pump flow rather than a system-wide failure. See [Why Do My Hot Tub Jets Get Weaker When I Turn On More Jets?](/troubleshooting/why-do-my-hot-tub-jets-get-weaker-when-i-turn-on-more-jets). If the stream pulses or rises and falls instead of staying evenly weak, see [Why Are My Hot Tub Jets Surging or Pulsating?](/troubleshooting/why-are-my-hot-tub-jets-surging-or-pulsating).
 
 ### Trapped air in the plumbing
 
