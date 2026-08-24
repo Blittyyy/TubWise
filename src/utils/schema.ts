@@ -85,6 +85,7 @@ export function organizationSchema() {
     url: SITE_URL,
     description:
       'Practical guidance for hot tub owners: troubleshooting, error codes, water care, maintenance, and ownership tools.',
+    logo: absoluteUrl('/icon-512.png'),
   };
 }
 
