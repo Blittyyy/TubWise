@@ -82,7 +82,7 @@ For a general description of what an air lock feels and sounds like (useful if y
 - Jets never regain strong, steady flow after following your manual's fill and purge steps
 - The spa still won't heat once flow and power both look normal
 - Fixing the air lock would require opening the equipment compartment or working on the pump itself
-- The same problem returns after every refill, which can point to a fill technique or plumbing issue worth having a technician look at
+- The same problem returns after every refill, which can point to a fill technique or plumbing issue worth having a technician look at. For planned water-change timing, see [How Often Should You Drain and Refill a Hot Tub?](/maintenance/how-often-should-you-drain-and-refill-a-hot-tub). If your fill water is mineral-heavy, see [How to Fill a Hot Tub With Hard Water](/water-care/how-to-fill-a-hot-tub-with-hard-water).
 
 Working through these in order avoids spending time on air-lock fixes when the real problem is electrical, or vice versa.
 

@@ -99,4 +99,4 @@ Contact an authorized Sundance dealer or qualified technician if:
 4. Follow only the owner actions listed for your manual revision.
 5. Treat Jacuzzi, Gecko, and Balboa overheat pages as different products with different limits.
 
-For a broader homeowner overview of water that feels hotter than the setting and high-limit stop conditions, see [Why Is My Hot Tub Getting Too Hot?](/troubleshooting/why-is-my-hot-tub-getting-too-hot).
+For a broader homeowner overview of water that feels hotter than the setting and high-limit stop conditions, see [Why Is My Hot Tub Getting Too Hot?](/troubleshooting/why-is-my-hot-tub-getting-too-hot). Other Sundance panel messages TubWise has published are listed on [Sundance error codes](/error-codes/sundance).

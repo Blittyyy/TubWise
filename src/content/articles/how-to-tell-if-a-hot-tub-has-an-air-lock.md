@@ -56,7 +56,7 @@ Follow your manual for any steps that involve the filter compartment or fill lin
 
 ### The pump runs, but the jets don't
 
-Jacuzzi's guide lists an airlock after refilling among the common, DIY-friendly causes of pump problems, alongside a tripped GFCI, a clogged filter, and low water level (Jacuzzi). The pattern that stands out is a pump that is clearly powered and running while jets stay weak or silent. If your panel also shows a flow code, such as [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo), that manufacturer's own air-lock steps are listed on the scoped page for your brand.
+Jacuzzi's guide lists an airlock after refilling among the common, DIY-friendly causes of pump problems, alongside a tripped GFCI, a clogged filter, and low water level (Jacuzzi). The pattern that stands out is a pump that is clearly powered and running while jets stay weak or silent. If your panel also shows a flow code, such as [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo), that manufacturer's own air-lock steps are listed on the scoped page for your brand. If the display is a different Jacuzzi or Gecko message, start from [Jacuzzi error codes](/error-codes/jacuzzi) or [Gecko error codes](/error-codes/gecko).
 
 ### It happened right after a drain and refill
 

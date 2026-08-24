@@ -76,7 +76,7 @@ It's also worth being clear about what these two sources don't address. Neither 
 
 ## When to stop and call a technician
 
-- You've been operating the spa without a filter, even briefly, and now notice reduced or weak flow (see [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak)), unusual pump noise, or debris in the plumbing
+- You've been operating the spa without a filter, even briefly, and now notice reduced or weak flow (see [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak)), unusual pump noise (see [Why Is My Hot Tub Pump Making Noise?](/troubleshooting/why-is-my-hot-tub-pump-making-noise)), or debris in the plumbing
 - You don't have a working filter and can't get a replacement quickly, and the spa needs to run for another reason, such as freeze protection in cold weather
 - You're unsure whether debris may have already reached the pump or heater
 

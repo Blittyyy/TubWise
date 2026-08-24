@@ -133,3 +133,5 @@ Stop and contact an authorized Jacuzzi dealer or qualified spa technician if:
 3. Locate the error-message or troubleshooting section for **FL1**, **FL–1**, or **FLOW ERROR OPEN**.
 4. Match the exact wording on your panel to that entry.
 5. Follow only the owner steps listed there. Ignore third-party “universal FL1” guides that mix Jacuzzi and Sundance wording.
+
+Other Jacuzzi messages TubWise has published are listed on [Jacuzzi error codes](/error-codes/jacuzzi).

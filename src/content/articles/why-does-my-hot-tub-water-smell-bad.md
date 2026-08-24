@@ -102,7 +102,7 @@ Jacuzzi lists a musty, stale odor among prompts to drain and clean ([Jacuzzi](ht
 Stop using the spa and do not keep stacking chemicals if:
 
 - Musty odor remains after you have shocked as directed and retested, matching Hot Spring's "visible or persistent" drain-and-clean guidance ([Hot Spring](https://www.hotspring.com/owners/water-care-and-troubleshooting))
-- Someone became ill in the water, or you see biofilm or algae ([Jacuzzi](https://www.jacuzzi.com/en-us/How-to-Drain-a-Spa.html))
+- Someone became ill in the water, or you see biofilm or algae ([Jacuzzi](https://www.jacuzzi.com/en-us/How-to-Drain-a-Spa.html)); slimy seats or walls have a separate check path in [Why Do My Hot Tub Surfaces Feel Slimy?](/water-care/why-do-my-hot-tub-surfaces-feel-slimy)
 - You cannot bring sanitizer and pH into the ranges your manual and product labels require
 - Odor returns quickly after every correction
 

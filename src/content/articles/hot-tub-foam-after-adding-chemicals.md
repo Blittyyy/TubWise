@@ -96,4 +96,4 @@ Don't use the spa, and don't keep adding chemicals to compensate, if:
 - Foam is still present after a full circulation cycle and a correct, single-product adjustment
 - You suspect two incompatible products were mixed together
 
-If foam is unrelated to a recent chemical addition, the broader list of causes and checks in [Why Is My Hot Tub Water Foamy?](/water-care/why-is-my-hot-tub-water-foamy) is the better starting point.
+If foam is unrelated to a recent chemical addition, the broader list of causes and checks in [Why Is My Hot Tub Water Foamy?](/water-care/why-is-my-hot-tub-water-foamy) is the better starting point. If you need to decide whether soaking is still appropriate while foam is present, see [Is Foamy Hot Tub Water Safe to Use?](/water-care/is-foamy-hot-tub-water-safe-to-use).

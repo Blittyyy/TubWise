@@ -125,3 +125,5 @@ Call an authorized Jacuzzi dealer or qualified technician if:
 3. Match the panel text to **OH**, an Overheat Condition heading, or the overheat code your book uses.
 4. Note the temperature figures and **DO NOT ENTER** language printed for **that** entry only.
 5. Follow only those owner steps. Leave meter tests and board work to qualified service.
+
+Other Jacuzzi messages TubWise has published are listed on [Jacuzzi error codes](/error-codes/jacuzzi).

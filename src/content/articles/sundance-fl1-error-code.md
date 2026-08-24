@@ -116,3 +116,5 @@ Contact an authorized Sundance dealer or qualified technician if:
 3. Find **Panel Flashes FL1** and note whether your spa is listed **with** or **without** the circulation-pump option.
 4. Match your panel text to that entry.
 5. Follow only those numbered owner steps. If the manual says to contact the dealer when the problem persists, stop there.
+
+Other Sundance messages TubWise has published are listed on [Sundance error codes](/error-codes/sundance).

@@ -109,3 +109,5 @@ Call a qualified spa technician familiar with Gecko systems if:
 3. Find the **FLO error message** section and match the keypad text.
 4. Use only the owner-safe checks that apply to your installation.
 5. Leave dealer-menu, probe, cable, heater, and control replacement steps to trained service.
+
+Other Gecko messages TubWise has published are listed on [Gecko error codes](/error-codes/gecko).

@@ -61,7 +61,7 @@ Turn power off at the breaker or disconnect before opening the equipment access 
 
 Water runs downhill. A drip from a pump union, heater connection, or wet-end seal can pool at the cabinet floor or soak the pad under the spa. Jacuzzi lists pump or heater leaks among leak sources and points owners toward wet spots near plumbing connections (Jacuzzi). That does not prove which fitting failed from a pad stain alone.
 
-This page stays in the equipment-bay zone. For a wider evaporation-versus-leak triage, see [Why Is My Hot Tub Leaking?](/troubleshooting/why-is-my-hot-tub-leaking).
+This page stays in the equipment-bay zone. For a wider evaporation-versus-leak triage, see [Why Is My Hot Tub Leaking?](/troubleshooting/why-is-my-hot-tub-leaking). If the waterline drops overnight with no wet equipment bay, start with [Hot Tub Losing Water Overnight: Leak or Evaporation?](/troubleshooting/hot-tub-losing-water-overnight-leak-or-evaporation).
 
 ## Manufacturer-documented union checks (Hot Spot Collection)
 

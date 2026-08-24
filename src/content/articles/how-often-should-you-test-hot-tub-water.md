@@ -87,7 +87,7 @@ Place testing on your broader calendar with [Hot Tub Maintenance Checklist: Week
 
 ## What testing does not replace
 
-Testing does not replace filter cleaning, scheduled drains, or dealing with foam, cloudiness, or odor. Low sanitizer with foam or cloudiness is a stay-out signal until chemistry is corrected; see [Is Foamy Hot Tub Water Safe to Use?](/water-care/is-foamy-hot-tub-water-safe-to-use) and [Why Is My Hot Tub Water Cloudy?](/water-care/why-is-my-hot-tub-water-cloudy).
+Testing does not replace filter cleaning, scheduled drains, or dealing with foam, cloudiness, or odor. For drain timing, see [How Often Should You Drain and Refill a Hot Tub?](/maintenance/how-often-should-you-drain-and-refill-a-hot-tub). Broader chemistry and clarity topics live in [Water Care](/water-care). Low sanitizer with foam or cloudiness is a stay-out signal until chemistry is corrected; see [Is Foamy Hot Tub Water Safe to Use?](/water-care/is-foamy-hot-tub-water-safe-to-use) and [Why Is My Hot Tub Water Cloudy?](/water-care/why-is-my-hot-tub-water-cloudy).
 
 ## When to stop and call a technician or dealer
 
