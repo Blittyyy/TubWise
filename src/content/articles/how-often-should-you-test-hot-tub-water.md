@@ -1,6 +1,7 @@
 ---
 title: "How Often Should You Test Hot Tub Water?"
-description: "CDC guidance says test hot tub chlorine and pH at least twice a day. Manufacturer maintenance schedules may list weekly or twice-weekly checks. Here's how to use both."
+seoTitle: "How Often Should You Test Hot Tub Water? Daily & Weekly Schedule"
+description: "Learn how often to test hot tub chlorine, bromine, pH, alkalinity and hardness, including daily checks and weekly maintenance guidance."
 summary: "CDC home pool and hot tub guidance says to test chlorine concentration and pH at least twice per day, and more often with heavy use. Hot Spring's maintenance page lists weekly chemical testing, and Jacuzzi's beginner guide lists twice-weekly ongoing tests. Treat public-health and brand schedules as separate sources, then follow your manual and product labels."
 slug: "how-often-should-you-test-hot-tub-water"
 publishedDate: 2026-08-03

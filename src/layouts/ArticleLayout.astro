@@ -58,7 +58,7 @@ const schemas = [articleSchema(article), breadcrumbSchema(breadcrumbs)];
 ---
 
 <BaseLayout
-  title={data.title}
+  title={data.seoTitle ?? data.title}
   description={data.description}
   path={path}
   type="article"

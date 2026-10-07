@@ -1,6 +1,7 @@
 ---
 title: "Hot Tub Foam After Adding Chemicals: What Happened?"
-description: "Foam right after adding chemicals can come from jet aeration, the order products were added, or excess dosing. Here's how to tell these documented possibilities apart."
+seoTitle: "Hot Tub Foam After Adding Chemicals? Causes & What to Do"
+description: "Hot tub foaming after adding chemicals? Learn why it happens, when it is temporary, and what to check before adding more chemicals."
 summary: "Foam that appears right after adding chemicals can be brief aeration from jets mixing a new product, a sign the balancing order was skipped, or a result of adding too much product at once. Retesting after a full circulation cycle is the first step before adding anything else."
 slug: "hot-tub-foam-after-adding-chemicals"
 publishedDate: 2026-07-31

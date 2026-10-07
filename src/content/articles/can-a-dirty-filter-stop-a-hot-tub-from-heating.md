@@ -1,6 +1,7 @@
 ---
 title: "Can a Dirty Filter Stop a Hot Tub From Heating?"
-description: "Yes. A clogged filter can trip a hot tub's safety switches and stop the heater. Here's how to check and clean it safely."
+seoTitle: "Can a Dirty Filter Stop a Hot Tub From Heating? Yes—Here’s Why"
+description: "A dirty hot tub filter can reduce water flow and interfere with heating. Learn the signs, what to check, and when the filter is likely the cause."
 summary: "Yes. A clogged filter restricts water flow, and the models Hot Spring documents use safety switches that can cut the heater (or the whole spa) off when flow drops. Cleaning the filter is a homeowner-safe first check."
 slug: "can-a-dirty-filter-stop-a-hot-tub-from-heating"
 publishedDate: 2026-07-30

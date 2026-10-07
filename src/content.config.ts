@@ -36,6 +36,8 @@ const articles = defineCollection({
   schema: z
     .object({
       title: z.string().min(1),
+      /** Optional document title for <title>/OG when it should differ from the H1. */
+      seoTitle: z.string().min(1).optional(),
       description: z.string().min(1),
       /** Short answer or summary shown near the top of the article. */
       summary: z.string().optional(),
