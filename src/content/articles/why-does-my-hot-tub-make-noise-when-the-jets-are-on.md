@@ -70,7 +70,7 @@ That expected rush or hiss is different from a deep growling pump sound or a hig
 
 Jacuzzi states that low water can cause a deep growling sound and that raising the water may resolve that issue (Jacuzzi). Jacuzzi also ties growling or abnormal pump noise to trapped air that should be bled using the manufacturer's method (Jacuzzi). Jacuzzi warns that loud and unusual sounds from circulating pumps mean something is wrong with the pump or the water lines (Jacuzzi).
 
-Do not label every jet-time noise as cavitation. If flow is weak or surging while the pump sounds abnormal, treat that as a flow problem first and use the linked guides below rather than naming a pump failure from sound alone.
+Do not label every jet-time noise as cavitation. If flow is weak or surging while the pump sounds abnormal, treat that as a flow problem first and use the linked guides below rather than naming a pump failure from sound alone. If the sound rises and falls along with rhythmic changes in jet flow, use [Why Are My Hot Tub Jets Surging or Pulsating?](/troubleshooting/why-are-my-hot-tub-jets-surging-or-pulsating) as the more specific path.
 
 ### Vibration versus jet-time noise
 
@@ -78,12 +78,13 @@ If the main complaint is felt shaking through the cabinet or pad rather than sou
 
 ## Safe checks that stay topside
 
-1. **Confirm whether the sound appears only with jets on**, or also during quiet filtration.
+1. **Confirm whether filtration is relatively quiet and the sound appears mainly when jets or higher pump demand start.** That timing cue keeps this path separate from a pump that is noisy even at idle filtration.
 2. **Change the air control from the topside** if your spa has one. On Hot Spot Collection models, closing air when idle is documented for quieter operation (Hot Spot Collection owner's manual). Note whether the sound follows the air setting.
 3. **Check water level against your manual.** Jacuzzi links low water to air in suction lines and growling (Jacuzzi). Hot Spot manuals also tie weak or surging jets after a fill check to low water or clogged filters (Hot Spot Collection owner's manual).
 4. **Inspect and clean the filter** if it is dirty or collapsed. Jacuzzi and Hot Spot both connect restricted filters to poor jet performance (Jacuzzi; Hot Spot Collection owner's manual). See [How to Clean a Hot Tub Filter](/maintenance/how-to-clean-a-hot-tub-filter).
-5. **Compare jet strength.** Weak or surging flow has its own check order in [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak). After a refill, also see [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock).
-6. **Do not loosen unions, open the pack, or spray lubricants** to chase jet-time noise.
+5. **Compare jet strength.** Weak or evenly soft flow has its own check order in [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak). Rhythmic pulsing belongs on [Why Are My Hot Tub Jets Surging or Pulsating?](/troubleshooting/why-are-my-hot-tub-jets-surging-or-pulsating).
+6. **If the noise started right after a drain and refill,** use [Why Is My Hot Tub Making Noise After Filling or Refilling?](/troubleshooting/why-is-my-hot-tub-making-noise-after-filling-or-refilling) first, and see [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock) for recognition checks.
+7. **Do not loosen unions, open the pack, or spray lubricants** to chase jet-time noise.
 
 ## When to stop and call a technician
 

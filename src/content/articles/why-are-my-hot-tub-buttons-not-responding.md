@@ -58,15 +58,21 @@ This article assumes the topside still shows something: digits, icons, a lock sy
 
 If the display is fully dark while the house breaker looks on, use [Hot Tub Display Is Blank but the Breaker Is On](/troubleshooting/hot-tub-display-is-blank-but-the-breaker-is-on) first. For the broader inoperative-spa list, see [Why Is My Hot Tub Control Panel Not Working?](/troubleshooting/why-is-my-hot-tub-control-panel-not-working).
 
+## What you see first
+
+| Observation | What it usually means | Next step |
+| --- | --- | --- |
+| Lock icon or lock indication is on | A control lock may be active | Check Spa Lock vs Temperature Lock using your manual (Hot Spring Limelight owner's manual) |
+| Panel is lit, no obvious lock indication, presses do nothing | Not the lock path by itself | Continue with the non-lock checks below |
+| Wireless control/display is lit, but commands do nothing | Range or interrupted communication on supported wireless systems | Use the wireless range, dock, and reset steps below (Hot Spring) |
+
 ## Spa lock and temperature lock
 
-Hot Spring Limelight manuals document Spa Lock and Temperature Lock as separate features. Spa Lock disables the controls on the control panel, and the jet pumps will not function while Spa Lock is active (Hot Spring Limelight owner's manual). A lock indicator icon can show when Spa Lock, Temperature Lock, or both are on (Hot Spring Limelight owner's manual).
+Hot Spring Limelight manuals document Spa Lock and Temperature Lock as separate features. Spa Lock is the broader restriction: it disables the controls on the control panel, and the jet pumps will not function while Spa Lock is active (Hot Spring Limelight owner's manual). Temperature Lock alone may still allow some functions, such as jets, while blocking temperature changes; your manual draws that line (Hot Spring Limelight owner's manual). A lock indicator icon can show when Spa Lock, Temperature Lock, or both are on (Hot Spring Limelight owner's manual).
 
 Hot Spring's consumer chart also lists spa lock among causes when the spa is inoperative, with the solution stated as deactivating spa lock (Hot Spring).
 
 Follow only the unlock sequence printed for your model. On Limelight examples, Spa Lock is deactivated by a documented soft-button and hold sequence that turns the spa lock icon off (Hot Spring Limelight owner's manual). Other brands use different button holds. Do not invent a universal unlock shortcut.
-
-Temperature Lock alone may still allow some functions while blocking temperature changes. Your manual draws that line; this article does not replace it.
 
 ## Wireless touchscreen still on but inoperable
 

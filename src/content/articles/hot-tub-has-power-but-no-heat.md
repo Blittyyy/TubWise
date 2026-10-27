@@ -49,7 +49,7 @@ Do not open the control box or touch wiring. Do not bypass a pressure switch, fl
 
 ## Why this looks different from "no power at all"
 
-Hot Spring's troubleshooting chart lists a completely inoperative spa (dark panel, nothing responding) as a separate case, pointing to a power failure, a tripped GFCI, or a tripped heater high-limit thermostat (Hot Spring). Power-but-no-heat is different: the electronics are clearly getting power, so Hot Spring's guidance points instead to a safety device that reacts to water flow rather than to electricity. The chart lists this scenario separately, with the blinking "Ready" and "Power" logo lights called out as a visible sign (Hot Spring).
+Hot Spring's troubleshooting chart lists a completely inoperative spa (dark panel, nothing responding) as a separate case, pointing to a power failure, a tripped GFCI, or a tripped heater high-limit thermostat (Hot Spring). Power-but-no-heat is different: the electronics are clearly getting power, so Hot Spring's guidance points instead to a safety device that reacts to water flow rather than to electricity. The chart lists this scenario separately, with the blinking "Ready" and "Power" logo lights called out as a visible sign (Hot Spring). If those blinking Ready/Power indications match what Hot Spring describes for this case, stay on this flow-related path rather than treating it as a dead spa with no power.
 
 Confirming which case you're in first can save time: rechecking the breaker panel won't help if the real issue is a clogged filter, and cleaning the filter won't help if the spa genuinely has no power. Look at the panel and jets together before starting any check, so you know which set of causes actually applies to your situation. If the topside is dark or unresponsive rather than lit with working jets, start with [Why Is My Hot Tub Control Panel Not Working?](/troubleshooting/why-is-my-hot-tub-control-panel-not-working) instead of this heating path.
 
@@ -65,14 +65,14 @@ This protects the circulation pump from overheating. Hot Spring recommends check
 
 ### An air lock from a recent refill
 
-If the spa was filled or topped off recently, trapped air can block proper flow to the heater. Hot Spring's fix is to run water down the main filter in the filter compartment to push the air lock out (Hot Spring). See [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock) if you're not sure this applies to you.
+If the spa was filled or topped off recently, trapped air can block proper flow to the heater. Hot Spring's fix is to run water down the main filter in the filter compartment to push the air lock out (Hot Spring). If the heating failure started immediately after a drain and refill, use [Hot Tub Not Heating After a Refill](/troubleshooting/hot-tub-not-heating-after-a-refill) as the timing-specific path. See [How to Tell if a Hot Tub Has an Air Lock](/troubleshooting/how-to-tell-if-a-hot-tub-has-an-air-lock) if you're not sure whether air lock fits what you are seeing. If there is no recent refill timing, continue with the checks below.
 
 ## Safe checks the homeowner can do
 
 1. **Confirm the panel, jets, and lights are genuinely all working.** This is what separates this scenario from a full power failure.
 2. **Check the filter for visible clogging** and clean it following your manual's method.
 3. **Check the water level** against your manual's fill line. Jacuzzi notes low water can also starve flow and trigger a protective shutdown.
-4. **If you refilled the spa recently, follow your manual's air-lock or fill-through-filter procedure.**
+4. **If you refilled the spa recently,** switch to [Hot Tub Not Heating After a Refill](/troubleshooting/hot-tub-not-heating-after-a-refill) and follow that page's fill and purge order before continuing here.
 5. **If flow looks restored, turn the spa off at the breaker or disconnect, wait, then restore power** so a tripped thermal cut-off has a chance to reset, following your manual's guidance on how long to wait.
 6. **Watch for the same indicator light or blinking pattern to clear** once these steps are complete.
 
