@@ -74,7 +74,7 @@ Hot Spring lists a power-source problem as the first cause when the entire spa i
 
 ### Tripped GFCI
 
-Hot Spring lists a tripped GFCI as a cause of an inoperative spa and instructs owners to reset it, then call for service if it will not reset (Hot Spring). Jacuzzi advises against repeatedly resetting a GFCI that trips immediately and treats that pattern as a reason to call a licensed electrician (Jacuzzi).
+Hot Spring lists a tripped GFCI as a cause of an inoperative spa and instructs owners to reset it, then call for service if it will not reset (Hot Spring). Jacuzzi advises against repeatedly resetting a GFCI that trips immediately and treats that pattern as a reason to call a licensed electrician (Jacuzzi). If the GFCI keeps tripping rather than simply leaving the spa dark once, use [Why Does My Hot Tub GFCI Keep Tripping?](/troubleshooting/why-does-my-hot-tub-gfci-keep-tripping).
 
 ### Tripped heater high-limit thermostat
 

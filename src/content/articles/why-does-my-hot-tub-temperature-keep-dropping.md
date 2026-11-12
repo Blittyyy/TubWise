@@ -111,7 +111,7 @@ Hot Spring documents a blinking Ready indicator as a temperature-sensor problem 
 
 ## When to call a technician
 
-Call service if temperature keeps falling despite a sealed cover and a confirmed ready-style or continuous-heat mode, if protective trips repeat, if sensor or high-limit indicators keep returning, or if electrical smell, smoke, or unpredictable shutdowns appear.
+Call service if temperature keeps falling despite a sealed cover and a confirmed ready-style or continuous-heat mode, if protective trips repeat, if sensor or high-limit indicators keep returning, or if electrical smell, smoke, or unpredictable shutdowns appear. If pumps start on their own in cold weather and the panel shows freeze or ICE language, that protective run is covered in [Why Is My Hot Tub Running Freeze Protection?](/troubleshooting/why-is-my-hot-tub-running-freeze-protection).
 
 ## Bottom line
 

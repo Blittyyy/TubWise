@@ -85,7 +85,7 @@ That can be normal on spas with that design. It is not a pressure reading or a p
 
 On the Hot Spot Collection Pace model, a diverter lever sends water to different jet combinations (Hot Spot Collection owner's manual, 2023). Hot Spring Highlife manuals describe a SmartJet lever that diverts water to different jet combinations (Hot Spring Highlife owner's manual). On Sundance 680 McKinley and Ramona models, massage selector position A (Combo) shares water across jet systems, while positions B or C are used for maximum jet performance on selected groups during spa use (Sundance 680 Series owner's manual).
 
-If one seat feels strong only when the selector is on that zone, and softer in Combo or with more groups open, that matches documented diversion behavior for those models. Other brands use different names and layouts.
+If one seat feels strong only when the selector is on that zone, and softer in Combo or with more groups open, that matches documented diversion behavior for those models. Other brands use different names and layouts. If the diverter itself is stuck, leaks, or never changes zones, see [Why Is My Hot Tub Diverter Valve Not Working?](/troubleshooting/why-is-my-hot-tub-diverter-valve-not-working).
 
 ### Air controls change feel without adding water
 

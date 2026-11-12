@@ -66,7 +66,7 @@ For overnight drop specifically, see [Hot Tub Losing Water Overnight: Leak or Ev
 
 ## Where homeowners can look safely
 
-Jacuzzi tells owners to inspect for wet spots or water pooling around the spa, particularly near plumbing connections (Jacuzzi). Jacuzzi's repair basics page also links worn seals around jets and plumbing connections to leaks that can worsen over time, and notes that leaky seals can create significant water loss and potential electrical hazards if left unchecked (Jacuzzi).
+Jacuzzi tells owners to inspect for wet spots or water pooling around the spa, particularly near plumbing connections (Jacuzzi). Jacuzzi's repair basics page also links worn seals around jets and plumbing connections to leaks that can worsen over time, and notes that leaky seals can create significant water loss and potential electrical hazards if left unchecked (Jacuzzi). Water dribbling at a topside diverter handle or cap belongs on [Why Is My Hot Tub Diverter Valve Not Working?](/troubleshooting/why-is-my-hot-tub-diverter-valve-not-working).
 
 Safe visual checks only:
 

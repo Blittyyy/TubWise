@@ -84,7 +84,7 @@ Those steps apply to Hot Spring wireless remote systems described in that chart.
 
 Unresponsive buttons do not prove the membrane failed, the main board failed, or the heater failed. They also do not prove a specific error code. If the display is flashing, showing dashes, or naming a code, leave this path and use [Hot Tub Control Panel Is Flashing or Showing Dashes](/troubleshooting/hot-tub-control-panel-is-flashing-or-showing-dashes) plus your brand manual.
 
-If jets still fail after spa lock is clearly off, return to flow and heating guides such as [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating) rather than forcing more panel resets.
+If jets still fail after spa lock is clearly off, return to flow and heating guides such as [Hot Tub Not Heating: What to Check First](/troubleshooting/hot-tub-not-heating) rather than forcing more panel resets. If the jets stay on and Off commands do nothing, that is a different stuck-on path: [Why Won't My Hot Tub Jets Turn Off?](/troubleshooting/why-wont-my-hot-tub-jets-turn-off).
 
 ## Safe checks the homeowner can do
 

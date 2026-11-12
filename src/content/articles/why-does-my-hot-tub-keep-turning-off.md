@@ -75,7 +75,7 @@ For the filter-and-heat relationship in more detail, see [Can a Dirty Filter Sto
 
 Hot Spring lists a tripped GFCI among causes when the spa is inoperative and says to call for service if the GFCI will not reset (Hot Spring). Jacuzzi separates occasional trips during use, which may need the spa shut down and scheduled service, from an immediate re-trip after reset, which should go to a licensed electrician (Jacuzzi).
 
-Repeated GFCI trips are not a homeowner board-swap project.
+Repeated GFCI trips are not a homeowner board-swap project. For trip-timing checks and the electrical stop boundary, see [Why Does My Hot Tub GFCI Keep Tripping?](/troubleshooting/why-does-my-hot-tub-gfci-keep-tripping).
 
 ### Pump thermal protection
 

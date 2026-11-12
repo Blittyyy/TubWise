@@ -82,7 +82,7 @@ Jacuzzi's pump guide also separates "no power to the entire spa" from a spa wher
 1. Find the spa GFCI or subpanel your installer labeled for the hot tub.
 2. Confirm it is fully on, following the reset method in your manual.
 3. Check any exterior disconnect near the spa (Jacuzzi).
-4. If a GFCI trips again immediately after one reset, leave it off and call qualified service (Jacuzzi; Hot Spring).
+4. If a GFCI trips again immediately after one reset, leave it off and call qualified service (Jacuzzi; Hot Spring). For trip-timing detail, see [Why Does My Hot Tub GFCI Keep Tripping?](/troubleshooting/why-does-my-hot-tub-gfci-keep-tripping).
 
 ### Allow a documented high-limit reset path
 

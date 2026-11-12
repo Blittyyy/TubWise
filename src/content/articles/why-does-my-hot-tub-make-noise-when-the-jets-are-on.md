@@ -62,7 +62,7 @@ Do not open the control box. Do not touch pumps or fittings while they are runni
 
 ### Air mixed into the jets
 
-Hot Spot Collection manuals describe an air-control valve that sends air volume to the jets, and they tell owners to close that control when the spa is idle so the spa runs more quietly with the cover on (Hot Spot Collection owner's manual). If the louder sound tracks with the air control being open and softens when you close it from the topside controls, that pattern fits designed air induction on those spas. Other brands use different air controls; confirm the labels in your own manual.
+Hot Spot Collection manuals describe an air-control valve that sends air volume to the jets, and they tell owners to close that control when the spa is idle so the spa runs more quietly with the cover on (Hot Spot Collection owner's manual). If the louder sound tracks with the air control being open and softens when you close it from the topside controls, that pattern fits designed air induction on those spas. Other brands use different air controls; confirm the labels in your own manual. If water flow is strong but you cannot get air or bubbles at all, see [Why Do My Hot Tub Jets Have No Air or Bubbles?](/troubleshooting/why-do-my-hot-tub-jets-have-no-air-or-bubbles).
 
 That expected rush or hiss is different from a deep growling pump sound or a high-pitched mechanical squeal.
 
