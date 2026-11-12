@@ -55,7 +55,17 @@ Follow chemical product labels and your spa manual for dosing. Do not mix saniti
 
 ## How to use this checklist
 
-Treat the intervals below as a planning frame from published manufacturer schedules. Exact filter methods, cover cleaners, and drain procedures vary by brand and model. When Hot Spring and Jacuzzi differ, use your own owner's manual as the final rule for your spa.
+Treat this page as a schedule planner: one place to see what needs attention and when. Exact filter methods, cover cleaners, and drain procedures vary by brand and model. When Hot Spring and Jacuzzi differ, use your own owner's manual as the final rule for your spa. Use the linked guides for how-to detail instead of treating this page as a full procedure manual.
+
+## Cadence at a glance
+
+| Cadence | What to plan for | Dedicated guide when you need the how-to |
+| --- | --- | --- |
+| Every use / frequent checks | Power on for circulation; cover latched when idle (Hot Spring) | — |
+| Weekly | Test and adjust chemistry; skim; check water level (Hot Spring; Jacuzzi) | [How Often Should You Test Hot Tub Water?](/maintenance/how-often-should-you-test-hot-tub-water) |
+| Monthly | Filter rinse or deep clean as your brand schedules; cover wipe-down (Hot Spring; Jacuzzi) | [How Often Should You Clean a Hot Tub Filter?](/maintenance/how-often-should-you-clean-a-hot-tub-filter) · [How to Clean a Hot Tub Filter](/maintenance/how-to-clean-a-hot-tub-filter) · [How to Clean a Hot Tub Cover](/maintenance/how-to-clean-a-hot-tub-cover) |
+| Every few months | Drain and refill on traditional water care (~3–4 months, or sooner at high TDS) (Hot Spring; Jacuzzi) | [How Often Should You Drain and Refill a Hot Tub?](/maintenance/how-often-should-you-drain-and-refill-a-hot-tub) |
+| Seasonal / as-needed | Shell wipe after drain; cover inspection; annual flush/dealer checks as Hot Spring lists | [How to Clean a Hot Tub Shell Without Damaging It](/maintenance/how-to-clean-a-hot-tub-shell-without-damaging-it) · [When Should You Replace a Hot Tub Cover?](/maintenance/when-should-you-replace-a-hot-tub-cover) |
 
 ## Daily checks
 
@@ -106,5 +116,6 @@ Hot Spring's annual list includes flushing plumbing lines (also allowed each dra
 - Your model-specific owner's manual
 - Chemical label directions
 - Dealer service for electrical, structural, or persistent water-quality failures
+- The dedicated how-to pages linked above for testing, filter care, drain timing, shell cleaning, and cover decisions
 
 Use the list to remember the cadence. Use the linked guides and your manual for the exact how-to.

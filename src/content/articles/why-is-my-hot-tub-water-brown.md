@@ -59,7 +59,12 @@ faq: []
 
 Brown hot tub water is not the same problem as green algae water. Hot Spring's Spa Chemistry 101 water-quality table lists **Brown Water** with high iron or manganese content and points to a product that decreases minerals in the water ([Hot Spring Spa Chemistry 101](https://www.hotspring.com/wp-content/uploads/2018/11/Spa-Chemistry-101.pdf)). Related Hot Spring manuals also link high iron or copper to green or brown stains on the spa ([Hot Spring Highlife Manual](https://www.hotspring.com/wp-content/uploads/2023/07/highlife-owners-manual-en_us.pdf)).
 
-If the color showed up during or right after a refill, also see [Why Is My Hot Tub Water Discolored After Filling?](/water-care/why-is-my-hot-tub-water-discolored-after-filling). If the water is green rather than brown, see [Why Is My Hot Tub Water Green?](/water-care/why-is-my-hot-tub-water-green).
+### Choose the right color path first
+
+- **Brown or tea-colored water at any time** — continue here. This page owns visibly brown bulk water, whether or not the tint started right after a fill.
+- **Water changed color specifically right after filling or refilling**, and the tint may not be a clear brown — use [Why Is My Hot Tub Water Discolored After Filling?](/water-care/why-is-my-hot-tub-water-discolored-after-filling). That page owns fill-timed multi-color changes.
+- **Water is mostly clear, but there are localized brown or rust-colored marks on the shell** — use [Why Does My Hot Tub Have Rust-Colored Stains?](/water-care/why-does-my-hot-tub-have-rust-colored-stains). Surface stains are not the same as brown bulk water.
+- **Water is green rather than brown** — use [Why Is My Hot Tub Water Green?](/water-care/why-is-my-hot-tub-water-green).
 
 ## Safety note
 

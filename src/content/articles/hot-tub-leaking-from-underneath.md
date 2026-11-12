@@ -1,6 +1,7 @@
 ---
 title: "Hot Tub Leaking From Underneath: What to Check"
-description: "Water under the spa or in the equipment bay needs a careful power-off check. Start with manufacturer-documented union and wet-spot clues, then call service."
+seoTitle: "Hot Tub Leaking From Underneath? Where the Water May Be Coming From"
+description: "Water under your hot tub can come from plumbing, pumps, fittings, drains, or simple spillover. Learn how to narrow down the source."
 summary: "Water under a hot tub often points to equipment-bay plumbing rather than the shell surface. Watkins Hot Spot Collection manuals warn that equipment-compartment unions can loosen and leak. Jacuzzi links pump and heater leaks to water-level problems. Power off before looking, and stop before electrical parts or seal replacement."
 slug: "hot-tub-leaking-from-underneath"
 publishedDate: 2026-08-01

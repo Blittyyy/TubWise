@@ -1,6 +1,7 @@
 ---
 title: "Hot Tub Control Panel Is Flashing or Showing Dashes"
-description: "Flashing spa indicators or dashes on the display? Match the exact pattern in your brand manual. Sundance Watchdog dashes deactivate the spa; Hot Spring blinking Power points to high-limit."
+seoTitle: "Hot Tub Control Panel Flashing or Showing Dashes? What It Means"
+description: "A flashing hot tub control panel or dashed display can point to a warning, sensor issue, or system fault. Learn what to check next."
 summary: "Flashing lights and dashes are not one universal code. On certain Sundance spas, panel dashes mean Watchdog software deactivated the spa. On certain Hot Spring spas, a blinking Power indicator means the heater high-limit thermostat tripped. Confirm the exact message in your own manual before acting."
 slug: "hot-tub-control-panel-is-flashing-or-showing-dashes"
 publishedDate: 2026-08-03

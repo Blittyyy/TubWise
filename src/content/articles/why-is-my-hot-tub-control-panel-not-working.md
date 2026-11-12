@@ -52,16 +52,19 @@ If the topside does nothing useful, Hot Spring's troubleshooting chart treats an
 
 Do not open the control box. Do not touch wiring. Do not measure voltage, resistance, or continuity. Do not bypass a GFCI, high-limit device, or other safety switch. Reset a breaker or GFCI once only if your owner's manual permits it. If it will not reset, or trips again, stop and contact qualified service. Hot Spring warns that a GFCI that will not test or reset correctly can signal an electrical malfunction and shock risk (Hot Spring Limelight owner's manual).
 
-## Separate four different problems
+## Identify which control-panel failure you have
 
-These look similar from the patio but are not the same repair path:
+This page is triage: match what you see, then follow the matching path. Do not run every control-panel check at once.
 
-1. **No usable power at the spa.** Jacuzzi tells owners who see no power to confirm the main breaker and spa GFCI are on, and to check that an exterior disconnect has not been turned off (Jacuzzi).
-2. **Blank display while the house breaker looks on.** That pattern has its own check order in [Hot Tub Display Is Blank but the Breaker Is On](/troubleshooting/hot-tub-display-is-blank-but-the-breaker-is-on).
-3. **Display lit, but buttons or touch do nothing.** Spa lock and wireless-panel communication issues belong in [Why Are My Hot Tub Buttons Not Responding?](/troubleshooting/why-are-my-hot-tub-buttons-not-responding).
-4. **Flashing indicators or dashes instead of a normal temperature.** Those patterns are scoped by brand and manual in [Hot Tub Control Panel Is Flashing or Showing Dashes](/troubleshooting/hot-tub-control-panel-is-flashing-or-showing-dashes).
+| What you see | Next step |
+| --- | --- |
+| Display is completely blank while the house breaker looks on | Use [Hot Tub Display Is Blank but the Breaker Is On](/troubleshooting/hot-tub-display-is-blank-but-the-breaker-is-on) |
+| Display is powered, but buttons or touch do nothing | Use [Why Are My Hot Tub Buttons Not Responding?](/troubleshooting/why-are-my-hot-tub-buttons-not-responding) |
+| Display is flashing, showing dashes, or unusual indicators instead of a normal temperature | Use [Hot Tub Control Panel Is Flashing or Showing Dashes](/troubleshooting/hot-tub-control-panel-is-flashing-or-showing-dashes) |
+| Panel works for a while, then the spa shuts down or keeps cutting out | Use [Why Does My Hot Tub Keep Turning Off?](/troubleshooting/why-does-my-hot-tub-keep-turning-off) |
+| Behavior does not fit one of those patterns, or the whole spa looks inoperative with no clear blank/lock/code/shutdown cue | Continue with the manufacturer-documented checks below |
 
-This article is the umbrella triage: decide which case you have, then follow the safe checks that match.
+**No usable power at the spa** is still a first patio check even before a blank-display path: Jacuzzi tells owners who see no power to confirm the main breaker and spa GFCI are on, and to check that an exterior disconnect has not been turned off (Jacuzzi).
 
 ## Manufacturer-documented causes of an inoperative spa
 

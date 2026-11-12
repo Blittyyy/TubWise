@@ -48,6 +48,26 @@ faq: []
 
 The clearest sign of an air lock is a pump that sounds like it's running normally while the jets produce little or no water, a pattern Hot Spring and Jacuzzi both describe following a drain and refill. If the motor is on but water flow is weak, surging, or absent, trapped air in the plumbing can be a more likely explanation than a failed pump. Recognizing this pattern matters because the fix for an air lock is different from the fix for a failed pump or motor.
 
+## Do these symptoms fit an air lock?
+
+Use this page to recognize the pattern before you try to fix one. An air-lock match is stronger when several of these are true:
+
+- The issue appeared immediately after draining and refilling (Hot Spring; Jacuzzi)
+- The pump runs, but water movement at the jets is weak, inconsistent, or absent (Jacuzzi)
+- Jet flow changed right after the refill, not weeks later with no water change (Hot Spring; Jacuzzi)
+- Flow may surge rather than stay steady after the fill (Hot Spring Hot Spot Collection guide)
+
+### When another page is the better fit
+
+| Main complaint | Better next path |
+| --- | --- |
+| Heating failed immediately after a refill | [Hot Tub Not Heating After a Refill](/troubleshooting/hot-tub-not-heating-after-a-refill) |
+| Primary complaint is noise after filling or refilling | [Why Is My Hot Tub Making Noise After Filling or Refilling?](/troubleshooting/why-is-my-hot-tub-making-noise-after-filling-or-refilling) |
+| Jets are weak with no recent refill timing | [Why Are My Hot Tub Jets Weak?](/troubleshooting/why-are-my-hot-tub-jets-weak) |
+| Flow rises and falls in a rhythmic pulse | [Why Are My Hot Tub Jets Surging or Pulsating?](/troubleshooting/why-are-my-hot-tub-jets-surging-or-pulsating) |
+
+If the pattern above still fits, continue here to confirm recognition. Keep the actual purge and fill-fix steps on the action pages linked above rather than treating this page as the full repair guide.
+
 ## Safety note
 
 Follow your manual for any steps that involve the filter compartment or fill lines. Do not open the equipment compartment, touch wiring, or work on the pump itself. Those are technician-level steps if a manufacturer's homeowner-facing purge method doesn't resolve it. The checks below are about recognizing the pattern, not disassembling anything.

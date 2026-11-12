@@ -1,6 +1,7 @@
 ---
 title: "Why Does My Hot Tub Keep Turning Off?"
-description: "Hot tub powers up then shuts down again? Check high-limit trips, GFCI re-trips, and flow-related cutoffs with manufacturer-backed stop conditions."
+seoTitle: "Hot Tub Keeps Shutting Off? Common Causes & What to Check"
+description: "If your hot tub keeps shutting off, learn the most common causes, what you can safely check yourself, and when the problem needs a technician."
 summary: "Repeated shutdowns are not the same as a spa that never powers on. Hot Spring links recurring high-limit trips to clogged filters and other flow problems, and tells owners to call service if the thermostat keeps tripping. Jacuzzi treats a GFCI that trips again immediately as an electrical stop condition."
 slug: "why-does-my-hot-tub-keep-turning-off"
 publishedDate: 2026-08-03

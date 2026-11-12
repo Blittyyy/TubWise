@@ -59,7 +59,13 @@ faq: []
 
 Scale on a hot tub shell is mineral deposit, not an oil-and-dirt scum ring. Hot Spring's troubleshooting chart lists **Scale** with total alkalinity and/or pH too high and high calcium content in the water ([Hot Spring](https://www.hotspring.com/owners/water-care-and-troubleshooting)). The Highlife Collection owner's manual defines scale as rough calcium-bearing deposits that can coat spa surfaces, heaters, and plumbing lines, and clog filters, and states that scaling is generally caused by mineral content combined with high pH, forming more readily at higher water temperatures ([Hot Spring Highlife Manual](https://www.hotspring.com/wp-content/uploads/2023/07/highlife-owners-manual-en_us.pdf)).
 
-Jacuzzi describes calcium carbonate scale as white, chalky buildup that can clog jets and affect heaters when high alkalinity drives pH high ([Jacuzzi](https://www.jacuzzi.com/en-us/How-to-Lower-Alkalinity-in-Hot-Tub.html)). Sundance Spas describes scaling as a sandpaper-like roughness on spa surfaces from calcium buildup ([Sundance Spas](https://www.sundancespas.com/blog-articles/overcoming-hard-water-issues-in-your-hot-tub-3-steps-to-combat-scaling)). If the main complaint is texture rather than a visible crust, start with [Why Does My Hot Tub Surface Feel Rough or Sandy?](/water-care/why-does-my-hot-tub-surface-feel-rough-or-sandy). For fill precautions in hard-water areas, see [How to Fill a Hot Tub With Hard Water](/water-care/how-to-fill-a-hot-tub-with-hard-water).
+### Visible scale versus rough feel
+
+If you can clearly see a white or chalky mineral deposit, crust, film, or buildup on the shell, stay on this page. This guide is for that visible mineral deposit and the chemistry path manufacturers document for it.
+
+If the surface mainly feels rough or sandy and you do not see obvious scale, use [Why Does My Hot Tub Surface Feel Rough or Sandy?](/water-care/why-does-my-hot-tub-surface-feel-rough-or-sandy) first. That page owns the tactile symptom; this page owns the visible-deposit diagnosis.
+
+Jacuzzi describes calcium carbonate scale as white, chalky buildup that can clog jets and affect heaters when high alkalinity drives pH high ([Jacuzzi](https://www.jacuzzi.com/en-us/How-to-Lower-Alkalinity-in-Hot-Tub.html)). Sundance Spas describes scaling as a sandpaper-like roughness on spa surfaces from calcium buildup ([Sundance Spas](https://www.sundancespas.com/blog-articles/overcoming-hard-water-issues-in-your-hot-tub-3-steps-to-combat-scaling)). For fill precautions in hard-water areas, see [How to Fill a Hot Tub With Hard Water](/water-care/how-to-fill-a-hot-tub-with-hard-water).
 
 For soft brownish film at the waterline, see [Why Is There a Ring Around My Hot Tub Waterline?](/water-care/why-is-there-a-ring-around-my-hot-tub-waterline). For rust-colored metal stains, see [Why Does My Hot Tub Have Rust-Colored Stains?](/water-care/why-does-my-hot-tub-have-rust-colored-stains).
 
