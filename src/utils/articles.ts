@@ -36,7 +36,7 @@ export const categoryMeta: Record<
   calculators: {
     label: 'Calculators',
     description:
-      'Estimate hot tub volume, fill time, heat-up time, and electricity cost with simple ownership planning tools.',
+      'Estimate hot tub volume, fill time, heat-up time, weight, and electricity cost with simple ownership planning tools.',
     href: '/calculators',
   },
   'buying-guides': {

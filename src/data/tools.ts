@@ -37,6 +37,13 @@ export const tools: ToolItem[] = [
     status: 'available',
   },
   {
+    title: 'Hot Tub Weight Calculator',
+    description:
+      'Estimate empty, filled, and occupied spa weight from dry weight, water capacity, and people—with an optional footprint average.',
+    href: '/calculators/hot-tub-weight-calculator',
+    status: 'available',
+  },
+  {
     title: 'Error Codes',
     description:
       'Browse manufacturer-scoped hot tub error codes for Jacuzzi, Sundance, and Gecko, with safe next steps.',

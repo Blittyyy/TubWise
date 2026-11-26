@@ -73,7 +73,7 @@ Jacuzzi separately describes persistent humming without water movement as a diff
 
 ## Foundation context without jumping to conclusions
 
-Jacuzzi setup and electrical guides describe a solid, load-rated foundation for a filled spa (Jacuzzi). That is installation guidance. It does not mean every vibration symptom is an unsafe base. Do not modify the cabinet, pad, or plumbing to "quiet" the spa. Do not pad or enclose motors in ways that trap heat or moisture.
+Jacuzzi setup and electrical guides describe a solid, load-rated foundation for a filled spa (Jacuzzi). That is installation guidance. It does not mean every vibration symptom is an unsafe base. Do not modify the cabinet, pad, or plumbing to "quiet" the spa. Do not pad or enclose motors in ways that trap heat or moisture. For a planning estimate of empty, filled, and occupied weight from manufacturer dry weight and capacity, see the [Hot Tub Weight Calculator](/calculators/hot-tub-weight-calculator). That tool estimates weight only and does not certify structural capacity.
 
 ## Safe observations a homeowner can make
 

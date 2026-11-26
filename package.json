@@ -11,11 +11,12 @@
     "preview": "astro preview",
     "check": "astro check",
     "astro": "astro",
-    "test:calculators": "npm run test:volume && npm run test:fill-time && npm run test:electricity-cost && npm run test:heat-up",
+    "test:calculators": "npm run test:volume && npm run test:fill-time && npm run test:electricity-cost && npm run test:heat-up && npm run test:weight",
     "test:volume": "node --experimental-strip-types scripts/test-hot-tub-volume.mjs",
     "test:fill-time": "node --experimental-strip-types scripts/test-hot-tub-fill-time.mjs",
     "test:electricity-cost": "node --experimental-strip-types scripts/test-hot-tub-electricity-cost.mjs",
-    "test:heat-up": "node --experimental-strip-types scripts/test-hot-tub-heat-up-time.mjs"
+    "test:heat-up": "node --experimental-strip-types scripts/test-hot-tub-heat-up-time.mjs",
+    "test:weight": "node --experimental-strip-types scripts/test-hot-tub-weight.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import HotTubWeightCalculator from '../../components/HotTubWeightCalculator.astro';
+import { breadcrumbSchema, webApplicationSchema } from '../../utils/schema';
+import { exampleWeights, formatWeight, LB_PER_US_GALLON } from '../../utils/hot-tub-weight';
+
+const path = '/calculators/hot-tub-weight-calculator';
+const title = 'Hot Tub Weight Calculator: Empty, Filled & With People';
+const description =
+  "Calculate your hot tub's empty, filled and occupied weight using water capacity, dry weight and the number of people. Includes an optional footprint estimate.";
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Calculators', href: '/calculators' },
+  { label: 'Hot Tub Weight Calculator' },
+];
+
+const relatedGuides = [
+  {
+    title: 'Hot Tub Volume Calculator',
+    description: 'Estimate spa capacity in gallons and liters from interior dimensions.',
+    href: '/calculators/hot-tub-volume-calculator',
+    category: 'Calculators',
+  },
+  {
+    title: 'Hot Tub Fill Time Calculator',
+    description: 'Estimate remaining water and how long a refill may take.',
+    href: '/calculators/hot-tub-fill-time-calculator',
+    category: 'Calculators',
+  },
+  {
+    title: 'Hot Tub Heat-Up Time Calculator',
+    description: 'Estimate heat-up time after the spa is filled.',
+    href: '/calculators/hot-tub-heat-up-time-calculator',
+    category: 'Calculators',
+  },
+  {
+    title: 'Why Is My Hot Tub Vibrating?',
+    description: 'Separate normal running feel from new or irregular vibration cues.',
+    href: '/troubleshooting/why-is-my-hot-tub-vibrating',
+    category: 'Troubleshooting',
+  },
+];
+
+const exampleRows = [
+  { dry: 400, gal: 200, occ: 2 },
+  { dry: 600, gal: 300, occ: 4 },
+  { dry: 800, gal: 400, occ: 4 },
+  { dry: 900, gal: 500, occ: 6 },
+  { dry: 1000, gal: 600, occ: 6 },
+].map((row) => {
+  const example = exampleWeights({
+    dryWeightLb: row.dry,
+    capacityGallons: row.gal,
+    occupants: row.occ,
+    avgOccupantWeightLb: 175,
+  });
+  return {
+    ...row,
+    filled: example.filledWeightLb,
+    total: example.totalOccupiedWeightLb,
+  };
+});
+
+const schemas = [
+  breadcrumbSchema(breadcrumbs),
+  webApplicationSchema({
+    name: 'Hot Tub Weight Calculator',
+    description,
+    path,
+  }),
+];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={schemas}>
+  <div class="container-site section-space">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="mx-auto mb-8 w-full max-w-3xl">
+      <h1 class="text-3xl font-semibold sm:text-4xl">Hot Tub Weight Calculator</h1>
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">
+        Estimate empty, filled, and occupied hot tub weight from dry weight, water capacity, and the
+        number of people. Optionally average that total over an exterior rectangular footprint.
+      </p>
+    </header>
+
+    <div class="mx-auto w-full max-w-3xl">
+      <HotTubWeightCalculator />
+    </div>
+
+    <div class="prose-site mx-auto mt-12 max-w-3xl">
+      <h2 id="how-much">How Much Does a Hot Tub Weigh?</h2>
+      <p>
+        Dry weight is the spa shell and equipment without water or people. Filled weight without
+        occupants adds the weight of the water. Occupied weight adds bathers. Water usually accounts
+        for most of the total, which is why manufacturer capacity and foundation guidance matter more
+        than seating count alone.
+      </p>
+      <p>
+        This tool estimates weight for planning. It does not certify whether a deck, balcony, floor,
+        roof, concrete pad, or other structure can safely support a spa.
+      </p>
+
+      <h2 id="examples">Example Hot Tub Weights</h2>
+      <p>
+        The table below uses the same USGS water-weight approximation as the calculator
+        ({LB_PER_US_GALLON} lb per U.S. gallon) and 175 lb per occupant. These are hypothetical
+        examples, not verified specifications for actual models and not typical weight ranges by
+        seating capacity.
+      </p>
+
+      <div class="not-prose my-6 overflow-x-auto rounded-xl border border-border">
+        <table class="min-w-full border-collapse text-left text-sm text-ink">
+          <caption class="sr-only">
+            Hypothetical empty, filled, and occupied hot tub weights for selected dry weights and
+            capacities
+          </caption>
+          <thead class="bg-surface-raised">
+            <tr>
+              <th scope="col" class="border-b border-border px-3 py-3 font-semibold sm:px-4"
+                >Dry weight</th
+              >
+              <th scope="col" class="border-b border-border px-3 py-3 font-semibold sm:px-4"
+                >Water capacity</th
+              >
+              <th scope="col" class="border-b border-border px-3 py-3 font-semibold sm:px-4"
+                >Occupants at 175 lb each</th
+              >
+              <th scope="col" class="border-b border-border px-3 py-3 font-semibold sm:px-4"
+                >Filled without occupants</th
+              >
+              <th scope="col" class="border-b border-border px-3 py-3 font-semibold sm:px-4"
+                >Total occupied</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            {
+              exampleRows.map((row) => (
+                <tr class="odd:bg-surface even:bg-surface-raised/60">
+                  <th scope="row" class="border-b border-border px-3 py-3 font-medium sm:px-4">
+                    {formatWeight(row.dry)} lb
+                  </th>
+                  <td class="border-b border-border px-3 py-3 sm:px-4">{row.gal} gal</td>
+                  <td class="border-b border-border px-3 py-3 sm:px-4">{row.occ}</td>
+                  <td class="border-b border-border px-3 py-3 sm:px-4">
+                    {formatWeight(row.filled)} lb
+                  </td>
+                  <td class="border-b border-border px-3 py-3 sm:px-4">
+                    {formatWeight(row.total)} lb
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="find-dry-weight">How to Find Your Hot Tub&apos;s Dry Weight</h2>
+      <p>
+        Look for dry weight and water capacity on manufacturer specification sheets, comparison
+        tools, and pre-delivery instructions. Prefer those published values over guesses based on
+        seat count.
+      </p>
+      <p>
+        Distinguish empty/dry weight from manufacturer-published filled weight. Hot Spring&apos;s
+        comparison specifications define filled weight as including water and a 175-pound adult for
+        every seat. Other brands may define filled weight differently. Enter dry weight in this
+        calculator, then add water and occupants here rather than stacking water and people onto an
+        already inclusive filled figure.
+      </p>
+
+      <h2 id="water-weight">How Much Does Hot Tub Water Weigh?</h2>
+      <p>
+        USGS conversion guidance lists 1 gallon as 8.34 pounds. This calculator uses that
+        approximation for U.S. gallons. Equivalent liter inputs are converted through the same
+        normalized path so matching US and metric capacities produce matching water weight.
+      </p>
+      <p>
+        USGS also notes that water density varies with temperature and dissolved substances, so the
+        rounded conversion is a planning approximation rather than a laboratory measurement of spa
+        water.
+      </p>
+
+      <h2 id="per-square-foot">Hot Tub Weight per Square Foot</h2>
+      <p>
+        If you enter exterior length and width, the tool divides total occupied weight by that
+        rectangle. The result is an approximate average over the entered exterior footprint. It is
+        not actual contact pressure, concentrated load at support points, or a structural design
+        value. Bearing area can be smaller than the exterior cabinet dimensions.
+      </p>
+      <p>
+        Do not treat the average as a pass/fail deck rating, and do not compare it against generic
+        pounds-per-square-foot thresholds on this page. Existing structures must be assessed for the
+        specific installation. Follow the manufacturer&apos;s foundation and pre-delivery
+        requirements. Consult a qualified structural engineer before installing a spa on an elevated
+        deck, balcony, rooftop, or other structure that requires load verification.
+      </p>
+      <p>
+        The American Wood Council&apos;s DCA 6 residential deck construction guide states that decks
+        supporting large concentrated loads such as hot tubs are beyond the scope of that document.
+        Sundance guidance similarly directs owners to manufacturer weight specifications and
+        professional assessment for deck installations rather than informal DIY structural ratings.
+      </p>
+
+      <h2 id="related-calculators">Related Calculators</h2>
+      <ul>
+        <li>
+          <a href="/calculators/hot-tub-volume-calculator">Hot Tub Volume Calculator</a> when listed
+          capacity is unknown
+        </li>
+        <li>
+          <a href="/calculators/hot-tub-fill-time-calculator">Hot Tub Fill Time Calculator</a> for
+          refill timing after you know capacity
+        </li>
+        <li>
+          <a href="/calculators/hot-tub-heat-up-time-calculator">Hot Tub Heat-Up Time Calculator</a>
+          for warm-up planning after fill
+        </li>
+      </ul>
+
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>
+          <a
+            href="https://pubs.usgs.gov/circ/2004/circ1268/htdocs/text-conversion.html"
+            rel="noopener noreferrer"
+            target="_blank">USGS Circular 1268 conversion factors</a
+          >
+          (1 gallon = 8.34 pounds)
+        </li>
+        <li>
+          <a
+            href="https://www.usgs.gov/water-science-school/science/water-density"
+            rel="noopener noreferrer"
+            target="_blank">USGS Water Science School — Water Density</a
+          >
+          (density varies with temperature and dissolved substances)
+        </li>
+        <li>
+          <a
+            href="https://www.hotspring.com/shop/tools/compare-hot-tubs?spaID=25845"
+            rel="noopener noreferrer"
+            target="_blank">Hot Spring model comparison specifications</a
+          >
+          (filled weight includes water and a 175 lb adult per seat)
+        </li>
+        <li>
+          <a
+            href="https://www.hotspring.com/learning-center/pre-delivery-instructions"
+            rel="noopener noreferrer"
+            target="_blank">Hot Spring pre-delivery instructions</a
+          >
+          (collection-specific delivery and site-preparation documentation)
+        </li>
+        <li>
+          <a
+            href="https://web-media.awc.org/wp-content/uploads/2022/02/17210514/AWC-DCA62015-DeckGuide-1804.pdf"
+            rel="noopener noreferrer"
+            target="_blank">American Wood Council DCA 6 deck guide</a
+          >
+          (decks supporting large concentrated loads such as hot tubs are beyond scope)
+        </li>
+        <li>
+          <a
+            href="https://www.sundancespas.com/blog-articles/installing-a-hot-tub-on-deck-what-to-know"
+            rel="noopener noreferrer"
+            target="_blank">Sundance Spas — Installing a Hot Tub on Deck</a
+          >
+          (use manufacturer weight specifications and qualified structural assessment)
+        </li>
+      </ul>
+
+      <h2 id="disclaimer">Disclaimer</h2>
+      <p>
+        This calculator is a weight-estimation and installation-planning aid only. It is not a
+        structural engineering calculation and is not a substitute for manufacturer specifications or
+        professional advice. See the <a href="/disclaimer">Disclaimer</a> and
+        <a href="/terms">Terms of Use</a> for more.
+      </p>
+    </div>
+
+    <section class="mx-auto mt-12 w-full max-w-5xl" aria-labelledby="related-guides-heading">
+      <h2 id="related-guides-heading" class="font-display text-2xl font-semibold text-ink">
+        Relevant TubWise guides
+      </h2>
+      <p class="mt-3 max-w-3xl text-base leading-relaxed text-ink-muted">
+        Use capacity and fill-time tools with this weight estimate. Foundation questions remain with
+        manufacturer documentation and qualified professionals.
+      </p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          relatedGuides.map((guide) => (
+            <ArticleCard
+              title={guide.title}
+              description={guide.description}
+              href={guide.href}
+              category={guide.category}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>

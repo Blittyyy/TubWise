@@ -1,0 +1,540 @@
+---
+/**
+ * Client-side hot tub weight estimator.
+ * No storage, cookies, analytics, or network submission of measurements.
+ * Does not certify structural capacity of any deck, balcony, floor, or pad.
+ */
+---
+
+<div
+  class="not-prose rounded-2xl border border-border bg-surface-raised p-5 shadow-[0_1px_2px_rgba(26,43,60,0.04)] sm:p-7"
+  data-weight-calculator
+>
+  <form data-weight-form class="space-y-6" novalidate>
+    <div>
+      <label for="weight-unit-system" class="block text-sm font-medium text-ink">Unit system</label>
+      <select
+        id="weight-unit-system"
+        name="unitSystem"
+        data-unit-system
+        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+      >
+        <option value="us" selected>U.S. / Imperial</option>
+        <option value="metric">Metric</option>
+      </select>
+      <p class="mt-1.5 text-sm text-ink-subtle">
+        Switching units converts entered values so equivalent measurements stay aligned.
+      </p>
+    </div>
+
+    <p class="rounded-xl border border-border bg-surface px-4 py-3 text-sm leading-relaxed text-ink-muted">
+      Starting values below are editable examples for planning only. They are not universal hot tub
+      specifications. Prefer manufacturer dry weight and water capacity from your model&apos;s
+      documentation.
+    </p>
+
+    <div>
+      <label for="weight-dry" class="block text-sm font-medium text-ink">
+        Empty/dry hot tub weight (<span data-mass-unit-label>lb</span>)
+      </label>
+      <input
+        id="weight-dry"
+        name="dryWeight"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        value="800"
+        aria-describedby="weight-dry-hint weight-dry-notice weight-dry-error"
+        data-field="dryWeight"
+        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-md"
+      />
+      <p id="weight-dry-hint" class="mt-1.5 text-sm text-ink-subtle">
+        Find dry weight in manufacturer specification sheets or pre-delivery documentation.
+      </p>
+      <p
+        id="weight-dry-notice"
+        class="mt-2 rounded-xl border border-warning-border bg-warning-bg p-3 text-sm leading-relaxed text-warning-ink"
+        role="note"
+      >
+        Enter empty/dry weight, not a manufacturer-published filled weight. Manufacturers define
+        filled weight differently. For example, Hot Spring&apos;s published filled-weight
+        specifications include water and a 175-pound adult for every seat. Do not add water or
+        occupant weight to an already inclusive manufacturer figure.
+      </p>
+      <p
+        id="weight-dry-error"
+        class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+        data-error-for="dryWeight"
+        role="alert"
+      ></p>
+    </div>
+
+    <div>
+      <label for="weight-capacity" class="block text-sm font-medium text-ink">
+        Water capacity (<span data-volume-unit-label>U.S. gallons</span>)
+      </label>
+      <input
+        id="weight-capacity"
+        name="capacity"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        value="400"
+        aria-describedby="weight-capacity-hint weight-capacity-error"
+        data-field="capacity"
+        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-md"
+      />
+      <p id="weight-capacity-hint" class="mt-1.5 text-sm text-ink-subtle">
+        Prefer the manufacturer&apos;s listed capacity. If needed, estimate with the
+        <a
+          href="/calculators/hot-tub-volume-calculator"
+          class="font-medium text-brand-dark underline-offset-2 hover:underline"
+          >Hot Tub Volume Calculator</a
+        >. Do not infer capacity solely from advertised seating count.
+      </p>
+      <p
+        id="weight-capacity-error"
+        class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+        data-error-for="capacity"
+        role="alert"
+      ></p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label for="weight-occupants" class="block text-sm font-medium text-ink"
+          >Number of occupants</label
+        >
+        <input
+          id="weight-occupants"
+          name="occupants"
+          type="text"
+          inputmode="numeric"
+          autocomplete="off"
+          value="4"
+          aria-describedby="weight-occupants-hint weight-occupants-error"
+          data-field="occupants"
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        />
+        <p id="weight-occupants-hint" class="mt-1.5 text-sm text-ink-subtle">
+          Use 0 for filled weight without people.
+        </p>
+        <p
+          id="weight-occupants-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="occupants"
+          role="alert"
+        ></p>
+      </div>
+      <div data-avg-occupant-wrap>
+        <label for="weight-avg-occupant" class="block text-sm font-medium text-ink">
+          Average occupant weight (<span data-mass-unit-label>lb</span>)
+        </label>
+        <input
+          id="weight-avg-occupant"
+          name="avgOccupantWeight"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          value="175"
+          aria-describedby="weight-avg-occupant-hint weight-avg-occupant-error"
+          data-field="avgOccupantWeight"
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        />
+        <p id="weight-avg-occupant-hint" class="mt-1.5 text-sm text-ink-subtle">
+          Required when occupants are greater than zero. Example default is 175 lb.
+        </p>
+        <p
+          id="weight-avg-occupant-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="avgOccupantWeight"
+          role="alert"
+        ></p>
+      </div>
+    </div>
+
+    <fieldset class="rounded-xl border border-border/80 bg-surface/60 p-4 sm:p-5">
+      <legend class="px-1 font-display text-base font-semibold text-ink">
+        Additional accessory weight (optional)
+      </legend>
+      <p class="mt-1 text-sm text-ink-subtle">
+        Add covers, steps, or other accessories only if they are not already included in dry weight.
+      </p>
+      <label for="weight-additional" class="mt-3 block text-sm font-medium text-ink">
+        Additional weight (<span data-mass-unit-label>lb</span>)
+      </label>
+      <input
+        id="weight-additional"
+        name="additionalWeight"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        value="0"
+        aria-describedby="weight-additional-error"
+        data-field="additionalWeight"
+        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+      />
+      <p
+        id="weight-additional-error"
+        class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+        data-error-for="additionalWeight"
+        role="alert"
+      ></p>
+    </fieldset>
+
+    <fieldset class="rounded-xl border border-border/80 bg-surface/60 p-4 sm:p-5">
+      <legend class="px-1 font-display text-base font-semibold text-ink">
+        Exterior footprint (optional)
+      </legend>
+      <p class="mt-1 text-sm text-ink-subtle">
+        Optional rectangular exterior length and width for an approximate average weight over that
+        footprint. Leave blank to skip.
+      </p>
+      <div class="mt-3 grid gap-4 sm:grid-cols-2">
+        <div>
+          <label for="weight-length" class="block text-sm font-medium text-ink">
+            Length (<span data-length-unit-label>ft</span>)
+          </label>
+          <input
+            id="weight-length"
+            name="footprintLength"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 7"
+            aria-describedby="weight-length-error"
+            data-field="footprintLength"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p
+            id="weight-length-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="footprintLength"
+            role="alert"
+          ></p>
+        </div>
+        <div>
+          <label for="weight-width" class="block text-sm font-medium text-ink">
+            Width (<span data-length-unit-label>ft</span>)
+          </label>
+          <input
+            id="weight-width"
+            name="footprintWidth"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 7"
+            aria-describedby="weight-width-error"
+            data-field="footprintWidth"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p
+            id="weight-width-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="footprintWidth"
+            role="alert"
+          ></p>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <button
+        type="submit"
+        class="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 text-base font-medium text-white transition-colors hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        Estimate weight
+      </button>
+      <button
+        type="button"
+        data-reset
+        class="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-surface px-5 text-base font-medium text-ink transition-colors hover:border-brand/40 hover:bg-brand-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+
+  <div
+    class="mt-6 hidden rounded-2xl border border-border bg-surface p-5 sm:p-6"
+    data-result
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+</div>
+
+<script>
+  import {
+    calculateWeight,
+    convertFieldForUnitSwitch,
+    formatAreaWeight,
+    formatWeight,
+    KG_PER_LB,
+    type UnitSystem,
+    type WeightFieldKey,
+    type WeightResult,
+  } from '../utils/hot-tub-weight';
+
+  const DEFAULTS_US = {
+    dryWeight: '800',
+    capacity: '400',
+    occupants: '4',
+    avgOccupantWeight: '175',
+    additionalWeight: '0',
+    footprintLength: '',
+    footprintWidth: '',
+  };
+
+  function initCalculator(root: HTMLElement) {
+    const form = root.querySelector<HTMLFormElement>('[data-weight-form]');
+    const resultEl = root.querySelector<HTMLElement>('[data-result]');
+    const resetBtn = root.querySelector<HTMLButtonElement>('[data-reset]');
+    const unitSystemSelect = root.querySelector<HTMLSelectElement>('[data-unit-system]');
+    const avgWrap = root.querySelector<HTMLElement>('[data-avg-occupant-wrap]');
+    const massLabels = root.querySelectorAll<HTMLElement>('[data-mass-unit-label]');
+    const volumeLabels = root.querySelectorAll<HTMLElement>('[data-volume-unit-label]');
+    const lengthLabels = root.querySelectorAll<HTMLElement>('[data-length-unit-label]');
+
+    if (!form || !resultEl || !resetBtn || !unitSystemSelect || !avgWrap) return;
+
+    const fieldOrder: WeightFieldKey[] = [
+      'dryWeight',
+      'capacity',
+      'occupants',
+      'avgOccupantWeight',
+      'additionalWeight',
+      'footprintLength',
+      'footprintWidth',
+    ];
+
+    let currentSystem: UnitSystem = 'us';
+
+    function syncUnitLabels() {
+      const isUs = currentSystem === 'us';
+      massLabels.forEach((el) => {
+        el.textContent = isUs ? 'lb' : 'kg';
+      });
+      volumeLabels.forEach((el) => {
+        el.textContent = isUs ? 'U.S. gallons' : 'liters';
+      });
+      lengthLabels.forEach((el) => {
+        el.textContent = isUs ? 'ft' : 'm';
+      });
+    }
+
+    function syncOccupants() {
+      const raw = form!.querySelector<HTMLInputElement>('[data-field="occupants"]')?.value ?? '';
+      const count = Number(raw.trim());
+      const needsAvg = Number.isFinite(count) && count > 0;
+      avgWrap!.hidden = !needsAvg;
+      avgWrap!.classList.toggle('hidden', !needsAvg);
+      const avgInput = form!.querySelector<HTMLInputElement>('[data-field="avgOccupantWeight"]');
+      if (avgInput) avgInput.disabled = !needsAvg;
+    }
+
+    function clearErrors() {
+      for (const field of fieldOrder) {
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${field}"]`);
+        const error = form!.querySelector<HTMLElement>(`[data-error-for="${field}"]`);
+        if (input) {
+          input.removeAttribute('aria-invalid');
+          input.classList.remove('border-[#c45c4a]');
+        }
+        if (error) {
+          error.textContent = '';
+          error.classList.add('hidden');
+        }
+      }
+    }
+
+    function showErrors(errors: { field: WeightFieldKey; message: string }[]) {
+      clearErrors();
+      for (const error of errors) {
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${error.field}"]`);
+        const errorEl = form!.querySelector<HTMLElement>(`[data-error-for="${error.field}"]`);
+        if (input && !input.disabled) {
+          input.setAttribute('aria-invalid', 'true');
+          input.classList.add('border-[#c45c4a]');
+        }
+        if (errorEl) {
+          errorEl.textContent = error.message;
+          errorEl.classList.remove('hidden');
+        }
+      }
+      const first = errors[0];
+      if (!first) return;
+      const firstInput = form!.querySelector<HTMLInputElement>(`[data-field="${first.field}"]`);
+      if (firstInput && !firstInput.disabled) firstInput.focus();
+    }
+
+    function clearResult() {
+      resultEl!.hidden = true;
+      resultEl!.classList.add('hidden');
+      resultEl!.innerHTML = '';
+    }
+
+    function escapeHtml(value: string): string {
+      return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderResult(data: WeightResult) {
+      const unit = data.display.massUnitLabel;
+      const breakdownBars = data.breakdown
+        .map(
+          (part) => `
+          <div>
+            <div class="mb-1 flex items-center justify-between gap-3 text-sm text-ink-muted">
+              <span>${escapeHtml(part.label)}</span>
+              <span>${formatWeight(data.unitSystem === 'us' ? Math.round(part.weightLb) : Math.round(part.weightLb * KG_PER_LB))} ${escapeHtml(unit)} (${escapeHtml(String(part.percent))}%)</span>
+            </div>
+            <div class="h-2 overflow-hidden rounded-full bg-border/60" aria-hidden="true">
+              <div class="h-full rounded-full bg-brand/70" style="width: ${Math.min(part.percent, 100)}%"></div>
+            </div>
+          </div>`,
+        )
+        .join('');
+
+      const footprintBlock = data.hasFootprint
+        ? `<div class="mt-5 border-t border-border pt-4">
+            <p class="text-sm font-medium text-ink">Approximate average over entered footprint</p>
+            <p class="mt-2 text-xl font-semibold text-ink">
+              About ${escapeHtml(formatAreaWeight(data.display.averageWeightPerArea ?? 0))}
+              ${escapeHtml(data.display.areaUnitLabel)}
+            </p>
+            <p class="mt-1 text-sm text-ink-muted">
+              Based on ${escapeHtml(formatWeight(data.display.footprintArea ?? 0, 2))}
+              ${data.unitSystem === 'us' ? 'ft²' : 'm²'} exterior rectangle. This is an approximate
+              average only. It does not represent actual contact pressure, concentrated loads,
+              support-point reactions, or structural design requirements. Actual bearing area may be
+              smaller than the exterior dimensions.
+            </p>
+            <div class="mt-3 rounded-xl border border-warning-border bg-warning-bg p-3 text-sm leading-relaxed text-warning-ink" role="note">
+              <p>
+                This calculator estimates weight only. It does not establish whether a deck, balcony,
+                floor, roof, or pad can safely support the spa. Follow the manufacturer’s foundation
+                and pre-delivery requirements, and consult a qualified structural engineer before
+                installing a spa on an elevated deck, balcony, rooftop, or other structure that needs
+                load verification.
+              </p>
+            </div>
+          </div>`
+        : '';
+
+      resultEl!.innerHTML = `
+        <h2 class="font-display text-xl font-semibold text-ink">Weight estimate</h2>
+        <p class="mt-4 text-2xl font-semibold text-ink sm:text-3xl">
+          About ${formatWeight(data.display.totalOccupiedWeight)} ${escapeHtml(unit)} total occupied
+        </p>
+        <p class="mt-2 text-base text-ink-muted">
+          Planning estimate only. Manufacturer specifications and installation requirements take
+          precedence.
+        </p>
+        <dl class="mt-5 grid gap-3 sm:grid-cols-2 text-sm text-ink-muted">
+          <div class="rounded-xl border border-border bg-surface-raised px-4 py-3">
+            <dt class="font-medium text-ink">Empty/dry weight</dt>
+            <dd class="mt-1 text-base text-ink">${formatWeight(data.display.dryWeight)} ${escapeHtml(unit)}</dd>
+          </div>
+          <div class="rounded-xl border border-border bg-surface-raised px-4 py-3">
+            <dt class="font-medium text-ink">Water weight</dt>
+            <dd class="mt-1 text-base text-ink">${formatWeight(data.display.waterWeight)} ${escapeHtml(unit)}</dd>
+          </div>
+          <div class="rounded-xl border border-border bg-surface-raised px-4 py-3">
+            <dt class="font-medium text-ink">Filled without occupants</dt>
+            <dd class="mt-1 text-base text-ink">${formatWeight(data.display.filledWeight)} ${escapeHtml(unit)}</dd>
+          </div>
+          <div class="rounded-xl border border-border bg-surface-raised px-4 py-3">
+            <dt class="font-medium text-ink">Total occupant weight</dt>
+            <dd class="mt-1 text-base text-ink">${formatWeight(data.display.totalOccupantWeight)} ${escapeHtml(unit)}</dd>
+          </div>
+          <div class="rounded-xl border border-border bg-surface-raised px-4 py-3 sm:col-span-2">
+            <dt class="font-medium text-ink">Additional accessory weight</dt>
+            <dd class="mt-1 text-base text-ink">${formatWeight(data.display.additionalWeight)} ${escapeHtml(unit)}</dd>
+          </div>
+        </dl>
+        <div class="mt-5 space-y-3" aria-label="Weight breakdown">
+          <p class="text-sm font-medium text-ink">Proportional breakdown</p>
+          ${breakdownBars}
+        </div>
+        ${footprintBlock}
+        <div class="mt-5 rounded-xl border border-warning-border bg-warning-bg p-4 text-sm leading-relaxed text-warning-ink" role="note">
+          <p>
+            <strong class="font-semibold">Not a structural approval tool.</strong>
+            Average weight over a footprint does not certify structural capacity. Do not treat any
+            result as a pass/fail deck rating.
+          </p>
+        </div>
+      `;
+      resultEl!.hidden = false;
+      resultEl!.classList.remove('hidden');
+    }
+
+    unitSystemSelect.addEventListener('change', () => {
+      const next = unitSystemSelect.value === 'metric' ? 'metric' : 'us';
+      if (next === currentSystem) return;
+      for (const field of fieldOrder) {
+        if (field === 'occupants') continue;
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${field}"]`);
+        if (!input) continue;
+        input.value = convertFieldForUnitSwitch(field, input.value, currentSystem, next);
+      }
+      currentSystem = next;
+      syncUnitLabels();
+      clearErrors();
+      clearResult();
+    });
+
+    form.querySelector<HTMLInputElement>('[data-field="occupants"]')?.addEventListener('input', () => {
+      syncOccupants();
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const outcome = calculateWeight({
+        unitSystem: currentSystem,
+        dryWeight: form.querySelector<HTMLInputElement>('[data-field="dryWeight"]')?.value ?? '',
+        capacity: form.querySelector<HTMLInputElement>('[data-field="capacity"]')?.value ?? '',
+        occupants: form.querySelector<HTMLInputElement>('[data-field="occupants"]')?.value ?? '',
+        avgOccupantWeight:
+          form.querySelector<HTMLInputElement>('[data-field="avgOccupantWeight"]')?.value ?? '',
+        additionalWeight:
+          form.querySelector<HTMLInputElement>('[data-field="additionalWeight"]')?.value ?? '',
+        footprintLength:
+          form.querySelector<HTMLInputElement>('[data-field="footprintLength"]')?.value ?? '',
+        footprintWidth:
+          form.querySelector<HTMLInputElement>('[data-field="footprintWidth"]')?.value ?? '',
+      });
+
+      if (!outcome.ok) {
+        clearResult();
+        showErrors(outcome.errors);
+        return;
+      }
+
+      clearErrors();
+      renderResult(outcome.result);
+    });
+
+    resetBtn.addEventListener('click', () => {
+      currentSystem = 'us';
+      unitSystemSelect.value = 'us';
+      for (const [field, value] of Object.entries(DEFAULTS_US)) {
+        const input = form.querySelector<HTMLInputElement>(`[data-field="${field}"]`);
+        if (input) input.value = value;
+      }
+      syncUnitLabels();
+      syncOccupants();
+      clearErrors();
+      clearResult();
+      form.querySelector<HTMLInputElement>('[data-field="dryWeight"]')?.focus();
+    });
+
+    syncUnitLabels();
+    syncOccupants();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-weight-calculator]').forEach(initCalculator);
+</script>
