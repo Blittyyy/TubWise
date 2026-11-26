@@ -30,6 +30,13 @@ export const tools: ToolItem[] = [
     status: 'available',
   },
   {
+    title: 'Hot Tub Heat-Up Time Calculator',
+    description:
+      'Estimate heat-up time from water volume and heater power, or from your measured heating rate, with optional energy and cost.',
+    href: '/calculators/hot-tub-heat-up-time-calculator',
+    status: 'available',
+  },
+  {
     title: 'Error Codes',
     description:
       'Browse manufacturer-scoped hot tub error codes for Jacuzzi, Sundance, and Gecko, with safe next steps.',

@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import HotTubHeatUpTimeCalculator from '../../components/HotTubHeatUpTimeCalculator.astro';
+import { breadcrumbSchema, webApplicationSchema } from '../../utils/schema';
+import {
+  exampleIdealHeatHours,
+  formatDurationFromHours,
+} from '../../utils/hot-tub-heat-up-time';
+
+const path = '/calculators/hot-tub-heat-up-time-calculator';
+const title = 'Hot Tub Heat-Up Time Calculator: Hours, Energy & Cost';
+const description =
+  'Estimate how long your hot tub takes to heat up using water volume, heater power or your measured heating rate. Calculate heating energy and cost.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Calculators', href: '/calculators' },
+  { label: 'Hot Tub Heat-Up Time Calculator' },
+];
+
+const relatedGuides = [
+  {
+    title: 'Hot Tub Volume Calculator',
+    description: 'Estimate spa capacity in gallons and liters from interior dimensions.',
+    href: '/calculators/hot-tub-volume-calculator',
+    category: 'Calculators',
+  },
+  {
+    title: 'Hot Tub Fill Time Calculator',
+    description: 'Estimate remaining water and how long a refill may take.',
+    href: '/calculators/hot-tub-fill-time-calculator',
+    category: 'Calculators',
+  },
+  {
+    title: 'Hot Tub Electricity Cost Calculator',
+    description: 'Estimate ongoing electricity use from wattage and daily runtime.',
+    href: '/calculators/hot-tub-electricity-cost-calculator',
+    category: 'Calculators',
+  },
+  {
+    title: 'Why Is My Hot Tub Taking So Long to Heat Up?',
+    description:
+      'Checks for unexpectedly slow warm-up after a cold start or refill.',
+    href: '/troubleshooting/why-is-my-hot-tub-taking-so-long-to-heat-up',
+    category: 'Troubleshooting',
+  },
+  {
+    title: 'Hot Tub Not Heating After a Refill',
+    description: 'Safe refill and air-lock checks when heat fails after a water change.',
+    href: '/troubleshooting/hot-tub-not-heating-after-a-refill',
+    category: 'Troubleshooting',
+  },
+  {
+    title: 'Why Is My Hot Tub Not Reaching the Set Temperature?',
+    description: 'Separate plateau-below-set from slow climb and heat loss.',
+    href: '/troubleshooting/why-is-my-hot-tub-not-reaching-the-set-temperature',
+    category: 'Troubleshooting',
+  },
+];
+
+const exampleStartF = 60;
+const exampleTargetF = 100;
+const exampleCapacities = [300, 400, 500];
+const exampleHeaters = [1, 2, 4, 5.5, 6];
+const exampleRows = exampleCapacities.map((capacity) => ({
+  capacity,
+  durations: exampleHeaters.map((kw) =>
+    formatDurationFromHours(exampleIdealHeatHours(capacity, exampleStartF, exampleTargetF, kw)),
+  ),
+}));
+
+const schemas = [
+  breadcrumbSchema(breadcrumbs),
+  webApplicationSchema({
+    name: 'Hot Tub Heat-Up Time Calculator',
+    description,
+    path,
+  }),
+];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={schemas}>
+  <div class="container-site section-space">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="mx-auto mb-8 w-full max-w-3xl">
+      <h1 class="text-3xl font-semibold sm:text-4xl">Hot Tub Heat-Up Time Calculator</h1>
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">
+        Estimate how long it may take your hot tub to heat up from the current water temperature to
+        your target, using heater power or a measured heating rate. Optionally estimate heater energy
+        and cost for one heat-up.
+      </p>
+    </header>
+
+    <div class="mx-auto w-full max-w-3xl">
+      <HotTubHeatUpTimeCalculator />
+    </div>
+
+    <div class="prose-site mx-auto mt-12 max-w-3xl">
+      <h2 id="how-to-use">How to use the calculator</h2>
+      <p>
+        Choose <strong>Heater power</strong> when you know the spa&apos;s documented heater rating and
+        water capacity. Enter current and target temperatures, then optionally add an illustrative
+        heat-loss assumption and your electricity rate.
+      </p>
+      <p>
+        Choose <strong>Measured heating rate</strong> when the spa is already warming. Time the
+        observed temperature increase, then extrapolate the remaining climb. That mode does not
+        estimate electricity use or cost without separate heater-power information.
+      </p>
+      <p>
+        Prefer the manufacturer&apos;s listed capacity. If you need a geometry estimate first, use the
+        <a href="/calculators/hot-tub-volume-calculator">Hot Tub Volume Calculator</a>. For refill
+        timing before heat-up, use the
+        <a href="/calculators/hot-tub-fill-time-calculator">Hot Tub Fill Time Calculator</a>. For
+        multi-day operating cost, use the
+        <a href="/calculators/hot-tub-electricity-cost-calculator"
+          >Hot Tub Electricity Cost Calculator</a
+        >.
+      </p>
+
+      <h2 id="how-long">How long does it take to heat a hot tub?</h2>
+      <p>
+        Heating time depends on how much water you are warming, how far the temperature must climb,
+        heater power available to the water, and heat lost to the surroundings. Manufacturer warm-up
+        windows can differ by model and fill conditions. Hot Spring documents an 18 to 24 hour window
+        for water to reach about 100°F on first fill for specific collections with the cover on, and
+        Hot Spot quick-start guidance describes about 24 hours with the cover on for that collection.
+        Those figures are manufacturer-scoped planning windows, not a universal degrees-per-hour rate.
+      </p>
+      <p>
+        This calculator estimates quantitative heat-up time from the numbers you enter. It does not
+        diagnose abnormal or failed heating.
+      </p>
+
+      <h2 id="example-times">Example heating times by capacity and heater wattage</h2>
+      <p>
+        The table below shows <strong>ideal minimum</strong> heating times for an empty-loss scenario
+        from {exampleStartF}°F to {exampleTargetF}°F. Values use the same water-heating calculation as
+        the tool above and exclude heat loss. They are planning illustrations only.
+      </p>
+
+      <div class="not-prose my-6 overflow-x-auto rounded-xl border border-border">
+        <table class="min-w-full border-collapse text-left text-sm text-ink">
+          <caption class="sr-only">
+            Ideal minimum heat-up times from {exampleStartF}°F to {exampleTargetF}°F for selected
+            capacities and heater wattages
+          </caption>
+          <thead class="bg-surface-raised">
+            <tr>
+              <th scope="col" class="border-b border-border px-3 py-3 font-semibold sm:px-4"
+                >Capacity</th
+              >
+              {
+                exampleHeaters.map((kw) => (
+                  <th scope="col" class="border-b border-border px-3 py-3 font-semibold sm:px-4">
+                    {kw} kW
+                  </th>
+                ))
+              }
+            </tr>
+          </thead>
+          <tbody>
+            {
+              exampleRows.map((row) => (
+                <tr class="odd:bg-surface even:bg-surface-raised/60">
+                  <th scope="row" class="border-b border-border px-3 py-3 font-medium sm:px-4">
+                    {row.capacity} gallons
+                  </th>
+                  {row.durations.map((label) => (
+                    <td class="border-b border-border px-3 py-3 sm:px-4">{label}</td>
+                  ))}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="why-differs">Why actual heating time may differ</h2>
+      <p>Actual heating time can differ from the estimate because of:</p>
+      <ul>
+        <li>Cover use, seal, and insulation condition</li>
+        <li>Outdoor air temperature and wind</li>
+        <li>Cold fill water versus a partially warm spa</li>
+        <li>Operating modes that do not heat continuously</li>
+        <li>Flow restrictions that interrupt heater operation</li>
+        <li>Electrical configurations that limit heater wattage or disallow heating during jets</li>
+      </ul>
+      <p>
+        TubWise does not invent outdoor-temperature coefficients or claim that any heat-loss
+        percentage is typical for every spa. Optional heat-loss percentages in the calculator are
+        illustrative assumptions only.
+      </p>
+
+      <h2 id="measure-rate">How to measure your actual heating rate</h2>
+      <p>
+        With the cover on and the spa calling for heat, note the water temperature, wait a timed
+        interval, then note the new temperature. Enter the observed rise and duration in measured-rate
+        mode. Keep faucet, filtration, and jet use consistent with how the spa will continue heating.
+        Re-check if weather, cover position, or set temperature changes.
+      </p>
+
+      <h2 id="not-warming">What to check if your hot tub is not warming</h2>
+      <p>
+        If temperature is not climbing, stop treating the issue as a simple timing estimate. Use:
+      </p>
+      <ul>
+        <li>
+          <a href="/troubleshooting/why-is-my-hot-tub-taking-so-long-to-heat-up"
+            >Why Is My Hot Tub Taking So Long to Heat Up?</a
+          >
+          for unexpectedly slow climb
+        </li>
+        <li>
+          <a href="/troubleshooting/hot-tub-not-heating">Hot Tub Not Heating</a> for no-heat first
+          checks
+        </li>
+        <li>
+          <a href="/troubleshooting/hot-tub-not-heating-after-a-refill"
+            >Hot Tub Not Heating After a Refill</a
+          >
+          when heat failed after a water change
+        </li>
+        <li>
+          <a href="/troubleshooting/why-is-my-hot-tub-not-reaching-the-set-temperature"
+            >Why Is My Hot Tub Not Reaching the Set Temperature?</a
+          >
+          when water plateaus below set point
+        </li>
+        <li>
+          <a href="/troubleshooting/why-does-my-hot-tub-temperature-keep-dropping"
+            >Why Does My Hot Tub Temperature Keep Dropping?</a
+          >
+          when water was warm and then falls
+        </li>
+      </ul>
+
+      <h2 id="how-it-works">How the estimate works</h2>
+      <p>
+        In heater-power mode, the calculator converts capacity to liters and temperature rise to
+        Celsius, approximates water mass as 1 kg per liter, then uses the water specific heat value
+        4.186 kJ/kg°C from OpenStax College Physics to estimate thermal energy:
+        energy (kWh) = mass × 4.186 × ΔT°C ÷ 3600. Ideal hours equal that energy divided by heater
+        kilowatts. An optional illustrative heat-loss percentage reduces effective heating power for
+        a longer estimate. Estimated heater electricity equals heater kilowatts × estimated hours and
+        is distinct from thermal energy delivered to the water. Pump and accessory use are excluded.
+      </p>
+      <p>
+        In measured-rate mode, observed rise divided by observation hours yields a heating rate;
+        remaining temperature rise divided by that rate yields remaining hours.
+      </p>
+
+      <h2 id="safety">Safety notice</h2>
+      <p>
+        CDC guidance states that hot tub water temperature should not be higher than 104°F (40°C).
+        That figure is a maximum, not a recommended target for everyone. Follow your manufacturer&apos;s
+        temperature and operating limits, verify actual water temperature before entering, and never
+        bypass temperature controls or safety devices to accelerate heating. Do not energize an empty
+        or improperly filled spa. Do not open electrical equipment to determine heater wattage.
+        Calculator results do not establish that water is chemically safe to use.
+      </p>
+
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>
+          <a
+            href="https://openstax.org/books/college-physics/pages/14-2-temperature-change-and-heat-capacity"
+            rel="noopener noreferrer"
+            target="_blank">OpenStax College Physics — Temperature Change and Heat Capacity</a
+          >
+          (specific heat relationship Q = mcΔT; water specific heat 4186 J/kg°C)
+        </li>
+        <li>
+          <a
+            href="https://www.cdc.gov/healthy-swimming/safety/what-you-can-do-to-stay-healthy-in-hot-tubs.html"
+            rel="noopener noreferrer"
+            target="_blank">CDC — What You Can Do to Stay Healthy in Hot Tubs</a
+          >
+          (water temperature should not be higher than 104°F / 40°C)
+        </li>
+      </ul>
+      <p>
+        Manufacturer warm-up windows cited above come from Hot Spring and Hot Spot documentation
+        already used on TubWise heating guides. This page does not import electrical conversion or
+        installation procedures from those manuals.
+      </p>
+
+      <h2 id="disclaimer">Disclaimer</h2>
+      <p>
+        This calculator is a planning estimate only. It is not a substitute for your spa
+        manufacturer&apos;s specifications, product labels, or professional advice. See the
+        <a href="/disclaimer">Disclaimer</a> and <a href="/terms">Terms of Use</a> for more.
+      </p>
+    </div>
+
+    <section class="mx-auto mt-12 w-full max-w-5xl" aria-labelledby="related-guides-heading">
+      <h2 id="related-guides-heading" class="font-display text-2xl font-semibold text-ink">
+        Relevant TubWise guides
+      </h2>
+      <p class="mt-3 max-w-3xl text-base leading-relaxed text-ink-muted">
+        Use capacity, fill-time, and electricity-cost tools for related planning. Use the heating
+        troubleshooting guides when warm-up is abnormal or heat fails.
+      </p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          relatedGuides.map((guide) => (
+            <ArticleCard
+              title={guide.title}
+              description={guide.description}
+              href={guide.href}
+              category={guide.category}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>

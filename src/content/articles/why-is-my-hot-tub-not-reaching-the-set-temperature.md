@@ -102,7 +102,7 @@ Jacuzzi describes Standard mode as maintaining set temperature continuously and 
 
 Hot Spring instructs owners to leave the cover on and keep the thermostat at the desired set point for routine ready-to-use temperature (Hot Spring). A damaged, sagging, or poorly sealed cover can keep water below set even when the heater cycles. See [When Should You Replace a Hot Tub Cover?](/maintenance/when-should-you-replace-a-hot-tub-cover).
 
-If you want to estimate electricity use from wattage and runtime assumptions while troubleshooting heat loss, use the [Hot Tub Electricity Cost Calculator](/calculators/hot-tub-electricity-cost-calculator). It is a planning estimate only.
+If the water is still climbing and you want a planning estimate of remaining heat-up time from capacity and heater power or a measured rate, use the [Hot Tub Heat-Up Time Calculator](/calculators/hot-tub-heat-up-time-calculator). To estimate electricity use from wattage and runtime assumptions while troubleshooting heat loss, use the [Hot Tub Electricity Cost Calculator](/calculators/hot-tub-electricity-cost-calculator). Both are planning estimates only.
 
 ### Limited heater capacity or heater disabled during jets
 
