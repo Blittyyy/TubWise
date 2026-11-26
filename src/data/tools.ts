@@ -18,7 +18,7 @@ export const tools: ToolItem[] = [
   {
     title: 'Hot Tub Fill Time Calculator',
     description:
-      'Estimate remaining water and how long a fill may take from capacity, fill level, and hose flow rate.',
+      'Estimate remaining water and fill time from capacity, fill level, and hose flow—enter a known rate or measure with a bucket.',
     href: '/calculators/hot-tub-fill-time-calculator',
     status: 'available',
   },

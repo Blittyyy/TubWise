@@ -4,11 +4,12 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import HotTubFillTimeCalculator from '../../components/HotTubFillTimeCalculator.astro';
 import { breadcrumbSchema, webApplicationSchema } from '../../utils/schema';
+import { exampleEmptyFillMinutes } from '../../utils/hot-tub-fill-time';
 
 const path = '/calculators/hot-tub-fill-time-calculator';
-const title = 'Hot Tub Fill Time Calculator: Estimate Hours and Minutes';
+const title = 'Hot Tub Fill Time Calculator – How Long Will It Take?';
 const description =
-  'Estimate how long it may take to fill your hot tub using its capacity, current fill level, and hose flow rate.';
+  'Calculate how long it takes to fill your hot tub using its capacity and garden hose flow rate. Measure your hose flow and estimate refill costs.';
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -54,6 +55,13 @@ const relatedGuides = [
   },
 ];
 
+const exampleCapacities = [200, 300, 400, 500, 600];
+const exampleFlows = [4, 6, 8, 10];
+const exampleRows = exampleCapacities.map((capacity) => ({
+  capacity,
+  minutes: exampleFlows.map((flow) => exampleEmptyFillMinutes(capacity, flow)),
+}));
+
 const schemas = [
   breadcrumbSchema(breadcrumbs),
   webApplicationSchema({
@@ -72,7 +80,7 @@ const schemas = [
       <h1 class="text-3xl font-semibold sm:text-4xl">Hot Tub Fill Time Calculator</h1>
       <p class="mt-3 text-lg leading-relaxed text-ink-muted">
         Estimate how long it may take to fill your hot tub based on its capacity, current fill
-        level, and hose flow rate.
+        level, and hose flow rate. You can enter a known flow rate or measure it with a bucket.
       </p>
     </header>
 
@@ -81,29 +89,96 @@ const schemas = [
     </div>
 
     <div class="prose-site mx-auto mt-12 max-w-3xl">
+      <h2 id="how-long-to-fill">How Long Does It Take to Fill a Hot Tub?</h2>
+      <p>
+        Fill time depends on how much water is still needed and the actual flow rate of the hose
+        you use. Household faucet settings, hose diameter, length, and attachments all change flow,
+        so TubWise does not treat any single garden-hose rate as typical for every home.
+      </p>
+      <p>
+        The illustrative table below assumes an empty spa and constant flow, with times rounded to
+        the nearest minute using the same calculation as the tool above.
+      </p>
+
+      <div class="not-prose my-6 overflow-x-auto rounded-xl border border-border">
+        <table class="min-w-full border-collapse text-left text-sm text-ink">
+          <caption class="sr-only">
+            Example empty-spa fill times in minutes for common capacities at 4, 6, 8, and 10 gallons
+            per minute
+          </caption>
+          <thead class="bg-surface-raised">
+            <tr>
+              <th scope="col" class="border-b border-border px-3 py-3 font-semibold sm:px-4"
+                >Capacity</th
+              >
+              {
+                exampleFlows.map((flow) => (
+                  <th scope="col" class="border-b border-border px-3 py-3 font-semibold sm:px-4">
+                    {flow} GPM
+                  </th>
+                ))
+              }
+            </tr>
+          </thead>
+          <tbody>
+            {
+              exampleRows.map((row) => (
+                <tr class="odd:bg-surface even:bg-surface-raised/60">
+                  <th scope="row" class="border-b border-border px-3 py-3 font-medium sm:px-4">
+                    {row.capacity} gallons
+                  </th>
+                  {row.minutes.map((minutes) => (
+                    <td class="border-b border-border px-3 py-3 sm:px-4">{minutes} min</td>
+                  ))}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p>
+        These examples are planning illustrations only. Measure your hose or enter its known flow
+        rate for a fill estimate that matches your setup.
+      </p>
+
       <h2 id="accuracy-safety">Accuracy and safety notice</h2>
       <p>
         This tool is a planning estimate, not a guarantee. Hose flow and household water pressure
         can change while you fill. Do not leave a filling hot tub unattended. Confirm the
         manufacturer&apos;s required fill method, fill only to the specified waterline, and do not
-        energize the spa until the owner&apos;s manual permits it.
+        energize the spa until the owner&apos;s manual permits it. If you enter a start time, treat
+        the estimated completion time as a planning aid, not an unattended filling timer.
       </p>
 
       <h2 id="how-it-works">How the estimate works</h2>
       <p>
         The calculator finds the water still needed by multiplying spa capacity by the unfilled
-        fraction. It then divides that remaining volume by the hose flow rate you enter, after
-        converting gallons and liters with 1 U.S. gallon = 3.785411784 liters when the units differ.
-        Duration is shown in hours and minutes. If you provide a start time, the tool adds the
-        duration on this device to estimate a completion time.
+        fraction. It then divides that remaining volume by the hose flow rate, after converting
+        gallons and liters with 1 U.S. gallon = 3.785411784 liters when the units differ. Duration
+        is shown in hours and minutes. If you provide a start time, the tool adds the duration on
+        this device to estimate a completion time. An optional water-cost field multiplies the
+        remaining volume by the local utility rate you enter; it is skipped when that rate is blank.
       </p>
 
       <h2 id="how-to-measure-flow">How to measure hose flow</h2>
       <p>
-        Time how long it takes your hose to fill a container of known volume, then divide the
-        container volume by the number of minutes. Example: a 5-gallon bucket that fills in 1 minute
-        is about 5 gallons per minute. Re-check if you change the faucet opening, hose, or water
-        source.
+        Use the built-in bucket measurement mode in the calculator, or time the fill yourself and
+        enter the result. Choose a bucket of known capacity, open the faucet to the setting you will
+        use for the spa, keep the same hose and any attachments in place, and record the seconds
+        required to fill the bucket. The tool converts that timing with:
+      </p>
+      <p>
+        <strong>Flow per minute = bucket capacity × 60 ÷ seconds</strong>
+      </p>
+      <p>
+        Canadian Spa Company describes the same idea for planning fill time: time how long the hose
+        takes to fill a known bucket, then work out volume per minute
+        (<a
+          href="https://www.canadianspacompany.co.uk/blogs/news-updates/filling-up-your-hot-tub"
+          rel="noopener noreferrer"
+          target="_blank">Canadian Spa Company</a
+        >). Re-check if you change the faucet opening, hose, nozzle, or water source. Do not assume
+        multiple hoses will double the flow.
       </p>
 
       <h2 id="what-can-change">What can change fill time</h2>
