@@ -26,6 +26,7 @@ relatedArticles:
   - why-is-my-hot-tub-cover-sagging
   - why-does-my-hot-tub-cover-smell-bad
   - how-to-clean-a-hot-tub-cover
+  - does-a-hot-tub-heat-faster-with-cover-on
 sources:
   - title: "When Should I Replace My Spa Cover?"
     url: "https://www.hotspring.com/blog/when-should-i-replace-my-spa-cover"

@@ -25,6 +25,8 @@ relatedArticles:
   - why-are-my-hot-tub-jets-weak
   - why-are-my-hot-tub-jets-surging-or-pulsating
   - why-is-my-hot-tub-making-noise-after-filling-or-refilling
+  - balboa-hot-tub-pr-code
+  - balboa-hot-tub-dr-dry-error-code
 sources:
   - title: "Fix Your Hot Tub with This Complete Troubleshooting Guide"
     url: "https://www.hotspring.com/blog/fix-your-hot-tub-with-this-complete-troubleshooting-guide"
@@ -76,7 +78,7 @@ Follow your manual for any steps that involve the filter compartment or fill lin
 
 ### The pump runs, but the jets don't
 
-Jacuzzi's guide lists an airlock after refilling among the common, DIY-friendly causes of pump problems, alongside a tripped GFCI, a clogged filter, and low water level (Jacuzzi). The pattern that stands out is a pump that is clearly powered and running while jets stay weak or silent. If your panel also shows a flow code, such as [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo), that manufacturer's own air-lock steps are listed on the scoped page for your brand. If the display is a different Jacuzzi or Gecko message, start from [Jacuzzi error codes](/error-codes/jacuzzi) or [Gecko error codes](/error-codes/gecko).
+Jacuzzi's guide lists an airlock after refilling among the common, DIY-friendly causes of pump problems, alongside a tripped GFCI, a clogged filter, and low water level (Jacuzzi). The pattern that stands out is a pump that is clearly powered and running while jets stay weak or silent. If your panel also shows a flow code, such as [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo), that manufacturer's own air-lock steps are listed on the scoped page for your brand. On Balboa systems, start-up priming may show [Pr / Priming Mode](/error-codes/balboa/pr), and inadequate heater water can show [dr / dry messages](/error-codes/balboa/dr-dry). If the display is a different Jacuzzi or Gecko message, start from [Jacuzzi error codes](/error-codes/jacuzzi) or [Gecko error codes](/error-codes/gecko).
 
 ### It happened right after a drain and refill
 

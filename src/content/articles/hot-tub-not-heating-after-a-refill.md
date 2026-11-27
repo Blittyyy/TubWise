@@ -25,6 +25,8 @@ relatedArticles:
   - hot-tub-has-power-but-no-heat
   - why-is-my-hot-tub-taking-so-long-to-heat-up
   - why-is-my-hot-tub-making-noise-after-filling-or-refilling
+  - balboa-hot-tub-pr-code
+  - balboa-hot-tub-dr-dry-error-code
 sources:
   - title: "Fix Your Hot Tub with This Complete Troubleshooting Guide"
     url: "https://www.hotspring.com/blog/fix-your-hot-tub-with-this-complete-troubleshooting-guide"
@@ -56,7 +58,7 @@ Follow your manual's electrical reconnection steps after a refill, including any
 
 Hot Spring's troubleshooting guide lists "air lock was created after filling the spa" as one of three causes when a spa won't heat even though jets and lights still operate, alongside an open pressure switch and a tripped circulation-pump thermal cut-off (Hot Spring). Jacuzzi's guide similarly lists an air lock after refilling among the most common causes of pump problems generally (Jacuzzi).
 
-For the Hot Spot Collection specifically, Watkins Wellness's quick start guide warns directly: "Filling the spa through the basin can result in an airlock and difficulty starting the spa," and instructs owners to fill through the filter compartment instead, up to about one inch above the highest jet (Hot Spring Hot Spot Collection guide). On models where the manufacturer specifies filling through the filter compartment, filling by hose straight into the open tub instead is a plausible explanation. Check your own manual for how your model should be filled. If your panel also shows a flow code after refilling, such as [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo), that page has the documented purge steps for your model.
+For the Hot Spot Collection specifically, Watkins Wellness's quick start guide warns directly: "Filling the spa through the basin can result in an airlock and difficulty starting the spa," and instructs owners to fill through the filter compartment instead, up to about one inch above the highest jet (Hot Spring Hot Spot Collection guide). On models where the manufacturer specifies filling through the filter compartment, filling by hose straight into the open tub instead is a plausible explanation. Check your own manual for how your model should be filled. If your panel also shows a flow code after refilling, such as [Jacuzzi FL1](/error-codes/jacuzzi/fl1), [Sundance FL1](/error-codes/sundance/fl1), or [Gecko FLO](/error-codes/gecko/flo), that page has the documented purge steps for your model. Balboa systems may show [Pr / Priming Mode](/error-codes/balboa/pr) at start-up or [dr / dry heater messages](/error-codes/balboa/dr-dry) when heater water is inadequate.
 
 This matters because the fix differs by cause: a power problem needs an electrical check, while an air lock generally only needs the trapped air purged from the plumbing using the method your manufacturer documents.
 

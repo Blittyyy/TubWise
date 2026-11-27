@@ -27,6 +27,7 @@ relatedArticles:
   - can-a-dirty-filter-stop-a-hot-tub-from-heating
   - why-is-my-hot-tub-not-reaching-the-set-temperature
   - when-should-you-replace-a-hot-tub-cover
+  - does-a-hot-tub-heat-faster-with-cover-on
 sources:
   - title: "What is the Ideal Hot Tub Temperature?"
     url: "https://www.hotspring.com/blog/ideal-hot-tub-temperature"
@@ -76,7 +77,7 @@ Do not open the control box. Do not test voltage, resistance, or continuity. Do 
 
 ### Confirm the cover is on during heat-up
 
-Hot Spring and Hot Spot instruct owners to place the cover on the spa while water heats and stabilizes (Hot Spring; Hot Spot). An open or poorly sealing cover increases heat loss and stretches warm-up time. If the cover is waterlogged, sagging, or no longer seals, see [When Should You Replace a Hot Tub Cover?](/maintenance/when-should-you-replace-a-hot-tub-cover).
+Hot Spring and Hot Spot instruct owners to place the cover on the spa while water heats and stabilizes (Hot Spring; Hot Spot). An open or poorly sealing cover increases heat loss and stretches warm-up time. For the cover-on versus cover-off heating question specifically, see [Does a Hot Tub Heat Faster With the Cover On?](/maintenance/does-a-hot-tub-heat-faster-with-cover-on). If the cover is waterlogged, sagging, or no longer seals, see [When Should You Replace a Hot Tub Cover?](/maintenance/when-should-you-replace-a-hot-tub-cover).
 
 ### Confirm set temperature and readiness cues
 

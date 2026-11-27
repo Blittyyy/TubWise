@@ -11,7 +11,7 @@ export const tools: ToolItem[] = [
   {
     title: 'Hot Tub Volume Calculator',
     description:
-      'Estimate your spa\'s capacity in gallons and liters using its shape and interior water dimensions.',
+      'Estimate spa capacity in gallons or liters from interior dimensions, measured filling time, or water meter readings.',
     href: '/calculators/hot-tub-volume-calculator',
     status: 'available',
   },
@@ -25,7 +25,7 @@ export const tools: ToolItem[] = [
   {
     title: 'Hot Tub Electricity Cost Calculator',
     description:
-      'Estimate electricity use and operating cost from equipment wattage, daily runtime, and your utility rate.',
+      'Estimate monthly and yearly electricity cost from equipment wattage, measured spa energy use, or manufacturer standby ratings.',
     href: '/calculators/hot-tub-electricity-cost-calculator',
     status: 'available',
   },

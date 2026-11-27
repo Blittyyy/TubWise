@@ -26,6 +26,7 @@ relatedArticles:
   - why-are-my-hot-tub-jets-weak
   - hot-tub-has-power-but-no-heat
   - how-to-clean-a-hot-tub-filter
+  - balboa-hot-tub-dr-dry-error-code
 sources:
   - title: "Fix Your Hot Tub with This Complete Troubleshooting Guide"
     url: "https://www.hotspring.com/blog/fix-your-hot-tub-with-this-complete-troubleshooting-guide"

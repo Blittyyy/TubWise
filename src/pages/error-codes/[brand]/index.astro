@@ -58,6 +58,21 @@ const schemas = [
       revision. Confirm the exact display and steps in your own owner&rsquo;s manual before acting.
     </div>
 
+    {
+      brand.hubIntro && brand.hubIntro.length > 0 ? (
+        <section class="mb-10 max-w-3xl" aria-labelledby="brand-scope-heading">
+          <h2 id="brand-scope-heading" class="font-display text-2xl font-semibold text-ink">
+            Scope and identification
+          </h2>
+          <div class="mt-4 space-y-3 text-base leading-relaxed text-ink-muted">
+            {brand.hubIntro.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      ) : null
+    }
+
     <section aria-labelledby="brand-codes-heading">
       <h2 id="brand-codes-heading" class="font-display text-2xl font-semibold text-ink">
         Published codes
@@ -76,5 +91,24 @@ const schemas = [
         }
       </div>
     </section>
+
+    {
+      brand.relatedLinks && brand.relatedLinks.length > 0 ? (
+        <section class="mt-10 max-w-3xl" aria-labelledby="brand-related-heading">
+          <h2 id="brand-related-heading" class="font-display text-2xl font-semibold text-ink">
+            Related guides
+          </h2>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-base leading-relaxed text-ink-muted">
+            {brand.relatedLinks.map((link) => (
+              <li>
+                <a href={link.href} class="font-medium text-brand-dark underline-offset-2 hover:underline">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null
+    }
   </div>
 </BaseLayout>

@@ -27,6 +27,7 @@ relatedArticles:
   - sundance-oh-error-code
   - jacuzzi-oh-error-code
   - hot-tub-not-heating
+  - balboa-hot-tub-pr-code
 sources:
   - title: "Sundance Spas 680 Series Owner's Manual"
     url: "https://www.thespaworks.com/sites/default/files/2006_sundance_680_series_owners_manual.pdf"
@@ -68,7 +69,7 @@ Write down exactly what you see:
 - One dash, three dashes, four dashes, or mixed symbols
 - Any red safety lights named in your manual
 
-Then open your brand's error or troubleshooting section. Related TubWise pages for specific overheat messages include [Sundance OH Error Code](/error-codes/sundance/oh) and [Jacuzzi OH Error Code](/error-codes/jacuzzi/oh). Those pages do not redefine every dash pattern for every spa.
+Then open your brand's error or troubleshooting section. Related TubWise pages for specific overheat messages include [Sundance OH Error Code](/error-codes/sundance/oh) and [Jacuzzi OH Error Code](/error-codes/jacuzzi/oh). On some Balboa systems, temporary dashes after priming are part of normal start-up temperature sampling—see [What Does Pr Mean on a Balboa Hot Tub?](/error-codes/balboa/pr). Those pages do not redefine every dash pattern for every spa.
 
 ## Sundance Watchdog dashes (scoped example)
 

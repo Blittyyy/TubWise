@@ -1,5 +1,10 @@
 import {
   calculateElectricityCost,
+  calculateMeasuredElectricityCost,
+  calculateStandbyElectricityCost,
+  compareSeasonalHeaterRuntime,
+  exampleDailyKwh,
+  examplePeriodCost,
   validateElectricityInputs,
   parseMeasurement,
   toKilowatts,
@@ -28,7 +33,7 @@ function check(name, condition, detail = '') {
 
 const blankOptional = { power: '', runtimeHours: '' };
 
-// 1. Heater: 4,000 W × 2 h/day × $0.15/kWh × 30 days
+// 1. Heater: 4,000 W × 2 h/day × $0.15/kWh × 30 days (preserved)
 {
   const result = calculateElectricityCost({
     mode: 'detailed',
@@ -52,9 +57,10 @@ const blankOptional = { power: '', runtimeHours: '' };
   check('heater display period cost', result.result.displayPeriodCost === 36);
   check('currency format $36.00', formatCurrencyUsd(result.result.displayPeriodCost) === '$36.00');
   check('kWh format 8.00', formatKwh(result.result.displayDailyKwh) === '8.00');
+  check('equipment estimation method', result.result.estimationMethod === 'equipment');
 }
 
-// 2. Heater + pump: 4 kW × 2 h + 0.25 kW × 8 h = 10 kWh/day
+// 2. Heater + pump: 4 kW × 2 h + 0.25 kW × 8 h = 10 kWh/day (preserved)
 {
   const result = calculateElectricityCost({
     mode: 'simple',
@@ -76,7 +82,7 @@ const blankOptional = { power: '', runtimeHours: '' };
   check('breakdown count 2', result.result.devices.length === 2);
 }
 
-// 3. Detailed multiple devices
+// 3. Detailed multiple devices (preserved)
 {
   const result = calculateElectricityCost({
     mode: 'detailed',
@@ -91,14 +97,13 @@ const blankOptional = { power: '', runtimeHours: '' };
     days: '30',
   });
   assert(result.ok, 'case 3 should succeed');
-  // 8 + 2 + 1 + 0.25 + 0.2 = 11.45 kWh/day
   check('detailed daily kWh', nearlyEqual(result.result.dailyKwh, 11.45));
   check('detailed device count', result.result.devices.length === 5);
   check('detailed daily cost', nearlyEqual(result.result.dailyCost, 11.45 * 0.15));
   check('annualized', nearlyEqual(result.result.annualCost, 11.45 * 0.15 * 365));
 }
 
-// 4. Unit equivalence: 4000 W === 4 kW
+// 4. Unit equivalence (preserved)
 {
   const watts = calculateElectricityCost({
     mode: 'simple',
@@ -130,7 +135,7 @@ const blankOptional = { power: '', runtimeHours: '' };
   check('toKilowatts 4 kW', nearlyEqual(toKilowatts(4, 'kW'), 4));
 }
 
-// 5. Rate equivalence: 15 cents === $0.15
+// 5. Rate equivalence (preserved)
 {
   const dollars = calculateElectricityCost({
     mode: 'simple',
@@ -161,7 +166,116 @@ const blankOptional = { power: '', runtimeHours: '' };
   check('toDollarsPerKwh 15 cents', nearlyEqual(toDollarsPerKwh(15, 'cents_per_kwh'), 0.15));
 }
 
-// 6. Invalid inputs
+// 6. Measured consumption extrapolation
+{
+  const measured = calculateMeasuredElectricityCost({
+    measuredKwh: '300',
+    measurementDays: '30',
+    rate: '0.15',
+    rateUnit: 'per_kwh',
+    days: '30',
+  });
+  assert(measured.ok, 'measured should succeed');
+  check('measured daily kWh', nearlyEqual(measured.result.dailyKwh, 10));
+  check('measured daily cost', nearlyEqual(measured.result.dailyCost, 1.5));
+  check('measured period cost', nearlyEqual(measured.result.periodCost, 45));
+  check('measured annual', nearlyEqual(measured.result.annualCost, 1.5 * 365));
+  check('measured method', measured.result.estimationMethod === 'measured');
+  check('measured no device breakdown', measured.result.devices.length === 0);
+
+  const zeroUse = calculateMeasuredElectricityCost({
+    measuredKwh: '0',
+    measurementDays: '7',
+    rate: '0.15',
+    rateUnit: 'per_kwh',
+    days: '30',
+  });
+  assert(zeroUse.ok, 'zero measured consumption allowed');
+  check('zero measured daily kWh', nearlyEqual(zeroUse.result.dailyKwh, 0));
+  check('zero measured period cost', nearlyEqual(zeroUse.result.periodCost, 0));
+}
+
+// 7. Standby watts and annual kWh
+{
+  const standbyW = calculateStandbyElectricityCost({
+    inputMode: 'watts',
+    standbyWatts: '100',
+    annualStandbyKwh: '',
+    rate: '0.15',
+    rateUnit: 'per_kwh',
+    days: '30',
+  });
+  assert(standbyW.ok, 'standby watts');
+  check('standby daily kWh from watts', nearlyEqual(standbyW.result.dailyKwh, 2.4));
+  check('standby period kWh', nearlyEqual(standbyW.result.periodKwh, 72));
+  check('standby method', standbyW.result.estimationMethod === 'standby');
+  check('standby devices empty (no double-count)', standbyW.result.devices.length === 0);
+
+  const annual = calculateStandbyElectricityCost({
+    inputMode: 'annualKwh',
+    standbyWatts: '',
+    annualStandbyKwh: '876',
+    rate: '0.15',
+    rateUnit: 'per_kwh',
+    days: '30',
+  });
+  assert(annual.ok, 'annual standby');
+  check('annual standby daily', nearlyEqual(annual.result.dailyKwh, 876 / 365));
+  check('annual standby period cost', nearlyEqual(annual.result.periodCost, (876 / 365) * 0.15 * 30));
+
+  const zeroStandby = calculateStandbyElectricityCost({
+    inputMode: 'watts',
+    standbyWatts: '0',
+    annualStandbyKwh: '',
+    rate: '0',
+    rateUnit: 'per_kwh',
+    days: '30',
+  });
+  assert(zeroStandby.ok, 'zero standby + zero rate allowed');
+  check('zero standby cost', nearlyEqual(zeroStandby.result.periodCost, 0));
+}
+
+// 8. Seasonal scenario comparison
+{
+  const baselineInputs = {
+    mode: 'simple',
+    powerUnit: 'kW',
+    rateUnit: 'per_kwh',
+    heater: { power: '4', runtimeHours: '2' },
+    circulationPump: { power: '0.25', runtimeHours: '8' },
+    jetPump: blankOptional,
+    blower: blankOptional,
+    other: blankOptional,
+    rate: '0.15',
+    days: '30',
+  };
+  const seasonal = compareSeasonalHeaterRuntime(baselineInputs, '4');
+  assert(seasonal.ok, 'seasonal comparison');
+  // baseline 10 kWh; comparison heater 16 + pump 2 = 18
+  check('seasonal baseline 10', nearlyEqual(seasonal.result.baseline.dailyKwh, 10));
+  check('seasonal comparison 18', nearlyEqual(seasonal.result.comparison.dailyKwh, 18));
+  check('seasonal daily diff +8', nearlyEqual(seasonal.result.dailyKwhDifference, 8));
+  check('seasonal period cost diff', nearlyEqual(seasonal.result.periodCostDifference, 8 * 0.15 * 30));
+}
+
+// 9. Static example-table accuracy
+{
+  const rows = [
+    [1, 6, 27],
+    [2, 10, 45],
+    [3, 14, 63],
+    [4, 18, 81],
+    [6, 26, 117],
+  ];
+  for (const [hours, daily, cost] of rows) {
+    const d = exampleDailyKwh(4, hours, 0.25, 8);
+    const c = examplePeriodCost(d, 0.15, 30);
+    check(`example ${hours}h daily ${daily}`, nearlyEqual(d, daily));
+    check(`example ${hours}h cost $${cost}`, nearlyEqual(c, cost));
+  }
+}
+
+// 10. Invalid inputs (preserved + new)
 {
   const blank = validateElectricityInputs({
     mode: 'simple',
@@ -189,7 +303,7 @@ const blankOptional = { power: '', runtimeHours: '' };
     rate: '0',
     days: '30',
   });
-  check('zero rate invalid', zeroRate.some((e) => e.field === 'rate'));
+  check('zero rate invalid in equipment', zeroRate.some((e) => e.field === 'rate'));
 
   const negative = validateElectricityInputs({
     mode: 'simple',
@@ -297,6 +411,50 @@ const blankOptional = { power: '', runtimeHours: '' };
     days: '367',
   });
   check('days above 366 invalid', tooManyDays.some((e) => e.field === 'days'));
+
+  const badMeasureDays = calculateMeasuredElectricityCost({
+    measuredKwh: '100',
+    measurementDays: '0',
+    rate: '0.15',
+    rateUnit: 'per_kwh',
+    days: '30',
+  });
+  check('invalid measurement period', !badMeasureDays.ok);
+
+  const badBilling = calculateMeasuredElectricityCost({
+    measuredKwh: '100',
+    measurementDays: '10',
+    rate: '0.15',
+    rateUnit: 'per_kwh',
+    days: '0',
+  });
+  check('invalid billing period measured', !badBilling.ok);
+
+  const nonFiniteMeasured = calculateMeasuredElectricityCost({
+    measuredKwh: 'Infinity',
+    measurementDays: '10',
+    rate: '0.15',
+    rateUnit: 'per_kwh',
+    days: '30',
+  });
+  check('non-finite measured invalid', !nonFiniteMeasured.ok);
+
+  const badSeasonal = compareSeasonalHeaterRuntime(
+    {
+      mode: 'simple',
+      powerUnit: 'kW',
+      rateUnit: 'per_kwh',
+      heater: { power: '4', runtimeHours: '2' },
+      circulationPump: { power: '0.25', runtimeHours: '8' },
+      jetPump: blankOptional,
+      blower: blankOptional,
+      other: blankOptional,
+      rate: '0.15',
+      days: '30',
+    },
+    '25',
+  );
+  check('seasonal runtime over 24 invalid', !badSeasonal.ok);
 }
 
 console.log(`\nAll ${passed} checks passed.`);

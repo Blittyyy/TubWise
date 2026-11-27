@@ -4,17 +4,44 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import HotTubElectricityCostCalculator from '../../components/HotTubElectricityCostCalculator.astro';
 import { breadcrumbSchema, webApplicationSchema } from '../../utils/schema';
+import {
+  exampleDailyKwh,
+  examplePeriodCost,
+} from '../../utils/hot-tub-electricity-cost';
 
 const path = '/calculators/hot-tub-electricity-cost-calculator';
-const title = 'Hot Tub Electricity Cost Calculator: Estimate Monthly Use';
+const title = 'Hot Tub Electricity Cost Calculator: Monthly & Yearly Cost';
 const description =
-  'Estimate hot tub electricity use and monthly operating cost using equipment wattage, daily runtime, billing days, and your utility rate.';
+  "Estimate your hot tub's monthly and yearly electricity costs using equipment wattage, measured energy use or manufacturer standby energy ratings.";
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
   { label: 'Calculators', href: '/calculators' },
   { label: 'Hot Tub Electricity Cost Calculator' },
 ];
+
+const exampleAssumptions = {
+  heaterKw: 4,
+  pumpKw: 0.25,
+  pumpHours: 8,
+  rate: 0.15,
+  days: 30,
+};
+
+const exampleRows = [1, 2, 3, 4, 6].map((heaterHours) => {
+  const dailyKwh = exampleDailyKwh(
+    exampleAssumptions.heaterKw,
+    heaterHours,
+    exampleAssumptions.pumpKw,
+    exampleAssumptions.pumpHours,
+  );
+  const periodCost = examplePeriodCost(
+    dailyKwh,
+    exampleAssumptions.rate,
+    exampleAssumptions.days,
+  );
+  return { heaterHours, dailyKwh, periodCost };
+});
 
 const relatedGuides = [
   {
@@ -81,8 +108,8 @@ const schemas = [
     <header class="mx-auto mb-8 w-full max-w-3xl">
       <h1 class="text-3xl font-semibold sm:text-4xl">Hot Tub Electricity Cost Calculator</h1>
       <p class="mt-3 text-lg leading-relaxed text-ink-muted">
-        Estimate your hot tub’s electricity use and operating cost from equipment wattage, daily
-        runtime, and your utility rate.
+        Estimate monthly and yearly electricity costs from equipment wattage, measured spa energy
+        use, or manufacturer standby energy ratings.
       </p>
     </header>
 
@@ -93,15 +120,81 @@ const schemas = [
     <div class="prose-site mx-auto mt-12 max-w-3xl">
       <h2 id="how-it-works">How the estimate works</h2>
       <p>
-        For each device, daily energy in kilowatt-hours equals power in kilowatts multiplied by
-        runtime hours per day. The calculator converts watts to kilowatts when needed (1,000 watts =
-        1 kilowatt), totals every device you entered, multiplies by your electricity rate, then
-        scales by the billing-period days. An optional annualized figure multiplies daily cost by
-        365 and is labeled as an extrapolation, not a utility forecast.
+        Choose one estimation method at a time. Equipment mode multiplies each device’s power in
+        kilowatts by runtime hours per day, totals the devices you entered, multiplies by your
+        electricity rate, then scales by billing-period days. An optional annualized figure
+        multiplies daily cost by 365 and is labeled as an extrapolation, not a utility forecast.
       </p>
       <p>
-        Heater runtime means the estimated time the heater is actively drawing its rated power, not
-        simply the time the spa remains turned on. Rated wattage is not the same as continuous use.
+        Heater runtime means the estimated time the heater is actively drawing its rated power—not
+        simply the time the spa remains turned on. Rated wattage is not continuous use. TubWise does
+        not estimate heater wattage from breaker rating or supply voltage.
+      </p>
+      <p>
+        Measured mode divides spa-attributable kWh by measurement days, then scales cost by your
+        rate and billing period. Energy-label mode converts published standby watts (÷ 1,000 × 24)
+        or annual standby kWh (÷ 365) into a daily standby estimate only—it does not add equipment
+        loads on top, and it is not a total operating-cost claim.
+      </p>
+
+      <h2 id="example-table">Illustrative equipment example</h2>
+      <p>
+        The table below is explicitly illustrative. Assumptions: heater 4&nbsp;kW, circulation pump
+        250&nbsp;W for 8 hours/day, electricity rate $0.15/kWh, billing period 30 days. These are
+        not typical hot tub costs.
+      </p>
+      <div class="not-prose overflow-x-auto">
+        <table class="w-full min-w-[28rem] border-collapse text-left text-sm text-ink">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="py-2 pr-3 font-semibold">Heater runtime</th>
+              <th class="py-2 pr-3 font-semibold">Daily electricity</th>
+              <th class="py-2 font-semibold">30-day cost</th>
+            </tr>
+          </thead>
+          <tbody class="text-ink-muted">
+            {
+              exampleRows.map((row) => (
+                <tr class="border-b border-border/70 last:border-0">
+                  <td class="py-2.5 pr-3 font-medium text-ink">
+                    {row.heaterHours === 1 ? '1 hour/day' : `${row.heaterHours} hours/day`}
+                  </td>
+                  <td class="py-2.5 pr-3">{row.dailyKwh} kWh</td>
+                  <td class="py-2.5">${row.periodCost}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="cost-types">Types of electricity estimates</h2>
+      <ul>
+        <li>
+          <strong>One-time heating from cold</strong> — a single heat-up event. Use the
+          <a href="/calculators/hot-tub-heat-up-time-calculator">Heat-up time calculator</a> for that
+          estimate; it is not the same as ongoing operating cost.
+        </li>
+        <li>
+          <strong>Ongoing operating costs</strong> — equipment wattage × daily runtime under your
+          assumptions (Simple or Detailed mode).
+        </li>
+        <li>
+          <strong>Standardized standby energy</strong> — published standby power or annual standby
+          kWh under test conditions that differ from real-world use. Standby figures may already
+          include heating and circulation needed to maintain temperature. Do not confuse maximum
+          permitted standby limits with actual tested values, and do not assume every spa has a
+          label.
+        </li>
+        <li>
+          <strong>Actual measured consumption</strong> — spa-attributable kWh from suitable
+          manufacturer reporting or professionally installed monitoring, extrapolated only if future
+          usage and conditions are similar.
+        </li>
+      </ul>
+      <p>
+        Prefer primary regulatory and manufacturer documentation when looking up portable electric
+        spa energy labels or appliance-efficiency listings for your model.
       </p>
 
       <h2 id="where-to-find-wattage">Where to find equipment wattage</h2>
@@ -122,20 +215,22 @@ const schemas = [
         Outdoor temperature, desired water temperature, cover condition, insulation, wind exposure,
         heater cycling, filtration schedules, jet use, equipment efficiency, standby behavior, and
         utility rate structure can all change real electricity use. TubWise does not assign
-        unsupported percentage savings to any one factor.
+        unsupported percentage savings to any one factor. Optional seasonal comparison in equipment
+        mode uses a second user-entered heater runtime only—it does not auto-assign values from
+        weather or cover quality, and it does not predict actual seasonal bills.
       </p>
 
       <h2 id="improve-accuracy">Ways to improve estimate accuracy</h2>
       <ul>
         <li>Use the electricity rate printed on your utility bill</li>
-        <li>Use model-specific wattage from manufacturer documentation</li>
+        <li>Use model-specific wattage or standby ratings from manufacturer documentation</li>
         <li>Track actual heater and pump runtime when your controls make that practical</li>
-        <li>Compare the estimate with utility usage over time</li>
+        <li>Compare the estimate with spa-attributable utility usage over time</li>
         <li>Update inputs for seasonal weather and schedule changes</li>
       </ul>
       <p>
-        Do not attempt unsafe current measurement, clamp-meter work inside live equipment, or other
-        electrical testing unless you are a qualified person following proper safety procedures.
+        Do not open an electrical panel, install electrical monitoring equipment yourself, use clamp
+        meters on live wiring, connect unsuitable plug-in energy meters, or bypass GFCI protection.
       </p>
 
       <h2 id="disclaimer">Disclaimer</h2>

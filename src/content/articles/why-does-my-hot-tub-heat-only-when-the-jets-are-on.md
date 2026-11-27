@@ -27,6 +27,7 @@ relatedArticles:
   - why-is-my-hot-tub-taking-so-long-to-heat-up
   - why-is-my-hot-tub-not-reaching-the-set-temperature
   - gecko-flo-error-code
+  - balboa-ready-vs-rest-mode
 sources:
   - title: "Hot Spot Collection Quick Start Guide (2025)"
     url: "https://www.hotspring.com/wp-content/uploads/2025/02/hot-spring-hotspot-collection-quick-start-guide-2025.pdf"
@@ -80,7 +81,7 @@ On certain Hot Spot 115-volt setups, the heater provides about 1000 watts only w
 
 ### Economy or filter-cycle heating (Jacuzzi)
 
-Jacuzzi's energy guide describes Standard mode as maintaining set temperature continuously and Economy mode as heating only during filter cycles, with temperature allowed to fluctuate between sessions (Jacuzzi). A legacy Jacuzzi ProTech manual for specific older models also documents an economy filtration mode that does not control temperature continuously (Jacuzzi ProTech). If your spa is in Economy or a similar label, heat may appear mainly when filtration runs. Check your own manual before changing modes.
+Jacuzzi's energy guide describes Standard mode as maintaining set temperature continuously and Economy mode as heating only during filter cycles, with temperature allowed to fluctuate between sessions (Jacuzzi). A legacy Jacuzzi ProTech manual for specific older models also documents an economy filtration mode that does not control temperature continuously (Jacuzzi ProTech). If your spa is in Economy or a similar label, heat may appear mainly when filtration runs. Check your own manual before changing modes. On documented Balboa TP-series systems, compare [Ready vs. Rest mode](/troubleshooting/balboa-ready-vs-rest-mode) before assuming the heater only works with jets.
 
 ### Controllers that require flow before heating (Gecko example)
 

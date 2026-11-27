@@ -1,6 +1,7 @@
 ---
 /**
  * Client-side hot tub volume estimator.
+ * Methods: interior dimensions, measured filling time, water meter readings.
  * No storage, cookies, analytics, or network submission of measurements.
  */
 ---
@@ -11,117 +12,610 @@
 >
   <form data-volume-form class="space-y-6" novalidate>
     <fieldset>
-      <legend class="font-display text-lg font-semibold text-ink">Spa shape</legend>
-      <div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2" role="radiogroup" aria-label="Spa shape">
+      <legend class="font-display text-lg font-semibold text-ink">Calculation method</legend>
+      <div class="mt-3 grid grid-cols-1 gap-2" role="radiogroup" aria-label="Calculation method">
         <label
           class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
         >
           <input
             type="radio"
-            name="shape"
-            value="rectangular"
+            name="method"
+            value="dimensions"
             checked
             class="h-4 w-4 accent-brand"
-            data-shape-input
+            data-method-input
           />
-          <span class="text-base font-medium text-ink">Rectangular / Square</span>
+          <span class="text-base font-medium text-ink">Interior dimensions</span>
         </label>
         <label
           class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
         >
-          <input type="radio" name="shape" value="round" class="h-4 w-4 accent-brand" data-shape-input />
-          <span class="text-base font-medium text-ink">Round</span>
+          <input
+            type="radio"
+            name="method"
+            value="fillTime"
+            class="h-4 w-4 accent-brand"
+            data-method-input
+          />
+          <span class="text-base font-medium text-ink">Measured filling time</span>
+        </label>
+        <label
+          class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+        >
+          <input
+            type="radio"
+            name="method"
+            value="meter"
+            class="h-4 w-4 accent-brand"
+            data-method-input
+          />
+          <span class="text-base font-medium text-ink">Water meter readings</span>
         </label>
       </div>
+      <p class="mt-2 text-sm text-ink-subtle">
+        Manufacturer-listed operating capacity is preferable when available. Only one method is
+        used at a time.
+      </p>
     </fieldset>
 
-    <div>
-      <label for="volume-unit" class="block text-sm font-medium text-ink">Measurement units</label>
-      <select
-        id="volume-unit"
-        name="unit"
-        data-unit-input
-        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-      >
-        <option value="ft" selected>Feet</option>
-        <option value="in">Inches</option>
-        <option value="cm">Centimeters</option>
-        <option value="m">Meters</option>
-      </select>
-      <p class="mt-2 text-sm text-ink-subtle">One unit applies to every measurement below.</p>
-    </div>
+    <!-- Method A: Dimensions -->
+    <div data-method-panel="dimensions" class="space-y-6">
+      <fieldset>
+        <legend class="font-display text-lg font-semibold text-ink">Spa shape</legend>
+        <div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3" role="radiogroup" aria-label="Spa shape">
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+          >
+            <input
+              type="radio"
+              name="shape"
+              value="rectangular"
+              checked
+              class="h-4 w-4 accent-brand"
+              data-shape-input
+            />
+            <span class="text-base font-medium text-ink">Rectangular / Square</span>
+          </label>
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+          >
+            <input
+              type="radio"
+              name="shape"
+              value="round"
+              class="h-4 w-4 accent-brand"
+              data-shape-input
+            />
+            <span class="text-base font-medium text-ink">Round</span>
+          </label>
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+          >
+            <input
+              type="radio"
+              name="shape"
+              value="octagonal"
+              class="h-4 w-4 accent-brand"
+              data-shape-input
+            />
+            <span class="text-base font-medium text-ink">Regular octagon</span>
+          </label>
+        </div>
+      </fieldset>
 
-    <div class="grid gap-4 sm:grid-cols-2" data-rectangular-fields>
       <div>
-        <label for="volume-length" class="block text-sm font-medium text-ink">Length</label>
+        <label for="volume-unit" class="block text-sm font-medium text-ink">Measurement units</label>
+        <select
+          id="volume-unit"
+          name="unit"
+          data-unit-input
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        >
+          <option value="ft" selected>Feet</option>
+          <option value="in">Inches</option>
+          <option value="cm">Centimeters</option>
+          <option value="m">Meters</option>
+        </select>
+        <p class="mt-2 text-sm text-ink-subtle">One unit applies to every dimension below.</p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2" data-rectangular-fields>
+        <div>
+          <label for="volume-length" class="block text-sm font-medium text-ink">Length</label>
+          <input
+            id="volume-length"
+            name="length"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 7"
+            aria-describedby="volume-length-hint volume-length-error"
+            data-field="length"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p id="volume-length-hint" class="mt-1.5 text-sm text-ink-subtle">Interior water length</p>
+          <p
+            id="volume-length-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="length"
+            role="alert"
+          ></p>
+        </div>
+        <div>
+          <label for="volume-width" class="block text-sm font-medium text-ink">Width</label>
+          <input
+            id="volume-width"
+            name="width"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 7"
+            aria-describedby="volume-width-hint volume-width-error"
+            data-field="width"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p id="volume-width-hint" class="mt-1.5 text-sm text-ink-subtle">Interior water width</p>
+          <p
+            id="volume-width-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="width"
+            role="alert"
+          ></p>
+        </div>
+      </div>
+
+      <div class="hidden" data-round-fields>
+        <label for="volume-diameter" class="block text-sm font-medium text-ink">Diameter</label>
         <input
-          id="volume-length"
-          name="length"
+          id="volume-diameter"
+          name="diameter"
           type="text"
           inputmode="decimal"
           autocomplete="off"
           placeholder="e.g. 7"
-          aria-describedby="volume-length-hint volume-length-error"
-          data-field="length"
+          aria-describedby="volume-diameter-hint volume-diameter-error"
+          data-field="diameter"
           class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
         />
-        <p id="volume-length-hint" class="mt-1.5 text-sm text-ink-subtle">Interior water length</p>
-        <p id="volume-length-error" class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]" data-error-for="length" role="alert"></p>
+        <p id="volume-diameter-hint" class="mt-1.5 text-sm text-ink-subtle">
+          Interior diameter across the water surface
+        </p>
+        <p
+          id="volume-diameter-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="diameter"
+          role="alert"
+        ></p>
       </div>
-      <div>
-        <label for="volume-width" class="block text-sm font-medium text-ink">Width</label>
+
+      <div class="hidden" data-octagonal-fields>
+        <label for="volume-octagon-width" class="block text-sm font-medium text-ink"
+          >Width across flats</label
+        >
         <input
-          id="volume-width"
-          name="width"
+          id="volume-octagon-width"
+          name="octagonWidth"
           type="text"
           inputmode="decimal"
           autocomplete="off"
           placeholder="e.g. 7"
-          aria-describedby="volume-width-hint volume-width-error"
-          data-field="width"
+          aria-describedby="volume-octagon-width-hint volume-octagon-width-error"
+          data-field="octagonWidth"
           class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
         />
-        <p id="volume-width-hint" class="mt-1.5 text-sm text-ink-subtle">Interior water width</p>
-        <p id="volume-width-error" class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]" data-error-for="width" role="alert"></p>
+        <p id="volume-octagon-width-hint" class="mt-1.5 text-sm text-ink-subtle">
+          Measure across opposite parallel sides (width across flats), not corner-to-corner
+          diameter.
+        </p>
+        <p
+          id="volume-octagon-width-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="octagonWidth"
+          role="alert"
+        ></p>
       </div>
+
+      <div>
+        <label for="volume-depth" class="block text-sm font-medium text-ink"
+          >Average water depth</label
+        >
+        <input
+          id="volume-depth"
+          name="depth"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="e.g. 2.5"
+          aria-describedby="volume-depth-hint volume-depth-error"
+          data-field="depth"
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        />
+        <p id="volume-depth-hint" class="mt-1.5 text-sm text-ink-subtle">
+          Approximate vertical depth of the filled water to the typical waterline—not exterior
+          cabinet height. If you use a displacement percentage below, enter an unadjusted reference
+          depth rather than a depth already reduced for seats.
+        </p>
+        <p
+          id="volume-depth-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="depth"
+          role="alert"
+        ></p>
+      </div>
+
+      <fieldset class="rounded-xl border border-border/80 bg-surface/60 p-4 sm:p-5">
+        <legend class="px-1 font-display text-base font-semibold text-ink">
+          Displacement adjustment (optional)
+        </legend>
+        <p class="mt-1 text-sm text-ink-subtle">
+          Default is none. Leave blank for the simple geometric estimate. Any percentage you enter
+          is illustrative only—not a universally accurate spa value. Do not also reduce average
+          depth for the same seats or shell features.
+        </p>
+        <div class="mt-3 sm:max-w-xs">
+          <label for="volume-displacement" class="block text-sm font-medium text-ink"
+            >Displacement percentage</label
+          >
+          <input
+            id="volume-displacement"
+            name="displacementPercent"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="Leave blank for none"
+            aria-describedby="volume-displacement-hint volume-displacement-error"
+            data-field="displacement"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p id="volume-displacement-hint" class="mt-1.5 text-sm text-ink-subtle">
+            Adjusted volume = unadjusted geometric volume × (1 − percentage ÷ 100).
+          </p>
+          <p
+            id="volume-displacement-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="displacement"
+            role="alert"
+          ></p>
+        </div>
+      </fieldset>
     </div>
 
-    <div class="hidden" data-round-fields>
-      <label for="volume-diameter" class="block text-sm font-medium text-ink">Diameter</label>
-      <input
-        id="volume-diameter"
-        name="diameter"
-        type="text"
-        inputmode="decimal"
-        autocomplete="off"
-        placeholder="e.g. 7"
-        aria-describedby="volume-diameter-hint volume-diameter-error"
-        data-field="diameter"
-        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-      />
-      <p id="volume-diameter-hint" class="mt-1.5 text-sm text-ink-subtle">
-        Interior diameter across the water surface
-      </p>
-      <p id="volume-diameter-error" class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]" data-error-for="diameter" role="alert"></p>
+    <!-- Method B: Fill time -->
+    <div data-method-panel="fillTime" class="hidden space-y-6">
+      <div>
+        <label for="volume-fill-duration" class="block text-sm font-medium text-ink"
+          >Time taken to fill the spa</label
+        >
+        <div class="mt-2 grid gap-3 sm:grid-cols-[minmax(0,1fr)_11rem]">
+          <input
+            id="volume-fill-duration"
+            name="fillDuration"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 40"
+            aria-describedby="volume-fill-duration-hint volume-fill-duration-error"
+            data-field="fillDuration"
+            class="min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <select
+            id="volume-fill-duration-unit"
+            name="fillDurationUnit"
+            data-fill-duration-unit
+            aria-label="Fill duration unit"
+            class="min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          >
+            <option value="minutes" selected>Minutes</option>
+            <option value="hours">Hours</option>
+          </select>
+        </div>
+        <p id="volume-fill-duration-hint" class="mt-1.5 text-sm text-ink-subtle">
+          Exclude interruptions. Prefer a fill that started empty and stopped at the manufacturer’s
+          recommended waterline.
+        </p>
+        <p
+          id="volume-fill-duration-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="fillDuration"
+          role="alert"
+        ></p>
+      </div>
+
+      <fieldset>
+        <legend class="font-display text-lg font-semibold text-ink">Hose flow rate</legend>
+        <p class="mt-2 text-sm text-ink-subtle">
+          Use the same hose, faucet setting, and attachments as during the fill. Measure your setup
+          rather than assuming a universal garden-hose rate.
+        </p>
+        <div class="mt-3 grid grid-cols-1 gap-2" role="radiogroup" aria-label="Hose flow input mode">
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+          >
+            <input
+              type="radio"
+              name="flowInputMode"
+              value="known"
+              checked
+              class="h-4 w-4 accent-brand"
+              data-flow-mode
+            />
+            <span class="text-base font-medium text-ink">I know my hose flow rate</span>
+          </label>
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+          >
+            <input
+              type="radio"
+              name="flowInputMode"
+              value="measure"
+              class="h-4 w-4 accent-brand"
+              data-flow-mode
+            />
+            <span class="text-base font-medium text-ink">Measure my hose flow with a bucket</span>
+          </label>
+        </div>
+
+        <div class="mt-4" data-known-flow-wrap>
+          <label for="volume-flow" class="block text-sm font-medium text-ink">Hose flow rate</label>
+          <div class="mt-2 grid gap-3 sm:grid-cols-[minmax(0,1fr)_13rem]">
+            <input
+              id="volume-flow"
+              name="flowRate"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="e.g. 10"
+              aria-describedby="volume-flow-hint volume-flow-error"
+              data-field="flowRate"
+              class="min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            />
+            <select
+              id="volume-flow-unit"
+              name="flowUnit"
+              data-flow-unit
+              aria-label="Flow rate unit"
+              class="min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            >
+              <option value="gpm" selected>Gallons per minute</option>
+              <option value="lpm">Liters per minute</option>
+            </select>
+          </div>
+          <p id="volume-flow-hint" class="mt-1.5 text-sm text-ink-subtle">
+            Volume ≈ flow per minute × fill duration in minutes.
+          </p>
+          <p
+            id="volume-flow-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="flowRate"
+            role="alert"
+          ></p>
+        </div>
+
+        <div class="mt-4 hidden" data-measure-flow-wrap>
+          <p id="volume-bucket-instructions" class="text-sm leading-relaxed text-ink-muted">
+            Use a bucket of known volume. Open the faucet to the fill setting, keep the same hose
+            and attachments, and time how many seconds the bucket takes to fill. Flow per minute =
+            bucket capacity × 60 ÷ seconds.
+          </p>
+
+          <div class="mt-4">
+            <label for="volume-bucket-unit" class="block text-sm font-medium text-ink"
+              >Bucket unit</label
+            >
+            <select
+              id="volume-bucket-unit"
+              name="bucketUnit"
+              data-bucket-unit
+              aria-describedby="volume-bucket-instructions"
+              class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+            >
+              <option value="gal" selected>U.S. gallons</option>
+              <option value="L">Liters</option>
+            </select>
+          </div>
+
+          <fieldset class="mt-4">
+            <legend class="block text-sm font-medium text-ink">Bucket capacity</legend>
+            <div
+              class="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3"
+              role="radiogroup"
+              aria-label="Bucket capacity"
+              data-bucket-preset-group
+            ></div>
+            <p
+              id="volume-bucket-capacity-error"
+              class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+              data-error-for="bucketCapacity"
+              role="alert"
+            ></p>
+          </fieldset>
+
+          <div class="mt-3 hidden" data-custom-bucket-wrap>
+            <label for="volume-custom-bucket" class="block text-sm font-medium text-ink"
+              >Custom bucket capacity</label
+            >
+            <input
+              id="volume-custom-bucket"
+              name="customBucketCapacity"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="e.g. 4"
+              aria-describedby="volume-custom-bucket-hint volume-bucket-capacity-error"
+              data-field="bucketCapacity"
+              class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+            />
+            <p id="volume-custom-bucket-hint" class="mt-1.5 text-sm text-ink-subtle">
+              Enter the marked capacity of the bucket you are timing.
+            </p>
+          </div>
+
+          <div class="mt-4">
+            <label for="volume-bucket-seconds" class="block text-sm font-medium text-ink"
+              >Seconds to fill the bucket</label
+            >
+            <input
+              id="volume-bucket-seconds"
+              name="bucketSeconds"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="e.g. 30"
+              aria-describedby="volume-bucket-seconds-hint volume-bucket-seconds-error"
+              data-field="bucketSeconds"
+              class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+            />
+            <p id="volume-bucket-seconds-hint" class="mt-1.5 text-sm text-ink-subtle">
+              Example: a 5-gallon bucket that fills in 30 seconds is 10 gallons per minute.
+            </p>
+            <p
+              id="volume-bucket-seconds-error"
+              class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+              data-error-for="bucketSeconds"
+              role="alert"
+            ></p>
+          </div>
+        </div>
+      </fieldset>
     </div>
 
-    <div>
-      <label for="volume-depth" class="block text-sm font-medium text-ink">Average water depth</label>
-      <input
-        id="volume-depth"
-        name="depth"
-        type="text"
-        inputmode="decimal"
-        autocomplete="off"
-        placeholder="e.g. 2.5"
-        aria-describedby="volume-depth-hint volume-depth-error"
-        data-field="depth"
-        class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-      />
-      <p id="volume-depth-hint" class="mt-1.5 text-sm text-ink-subtle">
-        Approximate vertical depth of the filled water, not the full exterior cabinet height
+    <!-- Method C: Meter -->
+    <div data-method-panel="meter" class="hidden space-y-6">
+      <fieldset>
+        <legend class="font-display text-lg font-semibold text-ink">How did you measure?</legend>
+        <div class="mt-3 grid grid-cols-1 gap-2" role="radiogroup" aria-label="Meter entry mode">
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+          >
+            <input
+              type="radio"
+              name="meterEntryMode"
+              value="startEnd"
+              checked
+              class="h-4 w-4 accent-brand"
+              data-meter-mode
+            />
+            <span class="text-base font-medium text-ink">Starting and ending meter readings</span>
+          </label>
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 has-[:checked]:border-brand has-[:checked]:bg-brand-soft"
+          >
+            <input
+              type="radio"
+              name="meterEntryMode"
+              value="direct"
+              class="h-4 w-4 accent-brand"
+              data-meter-mode
+            />
+            <span class="text-base font-medium text-ink">Directly measured amount added</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="volume-meter-unit" class="block text-sm font-medium text-ink"
+          >Meter / volume unit</label
+        >
+        <select
+          id="volume-meter-unit"
+          name="meterUnit"
+          data-meter-unit
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+        >
+          <option value="gal" selected>U.S. gallons</option>
+          <option value="L">Liters</option>
+          <option value="m3">Cubic meters</option>
+          <option value="ft3">Cubic feet</option>
+        </select>
+        <p class="mt-1.5 text-sm text-ink-subtle">
+          Results are always shown in U.S. gallons and liters. Do not enter utility account
+          information.
+        </p>
+      </div>
+
+      <div data-meter-start-end class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label for="volume-meter-start" class="block text-sm font-medium text-ink"
+            >Starting reading</label
+          >
+          <input
+            id="volume-meter-start"
+            name="meterStart"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 1200"
+            aria-describedby="volume-meter-start-hint volume-meter-start-error"
+            data-field="meterStart"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p id="volume-meter-start-hint" class="mt-1.5 text-sm text-ink-subtle">
+            Reading before the spa fill began
+          </p>
+          <p
+            id="volume-meter-start-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="meterStart"
+            role="alert"
+          ></p>
+        </div>
+        <div>
+          <label for="volume-meter-end" class="block text-sm font-medium text-ink"
+            >Ending reading</label
+          >
+          <input
+            id="volume-meter-end"
+            name="meterEnd"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 1600"
+            aria-describedby="volume-meter-end-hint volume-meter-end-error"
+            data-field="meterEnd"
+            class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          />
+          <p id="volume-meter-end-hint" class="mt-1.5 text-sm text-ink-subtle">
+            Reading after filling stopped at the waterline
+          </p>
+          <p
+            id="volume-meter-end-error"
+            class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+            data-error-for="meterEnd"
+            role="alert"
+          ></p>
+        </div>
+      </div>
+
+      <div class="hidden" data-meter-direct>
+        <label for="volume-meter-direct" class="block text-sm font-medium text-ink"
+          >Water amount added</label
+        >
+        <input
+          id="volume-meter-direct"
+          name="meterDirect"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="e.g. 400"
+          aria-describedby="volume-meter-direct-hint volume-meter-direct-error"
+          data-field="meterDirect"
+          class="mt-2 min-h-12 w-full rounded-xl border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:max-w-xs"
+        />
+        <p id="volume-meter-direct-hint" class="mt-1.5 text-sm text-ink-subtle">
+          From a dedicated hose meter or other direct measurement of water added
+        </p>
+        <p
+          id="volume-meter-direct-error"
+          class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]"
+          data-error-for="meterDirect"
+          role="alert"
+        ></p>
+      </div>
+
+      <p class="text-sm leading-relaxed text-ink-muted">
+        A whole-property meter is useful only when other water use is excluded during the fill. If
+        the spa started partially filled, the result is water added—not total capacity.
       </p>
-      <p id="volume-depth-error" class="mt-1.5 hidden text-sm font-medium text-[#9b3b2e]" data-error-for="depth" role="alert"></p>
     </div>
 
     <div class="flex flex-col gap-3 sm:flex-row">
@@ -151,11 +645,26 @@
 
 <script>
   import {
+    BUCKET_PRESETS_GAL,
+    BUCKET_PRESETS_L,
+    type BucketPreset,
+    type CapacityUnit,
+    type FlowUnit,
+  } from '../utils/hot-tub-fill-time';
+  import {
     calculateVolume,
+    calculateVolumeFromFillTime,
+    calculateVolumeFromMeter,
     formatWholeNumber,
+    METHOD_LABELS,
     SHAPE_LABELS,
     UNIT_LABELS,
     type FieldKey,
+    type FillDurationUnit,
+    type FlowInputMode,
+    type MeterEntryMode,
+    type MeterVolumeUnit,
+    type VolumeMethod,
     type VolumeResult,
     type VolumeShape,
     type VolumeUnit,
@@ -165,34 +674,149 @@
     const form = root.querySelector<HTMLFormElement>('[data-volume-form]');
     const resultEl = root.querySelector<HTMLElement>('[data-result]');
     const resetBtn = root.querySelector<HTMLButtonElement>('[data-reset]');
+    if (!form || !resultEl || !resetBtn) return;
+
     const rectangularFields = root.querySelector<HTMLElement>('[data-rectangular-fields]');
     const roundFields = root.querySelector<HTMLElement>('[data-round-fields]');
-    const shapeInputs = root.querySelectorAll<HTMLInputElement>('[data-shape-input]');
+    const octagonalFields = root.querySelector<HTMLElement>('[data-octagonal-fields]');
     const unitInput = root.querySelector<HTMLSelectElement>('[data-unit-input]');
+    const knownFlowWrap = root.querySelector<HTMLElement>('[data-known-flow-wrap]');
+    const measureFlowWrap = root.querySelector<HTMLElement>('[data-measure-flow-wrap]');
+    const bucketPresetGroup = root.querySelector<HTMLElement>('[data-bucket-preset-group]');
+    const customBucketWrap = root.querySelector<HTMLElement>('[data-custom-bucket-wrap]');
+    const bucketUnitSelect = root.querySelector<HTMLSelectElement>('[data-bucket-unit]');
+    const meterStartEnd = root.querySelector<HTMLElement>('[data-meter-start-end]');
+    const meterDirect = root.querySelector<HTMLElement>('[data-meter-direct]');
 
-    if (!form || !resultEl || !resetBtn || !rectangularFields || !roundFields || !unitInput) return;
+    const fieldOrder: FieldKey[] = [
+      'length',
+      'width',
+      'diameter',
+      'octagonWidth',
+      'depth',
+      'displacement',
+      'fillDuration',
+      'flowRate',
+      'bucketCapacity',
+      'bucketSeconds',
+      'meterStart',
+      'meterEnd',
+      'meterDirect',
+    ];
 
-    const fieldOrder: FieldKey[] = ['length', 'width', 'diameter', 'depth'];
+    let selectedBucketPreset: BucketPreset = '5';
+
+    function currentMethod(): VolumeMethod {
+      const checked = form!.querySelector<HTMLInputElement>('input[name="method"]:checked');
+      if (checked?.value === 'fillTime') return 'fillTime';
+      if (checked?.value === 'meter') return 'meter';
+      return 'dimensions';
+    }
 
     function currentShape(): VolumeShape {
       const checked = form!.querySelector<HTMLInputElement>('input[name="shape"]:checked');
-      return checked?.value === 'round' ? 'round' : 'rectangular';
+      if (checked?.value === 'round') return 'round';
+      if (checked?.value === 'octagonal') return 'octagonal';
+      return 'rectangular';
+    }
+
+    function currentFlowMode(): FlowInputMode {
+      const checked = form!.querySelector<HTMLInputElement>('input[name="flowInputMode"]:checked');
+      return checked?.value === 'measure' ? 'measure' : 'known';
+    }
+
+    function currentMeterMode(): MeterEntryMode {
+      const checked = form!.querySelector<HTMLInputElement>('input[name="meterEntryMode"]:checked');
+      return checked?.value === 'direct' ? 'direct' : 'startEnd';
+    }
+
+    function setPanelVisible(el: HTMLElement | null, visible: boolean) {
+      if (!el) return;
+      el.hidden = !visible;
+      el.classList.toggle('hidden', !visible);
+    }
+
+    function syncMethodPanels() {
+      const method = currentMethod();
+      for (const panel of root.querySelectorAll<HTMLElement>('[data-method-panel]')) {
+        setPanelVisible(panel, panel.getAttribute('data-method-panel') === method);
+      }
+      if (method === 'dimensions') syncShapeFields();
+      if (method === 'fillTime') syncFlowMode();
+      if (method === 'meter') syncMeterMode();
     }
 
     function syncShapeFields() {
+      if (!rectangularFields || !roundFields || !octagonalFields) return;
       const shape = currentShape();
-      const isRect = shape === 'rectangular';
-      rectangularFields!.hidden = !isRect;
-      rectangularFields!.classList.toggle('hidden', !isRect);
-      roundFields!.hidden = isRect;
-      roundFields!.classList.toggle('hidden', isRect);
+      setPanelVisible(rectangularFields, shape === 'rectangular');
+      setPanelVisible(roundFields, shape === 'round');
+      setPanelVisible(octagonalFields, shape === 'octagonal');
+      for (const input of rectangularFields.querySelectorAll('input')) {
+        input.disabled = shape !== 'rectangular';
+      }
+      for (const input of roundFields.querySelectorAll('input')) {
+        input.disabled = shape !== 'round';
+      }
+      for (const input of octagonalFields.querySelectorAll('input')) {
+        input.disabled = shape !== 'octagonal';
+      }
+    }
 
-      for (const input of rectangularFields!.querySelectorAll('input')) {
-        input.disabled = !isRect;
+    function syncFlowMode() {
+      const mode = currentFlowMode();
+      setPanelVisible(knownFlowWrap, mode === 'known');
+      setPanelVisible(measureFlowWrap, mode === 'measure');
+      if (mode === 'measure') {
+        renderBucketPresets();
+        syncCustomBucket();
       }
-      for (const input of roundFields!.querySelectorAll('input')) {
-        input.disabled = isRect;
+    }
+
+    function syncMeterMode() {
+      const mode = currentMeterMode();
+      setPanelVisible(meterStartEnd, mode === 'startEnd');
+      setPanelVisible(meterDirect, mode === 'direct');
+    }
+
+    function renderBucketPresets() {
+      if (!bucketPresetGroup || !bucketUnitSelect) return;
+      const unit = bucketUnitSelect.value as CapacityUnit;
+      const presets = unit === 'L' ? BUCKET_PRESETS_L : BUCKET_PRESETS_GAL;
+      if (!presets.includes(selectedBucketPreset as Exclude<BucketPreset, 'custom'>)) {
+        selectedBucketPreset = presets[0] ?? '5';
       }
+      const unitLabel = unit === 'L' ? 'L' : 'gal';
+      bucketPresetGroup.innerHTML = [
+        ...presets.map(
+          (preset) => `
+          <label class="flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-border bg-surface px-3 py-2 has-[:checked]:border-brand has-[:checked]:bg-brand-soft">
+            <input type="radio" name="bucketPreset" value="${preset}" class="h-4 w-4 accent-brand" data-bucket-preset ${
+              selectedBucketPreset === preset ? 'checked' : ''
+            } />
+            <span class="text-sm font-medium text-ink">${preset} ${unitLabel}</span>
+          </label>`,
+        ),
+        `<label class="flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-border bg-surface px-3 py-2 has-[:checked]:border-brand has-[:checked]:bg-brand-soft">
+          <input type="radio" name="bucketPreset" value="custom" class="h-4 w-4 accent-brand" data-bucket-preset ${
+            selectedBucketPreset === 'custom' ? 'checked' : ''
+          } />
+          <span class="text-sm font-medium text-ink">Custom</span>
+        </label>`,
+      ].join('');
+
+      bucketPresetGroup.querySelectorAll<HTMLInputElement>('[data-bucket-preset]').forEach((el) => {
+        el.addEventListener('change', () => {
+          selectedBucketPreset = el.value as BucketPreset;
+          clearErrors();
+          clearResult();
+          syncCustomBucket();
+        });
+      });
+    }
+
+    function syncCustomBucket() {
+      setPanelVisible(customBucketWrap, selectedBucketPreset === 'custom');
     }
 
     function clearErrors() {
@@ -224,69 +848,15 @@
           errorEl.classList.remove('hidden');
         }
       }
-
       const first = errors[0];
       if (!first) return;
-      const firstInput = form!.querySelector<HTMLInputElement>(`[data-field="${first.field}"]`);
-      firstInput?.focus();
+      form!.querySelector<HTMLInputElement>(`[data-field="${first.field}"]`)?.focus();
     }
 
     function clearResult() {
       resultEl!.hidden = true;
       resultEl!.classList.add('hidden');
       resultEl!.innerHTML = '';
-    }
-
-    function renderResult(data: VolumeResult) {
-      const unitLabel = UNIT_LABELS[data.unit];
-      const shapeLabel = SHAPE_LABELS[data.shape];
-
-      let measurementLines = '';
-      if (data.shape === 'rectangular') {
-        measurementLines = `
-          <li>Length: ${escapeHtml(data.measurements.raw.length)} ${escapeHtml(unitLabel.toLowerCase())}</li>
-          <li>Width: ${escapeHtml(data.measurements.raw.width)} ${escapeHtml(unitLabel.toLowerCase())}</li>
-          <li>Average water depth: ${escapeHtml(data.measurements.raw.depth)} ${escapeHtml(unitLabel.toLowerCase())}</li>
-        `;
-      } else {
-        measurementLines = `
-          <li>Diameter: ${escapeHtml(data.measurements.raw.diameter)} ${escapeHtml(unitLabel.toLowerCase())}</li>
-          <li>Average water depth: ${escapeHtml(data.measurements.raw.depth)} ${escapeHtml(unitLabel.toLowerCase())}</li>
-        `;
-      }
-
-      resultEl!.innerHTML = `
-        <h2 class="font-display text-xl font-semibold text-ink">Estimated capacity</h2>
-        <p class="mt-4 text-2xl font-semibold text-ink sm:text-3xl">
-          Approximately ${formatWholeNumber(data.displayGallons)} gallons
-        </p>
-        <p class="mt-1 text-xl font-semibold text-ink sm:text-2xl">
-          Approximately ${formatWholeNumber(data.displayLiters)} liters
-        </p>
-        <p class="mt-4 text-base leading-relaxed text-ink-muted">
-          This estimate uses the dimensions you entered. Molded seats, footwells, rounded
-          corners, and equipment space can make the actual water capacity lower.
-        </p>
-        <div class="mt-5 rounded-xl border border-warning-border bg-warning-bg p-4 text-sm leading-relaxed text-warning-ink" role="note">
-          <strong class="font-semibold">Accuracy notice:</strong>
-          This calculator provides an estimate. Confirm your spa’s listed capacity in the
-          owner’s manual or manufacturer specifications before adding chemicals. Follow the
-          product label, confirmed water volume, and current water-test results.
-        </div>
-        <dl class="mt-5 space-y-2 text-sm text-ink-muted">
-          <div><dt class="inline font-medium text-ink">Shape:</dt> <dd class="inline">${escapeHtml(shapeLabel)}</dd></div>
-          <div>
-            <dt class="font-medium text-ink">Measurements entered</dt>
-            <dd><ul class="mt-1 list-disc space-y-1 pl-5">${measurementLines}</ul></dd>
-          </div>
-          <div>
-            <dt class="inline font-medium text-ink">Formula used:</dt>
-            <dd class="inline">${escapeHtml(data.formula)}</dd>
-          </div>
-        </dl>
-      `;
-      resultEl!.hidden = false;
-      resultEl!.classList.remove('hidden');
     }
 
     function escapeHtml(value: string): string {
@@ -297,49 +867,258 @@
         .replace(/"/g, '&quot;');
     }
 
-    shapeInputs.forEach((input) => {
-      input.addEventListener('change', () => {
-        clearErrors();
-        clearResult();
-        syncShapeFields();
-      });
-    });
+    function renderResult(data: VolumeResult) {
+      let detailLines = '';
+      if (data.method === 'dimensions' && data.shape && data.unit) {
+        const unitLabel = UNIT_LABELS[data.unit].toLowerCase();
+        const shapeLabel = SHAPE_LABELS[data.shape];
+        detailLines += `<div><dt class="inline font-medium text-ink">Shape:</dt> <dd class="inline">${escapeHtml(shapeLabel)}</dd></div>`;
+        const items: string[] = [];
+        if (data.shape === 'rectangular') {
+          items.push(
+            `Length: ${escapeHtml(data.measurements.raw.length)} ${escapeHtml(unitLabel)}`,
+            `Width: ${escapeHtml(data.measurements.raw.width)} ${escapeHtml(unitLabel)}`,
+          );
+        } else if (data.shape === 'round') {
+          items.push(
+            `Diameter: ${escapeHtml(data.measurements.raw.diameter)} ${escapeHtml(unitLabel)}`,
+          );
+        } else {
+          items.push(
+            `Width across flats: ${escapeHtml(data.measurements.raw.octagonWidth)} ${escapeHtml(unitLabel)}`,
+          );
+        }
+        items.push(
+          `Average water depth: ${escapeHtml(data.measurements.raw.depth)} ${escapeHtml(unitLabel)}`,
+        );
+        if (data.displacementPercent > 0) {
+          items.push(`Displacement adjustment: ${escapeHtml(String(data.displacementPercent))}%`);
+          if (data.unadjustedGallons !== null) {
+            items.push(
+              `Unadjusted geometric estimate: ~${formatWholeNumber(Math.round(data.unadjustedGallons))} gal`,
+            );
+          }
+        }
+        detailLines += `<div><dt class="font-medium text-ink">Measurements entered</dt><dd><ul class="mt-1 list-disc space-y-1 pl-5">${items
+          .map((i) => `<li>${i}</li>`)
+          .join('')}</ul></dd></div>`;
+      } else if (data.method === 'fillTime') {
+        detailLines += `<div><dt class="font-medium text-ink">Inputs</dt><dd><ul class="mt-1 list-disc space-y-1 pl-5">
+          <li>Fill duration: ${escapeHtml(data.measurements.raw.fillDuration)} ${escapeHtml(data.measurements.raw.fillDurationUnit)}</li>
+          <li>Flow: ${escapeHtml(data.measurements.raw.flow)}</li>
+        </ul></dd></div>`;
+      } else {
+        detailLines += `<div><dt class="font-medium text-ink">Meter input</dt><dd class="mt-1">${escapeHtml(
+          data.measurements.raw.summary,
+        )}</dd></div>`;
+      }
 
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const shape = currentShape();
-      const unit = unitInput.value as VolumeUnit;
-      const outcome = calculateVolume({
-        shape,
-        unit,
-        length: (form.querySelector<HTMLInputElement>('[data-field="length"]')?.value ?? ''),
-        width: (form.querySelector<HTMLInputElement>('[data-field="width"]')?.value ?? ''),
-        diameter: (form.querySelector<HTMLInputElement>('[data-field="diameter"]')?.value ?? ''),
-        depth: (form.querySelector<HTMLInputElement>('[data-field="depth"]')?.value ?? ''),
-      });
+      const assumptions = data.assumptions
+        .map((a) => `<li>${escapeHtml(a)}</li>`)
+        .join('');
+
+      resultEl!.innerHTML = `
+        <h2 class="font-display text-xl font-semibold text-ink">Estimated capacity</h2>
+        <p class="mt-4 text-2xl font-semibold text-ink sm:text-3xl">
+          Approximately ${formatWholeNumber(data.displayGallons)} gallons
+        </p>
+        <p class="mt-1 text-xl font-semibold text-ink sm:text-2xl">
+          Approximately ${formatWholeNumber(data.displayLiters)} liters
+        </p>
+        <p class="mt-3 text-sm text-ink-muted">
+          Method: <span class="font-medium text-ink">${escapeHtml(METHOD_LABELS[data.method])}</span>
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-muted">
+          This is a planning estimate. Prefer the manufacturer’s listed operating capacity when it
+          is available.
+        </p>
+        <div class="mt-5 rounded-xl border border-warning-border bg-warning-bg p-4 text-sm leading-relaxed text-warning-ink" role="note">
+          <strong class="font-semibold">Accuracy notice:</strong>
+          Confirm capacity in the owner’s manual before dosing chemicals. Follow the product label,
+          confirmed water volume, and current water-test results.
+        </div>
+        <dl class="mt-5 space-y-2 text-sm text-ink-muted">
+          ${detailLines}
+          <div>
+            <dt class="inline font-medium text-ink">Formula used:</dt>
+            <dd class="inline">${escapeHtml(data.formula)}</dd>
+          </div>
+          <div>
+            <dt class="font-medium text-ink">Assumptions &amp; limitations</dt>
+            <dd><ul class="mt-1 list-disc space-y-1 pl-5">${assumptions}</ul></dd>
+          </div>
+        </dl>
+        <p class="mt-5 text-sm text-ink-muted">
+          Related tools:
+          <a href="/calculators/hot-tub-fill-time-calculator" class="font-medium text-brand-dark underline-offset-2 hover:underline">Fill-time calculator</a>,
+          <a href="/calculators/hot-tub-heat-up-time-calculator" class="font-medium text-brand-dark underline-offset-2 hover:underline">Heat-up time calculator</a>,
+          <a href="/calculators/hot-tub-weight-calculator" class="font-medium text-brand-dark underline-offset-2 hover:underline">Weight calculator</a>.
+        </p>
+      `;
+      resultEl!.hidden = false;
+      resultEl!.classList.remove('hidden');
+    }
+
+    function runCalculate() {
+      const method = currentMethod();
+      let outcome:
+        | { ok: true; result: VolumeResult }
+        | { ok: false; errors: { field: FieldKey; message: string }[] };
+
+      if (method === 'dimensions') {
+        outcome = calculateVolume({
+          shape: currentShape(),
+          unit: (unitInput?.value as VolumeUnit) || 'ft',
+          length: form!.querySelector<HTMLInputElement>('[data-field="length"]')?.value ?? '',
+          width: form!.querySelector<HTMLInputElement>('[data-field="width"]')?.value ?? '',
+          diameter: form!.querySelector<HTMLInputElement>('[data-field="diameter"]')?.value ?? '',
+          octagonWidth:
+            form!.querySelector<HTMLInputElement>('[data-field="octagonWidth"]')?.value ?? '',
+          depth: form!.querySelector<HTMLInputElement>('[data-field="depth"]')?.value ?? '',
+          displacementPercent:
+            form!.querySelector<HTMLInputElement>('[data-field="displacement"]')?.value ?? '',
+        });
+      } else if (method === 'fillTime') {
+        outcome = calculateVolumeFromFillTime({
+          fillDuration:
+            form!.querySelector<HTMLInputElement>('[data-field="fillDuration"]')?.value ?? '',
+          fillDurationUnit: (form!.querySelector<HTMLSelectElement>('[data-fill-duration-unit]')
+            ?.value || 'minutes') as FillDurationUnit,
+          flowInputMode: currentFlowMode(),
+          flowRate: form!.querySelector<HTMLInputElement>('[data-field="flowRate"]')?.value ?? '',
+          flowUnit: (form!.querySelector<HTMLSelectElement>('[data-flow-unit]')?.value ||
+            'gpm') as FlowUnit,
+          bucketPreset: selectedBucketPreset,
+          customBucketCapacity:
+            form!.querySelector<HTMLInputElement>('[data-field="bucketCapacity"]')?.value ?? '',
+          bucketUnit: (bucketUnitSelect?.value || 'gal') as CapacityUnit,
+          bucketSeconds:
+            form!.querySelector<HTMLInputElement>('[data-field="bucketSeconds"]')?.value ?? '',
+        });
+      } else {
+        outcome = calculateVolumeFromMeter({
+          entryMode: currentMeterMode(),
+          meterUnit: (form!.querySelector<HTMLSelectElement>('[data-meter-unit]')?.value ||
+            'gal') as MeterVolumeUnit,
+          meterStart:
+            form!.querySelector<HTMLInputElement>('[data-field="meterStart"]')?.value ?? '',
+          meterEnd: form!.querySelector<HTMLInputElement>('[data-field="meterEnd"]')?.value ?? '',
+          meterDirect:
+            form!.querySelector<HTMLInputElement>('[data-field="meterDirect"]')?.value ?? '',
+        });
+      }
 
       if (!outcome.ok) {
         clearResult();
         showErrors(outcome.errors);
         return;
       }
-
       clearErrors();
       renderResult(outcome.result);
+    }
+
+    form.querySelectorAll('[data-method-input]').forEach((el) => {
+      el.addEventListener('change', () => {
+        clearErrors();
+        clearResult();
+        syncMethodPanels();
+      });
+    });
+    form.querySelectorAll('[data-shape-input]').forEach((el) => {
+      el.addEventListener('change', () => {
+        clearErrors();
+        clearResult();
+        syncShapeFields();
+      });
+    });
+    form.querySelectorAll('[data-flow-mode]').forEach((el) => {
+      el.addEventListener('change', () => {
+        clearErrors();
+        clearResult();
+        syncFlowMode();
+      });
+    });
+    form.querySelectorAll('[data-meter-mode]').forEach((el) => {
+      el.addEventListener('change', () => {
+        clearErrors();
+        clearResult();
+        syncMeterMode();
+      });
+    });
+    bucketUnitSelect?.addEventListener('change', () => {
+      clearErrors();
+      clearResult();
+      renderBucketPresets();
+      syncCustomBucket();
+    });
+
+    // Preserve equivalent dimension values when switching units
+    let lastUnit: VolumeUnit = (unitInput?.value as VolumeUnit) || 'ft';
+    unitInput?.addEventListener('change', () => {
+      const next = unitInput.value as VolumeUnit;
+      const convert = (raw: string): string => {
+        const n = Number(raw.trim().replace(/,/g, ''));
+        if (!Number.isFinite(n) || raw.trim() === '') return raw;
+        const feetMap: Record<VolumeUnit, number> = {
+          ft: 1,
+          in: 1 / 12,
+          cm: 1 / 30.48,
+          m: 1 / 0.3048,
+        };
+        const feet = n * feetMap[lastUnit];
+        const converted = feet / feetMap[next];
+        const rounded = Math.round(converted * 1e6) / 1e6;
+        return String(rounded);
+      };
+      for (const field of ['length', 'width', 'diameter', 'octagonWidth', 'depth'] as const) {
+        const input = form!.querySelector<HTMLInputElement>(`[data-field="${field}"]`);
+        if (input && input.value.trim()) input.value = convert(input.value);
+      }
+      lastUnit = next;
+      clearResult();
+    });
+
+    // Preserve flow rate when switching gpm/lpm
+    const flowUnitSelect = form.querySelector<HTMLSelectElement>('[data-flow-unit]');
+    let lastFlowUnit: FlowUnit = (flowUnitSelect?.value as FlowUnit) || 'gpm';
+    flowUnitSelect?.addEventListener('change', () => {
+      const next = flowUnitSelect.value as FlowUnit;
+      const flowInput = form!.querySelector<HTMLInputElement>('[data-field="flowRate"]');
+      if (flowInput?.value.trim()) {
+        const n = Number(flowInput.value.trim().replace(/,/g, ''));
+        if (Number.isFinite(n)) {
+          const LITERS = 3.785411784;
+          const gpm = lastFlowUnit === 'gpm' ? n : n / LITERS;
+          const converted = next === 'gpm' ? gpm : gpm * LITERS;
+          flowInput.value = String(Math.round(converted * 1e6) / 1e6);
+        }
+      }
+      lastFlowUnit = next;
+      clearResult();
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      runCalculate();
     });
 
     resetBtn.addEventListener('click', () => {
       form.reset();
-      const rectangular = form.querySelector<HTMLInputElement>('input[name="shape"][value="rectangular"]');
-      if (rectangular) rectangular.checked = true;
-      unitInput.value = 'ft';
+      selectedBucketPreset = '5';
+      lastUnit = 'ft';
+      lastFlowUnit = 'gpm';
+      const dims = form.querySelector<HTMLInputElement>('input[name="method"][value="dimensions"]');
+      if (dims) dims.checked = true;
+      const rect = form.querySelector<HTMLInputElement>('input[name="shape"][value="rectangular"]');
+      if (rect) rect.checked = true;
+      if (unitInput) unitInput.value = 'ft';
       clearErrors();
       clearResult();
-      syncShapeFields();
-      rectangular?.focus();
+      syncMethodPanels();
+      dims?.focus();
     });
 
-    syncShapeFields();
+    syncMethodPanels();
   }
 
   document.querySelectorAll<HTMLElement>('[data-volume-calculator]').forEach(initCalculator);

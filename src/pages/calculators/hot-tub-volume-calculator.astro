@@ -6,9 +6,9 @@ import HotTubVolumeCalculator from '../../components/HotTubVolumeCalculator.astr
 import { breadcrumbSchema, webApplicationSchema } from '../../utils/schema';
 
 const path = '/calculators/hot-tub-volume-calculator';
-const title = 'Hot Tub Volume Calculator: Estimate Gallons and Liters';
+const title = 'Hot Tub Volume Calculator: How Many Gallons Is My Spa?';
 const description =
-  'Estimate your hot tub’s water capacity in gallons and liters using its shape, interior dimensions, and average water depth.';
+  "Calculate your hot tub's water capacity in gallons or liters using interior dimensions, measured filling time or water meter readings.";
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -71,8 +71,8 @@ const schemas = [
     <header class="mx-auto mb-8 w-full max-w-3xl">
       <h1 class="text-3xl font-semibold sm:text-4xl">Hot Tub Volume Calculator</h1>
       <p class="mt-3 text-lg leading-relaxed text-ink-muted">
-        Estimate how many gallons or liters your hot tub holds using its interior
-        dimensions and average water depth.
+        Estimate how many gallons or liters your hot tub holds using interior dimensions, a
+        measured fill, or water meter readings.
       </p>
     </header>
 
@@ -81,55 +81,143 @@ const schemas = [
     </div>
 
     <div class="prose-site mx-auto mt-12 max-w-3xl">
-      <h2 id="how-it-works">How the estimate works</h2>
+      <h2 id="choose-a-method">Which method should you use?</h2>
+      <div class="not-prose overflow-x-auto">
+        <table class="w-full min-w-[36rem] border-collapse text-left text-sm text-ink">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="py-2 pr-3 font-semibold">Method</th>
+              <th class="py-2 pr-3 font-semibold">Best when</th>
+              <th class="py-2 font-semibold">Main limitation</th>
+            </tr>
+          </thead>
+          <tbody class="text-ink-muted">
+            <tr class="border-b border-border/70">
+              <td class="py-2.5 pr-3 font-medium text-ink">Interior dimensions</td>
+              <td class="py-2.5 pr-3">You can measure the shell and need a quick estimate</td>
+              <td class="py-2.5">Seats and footwells can make geometry overestimate capacity</td>
+            </tr>
+            <tr class="border-b border-border/70">
+              <td class="py-2.5 pr-3 font-medium text-ink">Measured filling time</td>
+              <td class="py-2.5 pr-3">You already timed a full fill with a known hose flow</td>
+              <td class="py-2.5">Assumes steady flow and an empty-to-waterline fill</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 pr-3 font-medium text-ink">Water meter readings</td>
+              <td class="py-2.5 pr-3">You can isolate spa fill water on a meter</td>
+              <td class="py-2.5">Other household use and meter precision affect accuracy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <p>
-        The calculator converts your measurements into feet, then estimates volume in
-        cubic feet. That cubic volume is multiplied by 7.48052 to get U.S. gallons, and
-        gallons are converted to liters. Rectangular and square spas use length × width ×
-        average water depth. Round spas use π × (diameter ÷ 2)² × average water depth.
-      </p>
-      <p>
-        TubWise does not apply a universal correction factor for seats, footwells,
-        rounded corners, or equipment displacement. No single adjustment fits every spa.
+        Manufacturer-listed operating capacity remains preferable whenever it is available. None of
+        these methods is perfectly accurate for every spa.
       </p>
 
-      <h2 id="how-to-measure">How to measure your hot tub</h2>
+      <h2 id="how-dimensions-work">Interior dimensions</h2>
+      <p>
+        The calculator converts your measurements into feet, estimates volume in cubic feet, then
+        multiplies by 7.48052 for U.S. gallons (and converts gallons to liters). Rectangular and
+        square spas use length × width × average water depth. Round spas use π × (diameter ÷ 2)² ×
+        average water depth. Regular octagons measured across opposite parallel sides (width across
+        flats) use area = 2 × (√2 − 1) × width², then × average water depth.
+      </p>
+      <p>
+        Average water depth means the approximate vertical depth of the filled water to the typical
+        waterline, not exterior cabinet height. Molded seats, footwells, loungers, and shell
+        geometry displace water, so a simple geometric estimate can overstate capacity. An optional
+        displacement percentage multiplies the unadjusted geometric volume by (1 − percentage ÷
+        100). Leave it blank for the simple path. Do not also reduce average depth for the same
+        features—that would adjust twice. No percentage is universally accurate for hot tubs.
+      </p>
+
+      <h2 id="how-to-measure">How to measure</h2>
       <p>Use interior water dimensions when possible, not the full exterior cabinet size.</p>
       <h3>Rectangular or square tubs</h3>
       <ul>
         <li>Measure the interior water length</li>
         <li>Measure the interior water width</li>
-        <li>Estimate the average filled-water depth to the typical waterline</li>
+        <li>Estimate average filled-water depth to the typical waterline</li>
       </ul>
       <h3>Round tubs</h3>
       <ul>
         <li>Measure the interior diameter across the water surface</li>
-        <li>Estimate the average filled-water depth to the typical waterline</li>
+        <li>Estimate average filled-water depth to the typical waterline</li>
+      </ul>
+      <h3>Regular octagon tubs</h3>
+      <ul>
+        <li>
+          Measure width across opposite parallel sides (across flats)—not corner-to-corner
+          diameter
+        </li>
+        <li>Estimate average filled-water depth to the typical waterline</li>
+      </ul>
+
+      <h2 id="fill-time-method">Measured filling time</h2>
+      <p>
+        If you timed how long it took to fill the spa and you know the hose flow rate (or measure
+        flow with a bucket), estimated volume ≈ flow per minute × fill duration in minutes. Flow
+        from a bucket equals bucket capacity × 60 ÷ seconds to fill the bucket. This approach is
+        consistent with manufacturer-supported fill-and-flow measurement guidance used for spa
+        volume estimates.
+      </p>
+      <p>Assumptions for this method:</p>
+      <ul>
+        <li>The spa started empty</li>
+        <li>Filling stopped at the manufacturer’s recommended waterline</li>
+        <li>The same hose, faucet setting, and attachments were used</li>
+        <li>Flow remained approximately constant</li>
+        <li>The recorded duration excludes interruptions</li>
       </ul>
       <p>
-        Average water depth means the approximate vertical depth of the filled water, not
-        the full exterior cabinet height. A capacity listed in the owner&apos;s manual is
-        more reliable than a calculated estimate when both are available.
+        If the spa started partially filled, the result is water added, not total capacity. Do not
+        treat the result as exact.
+      </p>
+
+      <h3 id="worked-example">Illustrative worked example</h3>
+      <p>
+        The following numbers are an illustrative example only—not a claim about a typical spa:
+      </p>
+      <ul>
+        <li>A 5-gallon bucket fills in 30 seconds → flow = 10 gallons per minute</li>
+        <li>An empty hot tub takes 40 minutes to fill</li>
+        <li>Estimated water capacity = 10 × 40 = 400 gallons</li>
+      </ul>
+
+      <h2 id="meter-method">Water meter readings</h2>
+      <p>
+        Enter starting and ending meter readings (water added = ending − starting) or a directly
+        measured amount. Units may be U.S. gallons, liters, cubic meters, or cubic feet; results
+        are shown in gallons and liters. A whole-property meter is useful only when other water
+        consumption is excluded during the measurement period. A suitable dedicated hose meter can
+        measure water added directly. Meter precision and uncertainty affect accuracy. If the spa
+        started partially filled, the result is not total capacity. Do not enter utility account
+        information.
       </p>
 
       <h2 id="why-capacity-differs">Why actual capacity may differ</h2>
       <p>Your spa may hold less water than a simple geometric estimate because of:</p>
       <ul>
-        <li>Molded seats</li>
-        <li>Footwells</li>
-        <li>Loungers</li>
-        <li>Rounded corners</li>
-        <li>Varying water depth across the shell</li>
+        <li>Molded seats and loungers</li>
+        <li>Footwells and varying water depth across the shell</li>
+        <li>Rounded corners and non-rectangular water planes</li>
         <li>Plumbing and equipment space</li>
         <li>Measurements taken from the exterior rather than the interior</li>
       </ul>
+      <p>
+        TubWise does not invent capacity ranges by advertised seating count. Prefer the
+        manufacturer’s listed operating capacity when both an estimate and a listed value are
+        available.
+      </p>
 
       <h2 id="why-volume-matters">Why water volume matters</h2>
       <p>Knowing an approximate capacity can help you:</p>
       <ul>
         <li>Compare your estimate with manufacturer specifications</li>
         <li>
-          Plan <a href="/calculators/hot-tub-fill-time-calculator">fill time</a>,
+          Plan
+          <a href="/calculators/hot-tub-fill-time-calculator">fill time</a>,
           <a href="/calculators/hot-tub-heat-up-time-calculator">heat-up time</a>, or
           <a href="/calculators/hot-tub-weight-calculator">filled weight</a>
         </li>
@@ -137,16 +225,15 @@ const schemas = [
         <li>Avoid relying on an assumed spa size when reading care instructions</li>
       </ul>
       <p>
-        This page does not calculate chemical doses. Follow the product label, your
-        confirmed water volume, and current water-test results for any treatment decision.
+        This page does not calculate chemical doses. Follow the product label, your confirmed water
+        volume, and current water-test results for any treatment decision.
       </p>
 
       <h2 id="disclaimer">Disclaimer</h2>
       <p>
         This calculator is a planning estimate only. It is not a substitute for your spa
-        manufacturer&apos;s specifications, product labels, or professional advice. See
-        the <a href="/disclaimer">Disclaimer</a> and <a href="/terms">Terms of Use</a> for
-        more.
+        manufacturer&apos;s specifications, product labels, or professional advice. See the
+        <a href="/disclaimer">Disclaimer</a> and <a href="/terms">Terms of Use</a> for more.
       </p>
     </div>
 
@@ -155,9 +242,8 @@ const schemas = [
         Relevant TubWise guides
       </h2>
       <p class="mt-3 max-w-3xl text-base leading-relaxed text-ink-muted">
-        After you have a volume estimate, these guides help with testing, sanitizer
-        selection, and related water care. Confirm capacity in your manual before adding
-        any chemicals.
+        After you have a volume estimate, these guides help with testing, sanitizer selection, and
+        related water care. Confirm capacity in your manual before adding any chemicals.
       </p>
       <div class="mt-6 grid gap-4 sm:grid-cols-2">
         {

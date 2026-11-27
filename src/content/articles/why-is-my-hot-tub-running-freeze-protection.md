@@ -27,6 +27,7 @@ relatedArticles:
   - why-is-my-hot-tub-getting-too-hot
   - why-does-my-hot-tub-gfci-keep-tripping
   - hot-tub-maintenance-checklist-weekly-monthly-and-seasonal-tasks
+  - hot-tub-power-outage-in-winter
 sources:
   - title: "J-400 Owner's Manual"
     url: "https://www.guillens.com/images/JAC/Pdf/JPS/J-400om_2009.pdf"
@@ -73,7 +74,7 @@ Balboa M7 support documentation describes ICE when the water temperature inside 
 
 ### Why you generally should not shut power off
 
-Freeze protection cannot run without power. Jacuzzi winter guidance emphasizes checking that electrical supply remains available during severe freezing temperatures when the spa is left in service (Jacuzzi). If you need a long absence in hard freeze conditions, follow your manufacturer's winterizing path or dealer service rather than simply flipping the breaker and leaving water in the plumbing.
+Freeze protection cannot run without power. Jacuzzi winter guidance emphasizes checking that electrical supply remains available during severe freezing temperatures when the spa is left in service (Jacuzzi). If you need a long absence in hard freeze conditions, follow your manufacturer's winterizing path or dealer service rather than simply flipping the breaker and leaving water in the plumbing. If power is already out in freezing weather, see [What to Do When Your Hot Tub Loses Power in Winter](/troubleshooting/hot-tub-power-outage-in-winter).
 
 ### Manufacturer wording is scoped
 
